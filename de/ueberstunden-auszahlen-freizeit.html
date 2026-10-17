@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Überstunden auszahlen oder abfeiern? Vergleich mit Beispielen">
+<meta property="og:description" content="Überstunden auszahlen lassen oder in Freizeit nehmen? Zuschläge, Steuern, Verfallfristen — mit durchgerechneten Beispielen in Euro.">
+<meta property="og:url" content="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Überstunden auszahlen oder abfeiern? Vergleich mit Beispielen</title>
+<meta name="description" content="Überstunden auszahlen lassen oder in Freizeit nehmen? Zuschläge, Steuern, Verfallfristen — mit durchgerechneten Beispielen in Euro.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Überstunden auszahlen oder abfeiern? Vergleich mit Beispielen</h1>
+<p>Geld aufs Konto oder freie Tage? Wie Zuschläge, Steuern und Verfallfristen die Rechnung verändern — durchgerechnet mit echten Euro-Beträgen.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Zwei Wege, ein Stundenguthaben:</strong> Überstunden können ausbezahlt oder als Freizeit („abfeiern") genommen werden. Was gilt, steht in deinem Arbeits- oder Tarifvertrag — nicht im Gesetz.</li>
+<li><strong>Auszahlung = Stundenlohn plus Zuschlag</strong> (oft 25 %), aber das Geld wird voll versteuert und verbeitragt. Von 100 € brutto bleiben je nach Steuerklasse nur 55–65 € übrig.</li>
+<li><strong>Abfeiern = 1:1 Freizeit</strong>, also eine Stunde Arbeit gegen eine Stunde frei — meist steuerfrei, weil kein Geld fließt. Dafür brauchst du die Zustimmung deines Vorgesetzten zum Zeitpunkt.</li>
+<li><strong>Vorsicht Verfall:</strong> Viele Verträge enthalten Ausschlussfristen — Überstunden, die du nicht innerhalb von 3 Monaten geltend machst, können ersatzlos verfallen.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#grundlagen">Grundlagen: Wer entscheidet überhaupt?</a></li>
+<li><a href="#auszahlen">Variante 1: Überstunden auszahlen lassen</a></li>
+<li><a href="#abfeiern">Variante 2: Überstunden abfeiern</a></li>
+<li><a href="#beispiel">Das große Beispiel: 20 Überstunden bei 25 € Stundenlohn</a></li>
+<li><a href="#steuern">Steuern und Sozialabgaben: Was wirklich übrig bleibt</a></li>
+<li><a href="#verfall">Verfall und Ausschlussfristen: Die stille Falle</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="grundlagen">
+<h2>Grundlagen: Wer entscheidet überhaupt?</h2>
+<p>Erst mal die ehrliche Wahrheit: Das Gesetz sagt <strong>nicht</strong>, ob deine Überstunden ausbezahlt oder abgefeiert werden. Das Arbeitszeitgesetz regelt nur, wie lange du maximal arbeiten darfst — nicht, was mit deinen Mehrstunden passiert. Die Entscheidung liegt in deinem <strong>Arbeitsvertrag, Tarifvertrag oder einer Betriebsvereinbarung</strong>.</p>
+<p>In der Praxis gibt es drei Modelle: <strong>1)</strong> Der Vertrag schreibt die Auszahlung vor — eher selten. <strong>2)</strong> Der Vertrag schreibt Freizeitausgleich vor — das ist der häufigste Fall, besonders im öffentlichen Dienst und in vielen Tarifverträgen. <strong>3)</strong> Du hast die Wahl — der Chef fragt, oder du darfst dir aussuchen, was dir lieber ist. Schau in deinen Vertrag, bevor du weiterliest: Alles Folgende hängt davon ab, was dort steht.</p>
+<p>Und noch ein wichtiger Punkt vorab: Überstunden müssen überhaupt erst mal <strong>anerkannt</strong> sein. Stunden, die du „freiwillig" länger bleibst, ohne dass der Chef sie angeordnet oder geduldet hat, sind im Streitfall schwer durchzusetzen. Deshalb: Überstunden immer dokumentieren — am besten mit unserem <a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a> als Stundentagebuch — und bei größeren Mengen schriftlich bestätigen lassen.</p>
+</div>
+
+<div class="card" id="auszahlen">
+<h2>Variante 1: Überstunden auszahlen lassen</h2>
+<p>Bei der Auszahlung bekommst du deine Mehrstunden als Geld aufs Konto — in der Regel mit deinem normalen Stundenlohn, oft plus einem <strong>Überstundenzuschlag</strong>. Üblich sind 25 Prozent, in manchen Tarifverträgen 30 oder 50 Prozent. Ohne vertragliche Regelung gibt es übrigens keinen automatischen Anspruch auf einen Zuschlag — dann wird 1:1 zum Stundenlohn abgerechnet.</p>
+<p>So rechnest du: <strong>Auszahlungsbetrag = Überstunden × Stundenlohn × (1 + Zuschlag)</strong></p>
+<p>Bei 10 Überstunden, 25 € Stundenlohn und 25 % Zuschlag: 10 × 25 € × 1,25 = <strong>312,50 € brutto</strong>. Klingt gut — aber jetzt kommt der Haken, und der ist groß: Dieses Geld wird behandelt wie normales Gehalt. Es unterliegt der <strong>Lohnsteuer und allen Sozialabgaben</strong>. Dazu gleich mehr im Steuerabschnitt.</p>
+<p>Der Vorteil der Auszahlung liegt auf der Hand: Geld ist Geld. Du musst keinen freien Tag mit deinem Chef aushandeln, du musst nicht warten, bis es betrieblich passt, und du hast den Betrag schwarz auf weiß auf der Abrechnung. Für alle, die ohnehin kaum dazu kommen, Überstunden abzubauen — Hallo, Pflegedienst und Gastronomie — ist die Auszahlung oft die einzige realistische Option.</p>
+<p>Der Nachteil: Du verkaufst deine Freizeit — und zwar zu einem Kurs, der nach Steuern deutlich schlechter aussieht als vorher. Wer 20 Überstunden im Monat macht und sie sich dauerhaft auszahlen lässt, arbeitet faktisch mehr für einen Stundenlohn, der netto kaum über dem normalen liegt. Die Erholung, die Freizeit eigentlich bringen sollte, fällt komplett weg.</p>
+</div>
+
+<div class="card" id="abfeiern">
+<h2>Variante 2: Überstunden abfeiern</h2>
+<p>Beim Abfeiern — offiziell Freizeitausgleich — tauschst du Stunden gegen Stunden: <strong>Eine Überstunde wird zu einer Stunde Freizeit</strong>, meist im Verhältnis 1:1. Manche Tarifverträge sehen für Überstunden mit Zuschlag auch einen erhöhten Freizeitausgleich vor (zum Beispiel 1 Stunde Arbeit = 1,25 Stunden frei), aber 1:1 ist der Standard.</p>
+<p>Der große Vorteil: <strong>Es fließt kein Geld, also fallen keine Steuern und keine Sozialabgaben an.</strong> Eine abgefeierte Stunde ist eine volle Stunde deines Lebens zurück — steuerfrei, beitragsfrei, komplett. Rechnerisch ist das fast immer das bessere Geschäft als die Auszahlung, weil du den vollen Gegenwert bekommst statt des versteuerten Rests.</p>
+<p>Der Haken ist organisatorischer Natur: <strong>Du brauchst die Zustimmung deines Arbeitgebers zum Zeitpunkt.</strong> „Ich nehme mir nächsten Freitag frei" funktioniert nur, wenn der Betrieb das mitmacht. In der Praxis heißt das: Abfeiern in ruhigen Phasen kein Problem, in der Hochphase fast unmöglich. Viele kennen das Spiel: Das Stundenkonto wächst und wächst, und zum Abbau kommt man nie.</p>
+<p>Deshalb mein praktischer Rat: Wenn dein Vertrag Freizeitausgleich vorsieht, <strong>plane ihn aktiv ein</strong>. Warte nicht, bis das Konto überläuft, sondern nimm dir regelmäßig einen halben oder ganzen Tag. Wer seine Überstunden wie einen Sparplan behandelt — jeden Monat ein bisschen abbauen —, behält die Kontrolle. Wer sie „für später" aufhebt, erlebt oft, dass aus später nie wird.</p>
+</div>
+
+<div class="card" id="beispiel">
+<h2>Das große Beispiel: 20 Überstunden bei 25 € Stundenlohn</h2>
+<p>Jetzt wird es konkret. Du hast im Monat <strong>20 Überstunden</strong> angesammelt, dein Stundenlohn beträgt <strong>25 €</strong>, dein Vertrag sieht <strong>25 % Überstundenzuschlag</strong> vor. Steuerklasse I, keine Kirchensteuer — ein typischer Durchschnittsfall.</p>
+<p><strong>Option A: Auszahlen.</strong><br>
+Brutto: 20 × 25 € × 1,25 = <strong>625 €</strong> zusätzlich aufs Gehalt.<br>
+Abzüge: Lohnsteuer ca. 130 €, Solidaritätszuschlag ca. 7 €, Sozialversicherung (ca. 21 %) ca. 131 € — zusammen rund 268 €.<br>
+<strong>Netto bleiben ca. 357 € übrig.</strong> Von 625 € brutto also nur 57 Prozent. Der Zuschlag von 125 € brutto schmilzt auf etwa 71 € netto zusammen.</p>
+<p><strong>Option B: Abfeiern.</strong><br>
+Du bekommst <strong>20 Stunden Freizeit</strong> — bei einer 8-Stunden-Woche sind das zweieinhalb freie Tage. Geldwert zum Vergleich: 20 × 25 € = 500 € „Wert" an Freizeit, komplett ohne Abzüge. Steuerlich passiert: nichts.</p>
+<p><strong>Der ehrliche Vergleich:</strong> Die Auszahlung bringt dir 357 € netto, das Abfeiern 500 € Freizeitwert. Rein rechnerisch gewinnt das Abfeiern deutlich — du bekommst den vollen Gegenwert deiner Arbeit zurück. Die Auszahlung gewinnt nur in einer Disziplin: Flexibilität. Geld kannst du ausgeben, wofür du willst; freie Tage musst du mit dem Chef abstimmen.</p>
+<p>Und noch ein Gedanke zum Zuschlag: Die 25 % Zuschlag sind bei der Auszahlung das einzig „Extra" — beim Abfeiern im 1:1-Modell verfällt er. Wenn dein Tarifvertrag aber einen erhöhten Freizeitausgleich vorsieht (1:1,25), bekommst du aus 20 Überstunden 25 freie Stunden — dann ist das Abfeiern unschlagbar.</p>
+</div>
+
+<div class="card" id="steuern">
+<h2>Steuern und Sozialabgaben: Was wirklich übrig bleibt</h2>
+<p>Warum schmilzt die Auszahlung so stark zusammen? Weil Überstundenvergütung <strong>voll steuer- und sozialversicherungspflichtiger Arbeitslohn</strong> ist. Es gibt keinen Freibetrag, keine Sonderregelung, keinen Trick. Das Finanzamt sieht keinen Unterschied zwischen deinem normalen Gehalt und deinen ausbezahlten Überstunden.</p>
+<p>Konkret fallen an: <strong>Lohnsteuer</strong> nach deiner Steuerklasse (bei Steuerklasse I und mittlerem Einkommen rund 20–25 % auf den Zusatzbetrag, durch die Progression eher am oberen Ende), <strong>Solidaritätszuschlag</strong> (5,5 % auf die Lohnsteuer, falls du ihn noch zahlst), <strong>Rentenversicherung</strong> (18,6 %, davon die Hälfte du), <strong>Arbeitslosenversicherung</strong> (2,6 %), <strong>Krankenversicherung</strong> (ca. 14,6 % plus Zusatzbeitrag) und <strong>Pflegeversicherung</strong> (ca. 3,4–4 %). In Summe gehen vom Brutto-Zusatzbetrag schnell 40 bis 45 Prozent weg.</p>
+<p>Ein häufiger Irrtum: „Überstunden werden höher besteuert!" Nein — sie werden <strong>genau gleich</strong> besteuert wie dein normales Gehalt. Es fühlt sich nur so an, weil durch die Steuerprogression jeder zusätzliche Euro mit deinem Grenzsteuersatz belastet wird. Wer ohnehin schon gut verdient, zahlt auf die Überstunden-Euros seinen höchsten Steuersatz.</p>
+<p>Beim Abfeiern passiert steuerlich übrigens gar nichts — auch nicht später. Die freien Stunden sind bereits „bezahlte" Arbeitszeit, nur eben in Zeit statt Geld genommen. Das ist der eigentliche Steuertrick beim Abfeiern: Es gibt keinen, weil keiner nötig ist.</p>
+</div>
+
+<div class="card" id="verfall">
+<h2>Verfall und Ausschlussfristen: Die stille Falle</h2>
+<p>Jetzt zum unangenehmsten Teil — und zu dem, der die meisten Überstunden tatsächlich vernichtet: <strong>Ausschlussfristen</strong>. Viele Arbeits- und Tarifverträge enthalten Klauseln wie: „Ansprüche aus dem Arbeitsverhältnis verfallen, wenn sie nicht innerhalb von drei Monaten nach Fälligkeit schriftlich geltend gemacht werden."</p>
+<p>Was das bedeutet: Du machst im Januar 20 Überstunden, sagst nichts, und im Mai fragst du nach der Auszahlung — zu spät. Die Stunden sind verfallen, ersatzlos. Kein Geld, keine Freizeit, nichts. Das ist kein theoretisches Risiko: Arbeitsgerichte wenden solche Klauseln regelmäßig an, solange die Fristen nicht unangemessen kurz sind (mindestens drei Monate gelten als fair).</p>
+<p><strong>Drei Schutzregeln für dich:</strong><br>
+<strong>1. Dokumentiere laufend.</strong> Jede Überstunde mit Datum und Dauer notieren — unser <a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a> eignet sich als Stundentagebuch.<br>
+<strong>2. Mach Ansprüche schriftlich geltend</strong> — eine kurze E-Mail an den Vorgesetzten reicht: „Hiermit mache ich meine 20 Überstunden aus Januar geltend, bitte um Ausgleich." Das unterbricht die Verfallfrist.<br>
+<strong>3. Kenn deine Frist.</strong> Schau in deinen Vertrag: 3 Monate? 6 Monate? Keine Klausel? Ohne Ausschlussfrist gilt die normale Verjährung von 3 Jahren — aber verlass dich nicht darauf, prüf es nach.</p>
+<p>Und falls du beim Arbeitgeberwechsel noch Stunden auf dem Konto hast: Lass sie dir <strong>vor dem letzten Arbeitstag</strong> auszahlen oder abfeiern. Nach dem Ausscheiden wird es kompliziert — der Anspruch besteht zwar weiter, aber die Durchsetzung wird mühsamer. Am besten schon im Austrittsgespräch klären und schriftlich festhalten.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Kann mein Chef bestimmen, ob ich ausbezahlt bekomme oder abfeiere?</summary>
+<p>Ja, wenn der Arbeits- oder Tarifvertrag das so regelt — und das tut er meistens. Viele Verträge schreiben den Freizeitausgleich als Standard vor. Nur wenn der Vertrag dir die Wahl lässt oder gar nichts regelt, kannst du mitbestimmen. Schau also zuerst in deinen Vertrag, bevor du Pläne machst.</p>
+</details>
+<details class="faq">
+<summary>Werden ausbezahlte Überstunden höher besteuert als normales Gehalt?</summary>
+<p>Nein. Sie werden exakt gleich besteuert — es gibt keinen Überstunden-Steuersatz. Es fühlt sich nur höher an, weil jeder zusätzliche Euro mit deinem Grenzsteuersatz (durch die Progression dein höchster Satz) belastet wird. Bei Steuerklasse I und mittlerem Einkommen bleiben von 100 € brutto oft nur 55–65 € netto übrig.</p>
+</details>
+<details class="faq">
+<summary>Können Überstunden einfach verfallen?</summary>
+<p>Ja, wenn dein Vertrag eine Ausschlussfrist enthält — typischerweise 3 Monate. Machst du deine Ansprüche nicht innerhalb der Frist schriftlich geltend, verfallen sie ersatzlos. Deshalb: Überstunden dokumentieren und rechtzeitig per E-Mail geltend machen. Ohne Klausel im Vertrag gilt die normale Verjährungsfrist von 3 Jahren.</p>
+</details>
+<details class="faq">
+<summary>Was passiert mit meinen Überstunden bei Kündigung?</summary>
+<p>Der Anspruch bleibt bestehen — er verfällt nicht automatisch mit dem Arbeitsverhältnis. Lass dir das Guthaben vor dem letzten Arbeitstag auszahlen oder nimm es als Freizeit. Kläre das am besten schriftlich im Austrittsgespräch, sonst wird die Durchsetzung nach dem Ausscheiden mühsam.</p>
+</details>
+<details class="faq">
+<summary>Ist Abfeiern oder Auszahlen finanziell besser?</summary>
+<p>Rein rechnerisch fast immer das Abfeiern: Du bekommst den vollen Stundenwert als Freizeit zurück, ohne Steuern und Abgaben. Bei der Auszahlung gehen 40–45 % an Staat und Sozialkassen. Die Auszahlung gewinnt nur bei der Flexibilität — Geld ist sofort verfügbar, freie Tage musst du abstimmen.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Überstunden:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Tages- und Wochenstunden berechnen — als Stundentagebuch nutzen</span></a>
+<a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen<span>Anleitung: Was zählt als Überstunde und wie du sie dokumentierst</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitkonto.html">Arbeitszeitkonto<span>So funktioniert das Ampelkonto — Guthaben clever verwalten</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG); Einkommensteuergesetz (EStG) zur Lohnsteuerpflicht von Überstundenvergütung; BAG-Rechtsprechung zu Ausschlussfristen. Zahlenbeispiele mit Steuerklasse I ohne Kirchensteuer, gerundet. Keine Rechts- oder Steuerberatung — bei Zweifeln frag deinen Betriebsrat, einen Anwalt für Arbeitsrecht oder einen Steuerberater.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

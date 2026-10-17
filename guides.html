@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/guides.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="All Guides — The Calcfolio">
+<meta property="og:description" content="Every human-written guide on The Calcfolio: fees, money, overtime and settlements. No fluff.">
+<meta property="og:url" content="https://thecalcfolio.com/guides.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>All Money Guides — The Calcfolio: Fees, Overtime & Settlements</title>
+<meta name="description" content="Every human-written guide on The Calcfolio: fees, money, overtime and settlements. No fluff.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.6; }
+  header.art { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2.2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header.art h1 { font-size:1.7rem; margin-bottom:.4rem; }
+  header.art p { opacity:.85; max-width:620px; margin:0 auto; }
+  .container { max-width:1000px; margin:0 auto; padding:1.5rem 1rem 3rem; }
+  .cluster { margin:2rem 0; }
+  .cluster h2 { font-size:1.35rem; color:#0f2a43; margin-bottom:.25rem; }
+  .cluster > p { color:#64748b; margin-bottom:1rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+  .tool-card { background:#fff; border-radius:14px; padding:1.25rem; box-shadow:0 2px 10px rgba(0,0,0,.06); text-decoration:none; color:inherit; display:block; transition:transform .15s; }
+  .tool-card:hover { transform:translateY(-3px); }
+  .tool-card h3 { font-size:1.05rem; color:#0f2a43; margin-bottom:.3rem; }
+  .tool-card p { font-size:.88rem; color:#64748b; }
+  .tool-card .go { display:inline-block; margin-top:.6rem; font-size:.88rem; font-weight:700; color:#0f2a43; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+
+<header class="art">
+  <h1>All Guides</h1>
+  <p>Every human-written guide — the stories behind the numbers. No fluff.</p>
+</header>
+
+<div class="container">
+
+  <div class="cluster">
+    <h2>📚 All Guides</h2>
+    <p>50 guides in English — fees, money, overtime, settlements. Plus guides in <a href="#guides-de">Deutsch</a>, <a href="#guides-br">Português</a> and <a href="#guides-it">Italiano</a> below.</p>
+    <div class="cards">
+      <a class="tool-card" href="how-to-calculate-loan-interest.html"><h3>How to Calculate Loan Interest</h3><p>Simple, amortized, total — the 3 formulas behind every loan.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="what-is-a-good-apy.html"><h3>What Is a Good APY?</h3><p>The 3 tests: market-competitive, beats inflation, no fine-print games.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="salaried-overtime-pay.html"><h3>Salaried Overtime Pay</h3><p>$684/week threshold + duties test. When salary still earns 1.5x.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="ebay-seller-fees-explained.html"><h3>eBay Seller Fees Explained</h3><p>13.6% + $0.30. Real examples at $25, $100, $500.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="what-is-mortgage-refinance.html"><h3>What Is a Mortgage Refinance?</h3><p>The break-even math: $197/mo savings vs $6,000 costs.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="stripe-vs-square-fees.html"><h3>Stripe vs Square Fees</h3><p>Online: Stripe wins. In person: dead tie at $2.75.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="simple-vs-compound-interest.html"><h3>Simple vs Compound Interest</h3><p>The $1,470 difference on $10K at 5% — and why time matters more than rate.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="what-is-apy.html"><h3>What Is APY?</h3><p>APY is what savings earn, APR is what loans cost. 5% monthly = 5.12% APY.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="rule-of-72-explained.html"><h3>The Rule of 72</h3><p>72 ÷ rate = years to double your money. 6% → 12 years.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="compounding-frequency-explained.html"><h3>Compounding Frequency</h3><p>Daily beats monthly by ~$16 on $10K. What actually moves your outcome.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="can-employer-refuse-overtime.html"><h3>Can Employers Refuse Overtime Pay?</h3><p>No — hours worked = hours paid. But they can discipline you for it.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-insurance-companies-calculate-settlements.html"><h3>How Insurers Calculate Settlements</h3><p>Bills × 1.5–5x multiplier. Why the first offer is never the real number.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="paypal-vs-stripe-fees.html"><h3>PayPal vs Stripe Fees</h3><p>Stripe wins on price at every amount. PayPal wins on conversion.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="square-vs-stripe-fees.html"><h3>Square vs Stripe Fees</h3><p>Stripe wins online, always. In person there's an exact $100 tie point.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="refinance-closing-costs-explained.html"><h3>Refinance Closing Costs</h3><p>2-5% of your loan at closing. What each fee is and the break-even math.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="etsy-offsite-ads-fee-explained.html"><h3>Etsy Offsite Ads Fee</h3><p>The 12-15% fee nobody warned you about — and when you can opt out.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="average-car-accident-settlement.html"><h3>Average Settlement Amounts</h3><p>Why the "average" lies, realistic ranges, and what moves your number.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="depop-vs-poshmark-fees.html"><h3>Depop vs Poshmark Fees</h3><p>0% vs 20% — the math is not close. But there is one twist.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-to-reduce-etsy-fees.html"><h3>How to Reduce Etsy Fees</h3><p>6 ways sellers actually save, starting with the 15% you can turn off.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="venmo-vs-cash-app-fees.html"><h3>Venmo vs Cash App Fees</h3><p>Venmo wins over $12, Cash App under. The full math.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="is-overtime-taxed.html"><h3>Is Overtime Taxed?</h3><p>Yes, but a federal deduction made headlines. What is true and what to verify.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="what-is-time-and-a-half.html"><h3>What Is Time and a Half?</h3><p>1.5x your rate — the math, who gets it, and real examples.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="california-overtime-rules.html"><h3>California Overtime Rules</h3><p>Daily OT, double time after 12h, and the 7th-day rule.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-to-calculate-overtime-pay.html"><h3>How to Calculate Overtime Pay</h3><p>3 steps with worked examples for hourly, salaried, and bonus pay.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="average-settlement-back-neck-injury.html"><h3>Back & Neck Injury Settlements</h3><p>How these claims are really valued, what moves the number, and how to check your offer.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="ebay-vs-etsy-fees.html"><h3>eBay vs Etsy Fees</h3><p>Real 2026 numbers side by side — plus the Etsy offsite-ads trap new sellers miss.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="when-should-you-refinance.html"><h3>When Should You Refinance?</h3><p>The 1% rule, the break-even test that matters more, and when refinancing is a mistake.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-to-reduce-paypal-fees.html"><h3>How to Reduce PayPal Fees</h3><p>7 legit ways to pay less — micropayments, currency traps, and what NOT to do.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-long-does-car-accident-settlement-take.html"><h3>How Long Does a Settlement Take?</h3><p>The 5 stages of a car accident case, what slows it down, and what's normal.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="personal-loan-calculator-guide.html"><h3>What You'll Really Pay on a Personal Loan</h3><p>Monthly payment and total interest — read your EMI like a pro.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="car-loan-guide.html"><h3>Don't Overpay for Your Next Car</h3><p>The true cost of your auto loan — and how term length quietly adds thousands.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="mortgage-overpayment-guide.html"><h3>Mortgage Overpayment: Save Thousands</h3><p>Even small extra payments shave years off your loan. Here's the math.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="should-i-pay-off-car-loan-early.html"><h3>Should You Pay Off Your Car Loan Early?</h3><p>Saves interest — but not always the smartest move. Decide with real numbers.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="fixed-vs-variable-interest-rate.html"><h3>Fixed vs Variable Interest Rate</h3><p>Fixed = predictable. Variable = cheaper, until it isn't. How to choose.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-to-improve-loan-eligibility.html"><h3>How to Improve Loan Eligibility</h3><p>Lenders decide your rate before you apply. The moves that actually help.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="personal-loan-vs-credit-card.html"><h3>Personal Loan vs Credit Card</h3><p>Borrowing $10,000? The loan usually wins by thousands. Real comparison.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-much-car-can-i-afford.html"><h3>How Much Car Can You Afford?</h3><p>Forget the sticker price — find the payment that fits your life.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="gold-price-today-guide.html"><h3>Gold Price Today, Explained</h3><p>Fear, rates, and the dollar drive the price. What to know before buying.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="loan-amortization-explained.html"><h3>Loan Amortization, Explained</h3><p>Why early payments barely touch principal — in plain English.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="how-to-calculate-credit-card-interest.html"><h3>How Credit Card Interest Works</h3><p>Average daily balance × daily rate × days. The $60/month breakdown.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="poshmark-seller-fees-explained.html"><h3>Poshmark Seller Fees, Explained</h3><p>20% on $15+ or $2.95 under. The under-$15 trap to avoid.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="cash-out-refinance-vs-home-equity-loan.html"><h3>Cash-Out Refinance vs Home Equity Loan</h3><p>One replaces your mortgage, the other adds a second loan. How to choose.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="personal-loan-foreclosure-charges-india.html"><h3>Personal Loan Foreclosure in India</h3><p>RBI's zero-foreclosure rule + repo hike — is prepaying worth it now?</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="cibil-score-personal-loan-rate-india.html"><h3>How Your CIBIL Score Sets Your Rate</h3><p>Same loan, ₹60,000 difference — the score gap that decides your EMI.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="top-up-loan-vs-personal-loan-india.html"><h3>Top-Up Loan vs Personal Loan</h3><p>One costs far less than the other. The ₹128K question, answered.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="remortgage-vs-overpayment-uk.html"><h3>Remortgage or Overpay? (UK 2026)</h3><p>1.8M fixed deals expiring — the homeowner's decision guide.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="mortgage-overpayment-allowance-uk.html"><h3>The 10% Overpayment Rule</h3><p>ERCs and allowances explained — overpay without the penalty.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="offset-mortgage-vs-overpayment-uk.html"><h3>Offset Mortgage vs Overpayments</h3><p>Which saves more? The math behind the 2026 offset comeback.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="electric-car-loan-guide-2026.html"><h3>Financing an Electric Car in 2026</h3><p>The $7,500 credit is gone — the loan is now the incentive.</p><span class="go">Read →</span></a>
+      <a class="tool-card" href="dealer-financing-vs-credit-union-auto-loan.html"><h3>Dealer vs Credit Union Auto Loans</h3><p>Record $787 payments — where's the best deal hiding?</p><span class="go">Read →</span></a>
+    </div>
+  </div>
+
+  <div class="cluster" id="guides-de">
+    <h2>🇩🇪 Deutsche Anleitungen</h2>
+    <p>Guides auf Deutsch — rund um Arbeitszeit und Überstunden. <a href="https://thecalcfolio.com/de/">Alle deutschen Rechner →</a></p>
+    <div class="cards">
+      <a class="tool-card" href="https://thecalcfolio.com/de/ueberstunden-berechnen.html"><h3>Überstunden berechnen</h3><p>Was zählt als Überstunde, Schritt-für-Schritt-Beispiel, Dokumentation und Vergütung.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html"><h3>Arbeitszeitgesetz-Regeln</h3><p>Höchstarbeitszeit, Pausen, Ruhezeiten, Nacht- und Sonntagsarbeit — einfach erklärt.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html"><h3>Nachtschicht: Arbeitszeit & Zuschlag</h3><p>Nachtarbeit 23–6 Uhr, 8-Stunden-Limit und Nachtzuschlag — mit Beispielrechnung.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html"><h3>Teilzeit: Stunden & Rechte</h3><p>Teilzeitstunden berechnen, Überstunden und dein Anspruch nach TzBfG.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/minijob-arbeitszeit.html"><h3>Minijob: 603-Euro-Grenze 2026</h3><p>Wie viele Stunden du im Minijob arbeiten darfst — Grenze, Aufzeichnungspflicht, Urlaub.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html"><h3>Überstunden: auszahlen oder abfeiern?</h3><p>Was sich mehr lohnt — Auszahlung mit Zuschlag oder Freizeitausgleich, mit Beispiel.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/arbeitszeitkonto.html"><h3>Arbeitszeitkonto erklärt</h3><p>Ampelkonto, Ausgleichszeitraum und Insolvenzschutz — so funktioniert dein Stundenkonto.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/gleitzeit-berechnen.html"><h3>Gleitzeit berechnen</h3><p>Kernzeit, Gleitrahmen und Saldo: so rechnest du deine Gleitzeit korrekt.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html"><h3>Pausenregelung (§ 4 ArbZG)</h3><p>30 Minuten ab 6 Stunden, 45 ab 9: die Pausenregeln einfach erklärt.</p><span class="go">Lesen →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html"><h3>Wochenend- & Sonntagsarbeit</h3><p>15 freie Sonntage, Ersatzruhetag und Zuschläge — deine Rechte im Überblick.</p><span class="go">Lesen →</span></a>
+    </div>
+  </div>
+
+  <div class="cluster" id="guides-br">
+    <h2>🇧🇷 Guias em Português</h2>
+    <p>Guias em português sobre rescisão trabalhista. <a href="https://thecalcfolio.com/br/">Calculadora de rescisão →</a></p>
+    <div class="cards">
+      <a class="tool-card" href="https://thecalcfolio.com/br/como-calcular-rescisao.html"><h3>Como calcular rescisão</h3><p>Passo a passo, com exemplo prático de R$ 3.000 e 2 anos de empresa.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/fgts-na-rescisao.html"><h3>FGTS na rescisão</h3><p>Os 8% mensais, a multa de 40%, quando sacar e como consultar o saldo.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/seguro-desemprego-2026.html"><h3>Seguro-Desemprego 2026</h3><p>Quem tem direito, quantas parcelas e os valores atualizados de 2026.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html"><h3>Aviso Prévio: Trabalhado vs Indenizado</h3><p>As diferenças, os 30 dias + 3 por ano e como calcular cada um.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/decimo-terceiro-salario.html"><h3>13º Salário 2026</h3><p>Como calcular, as duas parcelas e os prazos de pagamento.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html"><h3>Férias Vencidas + 1/3</h3><p>Período aquisitivo, dobra e o terço constitucional na rescisão.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html"><h3>Rescisão de Empregada Doméstica</h3><p>eSocial, os 3,2% compensatórios e as regras próprias da doméstica.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/multa-fgts-40-20.html"><h3>Multa do FGTS: 40% ou 20%?</h3><p>Quando é 40%, quando é 20% e quando não há multa nenhuma.</p><span class="go">Ler →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html"><h3>TRCT e Homologação</h3><p>Entenda seu termo de rescisão, o prazo de 10 dias e a multa por atraso.</p><span class="go">Ler →</span></a>
+    </div>
+  </div>
+
+  <div class="cluster" id="guides-it">
+    <h2>🇮🇹 Guide in Italiano</h2>
+    <p>Guide e strumenti sull'oro in italiano. <a href="https://thecalcfolio.com/it/">Tutti gli strumenti oro →</a></p>
+    <div class="cards">
+      <a class="tool-card" href="https://thecalcfolio.com/it/quotazione-oro-oggi.html"><h3>Quotazione oro oggi</h3><p>Prezzo oro al grammo in tempo reale per caratura, con calcolatore grammi-euro.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/conviene-comprare-oro-oggi.html"><h3>Conviene comprare oro oggi?</h3><p>Oro ai massimi storici: pro e contro dell'investimento nel 2026.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/oro-usato-compro-oro-guida.html"><h3>Vendere oro usato: guida compro oro</h3><p>Quotazioni e trucchi per non farti fregare quando vendi.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/it/oro-fisico-vs-etc.html"><h3>Oro fisico vs ETC</h3><p>Lingotti o ETC? Costi, tasse e liquidità a confronto — con numeri veri.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html"><h3>Come leggere la quotazione</h3><p>Spot, fixing e carati: cosa significano davvero i numeri dell'oro.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/it/oro-e-inflazione.html"><h3>Oro e inflazione</h3><p>Protegge davvero il potere d'acquisto? Dati storici e limiti.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/it/tasse-oro-italia.html"><h3>Tasse sull'oro in Italia</h3><p>Plusvalenze al 26%, IVA e dichiarazione: le regole italiane spiegate.</p><span class="go">Leggi →</span></a>
+      <a class="tool-card" href="https://thecalcfolio.com/it/quando-vendere-oro.html"><h3>Quando vendere l'oro</h3><p>5 segnali per vendere bene e 3 errori da evitare assolutamente.</p><span class="go">Leggi →</span></a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">Home</a> ·
+  <a href="about.html">About</a> ·
+  <a href="contact.html">Contact</a> ·
+  <a href="privacy-policy.html">Privacy Policy</a> ·
+  <a href="disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Teilzeit: Arbeitszeit berechnen &amp; Rechte (TzBfG)">
+<meta property="og:description" content="Teilzeit-Arbeitszeit berechnen: Überstunden ab vereinbarter Stundenzahl, Urlaub pro-rata, Anspruch auf weniger Stunden (§ 8 TzBfG) und Brückenteilzeit.">
+<meta property="og:url" content="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Teilzeit: Arbeitszeit berechnen & Rechte (TzBfG)</title>
+<meta name="description" content="Teilzeit-Arbeitszeit berechnen: Überstunden ab vereinbarter Stundenzahl, Urlaub pro-rata, Anspruch auf weniger Stunden (§ 8 TzBfG) und Brückenteilzeit.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Teilzeit: Arbeitszeit berechnen &amp; Rechte (TzBfG)</h1>
+<p>Wie du deine Teilzeit-Stunden ausrechnest, ab wann Überstunden zählen, wie der Urlaub gekürzt wird — und was dir das Teilzeitgesetz wirklich sichert.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Teilzeit</strong> ist alles unter der betrieblichen Vollzeit — meist 40 Stunden, oft auch 38,5 oder 35. Eine feste Stundengrenze gibt es nicht.</li>
+<li><strong>Überstunden</strong> zählen ab deiner <strong>vereinbarten</strong> Stundenzahl — nicht erst ab 8 Stunden am Tag. 25 Stunden vereinbart und 28 gearbeitet = 3 Überstunden.</li>
+<li><strong>Weniger arbeiten verlangen:</strong> Nach 6 Monaten im Betrieb kannst du deine Arbeitszeit verringern (§ 8 TzBfG). Der Chef darf nur aus betrieblichen Gründen nein sagen — „passt uns nicht" reicht nicht.</li>
+<li><strong>Brückenteilzeit (§ 9a TzBfG):</strong> 1 bis 5 Jahre kürzer treten und danach automatisch zurück auf Vollzeit — mit Rückfahrkarte.</li>
+<li><strong>Urlaub</strong> wird anteilig nach Arbeitstagen gekürzt: 30 Tage × 3/5 = 18 Tage bei einer 3-Tage-Woche. Wer 5 kurze Tage arbeitet, behält den vollen Anspruch.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#was-ist">Was ist Teilzeit überhaupt?</a></li>
+<li><a href="#berechnen">Teilzeit-Stunden berechnen: drei Beispiele</a></li>
+<li><a href="#ueberstunden">Überstunden in Teilzeit: ab wann zählen sie?</a></li>
+<li><a href="#recht-weniger">Weniger arbeiten: dein Recht nach § 8 TzBfG</a></li>
+<li><a href="#bruecke">Brückenteilzeit: Auszeit mit Rückfahrkarte (§ 9a TzBfG)</a></li>
+<li><a href="#urlaub">Urlaub in Teilzeit: die Pro-rata-Formel</a></li>
+<li><a href="#gleich">Gleichbehandlung — und der Weg zurück zu mehr Stunden</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="was-ist">
+<h2>Was ist Teilzeit überhaupt?</h2>
+<p>Die Definition ist simpler, als viele denken: Teilzeit ist jede Arbeitszeit, die <strong>kürzer ist als die regelmäßige Wochenarbeitszeit</strong> vergleichbarer Vollzeitkräfte im Betrieb (§ 2 Abs. 1 TzBfG). Der entscheidende Punkt dabei: Es gibt keine feste Stundenzahl im Gesetz.</p>
+<p>In einem Betrieb mit 40-Stunden-Woche sind 35 Stunden Teilzeit. In einem Betrieb mit 35-Stunden-Woche (in vielen Tarifbereichen üblich) wären dieselben 35 Stunden Vollzeit. Was „Vollzeit" ist, steht in deinem Arbeitsvertrag oder Tarifvertrag — nicht im Gesetz. Schau dort nach, bevor du irgendetwas ausrechnest.</p>
+<p>Es gibt auch kein Mindestmaß. Ob 30, 20 oder 5 Stunden pro Woche — alles ist Teilzeit, solange es unter der betrieblichen Vollzeit liegt. Und ein wichtiger Grundsatz gleich vorweg: Teilzeit ist kein Karrierekiller per Gesetz. § 4 TzBfG verbietet ausdrücklich, dich wegen der Teilzeit schlechter zu behandeln als vergleichbare Vollzeitkräfte. Weniger Stunden heißt nicht weniger Rechte.</p>
+</div>
+
+<div class="card" id="berechnen">
+<h2>Teilzeit-Stunden berechnen: drei Beispiele</h2>
+<p>Die Rechnerei bei Teilzeit ist ehrlich gesagt keine Raketenwissenschaft — aber es gibt ein paar Stolpersteine. Drei Beispiele decken alles ab:</p>
+<p><strong>Beispiel 1: Von Vollzeit auf Teilzeit — die Prozentrechnung.</strong><br>
+Du wechselst von 40 auf 25 Stunden pro Woche. 25 ÷ 40 = <strong>62,5 %</strong> — du arbeitest eine 62,5-%-Stelle. Dein Gehalt folgt derselben Rechnung (Grundgehalt ohne Zuschläge): 3.200 € × 62,5 % = <strong>2.000 € brutto</strong>. So einfach ist die Gehaltsanpassung — und genau so muss sie auch auf deiner Abrechnung aussehen.</p>
+<p><strong>Beispiel 2: Monatsstunden.</strong><br>
+25 Stunden × 4,33 = <strong>108,25 Stunden pro Monat</strong>. Die 4,33 ist der Monatsdurchschnitt (52 Wochen ÷ 12 Monate) — so rechnen die meisten Arbeitsverträge und Lohnabrechnungen. Wenn in deinem Vertrag Monatsstunden stehen, prüfe sie mit dieser Formel nach.</p>
+<p><strong>Beispiel 3: Auf Tage verteilt.</strong><br>
+25 Stunden auf 4 Tage verteilt: 25 ÷ 4 = 6,25 Stunden pro Tag, also 6 Stunden 15 Minuten. Auf 5 Tage: glatte 5 Stunden pro Tag. Die Verteilung steht übrigens nicht automatisch fest — sie ist Teil deiner Vereinbarung mit dem Arbeitgeber. Willst du feste Tage (z. B. immer montags bis donnerstags), dann schreib das in den Vertrag. Mündliche Absprachen über die Verteilung sind im Streitfall schwer zu beweisen.</p>
+</div>
+
+<div class="card" id="ueberstunden">
+<h2>Überstunden in Teilzeit: ab wann zählen sie?</h2>
+<p>Hier irren sich viele — auch manche Arbeitgeber: Überstunden sind in Teilzeit <strong>nicht</strong> erst alles über 8 Stunden am Tag. Überstunden sind alle Stunden <strong>über deine individuell vereinbarte Arbeitszeit hinaus</strong>.</p>
+<p>Das Beispiel: Du hast 25 Stunden vereinbart und arbeitest in einer Woche 28 Stunden — das sind <strong>3 Überstunden</strong>. Völlig egal, dass du an keinem einzigen Tag über 8 Stunden gekommen bist. Deine vereinbarte Zeit ist der Maßstab, nicht die gesetzliche Höchstarbeitszeit.</p>
+<p>Ob es für diese Überstunden Zuschläge gibt, steht in deinem Arbeits- oder Tarifvertrag. Viele Verträge sehen Zuschläge erst ab Überschreiten der Vollzeit-Arbeitszeit vor — also zum Beispiel erst ab der 41. Stunde, obwohl du nur 25 vereinbart hast. Aber Vorsicht: Das Bundesarbeitsgericht hat entschieden, dass Teilzeitbeschäftigte bei Überstundenzuschlägen <strong>nicht benachteiligt</strong> werden dürfen (BAG, Urteil vom 19.12.2018 – 10 AZR 231/18). Wenn Vollzeitkräfte ab der 41. Stunde einen Zuschlag bekommen, darfst du als Teilzeitkraft mit 25-Stunden-Vertrag nicht erst ab derselben 41. Stunde einen bekommen — das wäre eine Benachteiligung wegen Teilzeit. Die genaue Abgrenzung ist Einzelfallrecht, aber die Richtung ist klar: Gleichbehandlung.</p>
+<p>Mein Rat aus der Praxis: Dokumentiere deine Stunden — am besten täglich, mit Datum und Uhrzeit. Wer Überstunden geltend machen will, braucht Belege. Unser <a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a> hilft dir dabei, den Überblick zu behalten.</p>
+</div>
+
+<div class="card" id="recht-weniger">
+<h2>Weniger arbeiten: dein Recht nach § 8 TzBfG</h2>
+<p>Du musst deinen Chef nicht um Teilzeit bitten wie um einen Gefallen. Unter bestimmten Voraussetzungen hast du einen <strong>gesetzlichen Anspruch</strong> darauf, deine Arbeitszeit zu verringern (§ 8 TzBfG). Die Voraussetzungen — alle müssen erfüllt sein:</p>
+<ul>
+<li><strong>Du bist länger als 6 Monate</strong> im Betrieb beschäftigt.</li>
+<li>Der Arbeitgeber beschäftigt <strong>mehr als 15 Arbeitnehmer</strong> — Azubis zählen nicht mit.</li>
+<li>Du kündigst die Verringerung <strong>3 Monate vorher</strong> an — mit gewünschter Stundenzahl und gewünschter Verteilung der Arbeitszeit.</li>
+</ul>
+<p>Der Antrag muss nicht schriftlich sein, aber mach es trotzdem schriftlich — mit Datum. Was du schwarz auf weiß hast, kann niemand wegdiskutieren.</p>
+<p>Der Arbeitgeber darf nur aus <strong>betrieblichen Gründen</strong> ablehnen — und muss das schriftlich begründen. „Passt uns gerade nicht" reicht nicht aus. Betriebliche Gründe sind zum Beispiel: Die Stelle lässt sich nachweislich nicht anders organisieren, die Verringerung behindert den Betriebsablauf wesentlich, oder sie verursacht unverhältnismäßige Kosten. Die Hürde für den Arbeitgeber ist bewusst hoch.</p>
+<p>Und hier der Punkt, den die wenigsten kennen: <strong>Reagiert der Arbeitgeber nicht schriftlich bis spätestens einen Monat vor deinem gewünschten Beginn, gilt deine Verringerung als genehmigt.</strong> Schweigen heißt hier Ja. Deshalb ist der schriftliche Antrag mit Datum so wichtig — er startet die Frist.</p>
+</div>
+
+<div class="card" id="bruecke">
+<h2>Brückenteilzeit: Auszeit mit Rückfahrkarte (§ 9a TzBfG)</h2>
+<p>Die größte Angst vor Teilzeit: „Und wenn ich später wieder mehr arbeiten will?" Genau dafür gibt es die <strong>Brückenteilzeit</strong> nach § 9a TzBfG. Du verringerst deine Arbeitszeit für <strong>1 bis 5 Jahre</strong> — und kehrst danach automatisch auf deine vorherige Arbeitszeit zurück. Kein neues Verhandeln, kein Bitten, kein Hoffen.</p>
+<p>Die Voraussetzungen: Der Betrieb hat mehr als 45 Arbeitnehmer, du bist länger als 6 Monate dabei, und du stellst den Antrag schriftlich mindestens 3 Monate vorher. Auch hier gilt: Ablehnung nur aus betrieblichen Gründen.</p>
+<p>Der Unterschied zur normalen Teilzeit nach § 8 ist entscheidend: Bei der normalen Verringerung gibt es <strong>keinen Anspruch auf Rückkehr</strong> — wer einmal reduziert hat, bleibt erst mal dabei. (Über § 9 TzBfG kannst du zwar eine Verlängerung verlangen, wenn eine passende Stelle frei wird — aber das ist kein garantiertes Rückkehrrecht.) Die Brückenteilzeit löst genau dieses Problem: befristet kürzer treten — etwa für Kinder, für die Pflege von Angehörigen oder für eine Weiterbildung — mit garantierter Rückkehr auf Vollzeit.</p>
+<p>Für wen sich das lohnt? Für alle, die absehen können, dass die Teilzeitphase endet: Eltern nach der Elternzeit, Pflegende mit absehbarem Pflegebedarf, alle in Weiterbildung. Die Brückenteilzeit ist die ehrlichste Form der Teilzeit — weil sie das Ende gleich mitdenkt.</p>
+</div>
+
+<div class="card" id="urlaub">
+<h2>Urlaub in Teilzeit: die Pro-rata-Formel</h2>
+<p>Dein Urlaubsanspruch richtet sich nach deinen <strong>Arbeitstagen pro Woche</strong> — nicht nach deinen Stunden pro Tag. Das ist der wichtigste Satz in diesem Abschnitt. Die Formel:</p>
+<p><strong>Urlaubstage = (deine Arbeitstage pro Woche ÷ 5) × Urlaubstage bei Vollzeit</strong></p>
+<p><strong>Beispiel 1:</strong> 30 Urlaubstage bei einer 5-Tage-Woche. Du arbeitest 3 Tage pro Woche: 30 × 3/5 = <strong>18 Urlaubstage</strong>.</p>
+<p><strong>Beispiel 2:</strong> 28 Urlaubstage bei Vollzeit, du arbeitest 4 Tage: 28 × 4/5 = 22,4 — aufgerundet <strong>23 Tage</strong>. Bruchteile ab 0,5 werden zu deinen Gunsten aufgerundet.</p>
+<p>Und jetzt der Fall, über den sich viele freuen: Arbeitest du zwar weniger Stunden, aber an <strong>5 Tagen</strong> — zum Beispiel 5 × 4 Stunden — dann bleibt dein Urlaubsanspruch <strong>voll erhalten</strong>: 30 Tage. Denn es zählen die Tage, nicht die Stunden. Wer seine Teilzeit auf 5 kurze Tage verteilt statt auf 3 lange, hat beim Urlaub einen echten Vorteil. Das ist kein Trick, das ist die Logik des Gesetzes.</p>
+</div>
+
+<div class="card" id="gleich">
+<h2>Gleichbehandlung — und der Weg zurück zu mehr Stunden</h2>
+<p>Zwei Rechte zum Schluss, die zusammengehören:</p>
+<p><strong>Keine Benachteiligung (§ 4 TzBfG):</strong> Dein Stundenlohn muss dem einer vergleichbaren Vollzeitkraft entsprechen — anteilig, aber nicht weniger. Beispiel: Vollzeit 3.200 € bei 40 Stunden = 20 € pro Stunde. Deine 25 Stunden müssen 2.000 € bringen, nicht 1.900 € „weil Teilzeit". Dasselbe gilt für Sonderzahlungen wie Weihnachtsgeld: anteilig ja, Streichung nein.</p>
+<p><strong>Der Weg zurück (§ 9 TzBfG):</strong> Willst du wieder mehr arbeiten — egal ob nach normaler Teilzeit oder sonst wie —, musst du bei der Besetzung <strong>freier, passender Stellen bevorzugt berücksichtigt</strong> werden, wenn du geeignet bist und keine dringenden betrieblichen Gründe dagegen sprechen. Melde deinen Verlängerungswunsch dem Arbeitgeber schriftlich, damit er aktenkundig ist. Der Arbeitgeber muss dich dann über freie Stellen informieren, die zu deinem Wunsch passen.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Kann mein Chef meinen Teilzeitantrag einfach ablehnen?</summary>
+<p>Nein, nicht einfach so. Wenn die Voraussetzungen des § 8 TzBfG erfüllt sind (länger als 6 Monate im Betrieb, mehr als 15 Arbeitnehmer, Antrag 3 Monate vorher), darf der Arbeitgeber nur aus betrieblichen Gründen ablehnen — und muss die Ablehnung schriftlich begründen. „Passt uns nicht" ist kein betrieblicher Grund. Reagiert er bis einen Monat vor Beginn gar nicht schriftlich, gilt dein Antrag als genehmigt.</p>
+</details>
+<details class="faq">
+<summary>Zählen Überstunden in Teilzeit erst ab 8 Stunden am Tag?</summary>
+<p>Nein. Überstunden sind alle Stunden über deine individuell vereinbarte Arbeitszeit hinaus. Bei 25 vereinbarten Stunden sind 28 gearbeitete Stunden = 3 Überstunden — unabhängig davon, wie lang die einzelnen Tage waren. Ob es Zuschläge gibt, regeln Arbeits- oder Tarifvertrag; das BAG verbietet dabei eine Benachteiligung von Teilzeitkräften gegenüber Vollzeitkräften.</p>
+</details>
+<details class="faq">
+<summary>Verliere ich Urlaubstage, wenn ich auf 4 Tage reduziere?</summary>
+<p>Ja, aber nur anteilig nach Tagen: Urlaubstage = (deine Arbeitstage ÷ 5) × Vollzeit-Urlaub. Bei 30 Tagen Vollzeit und 4 Arbeitstagen sind das 24 Tage. Verteilst du deine Stunden dagegen auf 5 kurze Tage, bleibt der volle Anspruch von 30 Tagen erhalten — es zählen die Tage, nicht die Stunden.</p>
+</details>
+<details class="faq">
+<summary>Was ist der Unterschied zwischen Teilzeit nach § 8 und Brückenteilzeit?</summary>
+<p>Der entscheidende Unterschied ist das Rückkehrrecht: Bei der normalen Verringerung nach § 8 TzBfG gibt es keinen Anspruch darauf, später wieder auf Vollzeit zu erhöhen. Bei der Brückenteilzeit nach § 9a TzBfG kehrst du nach 1 bis 5 Jahren automatisch auf deine vorherige Arbeitszeit zurück. Dafür braucht die Brückenteilzeit einen Betrieb mit mehr als 45 Arbeitnehmern.</p>
+</details>
+<details class="faq">
+<summary>Darf ich in Teilzeit einen Nebenjob haben?</summary>
+<p>Grundsätzlich ja. Grenzen: Der Nebenjob darf nicht beim Konkurrenten sein, und die Höchstarbeitszeiten des Arbeitszeitgesetzes gelten für alle Jobs zusammen — also maximal 8 Stunden am Tag im Schnitt, 10 in der Spitze. Viele Arbeitsverträge verlangen, dass du eine Nebentätigkeit anzeigst oder genehmigen lässt. Schau in deinen Vertrag, bevor du unterschreibst.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Teilzeit:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Tages- und Wochenstunden berechnen — auch für Teilzeitpläne</span></a>
+<a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen<span>Anleitung: dokumentieren, auszahlen oder abfeiern</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln<span>Pausen, Ruhezeiten, Höchstarbeitszeit im Überblick</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Teilzeit- und Befristungsgesetz (TzBfG), §§ 2, 4, 8, 9, 9a; Bundesurlaubsgesetz (BUrlG); BAG-Rechtsprechung zu Überstundenzuschlägen in Teilzeit (10 AZR 231/18). Keine Rechtsberatung — bei Zweifeln frag deinen Betriebsrat oder einen Anwalt für Arbeitsrecht.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

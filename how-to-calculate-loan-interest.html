@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/how-to-calculate-loan-interest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="How to Calculate Interest on a Loan (2026): 3 Formulas">
+<meta property="og:description" content="Simple interest, amortized payments, and total interest — the three formulas behind every loan, with a worked $20K car-loan example.">
+<meta property="og:url" content="https://thecalcfolio.com/how-to-calculate-loan-interest.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>How to Calculate Interest on a Loan (2026): 3 Formulas</title>
+<meta name="description" content="Simple interest, amortized payments, and total interest — the three formulas behind every loan, with a worked $20K car-loan example.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.75; }
+  header.art { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2.2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header.art h1 { font-size:1.65rem; max-width:720px; margin:0 auto .5rem; line-height:1.35; }
+  header.art .meta { opacity:.75; font-size:.88rem; }
+  .container { max-width:740px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .card { background:#fff; border-radius:14px; padding:1.75rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
+  .card h2 { font-size:1.25rem; color:#0f2a43; margin-bottom:.6rem; }
+  .card p { margin-bottom:.9rem; color:#334155; }
+  .card ol, .card ul { margin:0 0 .9rem 1.25rem; color:#334155; }
+  .card li { margin-bottom:.55rem; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:.92rem; margin:.6rem 0 1rem; }
+  table.cmp th, table.cmp td { text-align:left; padding:.65rem; border-bottom:1px solid #e2e8f0; }
+  table.cmp th { background:#f1f5f9; color:#0f2a43; }
+  .answer { background:#f0f6ff; border-left:4px solid #0f2a43; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:1rem; }
+  .answer p { margin:0; color:#0f2a43; }
+  .tip { background:#f0fdf4; border-left:4px solid #16a34a; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:.9rem; }
+  .tip p { margin:0; color:#14532d; }
+  .cta { background:#0f2a43; color:#fff; border-radius:14px; padding:1.5rem; text-align:center; margin-bottom:1.25rem; }
+  .cta h2 { color:#fff; margin-bottom:.4rem; font-size:1.2rem; }
+  .cta p { opacity:.85; font-size:.94rem; margin-bottom:1rem; }
+  .cta a { display:inline-block; background:#fff; color:#0f2a43; font-weight:700; text-decoration:none; padding:.7rem 1.5rem; border-radius:10px; margin:.2rem; }
+  .faq h3 { font-size:1.02rem; color:#0f2a43; margin:1rem 0 .3rem; }
+  .faq p { font-size:.94rem; }
+  .disc { font-size:.82rem; color:#94a3b8; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html" class="active">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+<header class="art">
+  <h1>How to Calculate Interest on a Loan</h1>
+  <div class="meta">Updated October 2026 · 5 min read</div>
+</header>
+<div class="container">
+<div class="card">
+<div class="answer">
+<p><strong>Three formulas cover nearly every loan: simple interest (I = P × r × t) for short-term loans, the amortized payment formula for mortgages and car loans, and total interest = (monthly payment × number of payments) − principal. Example: a $20,000 car loan at 7% for 5 years costs $396.02/month — $3,761.44 in total interest.</strong></p>
+</div>
+</div><div class="card">
+<h2>Formula 1: simple interest</h2>
+<p><strong>I = P × r × t</strong> — principal × rate × time.</p>
+<p>Borrow $5,000 at 8% for 2 years: $5,000 × 0.08 × 2 = <strong>$800</strong> in interest. You'll repay $5,800 total.</p>
+<p>Simple interest shows up in short-term personal loans, some auto loans, and private lending. It's the honest formula — what you see is what you pay.</p>
+</div><div class="card">
+<h2>Formula 2: the amortized payment (mortgages, car loans)</h2>
+<p>Most big loans amortize — each payment covers that month's interest plus a slice of principal. The monthly payment is:</p>
+<p><strong>M = P × [r(1+r)^n] / [(1+r)^n − 1]</strong>, where r is the monthly rate and n is the number of payments.</p>
+<p>$20,000 car loan at 7% for 60 months: r = 0.07/12, n = 60 → <strong>$396.02/month</strong>.</p>
+<table class="cmp">
+<tr><th></th><th>Early payments</th><th>Late payments</th></tr>
+<tr><td>Goes to interest</td><td>Most of it</td><td>Very little</td></tr>
+<tr><td>Goes to principal</td><td>Very little</td><td>Most of it</td></tr>
+</table>
+<p>That's why extra payments early in a loan are so powerful — they attack principal when the interest portion is fattest.</p><div class="tip">
+<p><strong>Tip:</strong> One extra payment per year on a 30-year mortgage can shave roughly 4 years off the loan. The math rewards early aggression.</p>
+</div>
+</div><div class="card">
+<h2>Formula 3: total interest (the number that matters)</h2>
+<p><strong>Total interest = (monthly payment × number of payments) − principal.</strong></p>
+<p>Our car loan: ($396.02 × 60) − $20,000 = <strong>$3,761.44</strong>. That's the true price of borrowing — always compute it before signing.</p>
+<p>Two loans with the same rate can have wildly different total interest if the terms differ. A 7-year car loan at 7% costs about $1,400 more in interest than the 5-year version, even though the rate is identical.</p>
+</div><div class="cta">
+<h2>Run your own loan numbers</h2>
+<p>Enter any principal, rate and term — see payment and total interest instantly.</p>
+<a href="interest-calculator.html">Open the interest calculator →</a>
+</div><div class="card faq">
+<h2>Quick answers</h2>
+<h3>How do I calculate interest on a loan manually?</h3>
+<p>For simple loans: principal × rate × time. For amortized loans (mortgage, auto): use M = P[r(1+r)^n]/[(1+r)^n−1] with the monthly rate. Or skip the algebra and use a calculator.</p>
+<h3>Why is my first mortgage payment almost all interest?</h3>
+<p>Amortization front-loads interest because interest is charged on the full outstanding balance, which is biggest at the start. As principal shrinks, the interest slice shrinks with it.</p>
+<h3>Does paying extra principal really help?</h3>
+<p>Yes — every extra dollar goes straight to principal, which reduces all future interest charges. Extra payments early in the loan save the most.</p>
+</div>
+<div class="card">
+<p class="disc">General information only, not financial advice.</p>
+</div>
+</div>
+<footer>
+  <a href="/">Home</a> ·
+  <a href="about.html">About</a> ·
+  <a href="contact.html">Contact</a> ·
+  <a href="privacy-policy.html">Privacy Policy</a> ·
+  <a href="disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</body>
+</html>

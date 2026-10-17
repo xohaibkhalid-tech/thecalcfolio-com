@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Come leggere la quotazione dell'oro: fixing, spot e carati</title>
+<meta name="description" content="Fixing LBMA, prezzo spot e carati spiegati: come leggere la quotazione dell'oro e convertire dollari/oncia in euro/grammo, passo passo.">
+<link rel="canonical" href="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html">
+<link rel="alternate" hreflang="it" href="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Come leggere la quotazione dell'oro: fixing, spot e carati">
+<meta property="og:description" content="Fixing LBMA, prezzo spot e carati spiegati: come leggere la quotazione dell'oro e convertire dollari/oncia in euro/grammo, passo passo.">
+<meta property="og:url" content="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html">
+<meta property="og:locale" content="it_IT">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Come leggere la quotazione dell'oro: fixing, spot e carati",
+      "url": "https://thecalcfolio.com/it/come-leggere-quotazione-oro.html",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "The Calcfolio" },
+      "description": "Fixing LBMA, prezzo spot e carati spiegati: come leggere la quotazione dell'oro e convertire dollari/oncia in euro/grammo, passo passo."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cos'è il fixing dell'oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "È il prezzo di riferimento ufficiale dell'oro, fissato due volte al giorno (10:30 e 15:00 ora di Londra) tramite un'asta elettronica tra le principali banche del mercato dei metalli. Serve come benchmark per contratti e valutazioni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si convertono i dollari per oncia in euro al grammo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dividi il prezzo per 31,1035 (i grammi di un'oncia troy) per avere il prezzo in dollari al grammo, poi dividi per il cambio euro/dollaro. Esempio: 4.170 $/oncia con cambio 1,16 = circa 115,57 € al grammo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cosa significano i carati dell'oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indicano la purezza: 24 carati è oro puro (99,9%), 18 carati contiene il 75% di oro puro, 14 carati il 58,5%. Il valore di un oggetto si calcola moltiplicando il prezzo al grammo dell'oro puro per la percentuale di purezza."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché la quotazione dell'oro cambia continuamente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perché dipende da domanda e offerta globali in tempo reale: forza del dollaro, tassi di interesse, acquisti delle banche centrali, tensioni geopolitiche e domanda fisica muovono il prezzo ogni minuto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il prezzo che vedo online è quello che mi paga il compro oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Il compro oro parte dalla quotazione e trattiene il suo margine (spread), di solito tra il 2 e il 5%. Il prezzo online è il riferimento, non l'offerta: chiedi sempre quotazione base, caratura applicata e spread."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.6; }
+header.art { background:#0f2a43; color:#fff; padding:2.2rem 1rem; text-align:center; }
+header.art h1 { font-size:1.7rem; max-width:720px; margin:0 auto .5rem; }
+header.art p { opacity:.85; max-width:640px; margin:0 auto; }
+.container { max-width:720px; margin:0 auto; padding:1.5rem 1rem 3rem; }
+.card { background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
+.card h2 { font-size:1.2rem; color:#0f2a43; margin-bottom:.8rem; }
+.card p { color:#475569; font-size:.94rem; margin-bottom:.7rem; }
+.card ul, .card ol { color:#475569; font-size:.94rem; margin:.4rem 0 .8rem 1.2rem; }
+.card li { margin-bottom:.4rem; }
+.toc a { display:block; padding:.35rem 0; font-size:.94rem; }
+table.fees { width:100%; border-collapse:collapse; font-size:.92rem; margin-top:.5rem; }
+table.fees th, table.fees td { text-align:left; padding:.6rem; border-bottom:1px solid #e2e8f0; }
+table.fees th { background:#f1f5f9; color:#0f2a43; }
+.faq h3 { font-size:1rem; color:#0f2a43; margin:1rem 0 .3rem; }
+.faq p { font-size:.93rem; color:#475569; margin-bottom:.6rem; }
+.disc { font-size:.82rem; color:#94a3b8; }
+footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important;border-bottom:3px solid #c9a227!important}
+header.art h1{color:#fff!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ul,.card ol{color:#a9bccd!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+table.fees th{background:#1a2f47!important;color:#fff!important}
+table.fees th,table.fees td{border-bottom-color:#2a4258!important}
+table.fees td{color:#c6d2de!important}
+.disc{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Apri menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+<header class="art">
+  <h1>Come leggere la quotazione dell'oro: fixing, spot e carati</h1>
+  <p>Spot, fixing LBMA, dollari per oncia, carati: cosa significano davvero i numeri che vedi sui siti, e come trasformarli nel valore in euro dei tuoi grammi.</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+  <h2>In breve</h2>
+  <ul>
+    <li>Il <strong>prezzo spot</strong> è il prezzo di mercato in tempo reale, che cambia ogni secondo; il <strong>fixing LBMA</strong> è il prezzo ufficiale di riferimento, fissato due volte al giorno a Londra.</li>
+    <li>Le quotazioni internazionali sono in <strong>dollari per oncia troy</strong> (31,1035 grammi): per avere gli euro al grammo devi convertire peso e valuta.</li>
+    <li>I <strong>carati</strong> dicono quanta parte dell'oggetto è oro puro: 24 kt è il 100%, 18 kt il 75%, 14 kt il 58,5%. Il valore si calcola solo sulla parte d'oro.</li>
+    <li>Non vendiamo oro e non promuoviamo nessun prodotto: qui trovi solo come leggere i numeri, così nessun venditore può confonderti.</li>
+  </ul>
+</div>
+
+<div class="card toc">
+  <h2>Indice</h2>
+  <a href="#spot">1. Il prezzo spot: il mercato secondo per secondo</a>
+  <a href="#fixing">2. Il fixing LBMA: il prezzo ufficiale di riferimento</a>
+  <a href="#perche-diversi">3. Perché vedi prezzi diversi su ogni sito</a>
+  <a href="#conversione">4. Da dollari/oncia a euro/grammo: la conversione passo passo</a>
+  <a href="#carati">5. I carati: quanto oro c'è davvero nel tuo oggetto</a>
+  <a href="#perche-cambia">6. Perché il prezzo cambia ogni minuto</a>
+  <a href="#esempio">7. Esempio pratico: quanto valgono 50 grammi di oro 18 kt</a>
+  <a href="#faq">8. Domande frequenti</a>
+</div>
+
+<div class="card" id="spot">
+  <h2>1. Il prezzo spot: il mercato secondo per secondo</h2>
+  <p>Quando apri un sito di quotazioni e vedi un numero che si muove — 4.170, poi 4.171, poi 4.168 — stai guardando il <strong>prezzo spot</strong>: il prezzo al quale l'oro si scambia <strong>in questo momento</strong> sui mercati internazionali. "Spot" significa letteralmente "sul posto", cioè consegna immediata: è il prezzo per chi compra e vende oro adesso, non tra un mese.</p>
+  <p>Lo spot nasce dall'incontro continuo tra domanda e offerta sulle piazze finanziarie (Londra, New York, Shanghai): ogni volta che qualcuno compra e qualcuno vende, il prezzo si aggiusta di qualche centesimo. Per questo non sta mai fermo, nemmeno di notte: c'è sempre qualche mercato aperto da qualche parte nel mondo.</p>
+  <p>Due dettagli pratici. Primo: lo spot ha sempre due facce, il <strong>bid</strong> (il prezzo a cui il mercato compra) e l'<strong>ask</strong> (il prezzo a cui il mercato vende). La differenza tra i due è minima sull'oro — pochi centesimi — ma esiste. Secondo: lo spot si riferisce sempre all'<strong>oro puro</strong>, cioè 24 carati. Se il tuo oggetto è 18 carati, lo spot va "scontato" della purezza: lo vediamo al punto 5.</p>
+</div>
+
+<div class="card" id="fixing">
+  <h2>2. Il fixing LBMA: il prezzo ufficiale di riferimento</h2>
+  <p>Accanto allo spot che balla, esiste un prezzo "ufficiale": il <strong>fixing dell'oro della LBMA</strong> (London Bullion Market Association). Due volte al giorno — alle <strong>10:30 e alle 15:00 ora di Londra</strong> — le principali banche del mercato dei metalli partecipano a un'<strong>asta elettronica</strong>: ognuna dichiara quanto comprerebbe e venderebbe, e il sistema trova il prezzo che bilancia domanda e offerta. Quel prezzo diventa il fixing.</p>
+  <p>A cosa serve, se lo spot esiste già? A dare al mondo un <strong>punto di riferimento unico e verificabile</strong>. Il fixing viene usato come base per contratti, per la valutazione dei caveau delle banche centrali, per i bilanci dei produttori minerari e spesso come riferimento nei contratti dei compro oro seri. Quando un professionista dice "ti pago il fixing meno lo spread", sai esattamente di quale numero sta parlando.</p>
+  <p>Una cosa da capire: il fixing non è "più vero" dello spot, è solo <strong>una fotografia scattata in un momento preciso</strong>. Tra un fixing e l'altro, il mercato continua a muoversi. Se vendi alle 14:00, il fixing delle 10:30 è già storia: conta lo spot di quel momento.</p>
+</div>
+
+<div class="card" id="perche-diversi">
+  <h2>3. Perché vedi prezzi diversi su ogni sito</h2>
+  <p>Ti sarà capitato: un sito dice 115,40 € al grammo, un altro 116,10, il compro oro sotto casa ne offre 108. Non è (solo) disonestà: sono <strong>prezzi diversi per cose diverse</strong>.</p>
+  <ul>
+    <li><strong>Spot in dollari/oncia</strong> — il prezzo grezzo del mercato internazionale. È il punto di partenza di tutto.</li>
+    <li><strong>Fixing</strong> — il riferimento ufficiale di quel giorno, aggiornato due volte.</li>
+    <li><strong>Prezzo al grammo in euro</strong> — lo spot convertito in euro e diviso per i grammi. Dipende dal cambio euro/dollaro usato dal sito e dal momento dell'aggiornamento.</li>
+    <li><strong>Prezzo "compro oro"</strong> — la quotazione meno il margine del negoziante (lo <strong>spread</strong>, di solito 2-5%). Non è la quotazione: è un'offerta d'acquisto.</li>
+    <li><strong>Prezzo al dettaglio (lingotti)</strong> — la quotazione <em>più</em> il premio del rivenditore (3-5% sopra lo spot). È quanto paghi tu quando compri.</li>
+  </ul>
+  <p>Morale: prima di confrontare due numeri, chiediti <strong>"questo prezzo cosa include?"</strong>. Confrontare lo spot con l'offerta di un compro oro è come confrontare il prezzo all'ingrosso con il prezzo al dettaglio: non torna mai, ed è normale.</p>
+</div>
+
+<div class="card" id="conversione">
+  <h2>4. Da dollari/oncia a euro/grammo: la conversione passo passo</h2>
+  <p>Ecco la parte che sembra matematica difficile ma sono due divisioni. Le quotazioni internazionali usano i <strong>dollari per oncia troy</strong>: l'oncia troy è l'unità di misura dei metalli preziosi e vale <strong>31,1035 grammi</strong> (non 28,35 come l'oncia normale da cucina: sono due unità diverse, attenzione).</p>
+  <p><strong>Passo 1 — da oncia a grammo:</strong> dividi il prezzo per 31,1035. Esempio con uno spot di 4.170 $ l'oncia: 4.170 ÷ 31,1035 = <strong>134,06 $ al grammo</strong>.</p>
+  <p><strong>Passo 2 — da dollari a euro:</strong> dividi per il cambio euro/dollaro. Con un cambio di 1,16 (cioè 1 € = 1,16 $): 134,06 ÷ 1,16 = <strong>115,57 € al grammo</strong>.</p>
+  <p>Ed ecco il tuo numero: <strong>115,57 € al grammo di oro puro</strong>. Nota quanto conta il cambio: se l'euro si rafforza a 1,20, lo stesso oro da 4.170 $ vale 111,72 € al grammo — quasi 4 € in meno al grammo senza che l'oro si sia mosso di un centesimo. Quando senti dire "l'oro è sceso in euro ma non in dollari", è quasi sempre il cambio che si è mosso.</p>
+  <p>Se non vuoi fare i conti a mano, il nostro <a href="https://thecalcfolio.com/it/quotazione-oro-oggi.html">calcolatore grammi-euro</a> li fa per te in tempo reale, per ogni caratura.</p>
+</div>
+
+<div class="card" id="carati">
+  <h2>5. I carati: quanto oro c'è davvero nel tuo oggetto</h2>
+  <p>I carati (kt) misurano la <strong>purezza</strong>: 24 carati significa oro puro al 99,9%, i valori più bassi indicano leghe con altri metalli (rame, argento) che rendono l'oggetto più duro e lavorabile. I gioielli quasi mai sono 24 kt perché l'oro puro è troppo morbido: si graffierebbe e deformerebbe.</p>
+  <table class="fees">
+    <thead><tr><th>Carati</th><th>Oro puro contenuto</th><th>Valore al grammo (base 115,57 €)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>24 kt</strong></td><td>99,9%</td><td>115,57 €</td></tr>
+      <tr><td><strong>22 kt</strong></td><td>91,6%</td><td>105,86 €</td></tr>
+      <tr><td><strong>21 kt</strong></td><td>87,5%</td><td>101,12 €</td></tr>
+      <tr><td><strong>18 kt</strong></td><td>75,0%</td><td>86,68 €</td></tr>
+      <tr><td><strong>14 kt</strong></td><td>58,5%</td><td>67,61 €</td></tr>
+    </tbody>
+  </table>
+  <p>La regola è semplice: <strong>prezzo al grammo dell'oro puro × percentuale di purezza</strong>. Un grammo di oro 18 kt non vale 115,57 € ma 86,68 €, perché solo tre quarti di quel grammo sono oro. È qui che molti restano delusi dal compro oro ("ma l'oro è a 115 al grammo!"): sì, ma il tuo bracciale è 18 kt, e il prezzo giusto si calcola sugli 86,68 €, meno lo spread del negoziante.</p>
+  <p>Come riconosci i carati? Cerca il <strong>punzone</strong>: 750 significa 18 kt, 585 significa 14 kt, 916 significa 22 kt. Il numero indica i millesimi di oro puro. Se non c'è punzone, un compro oro serio verifica il titolo con un test prima di farti l'offerta — se non lo fa, cambia negozio.</p>
+  <p class="disc">Valori calcolati su un esempio di 115,57 €/g: la tabella serve a capire il metodo, i prezzi reali cambiano con la quotazione del giorno.</p>
+</div>
+
+<div class="card" id="perche-cambia">
+  <h2>6. Perché il prezzo cambia ogni minuto</h2>
+  <p>Il prezzo dell'oro non ha un "valore giusto" stampato da qualche parte: è il risultato di milioni di decisioni al secondo. Ma ci sono cinque forze che lo muovono più delle altre, e capirle ti aiuta a non farti prendere dal panico a ogni oscillazione.</p>
+  <p><strong>1. Il dollaro.</strong> L'oro si quota in dollari in tutto il mondo: quando il dollaro si rafforza, l'oro diventa più caro per chi compra in altre valute e la domanda cala, spingendo il prezzo giù. Storicamente oro e dollaro si muovono in direzioni opposte.</p>
+  <p><strong>2. I tassi di interesse.</strong> L'oro non paga interessi: tenerlo mentre i titoli di Stato rendono il 5% ha un "costo opportunità". Quando i tassi salgono, l'oro diventa meno attraente; quando scendono, torna appetibile. È la ragione principale dei cali del 2026.</p>
+  <p><strong>3. Le banche centrali.</strong> Da anni comprano oro a ritmo record per diversificare le riserve: è una domanda costante e enorme, che fa da "pavimento" al prezzo anche nei momenti brutti.</p>
+  <p><strong>4. La paura.</strong> Guerre, crisi bancarie, tensioni commerciali: quando il mondo si fa incerto, i capitali corrono verso il bene rifugio per eccellenza. È il motivo dei picchi improvvisi.</p>
+  <p><strong>5. La domanda fisica.</strong> Gioielleria (India e Cina da sole valgono metà della domanda mondiale), industria elettronica, e gli ETF/ETC che comprano oro vero a garanzia dei titoli.</p>
+  <p>Nessuna di queste forze agisce da sola, e nessuna garantisce la direzione di domani. Chi ti dice "l'oro sale di sicuro perché c'è la crisi" ti sta vendendo qualcosa — magari proprio oro.</p>
+</div>
+
+<div class="card" id="esempio">
+  <h2>7. Esempio pratico: quanto valgono 50 grammi di oro 18 kt</h2>
+  <p>Mettiamo insieme tutto con un caso concreto. Hai un bracciale da <strong>50 grammi in oro 18 kt</strong> e vuoi sapere quanto vale oggi, con il nostro esempio di 115,57 € al grammo di oro puro.</p>
+  <p><strong>Passo 1 — il valore del metallo:</strong> 50 grammi × 86,68 € (il valore al grammo del 18 kt dalla tabella) = <strong>4.334 €</strong>. Questo è il valore "teorico" del metallo contenuto nel bracciale, allo spot pieno.</p>
+  <p><strong>Passo 2 — l'offerta realistica:</strong> nessun compro oro ti paga lo spot pieno. Con uno spread tipico del 3%, l'offerta sarà intorno a 4.334 × 0,97 = <strong>4.204 €</strong>. Con uno spread del 5%, scende a <strong>4.117 €</strong>.</p>
+  <p><strong>Passo 3 — il confronto:</strong> ora hai in mano i tre numeri che contano: <strong>quotazione base</strong> (115,57 €/g), <strong>caratura applicata</strong> (18 kt → 86,68 €/g), <strong>spread</strong> (3-5%). Quando vai dal compro oro, chiedi questi tre numeri esplicitamente: un operatore serio te li dice senza problemi, uno poco serio cambia discorso — e tu sai già cosa fare.</p>
+  <p class="disc">Esempio illustrativo su quotazione ipotetica: i valori reali dipendono dallo spot e dal cambio del giorno in cui vendi.</p>
+</div>
+
+<div class="card">
+  <h2>Il nostro punto di vista</h2>
+  <p>Lo diciamo chiaro, una volta sola: <strong>non vendiamo oro e non promuoviamo nessun prodotto</strong>. Questa guida esiste perché capire la quotazione è l'unico modo per non farsi confondere da chi i numeri li usa per venderti qualcosa. Se dopo averla letta sai convertire un'oncia in euro al grammo e calcolare il valore dei tuoi carati, ha fatto il suo lavoro.</p>
+</div>
+
+<div class="card faq" id="faq">
+  <h2>8. Domande frequenti</h2>
+  <h3>Cos'è il fixing dell'oro?</h3>
+  <p>È il prezzo di riferimento ufficiale, fissato due volte al giorno (10:30 e 15:00 ora di Londra) con un'asta elettronica tra le grandi banche del mercato dei metalli. Serve come benchmark per contratti, valutazioni e bilanci: è "la fotografia ufficiale" del prezzo in quel momento.</p>
+  <h3>Come si convertono i dollari per oncia in euro al grammo?</h3>
+  <p>Due divisioni: dividi il prezzo per 31,1035 (i grammi di un'oncia troy) per avere i dollari al grammo, poi dividi per il cambio euro/dollaro. Esempio: 4.170 $/oncia con cambio a 1,16 fa circa 115,57 € al grammo di oro puro.</p>
+  <h3>Cosa significano i carati dell'oro?</h3>
+  <p>La purezza: 24 kt è oro puro (99,9%), 18 kt contiene il 75% di oro, 14 kt il 58,5%. Il valore di un oggetto si calcola moltiplicando il prezzo al grammo dell'oro puro per la percentuale: un grammo di oro 18 kt a 115,57 €/g di fino vale 86,68 €.</p>
+  <h3>Perché la quotazione dell'oro cambia continuamente?</h3>
+  <p>Perché riflette domanda e offerta globali in tempo reale. Le forze principali sono il dollaro (relazione inversa), i tassi di interesse, gli acquisti delle banche centrali, le tensioni geopolitiche e la domanda fisica di gioielleria e industria.</p>
+  <h3>Il prezzo che vedo online è quello che mi paga il compro oro?</h3>
+  <p>No: il compro oro parte dalla quotazione e trattiene il suo margine, di solito tra il 2 e il 5% sotto il prezzo di riferimento. Il prezzo online è il termine di paragone, non l'offerta. Chiedi sempre i tre numeri: quotazione base, caratura applicata, spread.</p>
+</div>
+
+<div class="card">
+  <h2>Guide correlate</h2>
+  <p><a href="https://thecalcfolio.com/it/quotazione-oro-oggi.html">Quotazione oro oggi</a> — prezzo al grammo in tempo reale e calcolatore grammi-euro.<br>
+  <a href="https://thecalcfolio.com/conviene-comprare-oro-oggi.html">Conviene comprare oro oggi?</a> — pro e contro nel 2026, con i numeri veri del mercato.<br>
+  <a href="https://thecalcfolio.com/oro-usato-compro-oro-guida.html">Vendere oro usato: guida ai compro oro</a> — quotazioni, spread e come non farti fregare.<br>
+  <a href="https://thecalcfolio.com/it/">Tutte le guide in italiano →</a></p>
+</div>
+
+<div class="card">
+  <p class="disc">Solo a scopo informativo, non è consulenza finanziaria. Le quotazioni cambiano in tempo reale: verifica sempre il prezzo del giorno prima di operare.</p>
+</div>
+
+<footer>
+  <a href="https://thecalcfolio.com/">Home</a> · <a href="https://thecalcfolio.com/about.html">Chi siamo</a> · <a href="https://thecalcfolio.com/contact.html">Contatti</a> · <a href="https://thecalcfolio.com/privacy-policy.html">Privacy</a> · <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — calcolatori gratuiti, numeri onesti.
+</footer>
+
+</body>
+</html>

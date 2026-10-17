@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/interest-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Interest Calculator 2026 — Simple & Compound Interest, Any Currency">
+<meta property="og:description" content="Free interest calculator: simple and compound interest with USD, INR, GBP support. Enter principal, rate and time — see your earnings instantly. No sign-up.">
+<meta property="og:url" content="https://thecalcfolio.com/interest-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Interest Calculator 2026 — Simple & Compound Interest, Any Currency</title>
+<meta name="description" content="Free interest calculator: simple and compound interest with USD, INR, GBP support. Enter principal, rate and time — see your earnings instantly. No sign-up.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.6; }
+  header.art { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2.2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header.art h1 { font-size:1.7rem; max-width:720px; margin:0 auto .5rem; }
+  header.art p { opacity:.85; max-width:640px; margin:0 auto; }
+  .container { max-width:720px; margin:0 auto; padding:1.5rem 1rem 3rem; }
+  .card { background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
+  .card h2 { font-size:1.2rem; color:#0f2a43; margin-bottom:.8rem; }
+  .card p { color:#475569; font-size:.94rem; margin-bottom:.7rem; }
+  label { display:block; font-weight:600; font-size:.92rem; margin:.9rem 0 .35rem; color:#334155; }
+  input[type=number], select { width:100%; padding:.7rem .8rem; border:1.5px solid #cbd5e1; border-radius:10px; font-size:1rem; background:#fff; }
+  .types { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-top:.4rem; }
+  .type { border:2px solid #e2e8f0; border-radius:10px; padding:.7rem; cursor:pointer; font-size:.88rem; }
+  .type input { margin-right:.4rem; }
+  .type.sel { border-color:#0f2a43; background:#f0f6ff; }
+  .type b { display:block; color:#0f2a43; }
+  .type span { color:#64748b; font-size:.8rem; }
+  button.go { width:100%; margin-top:1.1rem; padding:.8rem; background:#0f2a43; color:#fff; border:0; border-radius:10px; font-size:1.05rem; font-weight:700; cursor:pointer; }
+  button.go:hover { background:#1e4a73; }
+  .result { margin-top:1.1rem; padding:1rem; background:#f0fdf4; border-radius:10px; display:none; }
+  .result.show { display:block; }
+  .result .big { font-size:1.5rem; font-weight:800; color:#0f2a43; }
+  .result .keep { color:#15803d; font-weight:700; }
+  .result p { font-size:.92rem; color:#475569; margin-top:.3rem; }
+  table.fees { width:100%; border-collapse:collapse; font-size:.92rem; margin-top:.5rem; }
+  table.fees th, table.fees td { text-align:left; padding:.6rem; border-bottom:1px solid #e2e8f0; }
+  table.fees th { background:#f1f5f9; color:#0f2a43; }
+  .faq h3 { font-size:1rem; color:#0f2a43; margin:1rem 0 .3rem; }
+  .faq p { font-size:.93rem; color:#475569; margin-bottom:.6rem; }
+  .src { font-size:.82rem; color:#94a3b8; }
+  .disc { font-size:.82rem; color:#94a3b8; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+  @media(max-width:560px){ .types { grid-template-columns:1fr; } }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html" class="active">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+
+<header class="art">
+  <h1>Interest Calculator</h1>
+  <p>Simple &amp; compound interest in your currency — USD, INR, GBP and more. Free, no sign-up.</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Calculate your interest</h2>
+    <label for="currency">Currency</label>
+    <select id="currency">
+      <option value="USD" selected>USD — US Dollar ($)</option>
+      <option value="INR">INR — Indian Rupee (₹)</option>
+      <option value="GBP">GBP — British Pound (£)</option>
+      <option value="CAD">CAD — Canadian Dollar ($)</option>
+      <option value="AUD">AUD — Australian Dollar ($)</option>
+    </select>
+    <label>Interest type</label>
+    <div class="types" id="itypes">
+      <label class="type sel"><input type="radio" name="it" value="compound" checked><b>Compound</b><span>Interest earns interest — savings, FDs, investments</span></label>
+      <label class="type"><input type="radio" name="it" value="simple"><b>Simple</b><span>Flat rate on principal only — some loans</span></label>
+    </div>
+    <label for="principal">Principal amount</label>
+    <input type="number" id="principal" value="10000" min="0" step="any">
+    <label for="rate">Annual interest rate (%)</label>
+    <input type="number" id="rate" value="5" min="0" step="any">
+    <label for="years">Time (years)</label>
+    <input type="number" id="years" value="10" min="0" step="any">
+    <label for="freq">Compounding frequency</label>
+    <select id="freq">
+      <option value="1">Annually</option>
+      <option value="2">Semi-annually</option>
+      <option value="4">Quarterly</option>
+      <option value="12" selected>Monthly</option>
+      <option value="365">Daily</option>
+    </select>
+    <button class="go" id="calcBtn">Calculate →</button>
+    <div class="result" id="result">
+      <div class="big" id="totalAmt"></div>
+      <p id="breakdown"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Reverse: principal needed for a target</h2>
+    <p>Want a specific amount in the future? See how much to invest today.</p>
+    <label for="wantAmt">Target amount</label>
+    <input type="number" id="wantAmt" value="20000" min="0" step="any">
+    <label for="rate2">Annual interest rate (%)</label>
+    <input type="number" id="rate2" value="5" min="0" step="any">
+    <label for="years2">Time (years)</label>
+    <input type="number" id="years2" value="10" min="0" step="any">
+    <button class="go" id="revBtn">How much to invest? →</button>
+    <div class="result" id="revResult">
+      <div class="big" id="needPrincipal"></div>
+      <p id="revNote"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Simple vs compound — the difference</h2>
+    <p>On $10,000 at 5% for 10 years:</p>
+    <table class="fees">
+      <tr><th></th><th>Interest earned</th><th>Total</th></tr>
+      <tr><td>Simple (5% × 10)</td><td>$5,000.00</td><td>$15,000.00</td></tr>
+      <tr><td>Compound (monthly)</td><td><strong>$6,470.09</strong></td><td><strong>$16,470.09</strong></td></tr>
+    </table>
+    <p style="margin-top:.6rem">Compounding earns <strong>$1,470 more</strong> on the same deposit — that's interest earning its own interest, and it's why starting early beats starting big.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Questions, answered straight</h2>
+    <h3>What's the compound interest formula?</h3>
+    <p>A = P(1 + r/n)^(nt) — principal times one plus the rate divided by compounding periods, raised to periods times years. The calculator above does it instantly.</p>
+    <h3>How do Indians commonly use this?</h3>
+    <p>Mostly for fixed deposit (FD) estimates — enter your bank's FD rate and tenure. Note Indian banks typically compound quarterly; select "Quarterly" for the closest FD estimate. This is an estimate, not a bank quote.</p>
+    <h3>Does compounding frequency matter much?</h3>
+    <p>Somewhat. On $10,000 at 5% for 10 years: annual compounding gives $16,288.95, monthly gives $16,470.09 — about $181 difference. More frequent is always slightly better for the saver.</p>
+    <h3>Simple interest — where is it still used?</h3>
+    <p>Some personal loans, auto loans, and short-term lending. Most savings products and investments compound.</p>
+    <h3>Is this financial advice?</h3>
+    <p>No — it's math. Rates, taxes, and inflation all affect real returns. Talk to a qualified advisor before investing.</p>
+  </div>
+
+  <div class="card">
+    <p class="disc">General information only, not financial advice. Calculations are estimates; actual products vary by institution and terms.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">Home</a> ·
+  <a href="about.html">About</a> ·
+  <a href="contact.html">Contact</a> ·
+  <a href="privacy-policy.html">Privacy Policy</a> ·
+  <a href="disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+
+<script>
+(function(){
+  var CUR = { USD:{sym:'$',loc:'en-US'}, INR:{sym:'₹',loc:'en-IN'}, GBP:{sym:'£',loc:'en-GB'}, CAD:{sym:'$',loc:'en-CA'}, AUD:{sym:'$',loc:'en-AU'} };
+  function money(n, c){
+    var cfg = CUR[c] || CUR.USD;
+    return cfg.sym + n.toLocaleString(cfg.loc, {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+  var types=document.querySelectorAll('#itypes .type');
+  types.forEach(function(el){
+    el.addEventListener('click', function(){
+      types.forEach(function(t){t.classList.remove('sel');});
+      el.classList.add('sel');
+      document.getElementById('freq').disabled = document.querySelector('input[name="it"]:checked').value === 'simple';
+    });
+  });
+  function compute(P, r, t, n, kind){
+    if(kind === 'simple'){ var i = P*r*t; return {total: P+i, interest: i}; }
+    var A = P*Math.pow(1 + r/n, n*t);
+    return {total: A, interest: A-P};
+  }
+  document.getElementById('calcBtn').addEventListener('click', function(){
+    var c = document.getElementById('currency').value;
+    var P = parseFloat(document.getElementById('principal').value)||0;
+    var r = (parseFloat(document.getElementById('rate').value)||0)/100;
+    var t = parseFloat(document.getElementById('years').value)||0;
+    var n = parseInt(document.getElementById('freq').value, 10);
+    var kind = document.querySelector('input[name="it"]:checked').value;
+    var out = compute(P, r, t, n, kind);
+    document.getElementById('totalAmt').textContent = money(out.total, c);
+    document.getElementById('breakdown').innerHTML =
+      'Principal: '+money(P,c)+'<br>Interest earned ('+kind+'): <span class="keep">'+money(out.interest,c)+'</span>';
+    document.getElementById('result').classList.add('show');
+  });
+  document.getElementById('revBtn').addEventListener('click', function(){
+    var c = document.getElementById('currency').value;
+    var want = parseFloat(document.getElementById('wantAmt').value)||0;
+    var r = (parseFloat(document.getElementById('rate2').value)||0)/100;
+    var t = parseFloat(document.getElementById('years2').value)||0;
+    var n = 12, P = want/Math.pow(1 + r/n, n*t);
+    document.getElementById('needPrincipal').textContent = money(P, c)+' today';
+    document.getElementById('revNote').innerHTML = 'Invest <strong>'+money(P,c)+'</strong> now at '+(r*100).toFixed(2)+'% compounded monthly for '+t+' years to reach <strong>'+money(want,c)+'</strong>.';
+    document.getElementById('revResult').classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>

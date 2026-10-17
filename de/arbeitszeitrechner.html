@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/arbeitszeitrechner.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/arbeitszeitrechner.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Arbeitszeitrechner — Stunden &amp; Überstunden berechnen">
+<meta property="og:description" content="Arbeitszeitrechner: Tagesarbeitszeit aus Start, Ende und Pause berechnen, Wochenstunden addieren, Überstunden vs. 40-Stunden-Woche prüfen. Kostenlos.">
+<meta property="og:url" content="https://thecalcfolio.com/de/arbeitszeitrechner.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Arbeitszeitrechner — Stunden & Überstunden berechnen</title>
+<meta name="description" content="Arbeitszeitrechner: Tagesarbeitszeit aus Start, Ende und Pause berechnen, Wochenstunden addieren, Überstunden vs. 40-Stunden-Woche prüfen. Kostenlos.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Arbeitszeitrechner</h1>
+<p>Tagesarbeitszeit, Wochenstunden, Überstunden und Industriestunden berechnen — mit automatischem Pausenabzug nach § 4 ArbZG und Monatsansicht.</p>
+</header>
+
+<div class="card">
+<h2>1. Tagesarbeitszeit berechnen</h2>
+<p>Start und Ende eingeben — den Rest macht der Rechner. Nachtschicht? Einfach Endzeit kleiner als Startzeit wählen (z. B. 22:00 bis 06:00).</p>
+<div class="grid2">
+<div>
+<label for="start">Startzeit</label>
+<input type="time" id="start" value="08:00">
+</div>
+<div>
+<label for="end">Endzeit</label>
+<input type="time" id="end" value="17:00">
+</div>
+</div>
+<label class="checkrow"><input type="checkbox" id="autopause" checked> Gesetzliche Pausen automatisch anwenden (§ 4 ArbZG)</label>
+<p class="checkhint">Bei mehr als 6 Stunden: 30 Min Abzug · bei mehr als 9 Stunden: 45 Min Abzug. Solange aktiv, werden die manuellen Pausen ignoriert.</p>
+<div class="grid2" id="pausegrid">
+<div><label for="p1">Pause 1 (Min)</label><input type="number" id="p1" min="0" max="600" step="5" value="0"></div>
+<div><label for="p2">Pause 2 (Min)</label><input type="number" id="p2" min="0" max="600" step="5" value="0"></div>
+<div><label for="p3">Pause 3 (Min)</label><input type="number" id="p3" min="0" max="600" step="5" value="0"></div>
+<div><label for="p4">Pause 4 (Min)</label><input type="number" id="p4" min="0" max="600" step="5" value="0"></div>
+</div>
+<button class="go" onclick="calcDay()">Tagesarbeitszeit berechnen</button>
+<div class="result" id="day-result" aria-live="polite">Noch nichts berechnet — Werte eingeben und los geht's.</div>
+<div id="day-warn"></div>
+<p class="formula">Formel: (Endzeit − Startzeit) − Pausen. Bei Nachtschichten wird über Mitternacht gerechnet.</p>
+</div>
+
+<div class="card">
+<h2>2. Wochenstunden, Überstunden &amp; Monatsansicht</h2>
+<p>Trage deine täglichen Stunden ein (z. B. 8 oder 7,5). Der Rechner addiert die Woche, vergleicht mit der 40-Stunden-Woche und rechnet auf den Monat hoch.</p>
+<div class="grid5">
+<div><label for="w-mo">Mo</label><input type="number" id="w-mo" min="0" max="24" step="0.5" value="8"></div>
+<div><label for="w-di">Di</label><input type="number" id="w-di" min="0" max="24" step="0.5" value="8"></div>
+<div><label for="w-mi">Mi</label><input type="number" id="w-mi" min="0" max="24" step="0.5" value="8"></div>
+<div><label for="w-do">Do</label><input type="number" id="w-do" min="0" max="24" step="0.5" value="8"></div>
+<div><label for="w-fr">Fr</label><input type="number" id="w-fr" min="0" max="24" step="0.5" value="8"></div>
+</div>
+<button class="go" onclick="calcWeek()">Wochenstunden berechnen</button>
+<div class="result" id="week-result" aria-live="polite">Noch nichts berechnet — Tagesstunden eingeben und los geht's.</div>
+<p class="formula">Überstunden = Wochenstunden − 40 · Monat ≈ Wochenstunden × 4,33. Hinweis: 40 Stunden ist der Vergleichsmaßstab — deine vertragliche Wochenarbeitszeit kann abweichen (z. B. 38,5 h oder 35 h).</p>
+</div>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Automatisch oder manuell:</strong> Der Rechner zieht deine Pausen nach § 4 ArbZG automatisch ab — oder du trägst bis zu 4 Pausen selbst ein.</li>
+<li><strong>Alles auf einen Blick:</strong> Tagesstunden, Wochenstunden, Überstunden, Industriestunden für die Lohnabrechnung und eine Monatsansicht.</li>
+<li><strong>Privat und kostenlos:</strong> Alles läuft in deinem Browser — keine Anmeldung, keine Datenübertragung.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>So funktioniert's</h2>
+<ol>
+<li><strong>Zeiten eintragen:</strong> Start- und Endzeit wählen — Nachtschichten (z. B. 22:00 bis 06:00) erkennt der Rechner automatisch.</li>
+<li><strong>Pausen wählen:</strong> Häkchen bei „Gesetzliche Pausen" lassen oder bis zu 4 Pausen manuell eintragen.</li>
+<li><strong>Berechnen tippen:</strong> Deine Netto-Arbeitszeit steht sofort da — inklusive Warnung, wenn du über 10 Stunden kommst.</li>
+<li><strong>Woche addieren:</strong> Unten die Tagesstunden eintragen für Überstunden und die Monatsansicht.</li>
+</ol>
+</div>
+
+<div class="card">
+<h2>Was die Ergebnisse bedeuten</h2>
+<p><strong>Netto-Arbeitszeit:</strong> Das, was wirklich zählt — deine Bruttozeit minus Pausen. Pausen sind keine Arbeitszeit, deshalb werden sie abgezogen.</p>
+<p><strong>Überstunden:</strong> Alles über 40 Stunden pro Woche. Sie sind die Basis für Freizeitausgleich oder Auszahlung — was für dich gilt, steht in deinem Arbeitsvertrag oder Tarifvertrag.</p>
+<p><strong>Industriestunden:</strong> Deine Zeit im Dezimalformat für die Lohnabrechnung. 7:45 Stunden sind 7,75 Industriestunden. Programme wie DATEV oder SAP rechnen damit: Stundenlohn × Industriestunden = Bruttolohn. Einfach den Dezimalwert mit deinem Stundenlohn multiplizieren.</p>
+<p><strong>Monatsansicht:</strong> Deine Wochenstunden × 4,33 — so viele Stunden leistest du im Monatsdurchschnitt. Viele Verträge mit Monatsstunden rechnen genau so.</p>
+<div class="infobox">
+<h3>Arbeitszeitgesetz § 3 — Höchstarbeitszeit</h3>
+<p>Die werktägliche Arbeitszeit darf <strong>8 Stunden nicht überschreiten</strong>. Sie kann auf <strong>bis zu 10 Stunden</strong> verlängert werden — aber nur, wenn innerhalb von 6 Kalendermonaten im Durchschnitt nicht mehr als 8 Stunden pro Werktag gearbeitet wird.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Die Formel</h2>
+<p>So rechnet der Rechner — Schritt für Schritt, ohne Blackbox:</p>
+<ul>
+<li><strong>Bruttozeit</strong> = Endzeit − Startzeit (bei Nachtschicht + 24 Stunden)</li>
+<li><strong>Auto-Pause (§ 4 ArbZG):</strong> Brutto über 9 Stunden → 45 Min · Brutto über 6 Stunden → 30 Min · sonst 0</li>
+<li><strong>Netto-Arbeitszeit</strong> = Bruttozeit − Pausen</li>
+<li><strong>Industriestunden</strong> = Netto-Minuten ÷ 60 (z. B. 465 ÷ 60 = 7,75)</li>
+<li><strong>Monatsstunden</strong> = Wochenstunden × 4,33</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Ist die Arbeitszeiterfassung gesetzlich geregelt?</summary>
+<p>Ja. Der Europäische Gerichtshof hat 2019 (Urteil C-55/18) entschieden, dass Arbeitgeber in der EU ein System zur täglichen Arbeitszeiterfassung einführen müssen. In Deutschland regelt das Arbeitszeitgesetz (ArbZG) die Details: wie lange du täglich arbeiten darfst, wann Pausen nötig sind und wie lange die Ruhezeit zwischen zwei Schichten sein muss.</p>
+</details>
+<details class="faq">
+<summary>Zählen Pausen zur Arbeitszeit?</summary>
+<p>Nein. Ruhepausen nach § 4 ArbZG unterbrechen die Arbeit und zählen nicht als Arbeitszeit — genau deshalb zieht der Rechner sie von deiner Bruttozeit ab. Anders sieht es beim Bereitschaftsdienst aus: Der zählt in der Regel als Arbeitszeit, weil du dich bereithalten musst.</p>
+</details>
+<details class="faq">
+<summary>Was sind Industriestunden?</summary>
+<p>Industriestunden sind deine Arbeitszeit im Dezimalformat — also 7,75 statt 7:45. Die Lohnabrechnung (z. B. DATEV, SAP) rechnet damit, weil sich Dezimalzahlen leichter multiplizieren lassen: 7,75 Industriestunden × 20 € Stundenlohn = 155 € Brutto. Der Rechner zeigt dir beide Werte an.</p>
+</details>
+<details class="faq">
+<summary>Wie viele Überstunden darf ich machen?</summary>
+<p>Das Gesetz begrenzt nicht die Überstunden direkt, sondern die tägliche Höchstarbeitszeit: 8 Stunden normal, bis zu 10 Stunden ausnahmsweise. Ob deine Überstunden ausbezahlt oder als Freizeit ausgeglichen werden — und ob es Zuschläge gibt — steht in deinem Arbeitsvertrag oder Tarifvertrag.</p>
+</details>
+<details class="faq">
+<summary>Gilt der Rechner auch für Nachtschichten?</summary>
+<p>Ja. Gib einfach eine Endzeit ein, die kleiner ist als die Startzeit (z. B. 22:00 bis 06:00) — der Rechner erkennt den Tageswechsel automatisch. Beachte: Für Nachtarbeit gelten besondere Regeln (§ 6 ArbZG), unter anderem maximal 8 Stunden pro Nacht und ein Ausgleich innerhalb eines Monats.</p>
+</details>
+<details class="faq">
+<summary>Warum rechnet die Monatsansicht mit 4,33?</summary>
+<p>Ein Jahr hat 52 Wochen, geteilt durch 12 Monate ergibt das 4,33 Wochen pro Monat im Durchschnitt. Wochenstunden × 4,33 = Monatsstunden. So rechnen auch viele Arbeitsverträge und Lohnabrechnungen — es ist der ehrlichste Durchschnittswert.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weitere Rechner</h2>
+<p>Passend zum Thema Arbeitszeit:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen<span>Anleitung: dokumentieren, auszahlen oder abfeiern</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln<span>Pausen, Ruhezeiten, Nacht- und Sonntagsarbeit</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG), §§ 2–6 und 9; EuGH-Urteil C-55/18 zur Arbeitszeiterfassung. Keine Rechtsberatung — bei Zweifeln frag deinen Betriebsrat oder einen Anwalt für Arbeitsrecht.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+<script>
+function toMin(t){
+  if(!t || t.indexOf(':')===-1) return null;
+  var p=t.split(':');
+  var h=parseInt(p[0],10), m=parseInt(p[1],10);
+  if(isNaN(h)||isNaN(m)||h<0||h>23||m<0||m>59) return null;
+  return h*60+m;
+}
+function fmtHM(min){
+  min=Math.round(min);
+  var h=Math.floor(min/60), m=min%60;
+  return h+' Std '+m+' Min';
+}
+function fmtInd(min){
+  return (min/60).toFixed(2).replace('.',',');
+}
+function autoPauseMin(gross){
+  if(gross > 9*60) return 45;
+  if(gross > 6*60) return 30;
+  return 0;
+}
+function pauseVal(id){
+  var v=parseFloat(document.getElementById(id).value);
+  return (isNaN(v)||v<0)?0:v;
+}
+function togglePauses(){
+  var auto=document.getElementById('autopause').checked;
+  var ids=['p1','p2','p3','p4'];
+  for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).disabled=auto;}
+}
+function calcDay(){
+  var s=toMin(document.getElementById('start').value);
+  var e=toMin(document.getElementById('end').value);
+  var out=document.getElementById('day-result');
+  var warn=document.getElementById('day-warn');
+  warn.innerHTML='';
+  if(s===null||e===null){out.innerHTML='<span class="err">Bitte Start- und Endzeit eingeben.</span>';return;}
+  var gross=e-s; if(gross<0)gross+=24*60;
+  var auto=document.getElementById('autopause').checked;
+  var p, pLabel;
+  if(auto){
+    p=autoPauseMin(gross);
+    pLabel='automatisch nach § 4 ArbZG';
+  } else {
+    p=pauseVal('p1')+pauseVal('p2')+pauseVal('p3')+pauseVal('p4');
+    pLabel='manuell eingetragen';
+  }
+  var net=gross-p; if(net<0)net=0;
+  var html='Deine Tagesarbeitszeit: <strong>'+fmtHM(net)+'</strong> = <strong>'+fmtInd(net)+' Industriestunden</strong>';
+  html+='<br><span style="font-size:.9rem">Brutto '+fmtHM(gross)+' − Pause '+p+' Min ('+pLabel+')</span>';
+  out.innerHTML=html;
+  if(gross>10*60){
+    warn.innerHTML='<div class="warnbox"><strong>Achtung: über 10 Stunden</strong> — nur zulässig, wenn der 6-Monats-Schnitt ≤ 8 Stunden bleibt (§ 3 ArbZG).</div>';
+  }
+}
+function calcWeek(){
+  var ids=['w-mo','w-di','w-mi','w-do','w-fr'], sum=0, ok=true;
+  for(var i=0;i<ids.length;i++){
+    var v=parseFloat(document.getElementById(ids[i]).value);
+    if(isNaN(v)||v<0||v>24){ok=false;break;}
+    sum+=v;
+  }
+  var out=document.getElementById('week-result');
+  if(!ok){out.innerHTML='<span class="err">Bitte alle fünf Tage ausfüllen (0 ist auch ok).</span>';return;}
+  var ot=sum-40;
+  var sumStr=sum.toFixed(2).replace('.',',');
+  var monthStr=(sum*4.33).toFixed(2).replace('.',',');
+  var html='Deine Wochenstunden: <strong>'+sumStr+' h</strong><br>';
+  if(ot>0.004){html+='Überstunden gegenüber 40 h: <strong class="pos">+'+ot.toFixed(2).replace('.',',')+' h</strong><br>';}
+  else if(ot<-0.004){html+='Keine Überstunden — <strong>'+Math.abs(ot).toFixed(2).replace('.',',')+' h</strong> unter 40 h.<br>';}
+  else{html+='Exakt 40 Stunden — <strong>keine Überstunden</strong>.<br>';}
+  html+='Monatsansicht: ≈ <strong>'+monthStr+' h</strong> pro Monat (× 4,33).';
+  out.innerHTML=html;
+}
+document.getElementById('autopause').addEventListener('change',togglePauses);
+togglePauses();
+</script>
+</body>
+</html>

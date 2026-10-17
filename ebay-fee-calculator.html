@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/ebay-fee-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="eBay Fee Calculator 2026 — See Exactly What You&#x27;ll Keep">
+<meta property="og:description" content="Free eBay fee calculator for US sellers. See eBay's final value fee, per-order fee, and what you'll keep. 2026 rates verified.">
+<meta property="og:url" content="https://thecalcfolio.com/ebay-fee-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>eBay Fee Calculator 2026 — See Exactly What You'll Keep</title>
+<meta name="description" content="Free eBay fee calculator for US sellers. See eBay's final value fee, per-order fee, and what you'll keep. 2026 rates verified.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:32px}
+  #customRateWrap{display:none;margin-top:10px}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.45rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.bad .v{color:#b42318}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  table.rates{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}
+  table.rates th,table.rates td{text-align:left;padding:10px;border-bottom:1px solid var(--border)}
+  table.rates th{background:var(--bg)}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+body{color:#e8eef4!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.faq details{background:#12293f!important}
+.faq details div{color:#a9bccd!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+input[type=number],input[type=text]{background:#0b1a29!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important}
+.stat.bad .v{color:#f87171!important}
+
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer;padding:.3rem .5rem}.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+
+<div class="wrap">
+
+<header class="top">
+  <h1>eBay Fee Calculator 2026</h1>
+  <p>Enter your sale amount. See eBay's exact final value fee, per-order fee, and what you'll keep. Free, no sign-up, runs entirely in your browser.</p>
+</header>
+
+<div class="card">
+  <h2>Calculate your fees</h2>
+  <label for="amount">Sale amount — item price + shipping you charge (USD)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="amount" min="0" step="0.01" value="100" inputmode="decimal"></div>
+
+  <label for="cat">Category</label>
+  <select id="cat">
+    <option value="most" selected>Most categories — 13.6%</option>
+    <option value="books">Books, movies &amp; music — 15.3%</option>
+    <option value="cards">Trading cards &amp; collectibles — 13.25%</option>
+    <option value="guitars">Guitars &amp; basses — 6.7%</option>
+    <option value="sneakers">Athletic shoes ($150+) — 8%, no per-order fee</option>
+    <option value="custom">Custom rate…</option>
+  </select>
+  <div id="customRateWrap">
+    <label for="crate">Your final value fee rate (%)</label>
+    <input type="number" id="crate" min="0" max="100" step="0.01" value="13.6" inputmode="decimal">
+  </div>
+
+  <div class="results">
+    <div class="stat bad"><div class="k">Final value fee</div><div class="v" id="r-fvf">$0.00</div></div>
+    <div class="stat bad"><div class="k">Per-order fee</div><div class="v" id="r-po">$0.00</div></div>
+    <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
+    <div class="stat"><div class="k">Effective rate</div><div class="v" id="r-rate">0%</div></div>
+  </div>
+  <p class="formula" id="r-formula"></p>
+</div>
+
+<div class="card">
+  <h2>Reverse: I want to receive…</h2>
+  <p style="margin-top:0;color:var(--muted)">Enter the net amount you want in your pocket. We'll tell you what to list it for.</p>
+  <label for="want">I want to receive (USD)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="want" min="0" step="0.01" value="100" inputmode="decimal"></div>
+  <div class="results">
+    <div class="stat"><div class="k">List it for</div><div class="v" id="r-charge" style="color:var(--blue)">$0.00</div></div>
+    <div class="stat bad"><div class="k">eBay will take</div><div class="v" id="r-rfee">$0.00</div></div>
+  </div>
+  <p class="formula">Uses the same category selected above. Assumes the standard under-$7,500 tier.</p>
+</div>
+
+<div class="card">
+  <h2>2026 US rates used</h2>
+  <table class="rates">
+    <tr><th>Fee</th><th>Rate</th></tr>
+    <tr><td>Final value fee — most categories</td><td><strong>13.6%</strong> up to $7,500 per item, then <strong>2.35%</strong></td></tr>
+    <tr><td>Books, movies &amp; music</td><td><strong>15.3%</strong></td></tr>
+    <tr><td>Trading cards &amp; collectibles</td><td><strong>13.25%</strong></td></tr>
+    <tr><td>Guitars &amp; basses</td><td><strong>6.7%</strong></td></tr>
+    <tr><td>Athletic shoes ($150+)</td><td><strong>8%</strong>, no per-order fee</td></tr>
+    <tr><td>Per-order fee</td><td><strong>$0.30</strong> on orders ≤ $10 · <strong>$0.40</strong> on orders &gt; $10</td></tr>
+    <tr><td>Insertion fee</td><td>First <strong>250 listings/month free</strong>, then $0.35</td></tr>
+  </table>
+  <p class="formula">The final value fee applies to the <strong>total amount of the sale</strong> — item price + shipping you charge + handling + sales tax eBay collects. Sources: <a href="https://marketplacefeecalc.com/ebay-fee-calculator/" target="_blank" rel="noopener">marketplacefeecalc.com</a> (checked Sep 19, 2026), <a href="https://taxomate.com/blog/ebay-seller-fees" target="_blank" rel="noopener">taxomate.com</a>, <a href="https://quicksync.pro/blog/ebay-seller-fees/" target="_blank" rel="noopener">quicksync.pro</a>. Last verified: October 4, 2026. eBay adjusts rates by category and over time — confirm your exact rate in Seller Hub.</p>
+</div>
+
+<div class="card faq">
+  <h2>Frequently asked questions</h2>
+  <details>
+    <summary>How is the eBay final value fee calculated?</summary>
+    <div>eBay takes a percentage of the <strong>total amount of the sale</strong> — that's the item price plus any shipping you charge the buyer, handling charges, and even the sales tax eBay collects. For most categories the rate is <strong>13.6%</strong> on the first $7,500 per item, dropping to 2.35% above that, plus a $0.30–$0.40 per-order fee.</div>
+  </details>
+  <details>
+    <summary>Why does eBay charge fees on shipping and sales tax?</summary>
+    <div>History: when shipping was exempt, sellers listed $1 items with $30 postage to dodge fees. eBay closed that door and it stayed shut. You never receive the sales tax — eBay collects and remits it — but the fee still applies to it. Price accordingly.</div>
+  </details>
+  <details>
+    <summary>Do I pay anything just to list an item?</summary>
+    <div>Your first <strong>250 listings each month are free</strong>. After that it's $0.35 per listing, whether or not the item sells. Good 'Til Cancelled listings renew every 30 days and each renewal counts against the free allowance.</div>
+  </details>
+  <details>
+    <summary>My category isn't listed — what rate do I use?</summary>
+    <div>Pick "Custom rate" and enter the exact percentage from your Seller Hub. Jewelry, handbags, motors parts and a few other categories have their own tiered schedules — always check the category eBay actually assigned to your listing, since two sellers with the same product can pay different rates.</div>
+  </details>
+  <details>
+    <summary>How can I lower my eBay fees?</summary>
+    <div>Double-check your category assignment, consider a Store subscription (Basic and above drop most categories to about 12.7%), earn Top Rated Plus status for a 10% discount on the final value fee, and only pay for Promoted Listings where the extra visibility actually converts.</div>
+  </details>
+</div>
+
+<div class="disc">
+  <strong>Disclaimer:</strong> This calculator provides estimates for planning purposes only, based on eBay's published US seller fees. It is not financial advice. Actual fees depend on your category, store subscription, and eBay's current terms.
+</div>
+
+<p class="more">More free seller tools: <a href="paypal-fee-calculator.html">PayPal Fee Calculator</a> · <a href="etsy-fee-calculator.html">Etsy Fee Calculator</a> · <a href="stripe-fee-calculator.html">Stripe Fee Calculator</a></p>
+<footer>Free tool · No sign-up · Your numbers never leave your browser</footer>
+</div>
+
+<script>
+const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+function getRate(){
+  const v=document.getElementById('cat').value;
+  const preset={most:0.136,books:0.153,cards:0.1325,guitars:0.067,sneakers:0.08};
+  if(v==='custom') return (parseFloat(document.getElementById('crate').value)||0)/100;
+  return preset[v];
+}
+function perOrder(amt,cat){
+  if(cat==='sneakers'&&amt>=150) return 0;
+  return amt>10?0.40:0.30;
+}
+function fvf(amt,rate){
+  return Math.min(amt,7500)*rate + Math.max(0,amt-7500)*0.0235;
+}
+function reverseCalc(want,catSel){
+  let rate=getRate(), effCat=catSel;
+  let po=effCat==='sneakers'?0:0.40;
+  let gross=(want+po)/(1-rate);
+  if(effCat==='sneakers'&&gross<150){effCat='most';rate=0.136;}
+  po=perOrder(gross,effCat);
+  gross=(want+po)/(1-rate);
+  const po2=perOrder(gross,effCat);
+  if(po2!==po){gross=(want+po2)/(1-rate);}
+  const fee=fvf(gross,rate)+perOrder(gross,effCat);
+  const note=(catSel==='sneakers'&&effCat==='most')
+    ?' The 8% sneakers rate needs a $150+ sale — standard 13.6% applied.'
+    :'';
+  return {gross,fee,note};
+}
+function calc(){
+  document.getElementById('customRateWrap').style.display =
+    document.getElementById('cat').value==='custom'?'block':'none';
+  const amt=parseFloat(document.getElementById('amount').value)||0;
+  let cat=document.getElementById('cat').value;
+  let rate=getRate(), note='';
+  if(cat==='sneakers'&&amt<150&&amt>0){cat='most';rate=0.136;note=' Note: the 8% sneakers rate needs a $150+ sale — standard 13.6% applied.';}
+  const f=fvf(amt,rate), po=perOrder(amt,cat), total=f+po, net=Math.max(0,amt-total);
+  document.getElementById('r-fvf').textContent=fmt.format(f);
+  document.getElementById('r-po').textContent=fmt.format(po);
+  document.getElementById('r-net').textContent=fmt.format(net);
+  document.getElementById('r-rate').textContent=amt>0?((total/amt*100).toFixed(2)+'%'):'0%';
+  let fl=`Fee = ${fmt.format(Math.min(amt,7500))} × ${(rate*100).toFixed(2)}%`;
+  if(amt>7500) fl+=` + ${fmt.format(amt-7500)} × 2.35% (over-$7,500 tier)`;
+  fl+=` + ${fmt.format(po)} per-order fee.`+note;
+  document.getElementById('r-formula').textContent=fl;
+  const want=parseFloat(document.getElementById('want').value)||0;
+  const r=reverseCalc(want,document.getElementById('cat').value);
+  document.getElementById('r-charge').textContent=fmt.format(r.gross);
+  document.getElementById('r-rfee').textContent=fmt.format(r.fee);
+}
+['amount','want','crate'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+document.getElementById('cat').addEventListener('change',calc);
+calc();
+</script>
+</body>
+</html>

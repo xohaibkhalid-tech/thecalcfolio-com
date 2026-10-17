@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/what-is-apy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="What Is APY? (2026): APY vs APR, Finally Explained">
+<meta property="og:description" content="APY is what savings earn (compounding included); APR is what loans cost (usually not). A 5% rate compounded monthly = 5.12% APY.">
+<meta property="og:url" content="https://thecalcfolio.com/what-is-apy.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>What Is APY? (2026): APY vs APR, Finally Explained</title>
+<meta name="description" content="APY is what savings earn (compounding included); APR is what loans cost (usually not). A 5% rate compounded monthly = 5.12% APY.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.75; }
+  header.art { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2.2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header.art h1 { font-size:1.65rem; max-width:720px; margin:0 auto .5rem; line-height:1.35; }
+  header.art .meta { opacity:.75; font-size:.88rem; }
+  .container { max-width:740px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .card { background:#fff; border-radius:14px; padding:1.75rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
+  .card h2 { font-size:1.25rem; color:#0f2a43; margin-bottom:.6rem; }
+  .card p { margin-bottom:.9rem; color:#334155; }
+  .card ol, .card ul { margin:0 0 .9rem 1.25rem; color:#334155; }
+  .card li { margin-bottom:.55rem; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:.92rem; margin:.6rem 0 1rem; }
+  table.cmp th, table.cmp td { text-align:left; padding:.65rem; border-bottom:1px solid #e2e8f0; }
+  table.cmp th { background:#f1f5f9; color:#0f2a43; }
+  .answer { background:#f0f6ff; border-left:4px solid #0f2a43; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:1rem; }
+  .answer p { margin:0; color:#0f2a43; }
+  .tip { background:#f0fdf4; border-left:4px solid #16a34a; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:.9rem; }
+  .tip p { margin:0; color:#14532d; }
+  .cta { background:#0f2a43; color:#fff; border-radius:14px; padding:1.5rem; text-align:center; margin-bottom:1.25rem; }
+  .cta h2 { color:#fff; margin-bottom:.4rem; font-size:1.2rem; }
+  .cta p { opacity:.85; font-size:.94rem; margin-bottom:1rem; }
+  .cta a { display:inline-block; background:#fff; color:#0f2a43; font-weight:700; text-decoration:none; padding:.7rem 1.5rem; border-radius:10px; margin:.2rem; }
+  .faq h3 { font-size:1.02rem; color:#0f2a43; margin:1rem 0 .3rem; }
+  .faq p { font-size:.94rem; }
+  .disc { font-size:.82rem; color:#94a3b8; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html" class="active">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+<header class="art">
+  <h1>What Is APY? (And Why It's Not APR)</h1>
+  <div class="meta">Updated October 2026 · 4 min read</div>
+</header>
+<div class="container">
+<div class="card">
+<div class="answer">
+<p><strong>APY (annual percentage yield) is what you actually earn in a year, compounding included. APR (annual percentage rate) is the headline rate before compounding — the one lenders quote. A 5% rate compounded monthly is a 5.12% APY.</strong></p>
+</div>
+</div><div class="card">
+<h2>The 30-second version</h2>
+<ul>
+<li><strong>APY</strong> = what your savings <em>earn</em>. Higher is better. Includes compounding.</li>
+<li><strong>APR</strong> = what your debt <em>costs</em>. Lower is better. Usually ignores compounding.</li>
+</ul>
+<p>Banks advertise savings in APY (looks bigger) and loans in APR (looks smaller). Now you know why.</p>
+</div><div class="card">
+<h2>The math, once</h2>
+<p>APY = (1 + r/n)^n − 1, where r is the stated rate and n is compounding periods per year.</p>
+<table class="cmp">
+<tr><th>Stated rate 5%, compounded…</th><th>APY</th></tr>
+<tr><td>Annually</td><td>5.00%</td></tr>
+<tr><td>Quarterly</td><td>5.09%</td></tr>
+<tr><td>Monthly</td><td><strong>5.12%</strong></td></tr>
+<tr><td>Daily</td><td>5.13%</td></tr>
+</table>
+<p>Same 5% headline, four different realities. When comparing savings accounts, <strong>compare APY to APY</strong> — never a headline rate to an APY.</p><div class="tip">
+<p><strong>Tip:</strong> If two banks both say '5%,' check the fine print: monthly compounding (5.12% APY) beats annual compounding (5.00% APY) on the same deposit.</p>
+</div>
+</div><div class="card">
+<h2>The trap to watch</h2>
+<p>Some lenders quote a low APR while compounding aggressively or stacking fees — the <em>effective</em> cost is higher than the APR suggests. Credit cards are the classic case: a 24% APR compounded daily costs more than 24% over a year if you carry a balance.</p>
+<p>Rule of thumb: for anything you <strong>earn</strong>, chase the highest APY. For anything you <strong>owe</strong>, chase the lowest effective rate — and read how often it compounds.</p>
+</div><div class="cta">
+<h2>Run your own APY numbers</h2>
+<p>Our calculator handles every compounding frequency — see your true yield.</p>
+<a href="interest-calculator.html">Open the interest calculator →</a>
+</div><div class="card faq">
+<h2>Quick answers</h2>
+<h3>Is APY the same as interest rate?</h3>
+<p>No. The interest rate is the headline; APY is what you actually earn after compounding. APY is always equal to or higher than the stated rate when compounding happens more than once a year.</p>
+<h3>Why do banks use APY for savings but APR for loans?</h3>
+<p>Marketing. APY makes savings look bigger; APR makes loans look cheaper. It's legal as long as both are disclosed — which is why you should always compare like with like.</p>
+<h3>Can APY change?</h3>
+<p>Yes — on variable-rate accounts, the bank can change the rate (and thus the APY) anytime. Fixed CDs and bonds lock it in.</p>
+</div>
+<div class="card">
+<p class="disc">General information only, not financial advice.</p>
+</div>
+</div>
+<footer>
+  <a href="/">Home</a> ·
+  <a href="about.html">About</a> ·
+  <a href="contact.html">Contact</a> ·
+  <a href="privacy-policy.html">Privacy Policy</a> ·
+  <a href="disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</body>
+</html>

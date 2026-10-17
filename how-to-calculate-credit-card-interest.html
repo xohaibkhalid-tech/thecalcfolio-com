@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="How to Calculate Credit Card Interest (2026): The Real Math">
+<meta property="og:description" content="Credit card interest = average daily balance × daily periodic rate × days. A $3,000 balance at 24% APR costs about $60/month — here’s the full breakdown.">
+<meta property="og:url" content="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>How to Calculate Credit Card Interest (2026): The Real Math</title>
+<meta name="description" content="Credit card interest = average daily balance × daily periodic rate × days. A $3,000 balance at 24% APR costs about $60/month — here’s the full breakdown.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.75; }
+  header.art { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2.2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header.art h1 { font-size:1.65rem; max-width:720px; margin:0 auto .5rem; line-height:1.35; }
+  header.art .meta { opacity:.75; font-size:.88rem; }
+  .container { max-width:740px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .card { background:#fff; border-radius:14px; padding:1.75rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
+  .card h2 { font-size:1.25rem; color:#0f2a43; margin-bottom:.6rem; }
+  .card p { margin-bottom:.9rem; color:#334155; }
+  .card ol, .card ul { margin:0 0 .9rem 1.25rem; color:#334155; }
+  .card li { margin-bottom:.55rem; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:.92rem; margin:.6rem 0 1rem; }
+  table.cmp th, table.cmp td { text-align:left; padding:.65rem; border-bottom:1px solid #e2e8f0; }
+  table.cmp th { background:#f1f5f9; color:#0f2a43; }
+  .answer { background:#f0f6ff; border-left:4px solid #0f2a43; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:1rem; }
+  .answer p { margin:0; color:#0f2a43; }
+  .tip { background:#f0fdf4; border-left:4px solid #16a34a; padding:1rem 1.2rem; border-radius:0 10px 10px 0; margin-bottom:.9rem; }
+  .tip p { margin:0; color:#14532d; }
+  .cta { background:#0f2a43; color:#fff; border-radius:14px; padding:1.5rem; text-align:center; margin-bottom:1.25rem; }
+  .cta h2 { color:#fff; margin-bottom:.4rem; font-size:1.2rem; }
+  .cta p { opacity:.85; font-size:.94rem; margin-bottom:1rem; }
+  .cta a { display:inline-block; background:#fff; color:#0f2a43; font-weight:700; text-decoration:none; padding:.7rem 1.5rem; border-radius:10px; margin:.2rem; }
+  .faq h3 { font-size:1.02rem; color:#0f2a43; margin:1rem 0 .3rem; }
+  .faq p { font-size:.94rem; }
+  .disc { font-size:.82rem; color:#94a3b8; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">&#129518; The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators &rarr;</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html" class="active">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides &rarr;</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+<header class="art">
+  <h1>How to Calculate Credit Card Interest (Without the Headache)</h1>
+  <div class="meta">Updated October 2026 &middot; 5 min read</div>
+</header>
+<div class="container">
+<div class="card">
+<div class="answer">
+<p><strong>Credit card interest = your average daily balance &times; your daily periodic rate &times; days in the billing cycle. A $3,000 balance at 24% APR costs you about $60 a month in interest &mdash; and that number grows every month you only pay the minimum.</strong></p>
+</div>
+</div><div class="card">
+<h2>The 30-second version</h2>
+<ul>
+<li>Your card company divides your <strong>APR by 365</strong> to get a daily rate.</li>
+<li>Each day, it multiplies that rate by your balance that day, then adds up all 30-ish days.</li>
+<li>Pay the <strong>full statement balance</strong> by the due date and you pay zero interest on purchases. That's the grace period doing its job.</li>
+<li>Pay only the minimum and the math turns brutal &mdash; most of your payment goes to interest, barely touching what you owe.</li>
+</ul>
+<p>The single sentence that matters: <strong>interest is charged on your average daily balance, not your starting balance.</strong> Big purchase on day 25 of the cycle? You only pay interest on it for a few days.</p>
+</div><div class="card">
+<h2>Do the math with me</h2>
+<p>Say your APR is 24% and you carry a $3,000 balance through a 30-day billing cycle.</p>
+<p><strong>Step 1:</strong> Daily periodic rate = 24% &divide; 365 = 0.0658% per day.</p>
+<p><strong>Step 2:</strong> $3,000 &times; 0.000658 = $1.97 per day.</p>
+<p><strong>Step 3:</strong> $1.97 &times; 30 days = <strong>$59.18 in interest</strong> for the month.</p>
+<p>Now here's where it stings: next month you're paying interest on $3,059.18. The month after, on that plus more interest. This is compounding working <em>against</em> you &mdash; the same force that grows savings accounts, now growing your debt.</p>
+<table class="cmp">
+<tr><th>Balance carried</th><th>Monthly interest at 24% APR</th></tr>
+<tr><td>$1,000</td><td>$19.73</td></tr>
+<tr><td>$3,000</td><td>$59.18</td></tr>
+<tr><td>$5,000</td><td>$98.63</td></tr>
+<tr><td>$10,000</td><td>$197.26</td></tr>
+</table>
+<div class="tip">
+<p><strong>Tip:</strong> Made a big purchase mid-cycle? Pay it off <em>before</em> the statement closes and it barely accrues interest at all &mdash; interest runs on daily balances, so days matter.</p>
+</div>
+</div><div class="card">
+<h2>The grace period (use it or lose it)</h2>
+<p>Most cards give you roughly 21&ndash;25 days after the statement closes to pay in full with zero interest on purchases. But the grace period has a catch most people learn the expensive way: <strong>it only applies if you paid your previous balance in full.</strong></p>
+<p>Carry even $1 into the new cycle and the grace period vanishes &mdash; new purchases start accruing interest <em>the day you make them</em>. One leftover dollar can cost you a full month of interest on everything you buy next. If you've been carrying a balance, the only way back to free grace-period living is paying the whole thing to zero.</p>
+<p>Also note: cash advances and balance transfers usually have <strong>no grace period at all</strong>. Interest starts ticking the second the money moves.</p>
+</div><div class="card">
+<h2>Why minimum payments are a trap</h2>
+<p>A $5,000 balance at 24% APR with a $125 minimum payment takes roughly <strong>7 years</strong> to clear &mdash; and costs over $5,600 in interest alone. You'd pay more in interest than you borrowed.</p>
+<p>Bump that payment to $200 and you're done in about 3 years with roughly $2,000 in interest. Same debt, same rate &mdash; the only thing that changed is how aggressively you attacked the principal. Minimum payments are designed to keep the account profitable for the lender, not to get you out of debt.</p>
+</div><div class="cta">
+<h2>See your real payoff date</h2>
+<p>Plug in your balance, APR, and monthly payment to see the true cost.</p>
+<a href="interest-calculator.html">Open the interest calculator &rarr;</a>
+</div><div class="card faq">
+<h2>Quick answers</h2>
+<h3>Is credit card interest charged daily or monthly?</h3>
+<p>Calculated daily, billed monthly. Your issuer applies the daily periodic rate (APR &divide; 365) to your balance each day, then totals it up on your statement.</p>
+<h3>Does paying the minimum stop interest?</h3>
+<p>No &mdash; it only keeps the account in good standing. Interest keeps accruing on the remaining balance every single day.</p>
+<h3>Why is my interest different from what I estimated?</h3>
+<p>Because it's based on your <em>average daily</em> balance, not the balance on any one day. Payments, purchases, and refunds during the cycle all move the number.</p>
+<h3>Do all cards use APR &divide; 365?</h3>
+<p>Nearly all US cards use 365 days. A few use 360 &mdash; check your cardholder agreement if you want the exact figure, but the difference is tiny.</p>
+</div>
+<div class="card">
+<p class="disc">General information only, not financial advice.</p>
+</div>
+</div>
+<footer>
+  <a href="/">Home</a> &middot;
+  <a href="about.html">About</a> &middot;
+  <a href="contact.html">Contact</a> &middot;
+  <a href="privacy-policy.html">Privacy Policy</a> &middot;
+  <a href="disclaimer.html">Disclaimer</a><br><br>
+  &copy; 2026 The Calcfolio &mdash; free calculators, honest numbers.
+</footer>
+</body>
+</html>

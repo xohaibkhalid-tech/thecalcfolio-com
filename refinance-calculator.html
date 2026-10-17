@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/refinance-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Refinance Calculator 2026 — See How Much You&#x27;ll Save">
+<meta property="og:description" content="Free mortgage refinance calculator: compare your loan vs a refinance — monthly savings, break-even point, lifetime interest saved. 2026 rates.">
+<meta property="og:url" content="https://thecalcfolio.com/refinance-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Refinance Calculator 2026 — See How Much You'll Save</title>
+<meta name="description" content="Free mortgage refinance calculator: compare your loan vs a refinance — monthly savings, break-even point, lifetime interest saved. 2026 rates.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.6; }
+  header { background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%); color:#0c2340; padding:2rem 1rem; text-align:center;border-bottom:3px solid #c9a227}
+  header h1 { font-size:1.8rem; margin-bottom:.4rem; }
+  header p { opacity:.85; font-size:1rem; }
+  .container { max-width:900px; margin:0 auto; padding:1.25rem 1rem 3rem; }
+  .card { background:#fff; border-radius:14px; padding:1.5rem; margin:1.25rem 0; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+  .card h2 { font-size:1.25rem; margin-bottom:.75rem; color:#0f2a43; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }
+  @media (max-width:640px){ .grid{grid-template-columns:1fr;} }
+  label { display:block; font-weight:600; font-size:.9rem; margin-bottom:.25rem; color:#33475f; }
+  input, select { width:100%; padding:.7rem .8rem; border:1.5px solid #cbd5e1; border-radius:9px; font-size:1rem; }
+  input:focus, select:focus { outline:none; border-color:#0f2a43; }
+  .hint { font-size:.8rem; color:#64748b; margin-top:.2rem; }
+  .btn { display:block; width:100%; background:#0f2a43; color:#fff; border:none; padding:.9rem; border-radius:10px; font-size:1.05rem; font-weight:700; cursor:pointer; margin-top:1rem; }
+  .btn:hover { background:#1b3f63; }
+  .results { margin-top:1.25rem; display:none; }
+  .stat-row { display:flex; justify-content:space-between; padding:.55rem 0; border-bottom:1px solid #eef2f7; font-size:.98rem; }
+  .stat-row:last-child{border-bottom:none;}
+  .stat-label { color:#475569; }
+  .stat-val { font-weight:700; color:#0f2a43; }
+  .stat-val.good { color:#15803d; }
+  .stat-val.bad { color:#b91c1c; }
+  .verdict { margin-top:1rem; padding:.9rem 1rem; border-radius:10px; font-weight:600; }
+  .verdict.yes { background:#dcfce7; color:#166534; }
+  .verdict.no { background:#fee2e2; color:#991b1b; }
+  .formula { background:#f1f5f9; border-left:4px solid #0f2a43; padding:.8rem 1rem; margin-top:1rem; font-size:.88rem; color:#33475f; border-radius:0 8px 8px 0; }
+  table.rates { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.95rem; }
+  table.rates th, table.rates td { padding:.6rem .5rem; border-bottom:1px solid #e2e8f0; text-align:left; }
+  table.rates th { background:#0f2a43; color:#fff; }
+  table.rates tr:nth-child(even) td { background:#f8fafc; }
+  .sources { font-size:.82rem; color:#64748b; margin-top:.75rem; }
+  .sources a { color:#0f2a43; }
+  .faq h3 { font-size:1.02rem; margin:.9rem 0 .25rem; color:#0f2a43; }
+  .faq p { font-size:.94rem; color:#334155; }
+  .disclaimer { background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:1rem 1.25rem; font-size:.85rem; color:#92400e; margin:1.25rem 0; }
+  footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
+  footer a { color:#0f2a43; text-decoration:none; margin:0 .5rem; }
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header a{color:#fff!important}
+.tool-card{background:#12293f!important}
+.tool-card h3{color:#fff!important}
+.tool-card p{color:#a9bccd!important}
+.tool-card .go{color:#e8c95a!important}
+.cluster h2,.cluster-head h2{color:#fff!important}
+.cluster-head .count{color:#8fa1b3!important}
+.cluster>p,.cluster p{color:#a9bccd!important}
+.see-all{color:#e8c95a!important;border-color:#2a4258!important}
+.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
+.type{border-color:#2a4258!important}
+.type.sel{border-color:#c9a227!important;background:#16293f!important}
+.type b{color:#fff!important}
+.btn{background:#c9a227!important;color:#0b1a29!important}
+.sources a{color:#e8c95a!important}
+.verdict{background:#0e2a1a!important}
+.verdict p{color:#bbf7d0!important}
+.stage b{color:#fff!important}
+.stage .time{background:#1a2f47!important;color:#fff!important}
+.step{background:#16293f!important}
+.step b{color:#fff!important}
+header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.art h1{color:#fff!important}
+header.art .meta{color:#a9bccd!important;opacity:1!important}
+header.art p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card ol,.card ul{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+.card a{color:#e8c95a!important}
+.faq h3{color:#fff!important}
+.faq p{color:#a9bccd!important}
+.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
+table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
+table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
+table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
+.stat-val.good,.keep,td.win{color:#4ade80!important}
+.answer{background:#16293f!important;border-left-color:#c9a227!important}
+.answer p{color:#e8eef4!important}
+.tip{background:#0e2a1a!important}
+.tip p{color:#bbf7d0!important}
+.cta a{background:#c9a227!important;color:#0b1a29!important}
+.disc{color:#8fa1b3!important}
+.src{color:#8fa1b3!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important}
+.result .big{color:#fff!important}
+.result .keep{color:#4ade80!important}
+.result p{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+.card h1{color:#fff!important}
+.warning{background:#231a12!important}
+.warning p{color:#fde68a!important}
+
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer;padding:.3rem .5rem}.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<div class="nav-item"><a href="/">Home</a></div>
+<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
+<div class="dropdown">
+<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
+<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
+<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
+<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
+<a href="square-fee-calculator.html">Square Fee Calculator</a>
+<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
+<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
+<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
+<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#money">Money</a>
+<div class="dropdown">
+<a href="refinance-calculator.html">Refinance Calculator</a>
+<a href="overtime-calculator.html">Overtime Calculator</a>
+<a href="interest-calculator.html">Interest Calculator</a>
+</div></div>
+<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
+<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
+<div class="nav-item drop"><a href="guides.html">Guides</a>
+<div class="dropdown">
+<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
+<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
+<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
+<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
+<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
+<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
+<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
+<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
+</div></div>
+<div class="nav-item"><a href="about.html">About</a></div>
+<div class="nav-item"><a href="contact.html">Contact</a></div>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+var path=(location.pathname.split('/').pop()||'index.html');
+nav.querySelectorAll('.nav-links a').forEach(function(a){
+var h=a.getAttribute('href');
+if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
+});
+})();
+</script>
+
+
+<header>
+  <h1>Refinance Calculator 2026</h1>
+  <p>Compare your current mortgage against a refinance — monthly savings, break-even point &amp; lifetime interest, in seconds.</p>
+</header>
+
+<div class="container">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <h2>Current Loan vs Refinance</h2>
+    <div class="grid">
+      <div>
+        <label for="balance">Current loan balance ($)</label>
+        <input type="number" id="balance" value="300000" min="1000" step="1000">
+      </div>
+      <div>
+        <label for="curRate">Current interest rate (%)</label>
+        <input type="number" id="curRate" value="8" min="0" max="20" step="0.125">
+      </div>
+      <div>
+        <label for="curYears">Years remaining on current loan</label>
+        <input type="number" id="curYears" value="25" min="1" max="40" step="1">
+      </div>
+      <div>
+        <label for="newRate">New refinance rate (%)</label>
+        <input type="number" id="newRate" value="6.5" min="0" max="20" step="0.125">
+        <div class="hint">30-yr fixed averaged 7.28% in early Oct 2026 (Freddie Mac).</div>
+      </div>
+      <div>
+        <label for="newYears">New loan term (years)</label>
+        <select id="newYears">
+          <option value="30" selected>30 years</option>
+          <option value="20">20 years</option>
+          <option value="15">15 years</option>
+          <option value="10">10 years</option>
+        </select>
+      </div>
+      <div>
+        <label for="closing">Closing costs ($)</label>
+        <input type="number" id="closing" value="7500" min="0" step="100">
+        <div class="hint">Typically 2&ndash;6% of the loan amount.</div>
+      </div>
+    </div>
+    <button class="btn" onclick="calc()">Calculate My Savings</button>
+
+    <div class="results" id="results">
+      <div class="stat-row"><span class="stat-label">Current monthly payment</span><span class="stat-val" id="rCurPay"></span></div>
+      <div class="stat-row"><span class="stat-label">New monthly payment</span><span class="stat-val" id="rNewPay"></span></div>
+      <div class="stat-row"><span class="stat-label">Monthly savings</span><span class="stat-val" id="rSave"></span></div>
+      <div class="stat-row"><span class="stat-label">Break-even point</span><span class="stat-val" id="rBreak"></span></div>
+      <div class="stat-row"><span class="stat-label">Remaining interest on current loan</span><span class="stat-val" id="rCurInt"></span></div>
+      <div class="stat-row"><span class="stat-label">Total interest on new loan + closing</span><span class="stat-val" id="rNewInt"></span></div>
+      <div class="stat-row"><span class="stat-label">Lifetime savings (interest + costs)</span><span class="stat-val" id="rLife"></span></div>
+      <div class="verdict" id="rVerdict"></div>
+      <div class="formula">
+        Monthly payment = P &times; r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> &minus; 1), where r = annual rate &divide; 12, n = months.
+        Break-even = closing costs &divide; monthly savings. Lifetime savings = current-loan remaining interest &minus; (new-loan interest + closing costs).
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <h2>Should <em>You</em> Refinance?</h2>
+    <p style="font-size:.94rem;color:#a9bccd;margin-bottom:.75rem;">The golden rule: only refinance if you'll stay in the home <strong>past your break-even point</strong>. Enter how long you plan to stay:</p>
+    <div class="grid">
+      <div>
+        <label for="stayYears">Years you plan to stay in this home</label>
+        <input type="number" id="stayYears" value="10" min="1" max="40" step="1">
+      </div>
+    </div>
+    <button class="btn" onclick="shouldRefi()">Check My Situation</button>
+    <div class="verdict" id="stayVerdict" style="display:none;"></div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <h2>2026 Refinance Rates &amp; Costs</h2>
+    <table class="rates">
+      <tr><th>Item</th><th>Figure</th><th>Source</th></tr>
+      <tr><td>30-year fixed mortgage</td><td><strong>7.28%</strong> avg</td><td>Freddie Mac PMMS, Oct 1 2026</td></tr>
+      <tr><td>15-year fixed mortgage</td><td><strong>6.60%</strong> avg</td><td>Freddie Mac PMMS, Oct 1 2026</td></tr>
+      <tr><td>Refinance closing costs</td><td><strong>2&ndash;5%</strong> of loan</td><td>Bankrate 2026</td></tr>
+      <tr><td>Rule of thumb</td><td>Cut rate by <strong>0.75&ndash;1 point</strong></td><td>Industry guidance</td></tr>
+    </table>
+    <p class="sources">Rates move weekly. Figures verified October 4, 2026 from
+      <a href="https://www.globenewswire.com/news-release/2026/10/01/3373202/0/en/mortgage-rates-average-7-28.html" target="_blank" rel="noopener">Freddie Mac</a> and
+      <a href="https://www.wsj.com/buyside/personal-finance/mortgage/mortgage-rates-today-10-2-2026" target="_blank" rel="noopener">WSJ/Bankrate</a>.
+      Closing-cost range per <a href="https://www.bankrate.com/mortgages/how-much-it-costs-to-refinance/" target="_blank" rel="sponsored noopener">Bankrate</a> and
+      <a href="https://www.monarch.com/blog/loans/how-to-refinance-mortgage" target="_blank" rel="noopener">Monarch</a>.
+      Re-check before applying &mdash; your quoted rate depends on credit, equity and lender.</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card faq">
+    <h2>Refinance FAQs</h2>
+    <h3>How does refinancing save money?</h3>
+    <p>A lower interest rate shrinks your monthly payment and the total interest you pay over the loan's life. Even half a percentage point can save tens of thousands on a large balance. Shortening the term (e.g., 30 years to 15) cuts total interest even more, though the monthly payment may rise.</p>
+    <h3>What are closing costs?</h3>
+    <p>The fees to set up the new loan: origination, appraisal, title search and insurance, recording fees and prepaid interest. They typically run 2&ndash;6% of the loan amount &mdash; $6,000 to $18,000 on a $300,000 refinance. You can pay cash or roll them into the loan (which raises the balance).</p>
+    <h3>What is the break-even point?</h3>
+    <p>Closing costs divided by your monthly savings. If closing costs are $7,500 and you save $250/month, you break even in 30 months. You only truly profit if you stay in the home longer than that. This calculator computes it automatically.</p>
+    <h3>When should you NOT refinance?</h3>
+    <p>If you're moving before the break-even point, if your balance is small (savings won't cover costs), if the rate improvement is tiny, or if resetting to a new 30-year term means paying <em>more</em> total interest despite a lower payment. Always compare lifetime cost, not just the monthly payment.</p>
+    <h3>Does a lower payment always mean savings?</h3>
+    <p>No &mdash; this is the trap. Refinancing into a new 30-year loan restarts the amortization clock, so most early payments go to interest again. A lower monthly payment with a longer term can cost you more overall. Check the "Lifetime savings" line above; if it's negative, the refinance loses money.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Not financial advice.</strong> This calculator gives estimates for education only &mdash; it excludes taxes, insurance, PMI and fees that vary by lender. Mortgage decisions involve your credit, equity and personal finances. Talk to a licensed mortgage professional before refinancing.
+  </div>
+
+</div>
+
+<footer>
+  Free refinance calculator &mdash; estimates only, not financial advice.
+</footer>
+
+<script>
+function mp(P, annualPct, years) {
+  var r = annualPct / 100 / 12, n = Math.round(years * 12);
+  if (r === 0) return P / n;
+  var f = Math.pow(1 + r, n);
+  return P * r * f / (f - 1);
+}
+function fmt(n) {
+  return "$" + n.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+function getInputs() {
+  return {
+    P: parseFloat(document.getElementById("balance").value) || 0,
+    curR: parseFloat(document.getElementById("curRate").value) || 0,
+    curY: parseFloat(document.getElementById("curYears").value) || 0,
+    newR: parseFloat(document.getElementById("newRate").value) || 0,
+    newY: parseFloat(document.getElementById("newYears").value) || 0,
+    close: parseFloat(document.getElementById("closing").value) || 0
+  };
+}
+function compute() {
+  var i = getInputs();
+  var curPay = mp(i.P, i.curR, i.curY);
+  var newPay = mp(i.P, i.newR, i.newY);
+  var save = curPay - newPay;
+  var curInt = curPay * i.curY * 12 - i.P;
+  var newInt = newPay * i.newY * 12 - i.P;
+  var life = curInt - (newInt + i.close);
+  var brk = save > 0 ? i.close / save : Infinity;
+  return { i:i, curPay:curPay, newPay:newPay, save:save, curInt:curInt, newInt:newInt, life:life, brk:brk };
+}
+function calc() {
+  var c = compute(), v = document.getElementById("rVerdict");
+  document.getElementById("results").style.display = "block";
+  document.getElementById("rCurPay").textContent = fmt(c.curPay);
+  document.getElementById("rNewPay").textContent = fmt(c.newPay);
+  var sEl = document.getElementById("rSave");
+  sEl.textContent = (c.save >= 0 ? "" : "-") + fmt(Math.abs(c.save));
+  sEl.className = "stat-val " + (c.save > 0 ? "good" : "bad");
+  var bEl = document.getElementById("rBreak");
+  if (c.save > 0 && isFinite(c.brk)) {
+    var m = Math.ceil(c.brk);
+    bEl.textContent = m + " months (" + (m/12).toFixed(1) + " years)";
+    bEl.className = "stat-val";
+  } else { bEl.textContent = "Never (no monthly savings)"; bEl.className = "stat-val bad"; }
+  document.getElementById("rCurInt").textContent = fmt(c.curInt);
+  document.getElementById("rNewInt").textContent = fmt(c.newInt + c.i.close);
+  var lEl = document.getElementById("rLife");
+  lEl.textContent = (c.life >= 0 ? "" : "-") + fmt(Math.abs(c.life));
+  lEl.className = "stat-val " + (c.life > 0 ? "good" : "bad");
+  if (c.save > 0 && c.life > 0) {
+    v.className = "verdict yes";
+    v.textContent = "Worth it: you save " + fmt(c.save) + "/month and " + fmt(c.life) + " over the loan's life, breaking even in " + Math.ceil(c.brk) + " months.";
+  } else if (c.save > 0) {
+    v.className = "verdict no";
+    v.textContent = "Caution: lower payment, but the longer term means you pay " + fmt(Math.abs(c.life)) + " MORE overall. Consider a shorter term.";
+  } else {
+    v.className = "verdict no";
+    v.textContent = "Not worth it at these numbers — the new payment isn't lower than your current one.";
+  }
+  document.getElementById("results").scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+function shouldRefi() {
+  var c = compute();
+  var stay = (parseFloat(document.getElementById("stayYears").value) || 0) * 12;
+  var el = document.getElementById("stayVerdict");
+  el.style.display = "block";
+  if (c.save <= 0 || !isFinite(c.brk)) {
+    el.className = "verdict no";
+    el.textContent = "No — this refinance doesn't lower your payment, so staying longer won't help. Get a lower rate quote first.";
+  } else if (stay >= Math.ceil(c.brk)) {
+    el.className = "verdict yes";
+    el.textContent = "Yes — you'll break even in " + Math.ceil(c.brk) + " months and stay " + Math.round(stay) + " months, pocketing about " + fmt(c.save * (stay - Math.ceil(c.brk))) + " after break-even.";
+  } else {
+    el.className = "verdict no";
+    el.textContent = "No — you'd move out in " + Math.round(stay) + " months but break-even needs " + Math.ceil(c.brk) + " months. You'd lose money on closing costs.";
+  }
+  el.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Nachtschicht: Arbeitszeit berechnen, Nachtzuschlag &amp; Regeln">
+<meta property="og:description" content="Nachtschicht berechnen: Was als Nachtarbeit zählt (§ 6 ArbZG), 8-Stunden-Limit, 25 % Nachtzuschlag steuerfrei nach § 3b EStG, Pausen und Beispiele.">
+<meta property="og:url" content="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Nachtschicht: Arbeitszeit berechnen, Nachtzuschlag & Regeln</title>
+<meta name="description" content="Nachtschicht berechnen: Was als Nachtarbeit zählt (§ 6 ArbZG), 8-Stunden-Limit, 25 % Nachtzuschlag steuerfrei nach § 3b EStG, Pausen und Beispiele.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Nachtschicht: Arbeitszeit berechnen, Nachtzuschlag &amp; Regeln</h1>
+<p>Was als Nachtarbeit zählt, wie lange du arbeiten darfst, wie der 25-%-Zuschlag wirklich funktioniert — und welche Rechte dir das Gesetz zusätzlich sichert.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Nachtarbeit</strong> ist jede Arbeit zwischen 23 und 6 Uhr (§ 6 ArbZG). Wer mehr als 2 Stunden seiner täglichen Arbeitszeit in diesem Fenster leistet, gilt als Nachtarbeitnehmer.</li>
+<li><strong>Maximal 8 Stunden pro Nacht</strong> — 10 Stunden nur ausnahmsweise und nur mit Ausgleich: Im Monatsdurchschnitt müssen es wieder 8 Stunden sein.</li>
+<li><strong>Nachtzuschlag:</strong> Üblich und angemessen sind 25 % — bis zu dieser Höhe <strong>steuerfrei</strong> (§ 3b EStG). Einen gesetzlichen Anspruch auf genau 25 % gibt es allerdings nicht; oft regelt der Tarifvertrag mehr.</li>
+<li><strong>Pausen</strong> zählen auch nachts nicht als Arbeitszeit: 30 Minuten ab 6 Stunden, 45 Minuten ab 9 Stunden (§ 4 ArbZG).</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#was-zaehlt">Was zählt als Nachtarbeit?</a></li>
+<li><a href="#wie-lange">Wie lange darf eine Nachtschicht dauern?</a></li>
+<li><a href="#berechnen">Nachtschicht berechnen: zwei Beispiele mit echten Zahlen</a></li>
+<li><a href="#zuschlag">Der Nachtzuschlag: 25 % und steuerfrei</a></li>
+<li><a href="#pausen">Pausen in der Nachtschicht</a></li>
+<li><a href="#gesundheit">Gesundheit und deine Rechte als Nachtarbeitnehmer</a></li>
+<li><a href="#ueberstunden">Nachtschicht, Überstunden und Feiertage</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="was-zaehlt">
+<h2>Was zählt als Nachtarbeit?</h2>
+<p>Die Nachtzeit ist gesetzlich klar definiert: <strong>23:00 bis 6:00 Uhr</strong> (§ 2 Abs. 3 ArbZG). Für Bäckereien und Konditoreien gilt eine Sonderregelung — 22:00 bis 5:00 Uhr. Der Grund ist so praktisch wie sympathisch: Die Brötchen müssen morgens fertig sein.</p>
+<p>Aber Vorsicht: Nicht jede Stunde in diesem Fenster macht dich automatisch zum Nachtarbeitnehmer mit allen Sonderrechten. Das Gesetz zieht die Grenze so: Wer <strong>normalerweise mehr als zwei Stunden</strong> seiner täglichen Arbeitszeit in der Nachtzeit leistet, gilt als Nachtarbeitnehmer (§ 2 Abs. 5 ArbZG). Alternativ reicht es, wenn du an <strong>mindestens 48 Tagen im Jahr</strong> nachts arbeitest.</p>
+<p>Zwei Beispiele, damit es greifbar wird: Du arbeitest von 20:00 bis 24:00 Uhr? Dann liegt nur eine einzige Stunde (23:00 bis 24:00) in der Nachtzeit — kein Nachtarbeitnehmer. Du arbeitest von 21:00 bis 05:00 Uhr? Dann sind es sechs Nachtstunden — eindeutig Nachtarbeit.</p>
+<p>Warum ist die Unterscheidung so wichtig? Weil für Nachtarbeitnehmer strengere Schutzregeln gelten: kürzere Höchstarbeitszeit, Anspruch auf regelmäßige Gesundheitsuntersuchungen und in der Praxis fast immer ein Nachtzuschlag. Der Gesetzgeber schützt dich stärker, weil Nachtarbeit den Körper nachweislich mehr belastet als Tagarbeit — der Schlaf-Wach-Rhythmus lässt sich nicht einfach umprogrammieren.</p>
+</div>
+
+<div class="card" id="wie-lange">
+<h2>Wie lange darf eine Nachtschicht dauern?</h2>
+<p>Die kurze Antwort: <strong>8 Stunden</strong>. Die längere Antwort: Es kommt darauf an — aber die 8 Stunden sind die Regel, nicht die Ausnahme.</p>
+<p>Für Nachtarbeitnehmer gilt: Die werktägliche Arbeitszeit darf 8 Stunden nicht überschreiten (§ 6 Abs. 2 ArbZG). Eine Verlängerung auf bis zu 10 Stunden ist nur ausnahmsweise möglich — und nur dann, wenn du <strong>innerhalb eines Kalendermonats oder innerhalb von vier Wochen im Durchschnitt</strong> wieder auf 8 Stunden pro Werktag kommst.</p>
+<p>Was das praktisch bedeutet: Machst du in einer Woche vier 10-Stunden-Nächte (also 40 Stunden), dann musst du in den restlichen Wochen des Monats so planen, dass der Monatsschnitt bei 8 Stunden pro Werktag landet. Die 10-Stunden-Nacht ist die Ausnahme, nicht die Regel — auch wenn es sich in manchen Betrieben anders anfühlt.</p>
+<p>Und vergiss die Ruhezeit nicht: Nach § 5 ArbZG stehen dir <strong>11 Stunden ununterbrochene Ruhezeit</strong> zwischen zwei Schichten zu. Schichtende um 6:00 Uhr heißt also: Frühestens um 17:00 Uhr geht es weiter. In Krankenhäusern, der Gastronomie und ein paar anderen Bereichen kann die Ruhezeit auf 10 Stunden verkürzt werden — aber nur, wenn der Ausgleich innerhalb eines Monats erfolgt.</p>
+</div>
+
+<div class="card" id="berechnen">
+<h2>Nachtschicht berechnen: zwei Beispiele mit echten Zahlen</h2>
+<p>So rechnest du deine Nachtschicht aus. Der einzige Trick ist der Tageswechsel um Mitternacht — der Rest ist simple Subtraktion.</p>
+<p><strong>Beispiel 1: Klassische Nachtschicht, 22:00 bis 06:00 Uhr.</strong><br>
+Brutto: von 22:00 bis 24:00 Uhr sind 2 Stunden, plus 0:00 bis 6:00 Uhr sind 6 Stunden — macht 8 Stunden brutto.<br>
+Pause: Bei 8 Stunden schreibt § 4 ArbZG mindestens 30 Minuten Pause vor. 8:00 minus 0:30 = <strong>7,5 Stunden netto</strong>.<br>
+In Industriestunden für die Lohnabrechnung: 7,5 Stunden = 7,50 Industriestunden. Bei 22 € Stundenlohn sind das 165 € brutto für die Nacht — plus Nachtzuschlag, dazu gleich mehr.</p>
+<p><strong>Beispiel 2: Späte Schicht, 23:30 bis 07:30 Uhr.</strong><br>
+Brutto: 23:30 bis 24:00 Uhr sind 0,5 Stunden, plus 0:00 bis 7:30 Uhr sind 7,5 Stunden — macht 8 Stunden brutto.<br>
+Pause: 45 Minuten, weil der Betrieb mehr gewährt als das gesetzliche Minimum. 8:00 minus 0:45 = <strong>7,25 Stunden netto</strong> = 7,25 Industriestunden.</p>
+<p><strong>Faustformel für den Tageswechsel:</strong> Ist die Endzeit kleiner als die Startzeit, rechne einfach 24 Stunden dazu: (06:00 + 24:00) − 22:00 = 8:00. Funktioniert immer.</p>
+<p>Übrigens: Unser <a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a> erkennt Nachtschichten automatisch — gib einfach eine Endzeit ein, die vor der Startzeit liegt, und er rechnet über Mitternacht.</p>
+</div>
+
+<div class="card" id="zuschlag">
+<h2>Der Nachtzuschlag: 25 % und steuerfrei</h2>
+<p>Jetzt zum Geld. Und hier muss ich ehrlich sein: Einen <strong>gesetzlichen Anspruch auf genau 25 % Nachtzuschlag gibt es nicht</strong>. Das überrascht viele — aber es ist wichtig, es klar zu sagen, bevor falsche Erwartungen entstehen.</p>
+<p>Was es stattdessen gibt: Die Rechtsprechung des Bundesarbeitsgerichts hält einen Zuschlag von <strong>25 % für angemessene Nachtarbeit für angemessen</strong> — bei Dauernachtarbeit sogar 30 % (BAG, Urteil vom 9.12.2015 – 10 AZR 423/14, bestätigt unter anderem durch 9 AZR 673/19). Viele Tarifverträge schreiben 25 bis 30 % fest. Steht in deinem Arbeitsvertrag nichts und gilt kein Tarifvertrag, ist der Zuschlag Verhandlungssache — aber die 25 % sind der Maßstab, an dem sich alles orientiert. Wer deutlich weniger bekommt, sollte das ansprechen.</p>
+<p>Und jetzt das Gute: <strong>Nachtzuschläge sind bis zu 25 % des Grundlohns steuerfrei</strong> — das steht in § 3b EStG. Bedingung: Dein Grundlohn liegt bei höchstens 50 € pro Stunde. Alles, was über die 25 % hinausgeht, wird ganz normal versteuert und verbeitragt.</p>
+<p><strong>Rechenbeispiel:</strong> Du verdienst 20 € pro Stunde und arbeitest 7,5 Nachtstunden.<br>
+Zuschlag: 20 € × 25 % = 5 € pro Stunde. 5 € × 7,5 Stunden = <strong>37,50 € — steuerfrei obendrauf</strong>.<br>
+Dein Brutto für die Nacht: 150 € Lohn + 37,50 € Zuschlag = 187,50 €, wovon nur die 150 € versteuert werden. Das ist ein spürbarer Unterschied auf dem Kontoauszug.</p>
+<p>Ein wichtiger Detailpunkt zum Schluss: Der Zuschlag bezieht sich nur auf die Stunden, die <strong>tatsächlich in der Nachtzeit</strong> (23 bis 6 Uhr) liegen. Arbeitest du von 20:00 bis 04:00 Uhr, gibt es den Zuschlag nur für 23:00 bis 04:00 Uhr — also für 5 Stunden, nicht für 8. Bei der Abrechnung lohnt sich genaues Hinschauen.</p>
+</div>
+
+<div class="card" id="pausen">
+<h2>Pausen in der Nachtschicht</h2>
+<p>Ja, auch nachts hast du Anspruch auf Pausen — § 4 ArbZG kennt keine Ausnahme für die Nacht. Ab 6 Stunden Arbeitszeit: 30 Minuten. Ab 9 Stunden: 45 Minuten. Und Pausen zählen nicht als Arbeitszeit, sie werden von deiner Bruttozeit abgezogen.</p>
+<p>In der Praxis ist die Nachtpause oft die ehrlichste Pause des Tages: keine Meetings, kein Telefon, keine „kurzen Fragen" vom Chef. Aber Vorsicht bei einem Punkt: Die Pause muss wirklich Pause sein. Wenn du „für Notfälle erreichbar" bleiben musst, ist das keine Ruhepause, sondern Bereitschaft — und Bereitschaft zählt als Arbeitszeit. Das hat das Bundesarbeitsgericht mehrfach klargestellt. Wer in der Pause das Funkgerät am Gürtel trägt, macht keine Pause.</p>
+</div>
+
+<div class="card" id="gesundheit">
+<h2>Gesundheit und deine Rechte als Nachtarbeitnehmer</h2>
+<p>Nachtarbeit geht auf den Körper — das weiß auch der Gesetzgeber. Deshalb hast du als Nachtarbeitnehmer zwei starke Rechte, die viele nicht kennen:</p>
+<p><strong>1. Arbeitsmedizinische Untersuchung (§ 6 Abs. 3 ArbZG):</strong> Vor Beginn der Nachtarbeit und danach regelmäßig — alle drei Jahre, ab dem 50. Lebensjahr jedes Jahr. Der Arbeitgeber trägt die Kosten. Das ist kein Angebot, das du höflich ablehnen solltest — nutze es. Die Untersuchung kann früh warnen, wenn der Körper mit dem Rhythmus nicht mehr klarkommt.</p>
+<p><strong>2. Anspruch auf einen Tagesarbeitsplatz (§ 6 Abs. 4 ArbZG):</strong> Wenn die Nachtarbeit deine Gesundheit beeinträchtigt (ärztlich festgestellt) oder wenn du ein Kind unter 12 Jahren oder einen schwer pflegebedürftigen Angehörigen betreust und niemand sonst das übernehmen kann, kannst du einen Tagesarbeitsplatz verlangen — sofern dem keine dringenden betrieblichen Erfordernisse entgegenstehen. Der Arbeitgeber muss dann umorganisieren, nicht du.</p>
+<p>Klingt trocken, ist aber mächtig: Das Gesetz stellt deine Gesundheit über den Schichtplan. Wer nachts arbeitet, arbeitet nicht rechtlos.</p>
+</div>
+
+<div class="card" id="ueberstunden">
+<h2>Nachtschicht, Überstunden und Feiertage</h2>
+<p>Drei Sonderfälle, die in der Praxis ständig vorkommen:</p>
+<p><strong>Überstunden in der Nacht:</strong> Auch nachts können Überstunden anfallen — alles über deine vereinbarte Arbeitszeit hinaus. Ob es dafür Zuschläge gibt und ob sich Nachtzuschlag und Überstundenzuschlag addieren, steht in deinem Tarif- oder Arbeitsvertrag. Manche Tarifverträge sehen vor, dass nur der höhere Zuschlag gezahlt wird — andere addieren. Schau in deinen Vertrag, das steht da.</p>
+<p><strong>Nachtarbeit an Feiertagen:</strong> Fällt deine Nachtschicht auf einen Feiertag, können Feiertagszuschlag und Nachtzuschlag zusammenkommen — je nach Tarifvertrag. Steuerfrei bleiben Nachtzuschläge bis 25 % und Feiertagszuschläge bis 125 % (§ 3b EStG). Auch hier gilt: Der Tarifvertrag entscheidet über die Höhe, das Steuerrecht über die Freigrenze.</p>
+<p><strong>Sonntagsarbeit:</strong> Nach § 9 ArbZG dürfen Arbeitnehmer an Sonn- und Feiertagen grundsätzlich nicht beschäftigt werden — mit vielen Ausnahmen (Krankenhäuser, Polizei, Gastronomie und Co.). Wer sonntags arbeitet, muss mindestens 15 Sonntage im Jahr frei haben. Für Nachtarbeitnehmer in Schichtbetrieben ist das besonders relevant: Auch der freie Sonntag muss wirklich frei sein.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Zählt die Pause in der Nachtschicht als Arbeitszeit?</summary>
+<p>Nein. Ruhepausen nach § 4 ArbZG zählen grundsätzlich nicht als Arbeitszeit — das gilt nachts genauso wie tagsüber. Deshalb werden sie von deiner Bruttozeit abgezogen. Anders ist es nur, wenn du in der Pause erreichbar bleiben musst: Dann ist es keine echte Pause, sondern Bereitschaftszeit — und die zählt als Arbeitszeit.</p>
+</details>
+<details class="faq">
+<summary>Bekomme ich automatisch 25 % Nachtzuschlag?</summary>
+<p>Nicht automatisch. Es gibt keinen gesetzlichen Anspruch auf genau 25 % — die Höhe regeln Tarifvertrag oder Arbeitsvertrag. Aber: Das Bundesarbeitsgericht hält 25 % für angemessen (30 % bei Dauernachtarbeit), und die meisten Tarifverträge liegen bei 25 bis 30 %. Bekommst du deutlich weniger oder gar nichts, lohnt sich ein Blick in deinen Vertrag — und notfalls das Gespräch mit dem Betriebsrat.</p>
+</details>
+<details class="faq">
+<summary>Wie viele Nächte am Stück darf ich arbeiten?</summary>
+<p>Das Gesetz begrenzt nicht die Anzahl der Nächte direkt, sondern die tägliche Höchstarbeitszeit (8 Stunden, ausnahmsweise 10 mit Ausgleich) und die Ruhezeit (11 Stunden zwischen den Schichten). In der Praxis begrenzen Tarifverträge oft zusätzlich, wie viele Nachtschichten am Stück zulässig sind. Dauerhaft nur nachts zu arbeiten ist zudem nur mit den regelmäßigen Gesundheitsuntersuchungen nach § 6 Abs. 3 ArbZG zulässig.</p>
+</details>
+<details class="faq">
+<summary>Was ist der Unterschied zwischen Nachtarbeit und Schichtarbeit?</summary>
+<p>Schichtarbeit bedeutet wechselnde Arbeitszeiten — zum Beispiel Früh-, Spät- und Nachtschicht im Wechsel. Nachtarbeit bedeutet konkret: mehr als 2 Stunden der täglichen Arbeitszeit liegen in der Nachtzeit von 23 bis 6 Uhr. Man kann also in Schicht arbeiten, ohne Nachtarbeitnehmer zu sein (z. B. nur Früh- und Spätschicht) — und man kann Nachtarbeitnehmer sein, ohne in Wechselschicht zu arbeiten (z. B. dauerhaft nur nachts).</p>
+</details>
+<details class="faq">
+<summary>Kann ich die Nachtschicht ablehnen?</summary>
+<p>Grundsätzlich regelt dein Arbeitsvertrag, ob Nachtschichten zu deinen Pflichten gehören. Aber: Beeinträchtigt die Nachtarbeit deine Gesundheit (ärztlich festgestellt) oder betreust du ein Kind unter 12 Jahren bzw. einen schwer pflegebedürftigen Angehörigen, hast du nach § 6 Abs. 4 ArbZG Anspruch auf einen Tagesarbeitsplatz — der Arbeitgeber muss dann umplanen, sofern keine dringenden betrieblichen Gründe dagegen sprechen.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Nachtarbeit:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Tages- und Wochenstunden berechnen — erkennt Nachtschichten automatisch</span></a>
+<a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen<span>Anleitung: dokumentieren, auszahlen oder abfeiern</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln<span>Pausen, Ruhezeiten, Nacht- und Sonntagsarbeit im Überblick</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG), §§ 2, 4, 5, 6 und 9; § 3b EStG (Steuerfreiheit von Nachtzuschlägen); BAG-Rechtsprechung zum Nachtarbeitszuschlag (u. a. 10 AZR 423/14, 9 AZR 673/19). Keine Rechtsberatung — bei Zweifeln frag deinen Betriebsrat oder einen Anwalt für Arbeitsrecht.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

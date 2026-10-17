@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">
+<link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="13º Salário 2026: Como Calcular, Parcelas e Prazos">
+<meta property="og:description" content="13º salário 2026: como calcular por avos, datas da 1ª e 2ª parcela (30/11 e 20/12), descontos de INSS e IRRF e exemplo completo com R$ 3.000.">
+<meta property="og:url" content="https://thecalcfolio.com/br/decimo-terceiro-salario.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>13º Salário 2026: Como Calcular, Parcelas e Prazos</title>
+<meta name="description" content="13º salário 2026: como calcular por avos, datas da 1ª e 2ª parcela (30/11 e 20/12), descontos de INSS e IRRF e exemplo completo com R$ 3.000.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:36px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radios input{margin-right:8px}
+  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
+  .stat.total .v{font-size:1.7rem}
+  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
+  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
+  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
+  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.stat{background:#0b1a29!important;border-color:#2a4258!important}
+.stat .k{color:#a9bccd!important}
+.stat .v{color:#fff!important}
+.stat.good .v{color:#4ade80!important}
+.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
+.stat.total .v{color:#4ade80!important}
+table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
+table.lines tr.grand td{color:#fff!important}
+.formula{color:#8fa1b3!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
+.faq details{background:#12293f!important;border-color:#2a4258!important}
+.faq summary{color:#fff!important}
+.faq details div{color:#a9bccd!important}
+.more{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+  <h1>13º Salário 2026: Como Calcular, Parcelas e Prazos</h1>
+  <p>Chegou dezembro e a pergunta que todo mundo faz no almoço é a mesma: "quanto vai cair de 13º?" A resposta não é chute — é uma conta com regras claras, prazos que são lei e descontos que só aparecem na segunda parcela. Este guia faz a conta com você, com os valores atualizados de 2026, incluindo a grande novidade do ano: quem ganha até R$ 5.000 por mês não paga Imposto de Renda no 13º. E tem exemplo completo: salário de R$ 3.000, do bruto ao líquido, parcela por parcela.</p>
+</header>
+
+<div class="card">
+  <h2>Em resumo</h2>
+  <ul>
+    <li>Quem trabalha de <strong>carteira assinada</strong> (urbano, rural, doméstico, avulso) tem direito. Aposentados e pensionistas do INSS também recebem o abono anual.</li>
+    <li>O cálculo é por <strong>avos</strong>: 1/12 do salário por mês trabalhado. Trabalhou 15 dias ou mais no mês, conta como mês cheio.</li>
+    <li><strong>1ª parcela até 30/11:</strong> metade do valor bruto, sem nenhum desconto. <strong>2ª parcela até 20/12:</strong> o resto, com INSS e IRRF descontados sobre o valor total.</li>
+    <li>Em 2026, a <strong>Lei 15.270/2025</strong> zera o IRRF de quem tem rendimento tributável de até R$ 5.000/mês — e o 13º salário está incluído na regra.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Neste guia</h2>
+  <ul>
+    <li><a href="#quem-tem-direito">Quem tem direito (e quem fica de fora)</a></li>
+    <li><a href="#como-calcular">O cálculo: um doze avos por mês</a></li>
+    <li><a href="#primeira-parcela">1ª parcela: até 30/11, metade do bruto, sem desconto</a></li>
+    <li><a href="#segunda-parcela">2ª parcela: até 20/12, com todos os descontos</a></li>
+    <li><a href="#adiantamento-ferias">Quer receber antes? Peça junto com as férias</a></li>
+    <li><a href="#proporcional-rescisao">Saiu da empresa? Você tem 13º proporcional</a></li>
+    <li><a href="#exemplo">Exemplo completo: salário de R$ 3.000</a></li>
+    <li><a href="#empresa-atrasou">A empresa atrasou: o que acontece</a></li>
+    <li><a href="#faq-13">Perguntas frequentes</a></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 id="quem-tem-direito">Quem tem direito (e quem fica de fora)</h2>
+  <p>A regra é simples: <strong>todo empregado com vínculo de emprego tem direito ao 13º</strong> — urbano, rural, doméstico, avulso e até o trabalhador temporário. Não importa se você foi contratado em janeiro ou em outubro: entrou no ano, tem proporcional. O direito está na Constituição (art. 7º, VIII) e nas Leis 4.090/62 e 4.749/65.</p>
+  <p><strong>Aposentados e pensionistas do INSS</strong> também recebem — o chamado abono anual, pago pelo próprio INSS junto com o benefício (normalmente em duas vezes, no segundo semestre). O valor segue a mesma lógica de avos sobre o benefício.</p>
+  <p>Agora, vale ser direto sobre quem <strong>não</strong> tem: estagiário não tem 13º (a bolsa-estágio não é salário). Quem trabalha sem carteira assinada não tem na prática — embora, se provar o vínculo na Justiça, o direito exista. E o autônomo/MEI precisa fazer o próprio "13º": separar um doze avos por mês por conta própria, porque ninguém vai depositar por ele.</p>
+  <p>Um ponto que confunde: <strong>afastamento por doença ou acidente</strong>. Os primeiros 15 dias pagos pela empresa contam normalmente. Depois que o INSS assume, o período de benefício não gera avo de 13º — a empresa só paga o proporcional aos meses efetivamente trabalhados.</p>
+</div>
+
+<div class="card">
+  <h2 id="como-calcular">O cálculo: um doze avos por mês</h2>
+  <p>A fórmula cabe num guardanapo:</p>
+  <p class="formula"><strong>(salário ÷ 12) × meses trabalhados</strong></p>
+  <p>Cada mês em que você trabalhou <strong>15 dias ou mais</strong> conta como um avo cheio. Trabalhou 14 dias ou menos naquele mês, o avo não nasce. Exemplo prático: a Carla foi admitida no dia 10 de junho e trabalhou até dezembro — em junho ela trabalhou 21 dias, então junho conta. Se tivesse sido admitida no dia 20, com 11 dias trabalhados, junho ficaria de fora da conta.</p>
+  <p>E o que entra na base do cálculo? Não é só o salário-base. <strong>Tudo que é habitual entra</strong>: média de horas extras, adicional noturno, comissões, adicional de insalubridade ou periculosidade, gratificações habituais. Quem tem salário variável recebe um 13º calculado sobre a média do ano — por isso o valor pode surpreender (para cima ou para baixo).</p>
+  <p>Conta rápida para treinar: salário de R$ 2.000, 9 meses trabalhados → 2.000 ÷ 12 × 9 = <strong>R$ 1.500,00</strong> de 13º bruto. Simples assim. A complicação — e a parte que dói — vem só nos descontos, que a gente resolve no exemplo completo lá embaixo.</p>
+</div>
+
+<div class="card">
+  <h2 id="primeira-parcela">1ª parcela: até 30/11, metade do bruto, sem desconto</h2>
+  <p>A primeira parcela é o famoso <strong>adiantamento</strong>: metade do 13º bruto, paga entre fevereiro e <strong>30 de novembro</strong>. Se o dia 30 cair num sábado ou domingo, a empresa tem que antecipar para o dia útil anterior — o prazo é limite, não sugestão.</p>
+  <p>O detalhe que quase ninguém percebe: <strong>a primeira parcela vem sem nenhum desconto</strong>. Nada de INSS, nada de Imposto de Renda. Muita gente acha que "veio cheio porque dezembro é generoso" — não é generosidade, é só a primeira metade. O susto fica guardado para a segunda parcela.</p>
+  <p>A empresa também pode optar por pagar o <strong>13º integral em parcela única</strong>, desde que deposite tudo até 30 de novembro. É permitido e, para o trabalhador, até melhor: recebe o valor cheio antes e se organiza. Só não vale parcelar em três, quatro vezes — a lei só conhece duas parcelas (ou a parcela única).</p>
+  <p>Na prática, com salário de R$ 3.000 e 12 meses trabalhados, a primeira parcela é exatamente <strong>R$ 1.500,00</strong> líquidos na conta. Sem asterisco.</p>
+</div>
+
+<div class="card">
+  <h2 id="segunda-parcela">2ª parcela: até 20/12, com todos os descontos</h2>
+  <p>A segunda parcela vence em <strong>20 de dezembro</strong> (mesma regra do fim de semana: caiu no sábado, antecipa para sexta). E aqui mora a pegadinha: os descontos incidem sobre o <strong>valor total</strong> do 13º — não só sobre a segunda parcela. É por isso que a segunda parcela quase sempre parece "pequena demais".</p>
+  <p><strong>O INSS segue a tabela progressiva de 2026</strong> (Portaria MPS/MF nº 13/2026):</p>
+  <table class="lines"><tbody>
+    <tr><td>Até R$ 1.621,00</td><td>7,5%</td></tr>
+    <tr><td>De R$ 1.621,01 a R$ 2.902,84</td><td>9%</td></tr>
+    <tr><td>De R$ 2.902,85 a R$ 4.354,27</td><td>12%</td></tr>
+    <tr><td>De R$ 4.354,28 a R$ 8.475,55</td><td>14%</td></tr>
+  </tbody></table>
+  <p>O cálculo é fatiado: cada pedaço do valor paga a alíquota da sua faixa. Nada de aplicar 12% sobre tudo porque o salário "caiu na faixa de 12%" — esse é o erro mais comum de quem tenta conferir o holerite.</p>
+  <p><strong>E o Imposto de Renda tem novidade grande em 2026.</strong> A tabela progressiva continua existindo, mas a Lei 15.270/2025 criou um redutor aplicado depois do cálculo: quem tem rendimento tributável de até <strong>R$ 5.000 por mês fica com o imposto zerado</strong>; entre R$ 5.000,01 e R$ 7.350, a redução é gradual. E o 13º salário está incluído na regra. Na prática: a imensa maioria dos trabalhadores não paga mais IR sobre o 13º em 2026.</p>
+  <p>Conselho de quem já viu muito holerite errado: se o seu contracheque de dezembro mostrar IR descontado e o seu rendimento fica abaixo de R$ 5.000, <strong>o sistema da empresa pode estar desatualizado</strong>. Vale conferir com o DP — dinheiro deixado na mesa não volta sozinho.</p>
+</div>
+
+<div class="card">
+  <h2 id="adiantamento-ferias">Quer receber antes? Peça junto com as férias</h2>
+  <p>Pouca gente sabe, mas a lei permite receber o <strong>adiantamento da primeira parcela do 13º junto com as férias</strong>. Tirou férias em julho? Pode receber metade do 13º junto com o pagamento das férias, meses antes de novembro.</p>
+  <p>Tem um porém burocrático: o pedido precisa ser feito <strong>por escrito até o mês de janeiro</strong> daquele ano. É um requerimento simples entregue ao RH — "solicito o adiantamento da primeira parcela do 13º salário por ocasião das minhas férias". Passou de janeiro, a empresa pode negar, e aí só no ano seguinte.</p>
+  <p>Vale a pena? Depende do seu perfil. Para quem se organiza, é um adianto útil no meio do ano — reforma, matrícula escolar, aquela dívida que rende juros. Mas seja honesto com você mesmo: se o dinheiro "extra" de julho costuma evaporar, talvez seja melhor deixar para novembro, quando ele cumpre o papel original de reforçar o fim de ano. O 13º adiantado e gasto em julho não se multiplica em dezembro.</p>
+</div>
+
+<div class="card">
+  <h2 id="proporcional-rescisao">Saiu da empresa? Você tem 13º proporcional</h2>
+  <p>O 13º não se perde quando o contrato termina no meio do ano — ele é pago <strong>proporcional aos meses trabalhados</strong>, na rescisão. A mesma regra dos avos vale aqui: fração de 15 dias ou mais conta como mês cheio.</p>
+  <p><strong>Demissão sem justa causa:</strong> tem proporcional, sem discussão. <strong>Pedido de demissão:</strong> também tem — é direito garantido, não favor da empresa. <strong>Acordo (art. 484-A da CLT):</strong> também tem proporcional. <strong>Demissão por justa causa:</strong> aí não — a falta grave corta o 13º proporcional do ano.</p>
+  <p>Exemplo: o Marcos ganhava R$ 3.000, foi admitido em janeiro e demitido sem justa causa em outubro, tendo trabalhado 10 meses completos. Na rescisão, ele recebe 3.000 ÷ 12 × 10 = <strong>R$ 2.500,00</strong> de 13º bruto proporcional — com os descontos de INSS (e IR, se fosse o caso) aplicados normalmente sobre esse valor.</p>
+  <p>Detalhe importante: o 13º proporcional da rescisão <strong>entra na base do FGTS</strong> (8% depositado) e conta para o cálculo do aviso prévio indenizado? Não — o aviso não entra. Mas o 13º sobre o aviso prévio indenizado, sim: cada mês de aviso conta como avo. É um daqueles detalhes que fazem diferença no valor final da rescisão.</p>
+</div>
+
+<div class="card">
+  <h2 id="exemplo">Exemplo completo: salário de R$ 3.000, 12 meses</h2>
+  <p>Vamos fazer a conta de verdade com o Paulo: salário de R$ 3.000, trabalhou o ano inteiro, sem variáveis. Passo a passo:</p>
+  <p><strong>Passo 1 — 13º bruto:</strong> 3.000 ÷ 12 × 12 = <strong>R$ 3.000,00</strong>.</p>
+  <p><strong>Passo 2 — 1ª parcela (até 30/11):</strong> metade do bruto, sem descontos = <strong>R$ 1.500,00</strong>.</p>
+  <p><strong>Passo 3 — INSS sobre o total</strong> (tabela progressiva 2026, fatiado): 7,5% sobre R$ 1.621,00 = R$ 121,58; 9% sobre R$ 1.281,84 = R$ 115,37; 12% sobre R$ 97,16 = R$ 11,66. Total: <strong>R$ 248,61</strong>.</p>
+  <p><strong>Passo 4 — IRRF:</strong> base = 3.000,00 − 248,61 = R$ 2.751,39. Pela tabela progressiva, daria cerca de R$ 24,19 — mas o rendimento tributável (R$ 3.000) está abaixo de R$ 5.000, então o redutor da Lei 15.270/2025 <strong>zera o imposto: R$ 0,00</strong>.</p>
+  <p><strong>Passo 5 — 2ª parcela (até 20/12):</strong> 1.500,00 − 248,61 − 0,00 = <strong>R$ 1.251,39</strong>.</p>
+  <table class="lines"><tbody>
+    <tr><td>13º bruto (12 avos)</td><td>R$ 3.000,00</td></tr>
+    <tr><td>1ª parcela (30/11, sem descontos)</td><td>R$ 1.500,00</td></tr>
+    <tr><td>INSS sobre o total</td><td>− R$ 248,61</td></tr>
+    <tr><td>IRRF (zerado em 2026 até R$ 5.000)</td><td>− R$ 0,00</td></tr>
+    <tr><td>2ª parcela (20/12)</td><td>R$ 1.251,39</td></tr>
+    <tr class="grand"><td><strong>Total líquido no ano</strong></td><td><strong>R$ 2.751,39</strong></td></tr>
+  </tbody></table>
+  <p><strong>E o proporcional?</strong> Se o Paulo tivesse trabalhado só 7 meses: bruto = 3.000 ÷ 12 × 7 = R$ 1.750,00. INSS: 7,5% sobre 1.621,00 (R$ 121,58) + 9% sobre 129,00 (R$ 11,61) = <strong>R$ 133,19</strong>. IRRF: zero. Líquido: <strong>R$ 1.616,81</strong> — pago de uma vez na rescisão.</p>
+</div>
+
+<div class="card">
+  <h2 id="empresa-atrasou">A empresa atrasou: o que acontece</h2>
+  <p>O 13º não é "quando der" — é obrigação com data marcada em lei. Se a empresa não paga até 30/11 (primeira parcela) ou 20/12 (segunda), as consequências são reais:</p>
+  <p><strong>Multa administrativa:</strong> a fiscalização do trabalho pode autuar a empresa em <strong>R$ 170,26 por empregado</strong>, valor que dobra na reincidência. Atenção: essa multa vai para os cofres públicos, não para o seu bolso — mas dói no caixa da empresa o suficiente para ela se mexer.</p>
+  <p><strong>Você pode cobrar na Justiça:</strong> o empregado pode entrar com reclamação trabalhista pedindo o pagamento, com <strong>juros e correção monetária</strong> sobre o valor atrasado. E tem mais: o atraso reiterado no pagamento de salários é falta grave do empregador (art. 483 da CLT) — em casos extremos, dá base para <strong>rescisão indireta</strong>, quando é o empregado quem "demite" a empresa e recebe todos os direitos da demissão sem justa causa.</p>
+  <p>Conselho prático: antes de qualquer medida drástica, <strong>converse com o RH ou o DP por escrito</strong> (e-mail vale). Às vezes é erro de processamento, troca de sistema, esquecimento — e se resolve em dias. Se não resolver, o caminho é a denúncia ao Ministério do Trabalho ou a Justiça do Trabalho. Guarde holerites e comprovantes: na hora de cobrar, papel fala mais alto que memória.</p>
+</div>
+
+<div class="card faq">
+  <h2 id="faq-13">Perguntas frequentes</h2>
+  <details><summary>Quem ganha salário mínimo tem 13º de quanto?</summary><div>Tem 13º integral de R$ 1.621,00 (valor do salário mínimo em 2026) se trabalhou o ano todo — ou o proporcional aos meses trabalhados. O INSS descontado é de 7,5% sobre o total (R$ 121,58 no valor cheio) e o IRRF é zero.</div></details>
+  <details><summary>O 13º entra no FGTS?</summary><div>Sim. Incide FGTS de 8% sobre o valor do 13º, depositado na sua conta vinculada — normalmente junto com a competência de dezembro. É um dinheiro que rende para você mesmo sem cair na conta-corrente.</div></details>
+  <details><summary>MEI e autônomo têm 13º?</summary><div>Não. O 13º é direito de quem tem vínculo de emprego. Quem trabalha por conta própria precisa criar o próprio "13º": separar um doze avos do que ganha todo mês numa reserva. Sem disciplina, dezembro chega igual para todo mundo — só que sem o reforço.</div></details>
+  <details><summary>A empresa pode parcelar o 13º em várias vezes?</summary><div>Não. A lei só permite duas parcelas (adiantamento até 30/11 e restante até 20/12) ou o pagamento integral em parcela única até 30/11. Aquele "13º em 12x no cartão" que algumas empresas inventam não tem amparo legal.</div></details>
+  <details><summary>Recebi bem menos na 2ª parcela. É normal?</summary><div>Na maioria das vezes, sim: todos os descontos do 13º (INSS integral e IRRF, quando houver) caem de uma vez só na segunda parcela, enquanto a primeira veio limpa. Compare o total líquido do ano com a conta deste guia — se bater, está certo.</div></details>
+</div>
+
+<div class="card">
+  <h2>Leia também</h2>
+  <p><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão 2026 — quanto vou receber? →</a></p>
+  <p><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão, passo a passo →</a></p>
+  <p><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão: o que você recebe →</a></p>
+  <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
+</div>
+
+</div>
+
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
+  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+</footer>
+
+</body>
+</html>

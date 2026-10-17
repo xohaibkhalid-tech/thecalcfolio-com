@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/br/calculadora-rescisao.html">
+<link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/calculadora-rescisao.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Calculadora de Rescisão 2026 — Quanto Vou Receber?">
+<meta property="og:description" content="Calcule sua rescisão trabalhista: saldo de salário, aviso prévio, férias + 1/3, 13º e multa de 40% do FGTS. Estimativa grátis.">
+<meta property="og:url" content="https://thecalcfolio.com/br/calculadora-rescisao.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Calculadora de Rescisão 2026 — Quanto Vou Receber?</title>
+<meta name="description" content="Calcule sua rescisão trabalhista: saldo de salário, aviso prévio, férias + 1/3, 13º e multa de 40% do FGTS. Estimativa grátis.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:36px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radios input{margin-right:8px}
+  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
+  .stat.total .v{font-size:1.7rem}
+  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
+  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
+  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
+  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.stat{background:#0b1a29!important;border-color:#2a4258!important}
+.stat .k{color:#a9bccd!important}
+.stat .v{color:#fff!important}
+.stat.good .v{color:#4ade80!important}
+.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
+.stat.total .v{color:#4ade80!important}
+table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
+table.lines tr.grand td{color:#fff!important}
+.formula{color:#8fa1b3!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
+.faq details{background:#12293f!important;border-color:#2a4258!important}
+.faq summary{color:#fff!important}
+.faq details div{color:#a9bccd!important}
+.more{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+  <h1>Calculadora de Rescisão Trabalhista</h1>
+  <p>Foi demitido, fez acordo ou pediu demissão? Descubra quanto você tem a receber: saldo de salário, aviso prévio, férias + 1/3, 13º e a multa do FGTS — com desconto de INSS e IRRF pelas tabelas oficiais de 2026. Grátis e sem cadastro.</p>
+</header>
+
+<div class="card">
+  <h2>Em resumo</h2>
+  <ul>
+    <li>Informe salário, datas e o tipo de saída — a calculadora soma cada verba devida pela CLT e já desconta <strong>INSS e IRRF (tabelas 2026)</strong>.</li>
+    <li><strong>Sem justa causa</strong> paga mais: aviso indenizado, multa de 40% do FGTS e saque liberado. No <strong>acordo</strong>, a multa cai para 20% e o saque é de 80%.</li>
+    <li>É uma <strong>estimativa honesta</strong>: o TRCT emitido pela empresa prevalece, e a convenção coletiva da sua categoria pode alterar valores.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Seus dados</h2>
+
+  <label for="salario">Salário mensal bruto (R$)</label>
+  <div class="amount-wrap"><span>R$</span><input type="number" id="salario" min="0" step="0.01" value="3000" inputmode="decimal"></div>
+
+  <label for="outras">Outras verbas mensais — horas extras, comissões (opcional)</label>
+  <div class="amount-wrap"><span>R$</span><input type="number" id="outras" min="0" step="0.01" value="0" inputmode="decimal"></div>
+
+  <label for="fgtsreal">Saldo real do FGTS (opcional) — se souber, informe; senão estimamos 8% ao mês</label>
+  <div class="amount-wrap"><span>R$</span><input type="number" id="fgtsreal" min="0" step="0.01" placeholder="0" inputmode="decimal"></div>
+
+  <label for="admissao">Data de admissão</label>
+  <input type="date" id="admissao" value="2022-03-10">
+
+  <label for="demissao">Data de demissão (último dia trabalhado)</label>
+  <input type="date" id="demissao" value="2026-10-05">
+
+  <label>Tipo de demissão</label>
+  <div class="radios">
+    <label><input type="radio" name="tipo" value="sem" checked> Sem justa causa</label>
+    <label><input type="radio" name="tipo" value="acordo"> Acordo (Lei 13.467/2017)</label>
+    <label><input type="radio" name="tipo" value="pedido"> Pedido de demissão</label>
+    <label><input type="radio" name="tipo" value="justa"> Com justa causa</label>
+  </div>
+
+  <label for="vencidas">Períodos de férias vencidas e não gozadas</label>
+  <select id="vencidas">
+    <option value="0" selected>0 — tirei todas as férias</option>
+    <option value="1">1 período vencido</option>
+    <option value="2">2 períodos vencidos</option>
+  </select>
+
+  <button class="go" id="btn-calc">Calcular minha rescisão</button>
+  <div class="err" id="err"></div>
+
+  <div id="saida" style="display:none">
+    <div class="results">
+      <div class="stat total"><div class="k">Total líquido estimado</div><div class="v" id="r-total">R$ 0,00</div></div>
+    </div>
+    <table class="lines" id="tabela"></table>
+    <div id="fgts-box"></div>
+    <p class="formula" id="notas"></p>
+    <div class="disc"><strong>Estimativa, não valor final.</strong> Cálculo com desconto de INSS e IRRF pelas tabelas oficiais de 2026 (Portaria MPS/MF nº 13/2026; Leis 15.191/2025 e 15.270/2025), de forma simplificada — sem dependentes e sem desconto simplificado. Férias vencidas em dobro, adicionais não informados, faltas, empréstimos consignados e convenção coletiva não entram aqui. O TRCT da empresa prevalece. Em dúvida, fale com o sindicato ou um advogado trabalhista.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Como funciona</h2>
+  <ol>
+    <li><strong>Conte sua história:</strong> salário, datas de admissão e demissão, tipo de saída. Se quiser, some outras verbas mensais (horas extras, comissões) e informe o saldo real do FGTS.</li>
+    <li><strong>Somamos o que a lei manda</strong> para aquele tipo de desligamento — cada tipo tem um pacote diferente de verbas, e errar o tipo é o erro mais comum.</li>
+    <li><strong>Aplicamos os descontos:</strong> INSS progressivo (teto de R$ 8.475,55 em 2026) e IRRF pela tabela 2026. Novidade: em 2026, quem tem rendimentos tributáveis de até R$ 5.000/mês não paga IR na fonte.</li>
+    <li><strong>Você vê o líquido estimado</strong>, linha por linha — e o que acontece com seu FGTS em cada caso.</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h2>Cada verba, explicada</h2>
+  <p><strong>Saldo de salário</strong> — os dias trabalhados no mês da saída. É a base de quase tudo na conta.</p>
+  <p><strong>Aviso prévio</strong> — 30 dias + 3 por ano completo de empresa, até o teto de 90 dias (Lei 12.506/2011). Sem justa causa: integral. No acordo: metade. Costuma ser a maior verba da rescisão.</p>
+  <p><strong>Férias vencidas + 1/3</strong> — períodos aquisitivos completos que você não gozou. O adicional de 1/3 é direito constitucional.</p>
+  <p><strong>Férias proporcionais + 1/3</strong> — os meses do período aquisitivo em curso; fração igual ou maior que 15 dias conta como mês cheio.</p>
+  <p><strong>13º proporcional</strong> — os avos de janeiro até o mês da saída, na mesma regra dos 15 dias.</p>
+  <p><strong>FGTS + multa</strong> — 8% do salário depositados todo mês na sua conta. Multa de 40% na demissão sem justa causa e de 20% no acordo — sempre sobre o <strong>saldo total</strong> da conta, não só deste emprego. É a verba que mais gente subestima.</p>
+  <p><strong>Descontos (INSS e IRRF)</strong> — incidem sobre o saldo de salário e o 13º. Férias indenizadas e aviso prévio indenizado não sofrem esses descontos, por terem natureza indenizatória.</p>
+</div>
+
+<div class="card">
+  <h2>A fórmula, sem mistério</h2>
+  <p><strong>INSS 2026</strong> — progressivo, Portaria MPS/MF nº 13/2026:</p>
+  <table class="lines"><tbody>
+  <tr><td>Até R$ 1.621,00</td><td>7,5%</td></tr>
+  <tr><td>De R$ 1.621,01 a R$ 2.902,84</td><td>9%</td></tr>
+  <tr><td>De R$ 2.902,85 a R$ 4.354,27</td><td>12%</td></tr>
+  <tr><td>De R$ 4.354,28 a R$ 8.475,55</td><td>14%</td></tr>
+  </tbody></table>
+  <p class="formula">Cada faixa é tributada separadamente; acima do teto de R$ 8.475,55, o desconto máximo é R$ 988,09 por mês.</p>
+  <p><strong>IRRF 2026</strong> — tabela progressiva mensal (Leis 15.191/2025 e 15.270/2025):</p>
+  <table class="lines"><tbody>
+  <tr><td>Até R$ 2.428,80</td><td>Isento</td></tr>
+  <tr><td>De R$ 2.428,81 a R$ 2.826,65</td><td>7,5% (− R$ 182,16)</td></tr>
+  <tr><td>De R$ 2.826,66 a R$ 3.751,05</td><td>15% (− R$ 394,16)</td></tr>
+  <tr><td>De R$ 3.751,06 a R$ 4.664,68</td><td>22,5% (− R$ 675,49)</td></tr>
+  <tr><td>Acima de R$ 4.664,68</td><td>27,5% (− R$ 908,73)</td></tr>
+  </tbody></table>
+  <p class="formula">Novidade 2026: pela Lei 15.270/2025, quem tem rendimentos tributáveis de até R$ 5.000/mês fica isento do IRRF — a redução é aplicada depois da tabela.</p>
+  <p><strong>Ordem do cálculo:</strong> soma das verbas → INSS sobre (saldo de salário + 13º) → IRRF sobre a base já sem INSS → líquido = bruto − INSS − IRRF.</p>
+</div>
+
+<div class="card faq">
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Como calculo minha rescisão em 2026?</summary><div>Some o que a lei manda para o seu tipo de saída: saldo de salário, aviso prévio (quando indenizado), 13º e férias proporcionais com 1/3, multa do FGTS quando houver — e desconte INSS e IRRF pelas tabelas de 2026. A calculadora acima faz essa conta automaticamente.</div></details>
+  <details><summary>Quem pede demissão tem direito à multa de 40% do FGTS?</summary><div>Não. A multa de 40% é devida quando a empresa demite sem justa causa. No pedido de demissão, além de não haver multa, o saque do FGTS não é liberado — e o aviso prévio pode ser descontado se você não cumprir os 30 dias.</div></details>
+  <details><summary>Rescisão por acordo paga multa de FGTS?</summary><div>Sim: 20% sobre o saldo do FGTS (Lei 13.467/2017), e você pode sacar 80% do saldo. O aviso prévio indenizado, quando devido, é pago pela metade. É o meio-termo entre ser demitido e pedir demissão — mas não dá direito ao seguro-desemprego.</div></details>
+  <details><summary>O aviso prévio entra no cálculo?</summary><div>Quando indenizado pela empresa, sim: integral na demissão sem justa causa e pela metade no acordo. Se foi trabalhado, o valor já veio no salário do período. No pedido de demissão, quem deve o aviso é você — não a empresa.</div></details>
+  <details><summary>Férias proporcionais entram na rescisão?</summary><div>Sim, na maioria dos casos — demissão sem justa causa, acordo e pedido de demissão — sempre com o adicional de 1/3. Só na demissão por justa causa elas ficam de fora.</div></details>
+  <details><summary>O valor calculado aqui é exato?</summary><div>Não — é uma estimativa bem feita, não o valor final. Horas extras habituais, adicionais, faltas, empréstimos consignados e a convenção coletiva da sua categoria podem mudar o resultado. O TRCT emitido pela empresa é o documento que vale.</div></details>
+  <details><summary>Em quanto tempo a empresa tem que pagar a rescisão?</summary><div>Em 10 dias corridos a partir do fim do contrato (art. 477 da CLT). Se passar disso, a empresa deve pagar uma multa de um salário para você.</div></details>
+</div>
+
+<div class="card">
+  <h2>Outros cálculos</h2>
+  <p><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão, passo a passo →</a></p>
+  <p><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão: o que você recebe →</a></p>
+  <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
+</div>
+
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
+  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+</footer>
+
+<script>
+(function(){
+  function parseDate(v){ var p=v.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function brl(n){ return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
+  // meses cheios entre d1 e d2; fração >= 15 dias conta como mês (regra da CLT)
+  function monthDiff(d1,d2){
+    var m=(d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth());
+    var anchor=new Date(d1.getFullYear(),d1.getMonth()+m,d1.getDate());
+    var days=Math.round((d2-anchor)/86400000);
+    if(days>=15) m++;
+    return Math.max(0,m);
+  }
+  // INSS 2026 — progressivo, Portaria Interministerial MPS/MF nº 13/2026 (teto R$ 8.475,55)
+  function inss2026(base){
+    var faixas=[[1621.00,0.075],[2902.84,0.09],[4354.27,0.12],[8475.55,0.14]];
+    var prev=0, tot=0;
+    for(var i=0;i<faixas.length;i++){
+      var lim=Math.min(base,faixas[i][0]);
+      if(lim>prev){ tot+=(lim-prev)*faixas[i][1]; prev=faixas[i][0]; }
+    }
+    return tot;
+  }
+  // IRRF 2026 — tabela progressiva mensal + redução Lei 15.270/2025
+  function irrf2026(rendTrib, baseIR){
+    var ir=0;
+    if(baseIR<=2428.80) ir=0;
+    else if(baseIR<=2826.65) ir=baseIR*0.075-182.16;
+    else if(baseIR<=3751.05) ir=baseIR*0.15-394.16;
+    else if(baseIR<=4664.68) ir=baseIR*0.225-675.49;
+    else ir=baseIR*0.275-908.73;
+    if(ir<0) ir=0;
+    if(rendTrib<=5000) return 0;                       // isenção efetiva 2026
+    if(rendTrib<=7350){ var red=978.62-0.133145*rendTrib; ir-=red; if(ir<0) ir=0; }
+    return ir;
+  }
+  function showErr(msg){ var e=document.getElementById('err'); e.textContent=msg; e.style.display='block'; }
+  function hideErr(){ document.getElementById('err').style.display='none'; }
+
+  document.getElementById('btn-calc').addEventListener('click',function(){
+    hideErr();
+    var salario=parseFloat(document.getElementById('salario').value)||0;
+    var outras=parseFloat(document.getElementById('outras').value)||0;
+    var fgtsReal=parseFloat(document.getElementById('fgtsreal').value)||0;
+    var admV=document.getElementById('admissao').value;
+    var demV=document.getElementById('demissao').value;
+    var tipo=document.querySelector('input[name=tipo]:checked').value;
+    var vencidas=parseInt(document.getElementById('vencidas').value,10);
+    if(salario<=0){ showErr('Informe um salário válido maior que zero.'); return; }
+    if(outras<0||fgtsReal<0){ showErr('Valores opcionais não podem ser negativos.'); return; }
+    if(!admV||!demV){ showErr('Informe as datas de admissão e demissão.'); return; }
+    var dAdm=parseDate(admV), dDem=parseDate(demV);
+    if(dDem<dAdm){ showErr('A data de demissão não pode ser anterior à admissão.'); return; }
+
+    var base=salario+outras; // base de cálculo das verbas
+    var salarioDia=base/30, rows=[], total=0, notas=[];
+
+    // 1. Saldo de salário
+    var diasMes=dDem.getDate();
+    var saldo=salarioDia*diasMes;
+    rows.push(['Saldo de salário ('+diasMes+' dias)',saldo]); total+=saldo;
+
+    // 2. Aviso prévio: sem=integral, acordo=metade, pedido/justa=0
+    var anos=dDem.getFullYear()-dAdm.getFullYear();
+    var anniv=new Date(dAdm); anniv.setFullYear(dDem.getFullYear());
+    if(anniv>dDem) anos--;
+    var avisoDias=Math.min(90,30+3*Math.max(0,anos));
+    var aviso=0;
+    if(tipo==='sem'){
+      aviso=salarioDia*avisoDias;
+      rows.push(['Aviso prévio indenizado ('+avisoDias+' dias)',aviso]); total+=aviso;
+    } else if(tipo==='acordo'){
+      var metade=Math.floor(avisoDias/2);
+      aviso=salarioDia*metade;
+      rows.push(['Aviso prévio indenizado — metade no acordo ('+metade+' dias)',aviso]); total+=aviso;
+      notas.push('No acordo (Lei 13.467/2017), o aviso prévio indenizado é pago pela metade.');
+    } else if(tipo==='pedido'){
+      notas.push('No pedido de demissão, o aviso prévio é devido pelo empregado: se não cumprir os 30 dias, a empresa pode descontar o valor.');
+    }
+
+    // 3. Férias vencidas + 1/3 (todos os tipos)
+    if(vencidas>0){
+      var ferVenc=vencidas*base, tercoVenc=ferVenc/3;
+      rows.push(['Férias vencidas ('+vencidas+' período(s))',ferVenc]); total+=ferVenc;
+      rows.push(['1/3 sobre férias vencidas',tercoVenc]); total+=tercoVenc;
+    }
+
+    // 4. Férias proporcionais + 1/3 (exceto justa causa)
+    var lastAnn=new Date(dAdm); lastAnn.setFullYear(dDem.getFullYear());
+    if(lastAnn>dDem) lastAnn.setFullYear(dDem.getFullYear()-1);
+    var propM=Math.min(11,monthDiff(lastAnn,dDem));
+    if(tipo!=='justa'&&propM>0){
+      var ferProp=(base/12)*propM, tercoProp=ferProp/3;
+      rows.push(['Férias proporcionais ('+propM+'/12)',ferProp]); total+=ferProp;
+      rows.push(['1/3 sobre férias proporcionais',tercoProp]); total+=tercoProp;
+    } else if(tipo==='justa'){
+      notas.push('Na justa causa não há férias proporcionais.');
+    }
+
+    // 5. 13º proporcional (exceto justa causa)
+    var jan1=new Date(dDem.getFullYear(),0,1);
+    var m13=Math.min(12,monthDiff(jan1,dDem));
+    var decimo=0;
+    if(tipo!=='justa'&&m13>0){
+      decimo=(base/12)*m13;
+      rows.push(['13º salário proporcional ('+m13+'/12)',decimo]); total+=decimo;
+    } else if(tipo==='justa'){
+      notas.push('Na justa causa não há 13º proporcional.');
+    }
+
+    // 6. INSS + IRRF — sobre saldo + 13º (férias e aviso indenizados não sofrem desconto)
+    var baseTrib=saldo+decimo;
+    var inss=inss2026(baseTrib);
+    var baseIR=baseTrib-inss;
+    var irrf=irrf2026(baseTrib,baseIR);
+    if(inss>0){ rows.push(['Desconto INSS (tabela 2026)',-inss]); total-=inss; }
+    if(irrf>0){ rows.push(['Desconto IRRF (tabela 2026)',-irrf]); total-=irrf; }
+    else { notas.push('Sem IRRF a descontar: em 2026, rendimentos tributáveis de até R$ 5.000/mês ficam isentos (Lei 15.270/2025).'); }
+
+    // 7. FGTS + multa (40% sem justa causa, 20% no acordo)
+    var totalMeses=monthDiff(dAdm,dDem);
+    var fgtsBase=fgtsReal>0?fgtsReal:0.08*base*totalMeses;
+    var fgtsBox='';
+    if(tipo==='sem'){
+      var multa=fgtsBase*0.40;
+      fgtsBox='<div class="results"><div class="stat"><div class="k">FGTS '+(fgtsReal>0?'informado':'estimado (8% × '+totalMeses+' meses)')+'</div><div class="v">'+brl(fgtsBase)+'</div></div>'
+        +'<div class="stat good"><div class="k">Multa de 40% do FGTS</div><div class="v">'+brl(multa)+'</div></div></div>'
+        +'<p class="formula">Na demissão sem justa causa você pode <strong>sacar o FGTS</strong>. A multa de 40% incide sobre o saldo total da conta.</p>';
+    } else if(tipo==='acordo'){
+      var multa20=fgtsBase*0.20;
+      fgtsBox='<div class="results"><div class="stat"><div class="k">FGTS '+(fgtsReal>0?'informado':'estimado (8% × '+totalMeses+' meses)')+'</div><div class="v">'+brl(fgtsBase)+'</div></div>'
+        +'<div class="stat good"><div class="k">Multa de 20% do FGTS (acordo)</div><div class="v">'+brl(multa20)+'</div></div></div>'
+        +'<p class="formula">No acordo você saca <strong>80% do saldo</strong> do FGTS e recebe metade do aviso prévio. Sem seguro-desemprego.</p>';
+    } else if(tipo==='pedido'){
+      fgtsBox='<p class="formula">No pedido de demissão <strong>não há multa</strong> e o saque do FGTS não é liberado.</p>';
+    } else {
+      fgtsBox='<p class="formula">Na justa causa <strong>não há multa</strong> e o saque do FGTS não é liberado.</p>';
+    }
+
+    // render
+    var t='<tbody>';
+    rows.forEach(function(r){ t+='<tr><td>'+r[0]+'</td><td>'+brl(r[1])+'</td></tr>'; });
+    t+='<tr class="grand"><td><strong>Total líquido estimado</strong></td><td><strong>'+brl(total)+'</strong></td></tr></tbody>';
+    document.getElementById('tabela').innerHTML=t;
+    document.getElementById('r-total').textContent=brl(total);
+    document.getElementById('fgts-box').innerHTML=fgtsBox;
+    document.getElementById('notas').innerHTML=notas.length?notas.join('<br>'):'Cálculo pelas regras gerais da CLT (fração ≥ 15 dias conta como mês cheio). Descontos de INSS/IRRF de forma simplificada.';
+    document.getElementById('saida').style.display='block';
+    document.getElementById('saida').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>
+
+
+</body>
+</html>

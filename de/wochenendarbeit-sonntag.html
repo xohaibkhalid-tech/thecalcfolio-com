@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich">
+<meta property="og:description" content="Sonntagsarbeit nach §§ 9–11 ArbZG: 15 freie Sonntage, Ersatzruhetag, übliche Zuschläge und Ausgleich — mit Beispielen.">
+<meta property="og:url" content="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</title>
+<meta name="description" content="Sonntagsarbeit nach §§ 9–11 ArbZG: 15 freie Sonntage, Ersatzruhetag, übliche Zuschläge und Ausgleich — mit Beispielen.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</h1>
+<p>Wann du sonntags arbeiten musst (und wann nicht), welche Zuschläge üblich sind, was der Ersatzruhetag bedeutet — mit Beispielen zum Nachrechnen.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Grundsatz: Sonntags wird nicht gearbeitet</strong> (§ 9 ArbZG). Ausnahmen gibt es für Krankenhäuser, Polizei, Gastronomie, Einzelhandel und viele weitere Bereiche (§ 10 ArbZG).</li>
+<li><strong>Mindestens 15 Sonntage im Jahr</strong> müssen frei bleiben — auch für alle, die regelmäßig sonntags arbeiten (§ 11 ArbZG).</li>
+<li><strong>Ersatzruhetag:</strong> Wer sonntags arbeitet, bekommt dafür einen freien Werktag — innerhalb von zwei Wochen. Für Feiertagsarbeit gilt das Gleiche innerhalb von acht Wochen.</li>
+<li><strong>Zuschläge:</strong> Üblich sind 50 % Sonntagszuschlag — bis zu dieser Höhe <strong>steuerfrei</strong> (§ 3b EStG). Die genaue Höhe regelt dein Tarif- oder Arbeitsvertrag.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#grundsatz">Der Grundsatz: Sonntags gehört dir</a></li>
+<li><a href="#ausnahmen">Die Ausnahmen: Wer darf sonntags arbeiten?</a></li>
+<li><a href="#freie-sonntage">15 freie Sonntage: Dein Mindestanspruch</a></li>
+<li><a href="#ersatzruhetag">Der Ersatzruhetag: So funktioniert der Ausgleich</a></li>
+<li><a href="#zuschlaege">Zuschläge: Was üblich ist und was steuerfrei bleibt</a></li>
+<li><a href="#beispiele">Zwei Beispiele mit echten Zahlen</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="grundsatz">
+<h2>Der Grundsatz: Sonntags gehört dir</h2>
+<p>Der Sonntag ist in Deutschland besonders geschützt — nicht nur kulturell, sondern verfassungsrechtlich: Artikel 140 des Grundgesetzes in Verbindung mit der Weimarer Verfassung erklärt den Sonntag zum Tag der Arbeitsruhe. Das Arbeitszeitgesetz setzt das um, und zwar unmissverständlich:</p>
+<p><strong>„Arbeitnehmer dürfen an Sonn- und gesetzlichen Feiertagen von 0 bis 24 Uhr nicht beschäftigt werden"</strong> (§ 9 Abs. 1 ArbZG).</p>
+<p>Das ist die Regel. Punkt. Kein „eigentlich", kein „im Prinzip". Wer dich sonntags zur Arbeit einteilt, braucht dafür eine <strong>gesetzliche Ausnahme</strong> — und die muss er benennen können. „Wir haben viel zu tun" ist keine.</p>
+<p>Wichtig zu verstehen: Das Verbot gilt für die Zeit von <strong>0:00 bis 24:00 Uhr</strong>. Für Betriebe mit Tag- und Nachtschicht kann der Beginn der Sonntagsruhe um bis zu 6 Stunden vor- oder zurückverlegt werden — dann beginnt der „Sonntag" zum Beispiel schon samstags um 18:00 Uhr und endet sonntags um 18:00 Uhr. Das muss aber betrieblich geregelt sein, nicht nach Lust und Laune.</p>
+<p>Und noch ein Detail, das viele überrascht: Das Verbot gilt <strong>nur für Arbeitnehmer</strong>. Selbstständige, Freiberufler und mithelfende Familienangehörige fallen nicht darunter — wer selbstständig ist, darf sonntags arbeiten, so viel er will (ob das klug ist, steht auf einem anderen Blatt).</p>
+</div>
+
+<div class="card" id="ausnahmen">
+<h2>Die Ausnahmen: Wer darf sonntags arbeiten?</h2>
+<p>§ 10 ArbZG enthält einen langen Katalog von Ausnahmen — 16 Nummern, vom Notfall bis zur Schaustellerei. Die wichtigsten in der Praxis:</p>
+<p><strong>Gesundheit und Sicherheit:</strong> Krankenhäuser, Pflegeheime, Rettungsdienste, Polizei, Feuerwehr, Katastrophenschutz. Hier ist Sonntagsarbeit selbstverständlich — niemand will, dass die Notaufnahme sonntags geschlossen ist.</p>
+<p><strong>Gastronomie und Hotellerie:</strong> Schank- und Speisewirtschaften, Hotels, Pensionen. Der Sonntag ist hier oft der umsatzstärkste Tag — das Gesetz trägt dem Rechnung.</p>
+<p><strong>Verkehr und Medien:</strong> Verkehrsbetriebe, Rundfunk, Zeitungen, Nachrichtenagenturen. Die Bahn fährt auch sonntags, und jemand muss die Nachrichten schreiben.</p>
+<p><strong>Energie und Versorgung:</strong> Energieversorgung, Wasserversorgung, Abfallentsorgung. Das Licht geht sonntags nicht aus.</p>
+<p><strong>Landwirtschaft und Saison:</strong> Erntearbeiten, die nicht aufgeschoben werden können, und bestimmte Saisonbetriebe.</p>
+<p><strong>Einzelhandel:</strong> An verkaufsoffenen Sonntagen — die aber von den Bundesländern streng begrenzt sind (meist 4 pro Jahr, oft weniger, und nie an stillen Feiertagen).</p>
+<p>Die Liste ist <strong>abschließend</strong>: Was nicht in § 10 steht, ist nicht erlaubt. Dein Bürojob, deine Agentur, dein Callcenter? Stehen nicht drin — also bleibt der Sonntag frei. Wenn dein Arbeitgeber trotzdem Sonntagsarbeit anordnet, frag nach der Rechtsgrundlage. „Das machen wir hier schon immer so" ist keine.</p>
+<p>Zusätzlich können die <strong>Aufsichtsbehörden</strong> in Einzelfällen Ausnahmen bewilligen — zum Beispiel bei unaufschiebbaren Arbeiten oder zur Verhütung eines unverhältnismäßigen Schadens. Das ist aber die Ausnahme von der Ausnahme und braucht einen förmlichen Antrag.</p>
+</div>
+
+<div class="card" id="freie-sonntage">
+<h2>15 freie Sonntage: Dein Mindestanspruch</h2>
+<p>Selbst wenn du zu den Berufen gehörst, die sonntags arbeiten dürfen — ganz ohne freie Sonntage geht es nicht. § 11 Abs. 1 ArbZG schreibt vor:</p>
+<p><strong>Mindestens 15 Sonntage im Jahr müssen beschäftigungsfrei bleiben.</strong></p>
+<p>Das gilt für jeden Arbeitnehmer, der regelmäßig sonntags arbeitet — egal ob Krankenschwester, Koch oder Polizist. 15 von 52 Sonntagen sind also garantiert frei. Wie die freien Sonntage über das Jahr verteilt werden, regelt der Dienstplan — viele Betriebe verteilen sie gleichmäßig, manche legen sie in Blöcke.</p>
+<p><strong>Praxis-Tipp:</strong> Zähl mit. Gerade in Betrieben mit knappem Personalstand „vergisst" die Planung gern mal den einen oder anderen freien Sonntag. Wer seine Dienstpläne aufhebt und am Jahresende nachzählt, hat im Streitfall etwas in der Hand. 14 freie Sonntage sind ein Verstoß — auch wenn es sich nach wenig anhört.</p>
+<p>Übrigens: Die 15 freien Sonntage sind ein <strong>Mindeststandard</strong>. Viele Tarifverträge sehen mehr vor — im öffentlichen Dienst und in der Pflege sind 20 oder mehr freie Sonntage keine Seltenheit. Auch hier gilt: Schau in deinen Tarifvertrag, das Gesetz ist nur die Untergrenze.</p>
+</div>
+
+<div class="card" id="ersatzruhetag">
+<h2>Der Ersatzruhetag: So funktioniert der Ausgleich</h2>
+<p>Wer sonntags arbeitet, bekommt dafür einen <strong>Ersatzruhetag</strong> — einen freien Werktag als Ausgleich (§ 11 Abs. 3 ArbZG). Das ist kein Bonus und keine Gefälligkeit, sondern ein Rechtsanspruch. Die Fristen sind klar geregelt:</p>
+<p><strong>Sonntagsarbeit → Ersatzruhetag innerhalb von 2 Wochen.</strong><br>
+<strong>Feiertagsarbeit → Ersatzruhetag innerhalb von 8 Wochen.</strong></p>
+<p>Der Ersatzruhetag muss ein <strong>voller freier Tag</strong> sein — also 24 Stunden von 0 bis 24 Uhr, beziehungsweise bei Schichtbetrieben entsprechend verlegt. Ein halber Tag oder ein paar freie Stunden genügen nicht.</p>
+<p><strong>Beispiel:</strong> Du arbeitest am Sonntag, den 12. Oktober, eine volle Schicht im Krankenhaus. Dein Ersatzruhetag muss dir bis spätestens Sonntag, den 26. Oktober, gewährt werden — also innerhalb der nächsten zwei Wochen. Üblich ist, dass der Dienstplan den Ersatzruhetag direkt in der Folgewoche vorsieht, zum Beispiel am darauffolgenden Mittwoch.</p>
+<p><strong>Wichtig:</strong> Der Ersatzruhetag ist <strong>zusätzlich</strong> zu deinen normalen freien Tagen. Wer ohnehin nur 5 Tage pro Woche arbeitet und sonntags einspringt, bekommt den Ersatzruhetag obendrauf — nicht stattdessen. Und er ist <strong>bezahlt</strong>: Dein Gehalt läuft weiter, als hättest du normal gearbeitet.</p>
+<p>Was viele nicht wissen: Auch für <strong>Feiertagsarbeit</strong> gilt der Ausgleichsanspruch — hier mit 8 Wochen Frist. Wer an Weihnachten arbeitet, muss bis Ende Februar seinen Ersatzruhetag bekommen haben. Lass dir das schriftlich geben, wenn der Dienstplan es nicht automatisch vorsieht.</p>
+</div>
+
+<div class="card" id="zuschlaege">
+<h2>Zuschläge: Was üblich ist und was steuerfrei bleibt</h2>
+<p>Jetzt zum Geld. Auch hier gilt: Einen <strong>gesetzlichen Anspruch auf einen Sonntagszuschlag in bestimmter Höhe gibt es nicht</strong>. Das Gesetz regelt nur, dass du sonntags grundsätzlich nicht arbeiten musst und dass du einen Ersatzruhetag bekommst. Wie viel extra es für die Sonntagsarbeit gibt, steht in deinem Tarif- oder Arbeitsvertrag.</p>
+<p>In der Praxis sind <strong>50 % Sonntagszuschlag</strong> der übliche Satz — viele Tarifverträge liegen genau dort, manche höher (bis 100 % und mehr in bestimmten Branchen), manche niedriger. Ohne tarifliche Regelung ist der Zuschlag Verhandlungssache — aber 50 % sind der Maßstab, an dem sich die Praxis orientiert.</p>
+<p>Und jetzt das Gute aus steuerlicher Sicht: <strong>Sonntagszuschläge sind bis zu 50 % des Grundlohns steuerfrei</strong> (§ 3b EStG). Genau wie bei Nachtzuschlägen (25 %) und Feiertagszuschlägen (125 %) hat der Gesetzgeber Freigrenzen geschaffen. Bedingung wie immer: Dein Grundlohn liegt bei höchstens 50 € pro Stunde. Alles darüber hinaus wird normal versteuert.</p>
+<p><strong>Rechenbeispiel:</strong> Du verdienst 22 € pro Stunde und arbeitest sonntags 8 Stunden mit 50 % Zuschlag.<br>
+Zuschlag: 22 € × 50 % = 11 € pro Stunde. 11 € × 8 Stunden = <strong>88 € — steuerfrei obendrauf</strong>.<br>
+Dein Brutto für den Sonntag: 176 € Lohn + 88 € Zuschlag = 264 €, wovon nur die 176 € versteuert werden.</p>
+<p><strong>Achtung bei Kombinationen:</strong> Arbeitest du sonntags <em>nachts</em> (zum Beispiel Nachtschicht von Samstag auf Sonntag), können Sonntags- und Nachtzuschlag zusammenkommen — je nach Tarifvertrag addiert oder als höherer Einzelzuschlag. Steuerfrei bleiben dabei Nachtanteile bis 25 % und Sonntagsanteile bis 50 %. Auch hier lohnt sich der Blick in den Tarifvertrag: Manche sehen vor, dass nur der höhere Zuschlag gezahlt wird.</p>
+</div>
+
+<div class="card" id="beispiele">
+<h2>Zwei Beispiele mit echten Zahlen</h2>
+<p><strong>Beispiel 1: Die Krankenschwester.</strong><br>
+Maria arbeitet im Krankenhaus, 38,5 Stunden pro Woche, 24 € Stundenlohn. Im Oktober arbeitet sie an zwei Sonntagen, jeweils 8 Stunden. Ihr Tarifvertrag sieht 50 % Sonntagszuschlag vor.<br>
+Zuschlag pro Sonntag: 8 × 24 € × 50 % = <strong>96 € steuerfrei</strong>.<br>
+Für zwei Sonntage: 192 € steuerfrei obendrauf.<br>
+Ersatzruhetage: Für jeden Sonntag einen freien Werktag innerhalb von zwei Wochen — Maria bekommt also zwei zusätzliche freie Tage, bezahlt.<br>
+Freie Sonntage im Jahr: Ihr Dienstplan sieht 20 freie Sonntage vor — mehr als die gesetzlichen 15. Alles korrekt.</p>
+<p><strong>Beispiel 2: Der Koch ohne Tarifvertrag.</strong><br>
+Jonas arbeitet in einem Restaurant ohne Tarifbindung, 20 € Stundenlohn. Sein Arbeitsvertrag erwähnt Sonntagszuschläge mit keinem Wort — er bekommt nur seinen normalen Lohn.<br>
+Ist das rechtens? <strong>Grundsätzlich ja</strong> — ohne tarifliche oder vertragliche Regelung gibt es keinen automatischen Anspruch auf einen Zuschlag. Was Jonas aber auf jeden Fall zusteht: der <strong>Ersatzruhetag</strong> innerhalb von zwei Wochen und die <strong>15 freien Sonntage</strong> im Jahr. Das sind gesetzliche Ansprüche, die kein Vertrag wegnehmen kann.<br>
+Jonas' Optionen: Mit dem Chef über einen Zuschlag verhandeln (50 % als branchenüblichen Maßstab nennen), den Betriebsrat einschalten falls vorhanden, oder bei der nächsten Gehaltsverhandlung das Thema auf den Tisch bringen. Viele Arbeitgeber zahlen freiwillig einen Zuschlag, wenn man fragt — sie müssen nur daran erinnert werden, dass Sonntagsarbeit etwas Besonderes ist.</p>
+<p>Der Unterschied zwischen den Beispielen zeigt: <strong>Der Tarifvertrag macht den Unterschied ums Geld, das Gesetz sichert das Minimum für alle.</strong> Ersatzruhetag und freie Sonntage gelten immer — der Zuschlag hängt vom Vertrag ab.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Muss ich sonntags arbeiten, wenn mein Chef es anordnet?</summary>
+<p>Nur wenn eine gesetzliche Ausnahme nach § 10 ArbZG für deinen Beruf gilt (zum Beispiel Krankenhaus, Gastronomie, Polizei). Für normale Bürojobs gibt es keine Ausnahme — die Anordnung wäre rechtswidrig. Frag nach der konkreten Rechtsgrundlage, wenn du Zweifel hast.</p>
+</details>
+<details class="faq">
+<summary>Wie viele Sonntage im Jahr muss ich mindestens frei haben?</summary>
+<p>Mindestens 15 Sonntage im Jahr müssen beschäftigungsfrei bleiben (§ 11 Abs. 1 ArbZG) — auch wenn du regelmäßig sonntags arbeitest. Viele Tarifverträge sehen mehr vor. Zähl am Jahresende nach: 14 freie Sonntage sind bereits ein Verstoß.</p>
+</details>
+<details class="faq">
+<summary>Wann muss ich meinen Ersatzruhetag bekommen?</summary>
+<p>Für Sonntagsarbeit innerhalb von zwei Wochen, für Feiertagsarbeit innerhalb von acht Wochen (§ 11 Abs. 3 ArbZG). Der Ersatzruhetag ist ein voller bezahlter freier Tag — zusätzlich zu deinen normalen freien Tagen, nicht stattdessen.</p>
+</details>
+<details class="faq">
+<summary>Ist der Sonntagszuschlag steuerfrei?</summary>
+<p>Bis zu 50 % des Grundlohns: ja (§ 3b EStG, bei Grundlohn bis 50 €/Stunde). Was darüber hinausgeht, wird normal versteuert. Die Höhe des Zuschlags selbst regelt dein Tarif- oder Arbeitsvertrag — üblich sind 50 %, manche Branchen zahlen mehr.</p>
+</details>
+<details class="faq">
+<summary>Was gilt an Feiertagen?</summary>
+<p>Das Gleiche wie sonntags: Grundsätzlich Arbeitsverbot (§ 9 ArbZG), gleiche Ausnahmen (§ 10), Ersatzruhetag innerhalb von acht Wochen. Feiertagszuschläge sind bis 125 % steuerfrei. An stillen Feiertagen (zum Beispiel Karfreitag) gelten in manchen Bundesländern zusätzliche Beschränkungen, etwa für verkaufsoffene Sonntage.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Wochenendarbeit:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Wochenstunden berechnen — auch für Schicht- und Wochenenddienste</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln<span>§§ 9–11: Sonn- und Feiertagsarbeit im Überblick</span></a>
+<a href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">Nachtschicht: Regeln<span>Wenn die Wochenendschicht in die Nacht fällt — Zuschläge kombiniert</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG) §§ 9, 10, 11 (Sonn- und Feiertagsruhe); § 3b EStG (Steuerfreiheit von Sonntagszuschlägen bis 50 %); Grundgesetz Art. 140 i.V.m. Art. 139 WRV (Sonntagsschutz). Keine Rechts- oder Steuerberatung — bei Zweifeln frag deinen Betriebsrat, einen Anwalt für Arbeitsrecht oder einen Steuerberater.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

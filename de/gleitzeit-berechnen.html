@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/gleitzeit-berechnen.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/gleitzeit-berechnen.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Gleitzeit berechnen: Kernzeit, Gleitrahmen &amp; Saldo">
+<meta property="og:description" content="Gleitzeit berechnen: Kernarbeitszeit und Gleitspanne verstehen, Plus- und Minusstunden im Saldo verwalten — mit Beispielen und Regeln.">
+<meta property="og:url" content="https://thecalcfolio.com/de/gleitzeit-berechnen.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Gleitzeit berechnen: Kernzeit, Gleitrahmen &amp; Saldo</title>
+<meta name="description" content="Gleitzeit berechnen: Kernarbeitszeit und Gleitspanne verstehen, Plus- und Minusstunden im Saldo verwalten — mit Beispielen und Regeln.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Gleitzeit berechnen: Kernzeit, Gleitrahmen &amp; Saldo</h1>
+<p>Wie Gleitzeit wirklich funktioniert: Kernarbeitszeit und Gleitspanne verstehen, Plus- und Minusstunden im Saldo verwalten — mit Beispielen zum Nachrechnen.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Gleitzeit</strong> heißt: Du bestimmst Beginn und Ende deines Arbeitstages selbst — innerhalb eines festen Rahmens. Nur die <strong>Kernarbeitszeit</strong> (zum Beispiel 9 bis 15 Uhr) ist für alle Pflicht.</li>
+<li><strong>Der Gleitrahmen</strong> (zum Beispiel 6 bis 20 Uhr) begrenzt, wie früh du kommen und wie spät du gehen darfst. Außerhalb des Rahmens zählt die Zeit nicht.</li>
+<li><strong>Dein Saldo</strong> ist die Differenz zwischen gearbeiteten Stunden und Sollstunden: Plusstunden baust du durch früheres Gehen ab, Minusstunden durch längeres Bleiben.</li>
+<li><strong>Auch in Gleitzeit</strong> gelten Pausenregelung, Höchstarbeitszeit und Ruhezeiten des Arbeitszeitgesetzes — Flexibilität hebt das Gesetz nicht auf.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#was-ist">Was ist Gleitzeit überhaupt?</a></li>
+<li><a href="#kernzeit">Kernzeit und Gleitrahmen: Die zwei Zonen</a></li>
+<li><a href="#saldo">Den Saldo berechnen: Plus und Minus im Blick</a></li>
+<li><a href="#beispiel">Beispiel: Eine Woche Gleitzeit durchgerechnet</a></li>
+<li><a href="#regeln">Regeln für Plus- und Minusstunden</a></li>
+<li><a href="#gleittage">Gleittage: Der ganze freie Tag aus dem Saldo</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="was-ist">
+<h2>Was ist Gleitzeit überhaupt?</h2>
+<p>Gleitzeit ist die Antwort der Arbeitswelt auf eine simple Erkenntnis: Nicht jeder Mensch tickt gleich. Der eine ist um 6 Uhr morgens hellwach und um 15 Uhr durch, die andere braucht morgens zwei Kaffee und läuft ab 10 Uhr zur Hochform auf. Gleitzeit lässt beiden ihren Rhythmus — innerhalb klarer Grenzen.</p>
+<p>Konkret heißt das: Statt „Arbeitsbeginn 8:00 Uhr für alle" gibt es einen <strong>Zeitrahmen</strong>, in dem du kommen und gehen darfst, wie es dir passt. Dein Arbeitstag muss nur zwei Bedingungen erfüllen: Du bist während der <strong>Kernzeit</strong> anwesend, und am Monatsende stimmt deine <strong>Sollstundenzahl</strong>. Wie du die Stunden dazwischen verteilst, ist deine Sache.</p>
+<p>Gleitzeit ist übrigens kein gesetzlicher Anspruch — sie entsteht durch <strong>Arbeitsvertrag, Tarifvertrag oder Betriebsvereinbarung</strong>. Der Arbeitgeber kann sie einführen, muss es aber nicht. Und er kann sie auch wieder einschränken, wenn betriebliche Gründe es erfordern — allerdings nicht willkürlich von heute auf morgen.</p>
+<p>Verwechsle Gleitzeit nicht mit Vertrauensarbeitszeit: Bei der Vertrauensarbeitszeit wird gar nicht erfasst, <em>wann</em> du arbeitest — nur <em>dass</em> die Arbeit erledigt wird. Bei der Gleitzeit wird deine Anwesenheit weiterhin erfasst (meist elektronisch), nur die Lage der Arbeitszeit ist flexibel. Für die Berechnung deines Saldos ist diese Erfassung Gold wert.</p>
+</div>
+
+<div class="card" id="kernzeit">
+<h2>Kernzeit und Gleitrahmen: Die zwei Zonen</h2>
+<p>Das Gleitzeitmodell besteht aus zwei Zonen — verstehst du die, verstehst du das ganze System.</p>
+<p><strong>Die Kernarbeitszeit</strong> ist die Zeit, in der <strong>alle anwesend sein müssen</strong>. Typisch: 9:00 bis 15:00 Uhr, in manchen Betrieben 9:30 bis 14:30 Uhr. Der Sinn: Besprechungen, Kundentermine und Teamarbeit brauchen Überschneidung. Während der Kernzeit gibt es keine Flexibilität — wer um 9:15 Uhr kommt, kommt zu spät. Punkt.</p>
+<p><strong>Der Gleitrahmen</strong> (auch Gleitzeitrahmen) ist der äußere Rahmen: zum Beispiel 6:00 bis 20:00 Uhr. Innerhalb dieses Rahmens darfst du deine Arbeitszeit frei verteilen — du kannst um 6:30 Uhr anfangen und um 15:00 Uhr gehen, oder um 9:00 Uhr kommen und bis 18:00 Uhr bleiben. Außerhalb des Rahmens geleistete Zeit zählt in der Regel <strong>nicht</strong> als Arbeitszeit — wer um 5:30 Uhr anfängt, verschenkt die halbe Stunde.</p>
+<p><strong>Ein typisches Modell im Überblick:</strong><br>
+Gleitrahmen: 6:00 – 20:00 Uhr<br>
+Kernzeit: 9:00 – 15:00 Uhr<br>
+Mittagspause: 30 Minuten (meist flexibel zwischen 11:30 und 14:00 Uhr)<br>
+Soll: 8 Stunden pro Tag / 40 Stunden pro Woche</p>
+<p>Die Kunst der Gleitzeit liegt darin, Kernzeit und Rahmen clever zu kombinieren: Früh kommen und früh gehen (der Klassiker für alle mit Kindern oder langem Arbeitsweg), oder später kommen und dafür abends in Ruhe arbeiten (für alle, die morgens nicht in die Gänge kommen). Beides ist legitim — solange die Kernzeit steht und der Saldo stimmt.</p>
+</div>
+
+<div class="card" id="saldo">
+<h2>Den Saldo berechnen: Plus und Minus im Blick</h2>
+<p>Das Herzstück der Gleitzeit ist der <strong>Saldo</strong> — die laufende Differenz zwischen deinen tatsächlich gearbeiteten Stunden und deinen Sollstunden. Die Formel ist simpel:</p>
+<p><strong>Saldo = gearbeitete Stunden − Sollstunden</strong></p>
+<p>Positives Ergebnis: <strong>Plusstunden</strong> (Guthaben). Negatives Ergebnis: <strong>Minusstunden</strong> (Schulden beim Arbeitgeber — in Zeit, nicht in Geld).</p>
+<p>So rechnest du einen Tag aus: Du kommst um 7:30 Uhr, gehst um 16:30 Uhr, machst 45 Minuten Pause.<br>
+Brutto: 16:30 − 7:30 = 9:00 Stunden. Minus Pause 0:45 = <strong>8:15 Stunden netto</strong>.<br>
+Soll: 8:00 Stunden. Saldo des Tages: 8:15 − 8:00 = <strong>+0:15 Stunden</strong>. Eine Viertelstunde Guthaben — unspektakulär, aber genau so baut sich ein Saldo auf: Tag für Tag, Viertelstunde für Viertelstunde.</p>
+<p>Und ein Minustag: Du kommst um 9:00 Uhr (Kernzeitbeginn, gerade noch pünktlich), gehst um 15:30 Uhr, 30 Minuten Pause.<br>
+Brutto: 6:30 Stunden, minus 0:30 Pause = <strong>6:00 Stunden netto</strong>.<br>
+Saldo: 6:00 − 8:00 = <strong>−2:00 Stunden</strong>. Zwei Stunden Minus — die holst du an anderen Tagen wieder auf.</p>
+<p><strong>Wichtig:</strong> Bei der Berechnung zählen nur Zeiten <strong>innerhalb des Gleitrahmens</strong>. Kommst du um 5:45 Uhr (Rahmen ab 6:00 Uhr), zählen die 15 Minuten davor nicht. Und die Pause wird immer abgezogen — auch wenn du „durchgearbeitet" hast. Pausen sind keine Arbeitszeit, in Gleitzeit genauso wenig wie sonstwo.</p>
+<p>Unser <a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a> rechnet dir Tages- und Wochensalden übrigens automatisch aus — ideal, um den Überblick zu behalten, ohne jeden Abend selbst zu rechnen.</p>
+</div>
+
+<div class="card" id="beispiel">
+<h2>Beispiel: Eine Woche Gleitzeit durchgerechnet</h2>
+<p>Schauen wir uns eine komplette Woche an. Thomas hat 40 Sollstunden pro Woche, Kernzeit 9:00–15:00 Uhr, Rahmen 6:00–20:00 Uhr. Start-Saldo am Montagmorgen: 0:00.</p>
+<p><strong>Montag:</strong> 7:00–16:00 Uhr, 45 Min Pause → 8:15 netto. Saldo: <strong>+0:15</strong></p>
+<p><strong>Dienstag:</strong> 8:30–17:30 Uhr, 30 Min Pause → 8:30 netto. Saldo: +0:15 + 0:30 = <strong>+0:45</strong></p>
+<p><strong>Mittwoch:</strong> 9:00–15:00 Uhr, 30 Min Pause → 5:30 netto (Arzttermin am Nachmittag, mit Chef abgesprochen). Saldo: +0:45 − 2:30 = <strong>−1:45</strong></p>
+<p><strong>Donnerstag:</strong> 7:00–17:00 Uhr, 45 Min Pause → 9:15 netto. Saldo: −1:45 + 1:15 = <strong>−0:30</strong></p>
+<p><strong>Freitag:</strong> 7:30–14:00 Uhr, 30 Min Pause → 6:00 netto (früher Feierabend in den Sommer). Saldo: −0:30 − 2:00 = <strong>−2:30</strong></p>
+<p><strong>Wochenbilanz: −2:30 Stunden.</strong> Thomas schuldet seinem Arbeitgeber zweieinhalb Stunden — kein Drama, das holt er nächste Woche durch zwei etwas längere Tage wieder auf. Genau dafür ist die Gleitzeit da: Das Leben (Arzttermin, früher Freitag) wird nicht bestraft, sondern verrechnet.</p>
+<p>Was das Beispiel auch zeigt: <strong>Gleitzeit verzeiht, aber sie vergisst nicht.</strong> Jede Abweichung landet im Saldo. Wer das im Blick behält — zum Beispiel mit einem simplen Stundentagebuch —, bleibt entspannt. Wer monatelang nicht hinschaut, erlebt irgendwann eine böse Überraschung in Form von 40 Minusstunden.</p>
+</div>
+
+<div class="card" id="regeln">
+<h2>Regeln für Plus- und Minusstunden</h2>
+<p>Plus- und Minusstunden sind nicht grenzenlos — fast jede Gleitzeitvereinbarung setzt <strong>Ober- und Untergrenzen</strong>. Typische Werte aus der Praxis:</p>
+<p><strong>Plusstunden:</strong> Oft begrenzt auf +20 bis +40 Stunden. Was darüber hinausgeht, muss abgebaut werden — sonst verfällt es oder wird gekappt. Manche Vereinbarungen sehen vor, dass überschüssige Plusstunden automatisch in <a href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">Freizeitausgleich oder Auszahlung</a> umgewandelt werden.</p>
+<p><strong>Minusstunden:</strong> Meist begrenzt auf −10 bis −20 Stunden. Wer tiefer ins Minus rutscht, muss das Defizit nacharbeiten — notfalls auch gegen seinen Willen in Form angeordneter Mehrarbeit. Dauerhaftes, hohes Minus kann sogar arbeitsrechtliche Konsequenzen haben.</p>
+<p><strong>Der Ausgleichszeitraum:</strong> Üblicherweise muss der Saldo innerhalb eines Monats oder Quartals wieder auf null (oder in einen engen Korridor) gebracht werden. Was am Stichtag übrig ist, wird je nach Vereinbarung übertragen, ausbezahlt oder — im schlimmsten Fall — gestrichen.</p>
+<p><strong>Und die wichtigste Regel überhaupt:</strong> Die Gleitzeit hebt das Arbeitszeitgesetz <strong>nicht</strong> auf. Maximal 10 Stunden pro Tag, mindestens 11 Stunden Ruhezeit zwischen zwei Arbeitstagen, Pausen ab 6 Stunden — das alles gilt auch für Gleitzeitler. Wer „gleitend" jeden Tag 11 Stunden arbeitet, verstößt gegen das Gesetz, egal wie flexibel der Rahmen ist. Flexibilität ist kein Freibrief.</p>
+<p><strong>Noch ein Punkt, den viele übersehen:</strong> Dein Arbeitgeber ist verpflichtet, deine Arbeitszeit <strong>zu erfassen</strong> — das hat der Europäische Gerichtshof 2019 klargestellt (EuGH, C-55/18): Ohne verlässliche Zeiterfassung lässt sich weder dein Gleitzeitsaldo noch die Einhaltung der Höchstarbeitszeiten überprüfen. In der Praxis heißt das: Die elektronische Zeiterfassung (Chip, App oder Terminal) ist nicht Schikane, sondern die Grundlage deines Saldos. Prüfe regelmäßig, ob deine erfassten Zeiten mit deinen tatsächlichen Arbeitszeiten übereinstimmen — Fehler bei der Erfassung (vergessenes Ausstempeln, falsche Pausenbuchung) verfälschen deinen Saldo genauso wie falsche Rechenwege. Wer Unstimmigkeiten bemerkt, sollte sie sofort beim Vorgesetzten oder der Personalabteilung melden, bevor sich über Wochen ein falscher Saldo aufbaut, den später niemand mehr nachvollziehen kann.</p>
+</div>
+
+<div class="card" id="gleittage">
+<h2>Gleittage: Der ganze freie Tag aus dem Saldo</h2>
+<p>Das Sahnehäubchen der Gleitzeit: der <strong>Gleittag</strong>. Wer genug Plusstunden angesammelt hat, kann sich einen ganzen Tag freinehmen — bezahlt, ohne Urlaub zu verbrauchen. In vielen Betrieben sind ein bis zwei Gleittage pro Monat üblich, manche erlauben sogar mehr.</p>
+<p>So funktioniert's: Du hast zum Beispiel +16 Stunden auf dem Konto. Du meldest einen Gleittag an (meist mit etwas Vorlauf, und der Betrieb muss zustimmen), bleibst zu Hause — und 8 Stunden werden von deinem Saldo abgebucht. Übrig: +8 Stunden. Ein freier Tag, der dich keinen Urlaubstag gekostet hat.</p>
+<p><strong>Der Unterschied zum Urlaub:</strong> Urlaub ist dein gesetzlicher Anspruch (mindestens 24 Werktage) — den kann dir niemand nehmen. Gleittage sind ein Bonus aus deinem eigenen Guthaben — sie entstehen nur, wenn du vorher mehr gearbeitet hast. Und: Gleittage brauchen die <strong>Zustimmung des Arbeitgebers</strong>. In der Hochphase wird er Nein sagen — genau wie beim Urlaub auch.</p>
+<p><strong>Praxis-Tipp:</strong> Bau dir gezielt ein kleines Polster für Gleittage auf — zum Beispiel jeden Monat 4 Plusstunden. Nach vier Monaten hast du 16 Stunden, also zwei Gleittage, in der Hinterhand. Perfekt für den Brückentag nach Christi Himmelfahrt oder den Montag nach einem langen Wochenende. Gleitzeit ist am schönsten, wenn man sie strategisch nutzt.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Zählt Zeit außerhalb des Gleitrahmens als Arbeitszeit?</summary>
+<p>In der Regel nein. Wer vor Rahmenbeginn oder nach Rahmenende arbeitet, bekommt diese Zeit normalerweise nicht gutgeschrieben — es sei denn, der Vorgesetzte hat die Mehrarbeit ausdrücklich angeordnet. Dann sind es Überstunden mit den normalen Regeln. Komm also nicht „aus Gewohnheit" eine halbe Stunde zu früh, wenn der Rahmen erst um 6:00 Uhr beginnt.</p>
+</details>
+<details class="faq">
+<summary>Muss ich in der Kernzeit wirklich immer da sein?</summary>
+<p>Ja. Die Kernzeit ist der nicht verhandelbare Teil der Gleitzeit — wer um 9:15 Uhr kommt bei Kernzeit ab 9:00 Uhr, kommt zu spät. Ausnahmen gibt es nur mit Absprache (Arzttermin, Dienstreise) oder in Notfällen. Die Kernzeit ist der Preis für die Flexibilität drumherum.</p>
+</details>
+<details class="faq">
+<summary>Was passiert mit Minusstunden am Monatsende?</summary>
+<p>Das regelt deine Gleitzeitvereinbarung: Üblich ist, dass ein begrenztes Minus (zum Beispiel bis −10 Stunden) in den nächsten Monat übertragen wird. Größere Defizite musst du nacharbeiten. Manche Vereinbarungen sehen auch vor, dass Minusstunden mit Plusstunden späterer Monate verrechnet werden — aber ins Unendliche geht das nicht.</p>
+</details>
+<details class="faq">
+<summary>Kann der Arbeitgeber Gleitzeit wieder abschaffen?</summary>
+<p>Nicht von heute auf morgen. Gleitzeit ist Teil deines Arbeitsvertrags oder einer Betriebsvereinbarung — einseitige Abschaffung geht nicht ohne Weiteres. Bei betrieblichen Gründen kann der Arbeitgeber Änderungen anstoßen, muss aber den Betriebsrat beteiligen und angemessene Übergangsfristen einhalten. Willkürliche Streichung ist unwirksam.</p>
+</details>
+<details class="faq">
+<summary>Gilt die Pausenregelung auch in Gleitzeit?</summary>
+<p>Ja, uneingeschränkt. § 4 ArbZG gilt für jede Arbeitsform: 30 Minuten Pause ab 6 Stunden, 45 Minuten ab 9 Stunden. Die Pause wird von deiner Arbeitszeit abgezogen und landet nicht im Saldo. Wer „durchgleitet" ohne Pause, verstößt gegen das Gesetz — und betrügt sich selbst um Erholung.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Gleitzeit:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Tages- und Wochensaldo berechnen — ideal für Gleitzeit</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitkonto.html">Arbeitszeitkonto<span>Ampelkonto, Ausgleichszeitraum und Insolvenzschutz erklärt</span></a>
+<a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln<span>Pausen, Ruhezeiten und Höchstarbeitszeit im Überblick</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG) §§ 3, 4, 5; betriebliche Gleitzeitvereinbarungen (Praxiswerte). Keine Rechtsberatung — bei Zweifeln frag deinen Betriebsrat oder einen Anwalt für Arbeitsrecht.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/de/arbeitszeitkonto.html">
+<link rel="alternate" hreflang="de" href="https://thecalcfolio.com/de/arbeitszeitkonto.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Arbeitszeitkonto: Funktionsweise, Ampelkonto &amp; Regeln">
+<meta property="og:description" content="Arbeitszeitkonto einfach erklärt: Kurz- und Langzeitkonto, Ampelphasen grün-gelb-rot, Ausgleichszeitraum und Insolvenzschutz — mit Beispiel.">
+<meta property="og:url" content="https://thecalcfolio.com/de/arbeitszeitkonto.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Arbeitszeitkonto: Funktionsweise, Ampelkonto &amp; Regeln</title>
+<meta name="description" content="Arbeitszeitkonto einfach erklärt: Kurz- und Langzeitkonto, Ampelphasen grün-gelb-rot, Ausgleichszeitraum und Insolvenzschutz — mit Beispiel.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  .card p{color:#33475c}
+  .card ul,.card ol{color:#33475c}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus{outline:none;border-color:var(--blue)}
+  input:disabled{opacity:.45}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
+  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
+  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
+  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
+  .result strong{font-size:1.2rem}
+  .result .pos{color:var(--green)}
+  .result .err{color:#b42318}
+  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
+  .warnbox strong{color:#8a6d1c}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
+  .infobox h3{margin:0 0 8px;font-size:1.05rem}
+  .infobox p{font-size:.93rem;margin:0 0 8px}
+  .infobox p:last-child{margin-bottom:0}
+  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
+  details.faq p{margin:8px 0 4px;font-size:.95rem}
+  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
+  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
+  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
+  a{color:var(--blue)}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top h1{color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p,.card ul,.card ol{color:#a9bccd!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.result{background:#0e2a1a!important;border-color:#1f5130!important}
+.result strong{color:#fff!important}
+.result .pos{color:#4ade80!important}
+.result .err{color:#f87171!important}
+.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
+.warnbox strong{color:#e8c95a!important}
+.formula{color:#8fa1b3!important}
+.checkhint{color:#8fa1b3!important}
+.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
+.infobox h3{color:#e8c95a!important}
+.infobox p{color:#e8d9a8!important}
+details.faq{border-color:#2a4258!important}
+details.faq summary{color:#fff!important}
+.morerech a{border-color:#2a4258!important;color:#fff!important}
+.morerech a span{color:#8fa1b3!important}
+.quellen{color:#8fa1b3!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+/* THEME: Full Dark v1 — :root variable remap */
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+<h1>Arbeitszeitkonto: Funktionsweise, Ampelkonto &amp; Regeln</h1>
+<p>Wie dein Stundenkonto funktioniert, was die Ampelphasen grün, gelb und rot bedeuten — und worauf du beim Ausgleichszeitraum und Insolvenzschutz achten musst.</p>
+</header>
+
+<div class="card">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Ein Arbeitszeitkonto</strong> ist dein persönliches Stundenguthaben beim Arbeitgeber: Mehrarbeit wird gutgeschrieben, früher Feierabend oder freie Tage werden abgebucht.</li>
+<li><strong>Das Ampelkonto</strong> warnt in drei Phasen: Grün (alles im Rahmen), Gelb (Grenzwerte erreicht — jetzt gegensteuern), Rot (Höchstgrenze überschritten — sofortiger Ausgleich nötig).</li>
+<li><strong>Kurzzeitkonto vs. Langzeitkonto:</strong> Das Kurzzeitkonto gleicht Schwankungen innerhalb von Monaten aus; das Langzeitkonto (Zeitwertkonto) spart über Jahre für Sabbatical oder Altersteilzeit.</li>
+<li><strong>Insolvenzschutz ist Pflicht:</strong> Dein Guthaben muss gegen die Pleite des Arbeitgebers abgesichert sein — sonst ist im schlimmsten Fall alles weg.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Inhalt</h2>
+<ul>
+<li><a href="#funktionsweise">So funktioniert ein Arbeitszeitkonto</a></li>
+<li><a href="#ampel">Das Ampelkonto: Grün, Gelb, Rot</a></li>
+<li><a href="#kurz-lang">Kurzzeitkonto vs. Langzeitkonto</a></li>
+<li><a href="#beispiel">Beispiel: Ein halbes Jahr mit Ampelkonto</a></li>
+<li><a href="#ausgleich">Ausgleichszeitraum: Bis wann muss das Konto ausgeglichen sein?</a></li>
+<li><a href="#insolvenz">Insolvenzschutz: Was passiert bei der Pleite?</a></li>
+<li><a href="#faq">Häufige Fragen</a></li>
+</ul>
+</div>
+
+<div class="card" id="funktionsweise">
+<h2>So funktioniert ein Arbeitszeitkonto</h2>
+<p>Stell dir dein Arbeitszeitkonto wie ein Bankkonto vor — nur dass du Stunden statt Euro einzahlst und abhebst. Arbeitest du in einer Woche 45 statt 40 Stunden, landen 5 Stunden als Guthaben auf dem Konto. Gehst du in einer ruhigen Woche schon am Donnerstagmittag, werden die fehlenden Stunden abgebucht. Am Monatsende steht ein Saldo: Plus oder Minus.</p>
+<p>Der Clou dabei: Dein <strong>Gehalt bleibt jeden Monat gleich</strong>. Egal ob du 45 oder 35 Stunden gearbeitet hast — der Arbeitgeber zahlt das vereinbarte Monatsgehalt. Die Schwankungen fängt das Konto auf. Das ist für beide Seiten praktisch: Der Betrieb kann flexibel auf Auftragslagen reagieren, und du musst nicht jeden Monat mit schwankendem Einkommen jonglieren.</p>
+<p>Rechtlich ist das Arbeitszeitkonto übrigens keine Erfindung des Gesetzgebers — das Arbeitszeitgesetz erwähnt es mit keinem Wort. Es entsteht durch <strong>Arbeitsvertrag, Tarifvertrag oder Betriebsvereinbarung</strong>. Was dort steht, gilt: Wie hoch das Guthaben maximal werden darf, wie weit es ins Minus gehen darf, und bis wann es ausgeglichen sein muss. Ohne vertragliche Grundlage gibt es kein Arbeitszeitkonto — dann sind Mehrstunden schlicht Überstunden mit den normalen Regeln.</p>
+<p>Wichtig zu wissen: Auch mit Arbeitszeitkonto gelten die <strong>gesetzlichen Höchstarbeitszeiten</strong> weiter. 10 Stunden am Tag sind die absolute Obergrenze (§ 3 ArbZG), egal was das Konto sagt. Das Konto verwaltet deine Stunden — es hebelt das Gesetz nicht aus.</p>
+</div>
+
+<div class="card" id="ampel">
+<h2>Das Ampelkonto: Grün, Gelb, Rot</h2>
+<p>Viele Betriebe steuern ihr Arbeitszeitkonto mit einem Ampelsystem — eine simple, aber wirksame Idee: Je nach Kontostand leuchtet eine andere Farbe, und jede Farbe bedeutet eine andere Handlungsanweisung.</p>
+<p><strong>🟢 Grün — alles im Rahmen.</strong> Dein Saldo liegt im normalen Bereich, zum Beispiel zwischen minus 20 und plus 50 Stunden. Keine Maßnahmen nötig, weiterarbeiten wie bisher. Die meisten Monate deines Arbeitslebens wirst du hier verbringen — und das ist auch gut so.</p>
+<p><strong>🟡 Gelb — Achtung, Grenzwerte erreicht.</strong> Dein Guthaben nähert sich der Obergrenze (zum Beispiel 80 von maximal 100 Stunden) oder dein Minus dem Limit. Jetzt heißt es gegensteuern: Vorgesetzter und Mitarbeiter sprechen ab, wie das Konto wieder in den grünen Bereich kommt — durch geplante freie Tage, angepasste Schichtpläne oder vorübergehend weniger Mehrarbeit. Gelb ist kein Alarm, sondern eine freundliche Erinnerung.</p>
+<p><strong>🔴 Rot — Höchstgrenze überschritten.</strong> Das Konto ist über das vereinbarte Maximum hinausgelaufen. Jetzt besteht <strong>sofortiger Handlungsbedarf</strong>: Das Guthaben muss abgebaut werden — durch Freizeitausgleich, und zwar zügig. Manche Betriebsvereinbarungen sehen vor, dass bei Rot automatisch freie Tage angeordnet werden können. Rot bedeutet: Das System ist aus dem Gleichgewicht, und es muss repariert werden.</p>
+<p>Die genauen Schwellenwerte sind übrigens nicht gesetzlich festgelegt — sie stehen in deiner Betriebsvereinbarung oder deinem Tarifvertrag. Typische Werte: Grün bis ±50 Stunden, Gelb bis ±100 Stunden, Rot darüber. Aber das variiert stark zwischen Branchen und Betrieben. Schau nach, was bei dir gilt — es steht irgendwo, versprochen.</p>
+</div>
+
+<div class="card" id="kurz-lang">
+<h2>Kurzzeitkonto vs. Langzeitkonto</h2>
+<p>Nicht jedes Arbeitszeitkonto ist gleich. Es gibt zwei grundverschiedene Typen — und sie dienen völlig unterschiedlichen Zwecken.</p>
+<p><strong>Das Kurzzeitkonto</strong> ist das, worüber wir bisher gesprochen haben: Es gleicht kurzfristige Schwankungen aus — mal mehr, mal weniger Arbeit — innerhalb eines überschaubaren Zeitraums, typischerweise <strong>6 bis 12 Monate</strong>. Am Ende des Ausgleichszeitraums soll das Konto wieder bei null (oder nahe null) stehen. Das ist das Standardmodell in den meisten Betrieben.</p>
+<p><strong>Das Langzeitkonto</strong> (auch Zeitwertkonto genannt) spielt in einer anderen Liga: Hier sparst du über <strong>Jahre</strong> hinweg Stunden oder sogar Gehaltsbestandteile an — für ein Sabbatical, eine Weiterbildung, die Pflege von Angehörigen oder den früheren Ausstieg in die Rente. Guthaben von mehreren hundert oder tausend Stunden sind hier normal. Das Langzeitkonto ist im Grunde deine private Zeit-Rente.</p>
+<p>Der entscheidende Unterschied liegt in der <strong>Insolvenzsicherung</strong>: Beim Kurzzeitkonto reicht oft eine einfache Absicherung, beim Langzeitkonto mit seinen großen Guthaben ist eine professionelle Treuhandsicherung Pflicht — sonst riskierst du im Pleitefall deine über Jahre angesparten Stunden. Dazu gleich mehr.</p>
+<p>Und noch ein Unterschied: Das Langzeitkonto muss <strong>schriftlich</strong> vereinbart werden, und das Guthaben wird in Geld umgerechnet und verzinst — es ist im rechtlichen Sinne kein Stunden-, sondern ein Wertguthaben. Klingt kompliziert, ist aber genau das, was es so mächtig macht: Dein angespartes Guthaben wächst mit.</p>
+</div>
+
+<div class="card" id="beispiel">
+<h2>Beispiel: Ein halbes Jahr mit Ampelkonto</h2>
+<p>Schauen wir uns an, wie sich ein Ampelkonto über sechs Monate entwickelt. Anna arbeitet 40 Stunden pro Woche, ihr Konto startet bei null. Die Ampelschwellen in ihrem Betrieb: Grün bis 50 Stunden, Gelb bis 100 Stunden, Rot darüber. Minussaldo bis minus 30 Stunden erlaubt.</p>
+<p><strong>Januar:</strong> Viel zu tun nach den Feiertagen — Anna arbeitet 45 Stunden pro Woche, also 4 × 5 = 20 Stunden Guthaben. <strong>Kontostand: +20 🟢</strong></p>
+<p><strong>Februar:</strong> Es bleibt voll — wieder 45 Stunden pro Woche, weitere 20 Stunden dazu. <strong>Kontostand: +40 🟢</strong> — noch grün, aber die Richtung ist klar.</p>
+<p><strong>März:</strong> Großauftrag, 48 Stunden pro Woche — 32 Stunden Guthaben dazu. <strong>Kontostand: +72 🟡</strong> — Gelb! Annas Vorgesetzter spricht sie an: Im April soll sie zwei freie Tage nehmen.</p>
+<p><strong>April:</strong> Anna nimmt wie besprochen 2 Tage frei (16 Stunden Abbuchung) und arbeitet normal. <strong>Kontostand: +56 🟡</strong> — immer noch gelb, aber auf dem Weg zurück.</p>
+<p><strong>Mai:</strong> Ruhige Phase — Anna arbeitet nur 36 Stunden pro Woche und nimmt einen weiteren freien Tag. Abbuchung: 16 + 8 = 24 Stunden. <strong>Kontostand: +32 🟢</strong> — wieder grün.</p>
+<p><strong>Juni:</strong> Normale 40-Stunden-Wochen, keine Änderung. <strong>Kontostand: +32 🟢</strong></p>
+<p>Was das Beispiel zeigt: Das System funktioniert, <strong>wenn beide Seiten mitspielen</strong>. Die Gelbphase hat genau das getan, wofür sie da ist — sie hat ein Gespräch ausgelöst, bevor das Konto aus dem Ruder lief. Ohne die Ampel wäre Anna im März einfach weitermarschiert und im Sommer bei 120 Stunden gelandet — mit allen Problemen, die dann kommen.</p>
+</div>
+
+<div class="card" id="ausgleich">
+<h2>Ausgleichszeitraum: Bis wann muss das Konto ausgeglichen sein?</h2>
+<p>Jedes Arbeitszeitkonto hat ein Verfallsdatum für den Ausgleich — den <strong>Ausgleichszeitraum</strong>. Üblich sind 6 oder 12 Monate, oft an das Kalenderjahr gekoppelt: Am 31. Dezember soll das Konto wieder bei null stehen. Was in deiner Betriebsvereinbarung steht, ist bindend.</p>
+<p>Und was passiert, wenn am Stichtag noch Guthaben übrig ist? Das hängt von der Regelung ab — die drei üblichen Varianten:<br>
+<strong>1. Übertrag:</strong> Ein bestimmtes Guthaben (zum Beispiel bis 50 Stunden) darf ins neue Jahr mitgenommen werden. Der Rest muss abgebaut oder wird ausbezahlt.<br>
+<strong>2. Auszahlung:</strong> Das Restguthaben wird mit dem nächsten Gehalt ausbezahlt — zum normalen Stundenlohn, voll versteuert. Praktisch, aber siehe unseren Artikel zum <a href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">Auszahlen vs. Abfeiern</a>.<br>
+<strong>3. Verfall:</strong> Die härteste Variante — nicht abgebaute Stunden verfallen ersatzlos. Das ist nur wirksam, wenn es klar vereinbart wurde und die Frist nicht unangemessen kurz ist. Trotzdem: Lass es nicht so weit kommen.</p>
+<p><strong>Mein Rat:</strong> Behalte deinen Kontostand selbst im Auge — verlass dich nicht darauf, dass „die da oben" schon aufpassen. Frag aktiv nach deinem Saldo, am besten monatlich mit der Abrechnung. Und plane den Abbau rechtzeitig: Wer im November noch 80 Stunden auf dem Konto hat, bekommt sie bis Silvester kaum noch sinnvoll unter.</p>
+</div>
+
+<div class="card" id="insolvenz">
+<h2>Insolvenzschutz: Was passiert bei der Pleite?</h2>
+<p>Jetzt zum Ernstfall, über den niemand gern nachdenkt: Dein Arbeitgeber geht pleite — und du hast 150 Stunden Guthaben auf dem Konto. Was passiert damit?</p>
+<p>Ohne Absicherung: <strong>Es ist weg.</strong> Dein Stundenguthaben ist im Insolvenzfall eine normale Forderung gegen den Arbeitgeber — und in der Insolvenzmasse stehen Arbeitnehmer mit solchen Forderungen ziemlich weit hinten. Das Guthaben, für das du monatelang Überstunden gemacht hast, verdampft.</p>
+<p>Deshalb ist der <strong>Insolvenzschutz gesetzlich vorgeschrieben</strong>, sobald das Arbeitszeitkonto ein gewisses Volumen überschreitet — insbesondere bei Langzeitkonten. Die gängigen Sicherungsmodelle:<br>
+<strong>Treuhandmodell:</strong> Das Guthaben wird auf ein Treuhandkonto übertragen — es gehört rechtlich nicht mehr zum Betriebsvermögen und ist damit insolvenzfest.<br>
+<strong>Bürgschaft/Versicherung:</strong> Eine Bank bürgt für das Guthaben oder eine Versicherung deckt es ab.<br>
+<strong>Verpfändung:</strong> Vermögenswerte des Arbeitgebers werden zugunsten der Beschäftigten verpfändet.</p>
+<p>Was du tun solltest: <strong>Frag nach.</strong> Konkret: „Wie ist unser Arbeitszeitkonto gegen Insolvenz abgesichert?" Das ist keine unverschämte Frage, sondern dein gutes Recht — und ein Arbeitgeber mit sauberer Absicherung wird sie gern beantworten. Wenn die Antwort ausweichend ausfällt oder niemand zuständig zu sein scheint, ist das ein Warnsignal. Bei großen Guthaben auf Langzeitkonten solltest du die Absicherung sogar schriftlich bestätigt bekommen.</p>
+</div>
+
+<div class="card" id="faq">
+<h2>Häufige Fragen</h2>
+<details class="faq">
+<summary>Was ist der Unterschied zwischen Arbeitszeitkonto und Überstunden?</summary>
+<p>Überstunden sind Mehrarbeit über die vereinbarte Arbeitszeit hinaus — ein einzelner Vorgang. Das Arbeitszeitkonto ist das System, in dem diese Mehrarbeit (und auch Minderarbeit) verwaltet wird. Man kann sagen: Überstunden sind die Buchungen, das Arbeitszeitkonto ist das Konto. Ohne Konto gibt es nur einzelne Überstundenansprüche; mit Konto gibt es einen laufenden Saldo.</p>
+</details>
+<details class="faq">
+<summary>Was bedeuten die Ampelphasen Grün, Gelb und Rot?</summary>
+<p>Grün: Kontostand im normalen Bereich, keine Maßnahmen nötig. Gelb: Grenzwerte erreicht — Arbeitgeber und Mitarbeiter stimmen Gegenmaßnahmen ab (freie Tage, angepasste Pläne). Rot: Höchstgrenze überschritten — sofortiger Abbau des Guthabens erforderlich, notfalls durch angeordnete freie Tage. Die genauen Schwellen stehen in deiner Betriebsvereinbarung.</p>
+</details>
+<details class="faq">
+<summary>Muss mein Arbeitszeitkonto gegen Insolvenz abgesichert sein?</summary>
+<p>Ja, sobald das Guthaben ein größeres Volumen erreicht — insbesondere bei Langzeitkonten ist die Absicherung Pflicht. Gängige Modelle sind Treuhandkonten, Bankbürgschaften oder Versicherungen. Frag aktiv nach, wie euer Konto abgesichert ist — das ist dein gutes Recht.</p>
+</details>
+<details class="faq">
+<summary>Was passiert mit meinem Guthaben bei Kündigung?</summary>
+<p>Das Guthaben muss vor dem Ausscheiden abgebaut werden — entweder durch Freizeitausgleich in der Kündigungsfrist oder durch Auszahlung mit dem letzten Gehalt. Kläre das frühzeitig und schriftlich: Nach dem letzten Arbeitstag wird die Durchsetzung deutlich mühsamer.</p>
+</details>
+<details class="faq">
+<summary>Kann mein Chef Minusstunden einfach anordnen?</summary>
+<p>Nur im vereinbarten Rahmen. Das Arbeitszeitkonto erlaubt geplante Minderarbeit (zum Beispiel in ruhigen Phasen früher gehen), aber der Arbeitgeber kann nicht willkürlich Minusstunden anhäufen und dich dann damit erpressen. Die Grenzen für Plus und Minus stehen in der Betriebsvereinbarung — und die Höchstarbeitszeiten des ArbZG gelten sowieso.</p>
+</details>
+</div>
+
+<div class="card">
+<h2>Weiterlesen</h2>
+<p>Passend zum Thema Arbeitszeitkonto:</p>
+<div class="morerech">
+<a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner<span>Tages- und Wochenstunden berechnen — behalte dein Konto im Blick</span></a>
+<a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen<span>Anleitung: Was zählt als Überstunde und wie du sie dokumentierst</span></a>
+<a href="https://thecalcfolio.com/de/gleitzeit-berechnen.html">Gleitzeit berechnen<span>Kernzeit, Gleitrahmen und Saldo — das flexible Pendant zum Konto</span></a>
+<a href="https://thecalcfolio.com/de/">Alle deutschen Rechner<span>Zur Übersicht auf Deutsch</span></a>
+</div>
+</div>
+
+<p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG) §§ 3, 4; Betriebsvereinbarungs- und Tarifpraxis zum Arbeitszeitkonto; BAG-Rechtsprechung zu Ausschlussfristen. Keine Rechtsberatung — bei Zweifeln frag deinen Betriebsrat oder einen Anwalt für Arbeitsrecht.</p>
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">About</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
+  © 2026 The Calcfolio — free calculators, honest numbers.
+</footer>
+</div>
+
+</body>
+</html>

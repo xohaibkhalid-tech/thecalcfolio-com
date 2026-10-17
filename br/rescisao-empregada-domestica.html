@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">
+<link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Rescisão de Empregada Doméstica: Regras e Cálculo">
+<meta property="og:description" content="Rescisão de empregada doméstica: eSocial, aviso prévio, 13º, férias, FGTS 8% + 3,2% compensatório e seguro-desemprego. Guia completo 2026.">
+<meta property="og:url" content="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Rescisão de Empregada Doméstica: Regras e Cálculo</title>
+<meta name="description" content="Rescisão de empregada doméstica: eSocial, aviso prévio, 13º, férias, FGTS 8% + 3,2% compensatório e seguro-desemprego. Guia completo 2026.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:36px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radios input{margin-right:8px}
+  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
+  .stat.total .v{font-size:1.7rem}
+  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
+  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
+  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
+  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.stat{background:#0b1a29!important;border-color:#2a4258!important}
+.stat .k{color:#a9bccd!important}
+.stat .v{color:#fff!important}
+.stat.good .v{color:#4ade80!important}
+.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
+.stat.total .v{color:#4ade80!important}
+table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
+table.lines tr.grand td{color:#fff!important}
+.formula{color:#8fa1b3!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
+.faq details{background:#12293f!important;border-color:#2a4258!important}
+.faq summary{color:#fff!important}
+.faq details div{color:#a9bccd!important}
+.more{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+  <h1>Rescisão de Empregada Doméstica: Regras e Cálculo</h1>
+  <p>Dispensar uma empregada doméstica mexe com o bolso e com a consciência. Do lado do patrão, tem eSocial, guia DAE e um punhado de regras próprias que não aparecem na rescisão comum. Do lado da trabalhadora, tem aquela dúvida que não sai da cabeça: "será que vou receber tudo direitinho?" Este guia explica a rescisão doméstica passo a passo — aviso prévio, 13º, férias, FGTS com aquele 3,2% que ninguém entende, seguro-desemprego — com um exemplo completo de 2026 usando números reais.</p>
+</header>
+
+<div class="card">
+  <h2>Em resumo</h2>
+  <ul>
+    <li>A rescisão doméstica segue a <strong>Lei Complementar 150/2015</strong> e é feita pelo <strong>eSocial Doméstico</strong> — a guia DAE concentra INSS, FGTS e a indenização compensatória num boleto só.</li>
+    <li>Na dispensa sem justa causa, a trabalhadora recebe: saldo de salário, aviso prévio (30 dias + 3 por ano, até 90), 13º proporcional, férias + 1/3, saque do FGTS e a indenização de <strong>3,2%</strong> acumulada mês a mês.</li>
+    <li>Os 3,2% recolhidos todo mês na DAE <strong>substituem a multa de 40%</strong>: não existe "40% em cima do saldo" no doméstico — o que ela saca é exatamente o que foi depositado ao longo do contrato.</li>
+    <li>O seguro-desemprego do doméstico paga <strong>até 3 parcelas de R$ 1.621,00</strong> em 2026 (um salário mínimo cada), para quem tem 15 meses de trabalho nos últimos 24 meses.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Neste guia</h2>
+  <ul>
+    <li><a href="#esocial-dae">eSocial Doméstico e guia DAE: o que muda na rescisão</a></li>
+    <li><a href="#aviso-previo">Aviso prévio: 30 dias + 3 por ano (até 90)</a></li>
+    <li><a href="#decimo-terceiro">13º salário proporcional</a></li>
+    <li><a href="#ferias">Férias + 1/3: vencidas e proporcionais</a></li>
+    <li><a href="#fgts">FGTS: os 8% e os 3,2% que substituem a multa</a></li>
+    <li><a href="#seguro-desemprego">Seguro-desemprego do doméstico</a></li>
+    <li><a href="#exemplo">Exemplo completo: salário de R$ 1.800, 2 anos de casa</a></li>
+    <li><a href="#faq-domestica">Perguntas frequentes</a></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 id="esocial-dae">eSocial Doméstico e guia DAE: o que muda na rescisão</h2>
+  <p>Na empresa comum, a rescisão gera uma papelada: TRCT, GRRF, chave de conectividade. No doméstico, quase tudo passa pelo <strong>eSocial Doméstico</strong> — o sistema onde o patrão registra admissão, salário, férias e, na hora H, a saída. É lá que a baixa da carteira é feita.</p>
+  <p>E o pagamento dos encargos sai pela <strong>guia DAE</strong> (Documento de Arrecadação do eSocial), um boleto único que junta: <strong>8%</strong> de INSS do empregado (descontado do salário dela), <strong>8%</strong> de INSS patronal, <strong>8%</strong> de FGTS, <strong>3,2%</strong> de indenização compensatória e <strong>0,8%</strong> de seguro contra acidentes de trabalho. Ou seja: todo mês, o patrão já recolhe antecipadamente a "multa" dela. Isso muda tudo na rescisão — e explica por que o cálculo é diferente do celetista comum.</p>
+  <p>Na prática, o roteiro do patrão é este: registrar a data de desligamento no eSocial, gerar a DAE rescisória com as competências em aberto e as verbas, pagar tudo em dia e entregar o termo de rescisão assinado. Conselho de quem já viu muita dor de cabeça: <strong>patrão que atrasa a DAE atrasa o saque do FGTS dela</strong> — e vira processo na Justiça do Trabalho rapidinho.</p>
+</div>
+
+<div class="card">
+  <h2 id="aviso-previo">Aviso prévio: 30 dias + 3 por ano (até 90)</h2>
+  <p>A regra do aviso prévio proporcional vale para a doméstica: <strong>30 dias + 3 dias por ano completo de trabalho, até o teto de 90 dias</strong>. Dois anos de casa? 30 + 6 = 36 dias de aviso.</p>
+  <p>Aqui tem um detalhe prático que confunde: no dia a dia, a doméstica costuma <strong>cumprir apenas os 30 dias</strong> — os dias adicionais da proporcionalidade são pagos como indenização pelo patrão. Funciona assim: ela trabalha os 30 dias (ou recebe indenizado se o patrão dispensar do cumprimento) e os dias extras entram na conta como valor.</p>
+  <p>E o aviso indenizado projeta o contrato para frente: os dias do aviso contam como tempo de serviço. Isso mexe no 13º e nas férias proporcionais — aquela semana a mais pode virar 1/12 a mais de 13º. Parece detalhe bobo, mas é dinheiro de verdade no bolso dela. Vale conferir a projeção na hora de assinar o termo.</p>
+</div>
+
+<div class="card">
+  <h2 id="decimo-terceiro">13º salário proporcional</h2>
+  <p>O 13º proporcional da doméstica segue a mesma lógica do celetista: <strong>1/12 do salário para cada mês em que ela trabalhou 15 dias ou mais</strong> no ano da rescisão. Trabalhou 6 meses completos em 2026? Recebe 6/12 do salário.</p>
+  <p>Exemplo com a Marinalva, que ganha R$ 1.800 e foi dispensada em 30 de junho: de janeiro a junho são 6 meses → 6 × (1.800 ÷ 12) = <strong>R$ 900,00</strong>. E atenção: se o aviso prévio indenizado projetar o contrato para julho e somar 15 dias ou mais nesse mês, entra mais 1/12 na conta.</p>
+  <p>Um erro clássico de patrão de primeira viagem: achar que "13º só se paga em dezembro". Não. Na rescisão, o proporcional sai junto com as outras verbas, no acerto. Se ela já recebeu adiantamento da primeira parcela em novembro do ano anterior, desconta-se o que foi adiantado — mas isso é exceção, não regra.</p>
+</div>
+
+<div class="card">
+  <h2 id="ferias">Férias + 1/3: vencidas e proporcionais</h2>
+  <p>Férias de doméstica funcionam assim: a cada 12 meses de trabalho, ela ganha <strong>30 dias de descanso remunerado + 1/3 do salário</strong>. Na rescisão, entram na conta dois tipos:</p>
+  <p><strong>Férias vencidas:</strong> se ela completou um período de 12 meses e ainda não gozou as férias, recebe os 30 dias + 1/3 integralmente. E se essas férias já venceram há mais de 12 meses sem serem concedidas, o pagamento é <strong>em dobro</strong> — é a punição da lei para o patrão que não liberou o descanso no prazo.</p>
+  <p><strong>Férias proporcionais:</strong> para o período aquisitivo incompleto (menos de 12 meses), paga-se a fração: tantos 12 avos quantos forem os meses com 15+ dias trabalhados, sempre com o terço constitucional em cima.</p>
+  <p>Voltando à Marinalva (R$ 1.800, 2 anos de casa, sem férias gozadas no último período): férias vencidas = 1.800 + 600 (1/3) = <strong>R$ 2.400,00</strong>. Férias proporcionais de 6/12 = 900 + 300 (1/3) = <strong>R$ 1.200,00</strong>. Somadas, as férias representam a maior verba do acerto dela — por isso vale conferir mês a mês no eSocial se os períodos estão certos.</p>
+</div>
+
+<div class="card">
+  <h2 id="fgts">FGTS: os 8% e os 3,2% que substituem a multa</h2>
+  <p>Chegamos ao ponto que mais gera confusão — e vale ser direto: <strong>no emprego doméstico não existe multa de 40% sobre o saldo do FGTS</strong>. O que existe é a <strong>indenização compensatória de 3,2%</strong>, recolhida todo mês na guia DAE para uma conta separada, e que cumpre exatamente o papel da multa.</p>
+  <p>Como funciona na prática: todo mês o patrão deposita <strong>8%</strong> do salário na conta vinculada dela (o FGTS normal) e <strong>3,2%</strong> numa conta de indenização. Na dispensa <strong>sem justa causa</strong>, ela saca os dois — os 8% acumulados e os 3,2% acumulados. Pronto: é o equivalente aos 40%, só que pré-pago mês a mês em vez de pago de uma vez na saída.</p>
+  <p>E nos outros tipos de saída? Se ela <strong>pede demissão</strong> ou é dispensada <strong>por justa causa</strong>, os 3,2% voltam para o patrão — ela não saca essa parte. O FGTS de 8% continua na conta dela (no pedido de demissão, o saque imediato não é liberado; o dinheiro fica guardado para as outras hipóteses de saque).</p>
+  <p>Com os números da Marinalva (R$ 1.800 × 24 meses): FGTS de 8% = R$ 144,00/mês → <strong>R$ 3.456,00</strong> acumulados. Indenização de 3,2% = R$ 57,60/mês → <strong>R$ 1.382,40</strong> acumulados. Repare: 1.382,40 é exatamente 40% de 3.456 — a matemática fecha porque foi desenhada para isso. Para sacar, ela usa o app FGTS da Caixa depois que o patrão registra a baixa no eSocial.</p>
+</div>
+
+<div class="card">
+  <h2 id="seguro-desemprego">Seguro-desemprego do doméstico</h2>
+  <p>A doméstica dispensada sem justa causa tem direito ao seguro-desemprego — mas com regra própria, diferente da do celetista comum. Os requisitos: <strong>ter trabalhado pelo menos 15 meses nos últimos 24 meses</strong>, com os recolhimentos em dia no eSocial.</p>
+  <p>O valor é fixo e simples: <strong>até 3 parcelas de um salário mínimo cada</strong>. Em 2026, isso significa até 3 × R$ 1.621,00 = <strong>R$ 4.863,00</strong> no total. Não importa se ela ganhava R$ 1.800 ou R$ 3.000 — a parcela do doméstico é sempre de um salário mínimo.</p>
+  <p>O pedido é feito pelo <strong>app Carteira de Trabalho Digital</strong>, entre o 7º e o 120º dia após a dispensa — o mesmo prazo do benefício comum. Mas atenção a um detalhe operacional: o sistema só libera o pedido depois que o patrão registra a rescisão no eSocial. Patrão que enrola a baixa no sistema está, na prática, segurando o benefício dela — e isso dá motivo para reclamação trabalhista.</p>
+</div>
+
+<div class="card">
+  <h2 id="exemplo">Exemplo completo: salário de R$ 1.800, 2 anos de casa</h2>
+  <p>Vamos juntar tudo com a Marinalva: salário de R$ 1.800,00, 2 anos de trabalho, dispensada sem justa causa em 30 de junho de 2026, aviso prévio indenizado. A conta completa:</p>
+  <table class="lines"><tbody>
+    <tr><td>Saldo de salário (junho, 30 dias)</td><td>R$ 1.800,00</td></tr>
+    <tr><td>Aviso prévio indenizado (36 dias)</td><td>R$ 2.160,00</td></tr>
+    <tr><td>13º proporcional (6/12)</td><td>R$ 900,00</td></tr>
+    <tr><td>Férias vencidas + 1/3</td><td>R$ 2.400,00</td></tr>
+    <tr><td>Férias proporcionais (6/12) + 1/3</td><td>R$ 1.200,00</td></tr>
+    <tr><td><strong>Subtotal da rescisão (bruto)</strong></td><td><strong>R$ 8.460,00</strong></td></tr>
+    <tr><td>Saque do FGTS — 8% acumulados (24 meses)</td><td>R$ 3.456,00</td></tr>
+    <tr><td>Indenização compensatória — 3,2% acumulados</td><td>R$ 1.382,40</td></tr>
+    <tr><td>Seguro-desemprego (3 parcelas de R$ 1.621,00)</td><td>R$ 4.863,00</td></tr>
+    <tr class="grand"><td><strong>Total geral</strong></td><td><strong>R$ 18.161,40</strong></td></tr>
+  </tbody></table>
+  <p>Dois avisos honestos: os valores da rescisão são <strong>brutos</strong> — ainda sofrem os descontos de INSS (e IRRF, se for o caso) sobre as verbas tributáveis. E o FGTS aparece aqui sem os rendimentos da conta (3% ao ano + TR), então o extrato real dela pode mostrar alguns reais a mais. Mesmo assim, a ordem de grandeza é essa: numa demissão sem justa causa, a doméstica recebe bem mais do que "só o acerto".</p>
+</div>
+
+<div class="card faq">
+  <h2 id="faq-domestica">Perguntas frequentes</h2>
+  <details><summary>A empregada doméstica tem direito à multa de 40% do FGTS?</summary><div>Não no formato dos 40% pagos de uma vez. No doméstico, a multa foi substituída pela indenização compensatória de 3,2% recolhida todo mês na guia DAE. Na dispensa sem justa causa, ela saca o valor acumulado — que equivale exatamente aos 40% sobre os depósitos.</div></details>
+  <details><summary>Se ela pedir demissão, o patrão pode descontar o aviso prévio?</summary><div>Sim. Se ela pede demissão e não cumpre o aviso de 30 dias, o patrão pode descontar o valor correspondente dos salários dela na rescisão. E ela perde o saque da indenização de 3,2%, o saque imediato do FGTS e o seguro-desemprego.</div></details>
+  <details><summary>Quem faz o quê no eSocial na hora da rescisão?</summary><div>O patrão registra a data de desligamento, gera e paga a DAE rescisória e entrega o termo de rescisão assinado. A trabalhadora confere os valores, saca o FGTS pelo app da Caixa e pede o seguro-desemprego pelo app Carteira de Trabalho Digital.</div></details>
+  <details><summary>A parcela do seguro-desemprego é sempre de um salário mínimo?</summary><div>Sim. Diferente do benefício comum, que varia conforme o salário, o seguro-desemprego do doméstico paga parcelas fixas de um salário mínimo — R$ 1.621,00 cada em 2026, até 3 parcelas.</div></details>
+  <details><summary>E se o patrão nunca recolheu a DAE direito?</summary><div>O direito dela não some: o patrão deve todos os depósitos atrasados (FGTS, INSS e os 3,2%), com multa e juros. Ela pode cobrar diretamente, acionar o sindicato da categoria ou entrar com reclamatória na Justiça do Trabalho — guarde contracheques e comprovantes de pagamento como prova do vínculo.</div></details>
+</div>
+
+<div class="card">
+  <h2>Leia também</h2>
+  <p><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão 2026 — quanto vou receber? →</a></p>
+  <p><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão, passo a passo →</a></p>
+  <p><a href="https://thecalcfolio.com/br/seguro-desemprego-2026.html">Seguro-desemprego 2026: valores e parcelas →</a></p>
+  <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
+</div>
+
+</div>
+
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
+  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+</footer>
+
+</body>
+</html>

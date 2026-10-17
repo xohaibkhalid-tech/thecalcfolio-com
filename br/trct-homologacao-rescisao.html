@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">
+<link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="TRCT e Homologação: Entenda Seu Termo de Rescisão">
+<meta property="og:description" content="TRCT: o que é, campos do termo de rescisão, prazo de 10 dias (art. 477), multa por atraso, como conferir e onde reclamar.">
+<meta property="og:url" content="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>TRCT e Homologação: Entenda Seu Termo de Rescisão</title>
+<meta name="description" content="TRCT: o que é, campos do termo de rescisão, prazo de 10 dias (art. 477), multa por atraso, como conferir e onde reclamar.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:36px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radios input{margin-right:8px}
+  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
+  .stat.total .v{font-size:1.7rem}
+  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
+  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
+  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
+  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.stat{background:#0b1a29!important;border-color:#2a4258!important}
+.stat .k{color:#a9bccd!important}
+.stat .v{color:#fff!important}
+.stat.good .v{color:#4ade80!important}
+.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
+.stat.total .v{color:#4ade80!important}
+table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
+table.lines tr.grand td{color:#fff!important}
+.formula{color:#8fa1b3!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
+.faq details{background:#12293f!important;border-color:#2a4258!important}
+.faq summary{color:#fff!important}
+.faq details div{color:#a9bccd!important}
+.more{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+  <h1>TRCT e Homologação: Entenda Seu Termo de Rescisão</h1>
+  <p>Você saiu do emprego, assinou um papel cheio de códigos e valores, e foi para casa com a pulga atrás da orelha: pagaram tudo certo? O TRCT — Termo de Rescisão do Contrato de Trabalho — é o documento que fecha a conta entre você e a empresa: o que você tem a receber, o que foi descontado e quanto foi para o FGTS. E a parte que ninguém te conta: desde 2017, ninguém mais confere isso por você. Este guia ensina a ler cada campo, os prazos da empresa e o que fazer quando o número não bate.</p>
+</header>
+
+<div class="card">
+  <h2>Em resumo</h2>
+  <ul>
+    <li>O TRCT é o documento oficial da sua rescisão: ele lista <strong>todas as verbas</strong> que você tem a receber, os <strong>descontos</strong> aplicados e os dados do seu <strong>FGTS</strong>.</li>
+    <li>A empresa tem <strong>10 dias corridos</strong> contados do fim do contrato para pagar tudo e entregar os documentos da rescisão (art. 477, §6º da CLT).</li>
+    <li>Atrasou — ou pagou em dia mas não entregou os documentos no prazo? A multa é de <strong>1 salário seu</strong> (art. 477, §8º).</li>
+    <li>Desde a reforma trabalhista de 2017, a homologação no sindicato <strong>não é mais obrigatória</strong>. Ou seja: conferir o TRCT linha por linha virou tarefa sua — e este guia mostra como.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Neste guia</h2>
+  <ul>
+    <li><a href="#o-que-e">O que é o TRCT (e para que ele serve)</a></li>
+    <li><a href="#campos">Os campos do TRCT explicados um a um</a></li>
+    <li><a href="#prazo">O prazo: 10 dias corridos, sem exceção</a></li>
+    <li><a href="#multa">A multa por atraso: um salário inteiro</a></li>
+    <li><a href="#homologacao">Homologação: o que era e o que mudou em 2017</a></li>
+    <li><a href="#checklist">Como conferir o TRCT linha por linha</a></li>
+    <li><a href="#erros">Os 6 erros mais comuns</a></li>
+    <li><a href="#exemplo">Exemplo com números reais</a></li>
+    <li><a href="#reclamar">Onde reclamar (e por quanto tempo guardar tudo)</a></li>
+    <li><a href="#faq-trct">Perguntas frequentes</a></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 id="o-que-e">O que é o TRCT (e para que ele serve)</h2>
+  <p>TRCT é a sigla para <strong>Termo de Rescisão do Contrato de Trabalho</strong> — o documento, hoje quase sempre digital, que oficializa o fim do seu vínculo com a empresa. Nele constam quem você é, quem é a empresa, quando você entrou, quando saiu, o motivo da saída e a conta completa: cada verba a receber, cada desconto e o valor líquido.</p>
+  <p>Ele serve para três coisas: é o seu <strong>recibo de quitação</strong> (prova do que a empresa pagou ou deveria ter pago), é a base para <strong>sacar o FGTS e pedir o seguro-desemprego</strong> (os dados do desligamento saem dali) e é a sua <strong>munição se algo der errado</strong> — sem o TRCT, provar na Justiça o que faltou fica muito mais difícil.</p>
+  <p>E um detalhe jurídico que vale ouro: o art. 477, §2º, da CLT diz que a quitação alcança <strong>apenas as parcelas especificadas no termo</strong>. Se uma verba não aparece no TRCT, ela não foi quitada — e você pode cobrá-la depois. Assinar o termo não é assinar um cheque em branco.</p>
+</div>
+
+<div class="card">
+  <h2 id="campos">Os campos do TRCT explicados um a um</h2>
+  <p>Pegue o seu TRCT e acompanhe. Ele tem quatro blocos:</p>
+  <p><strong>1. Identificação.</strong> Dados da empresa (CNPJ, razão social) e os seus (nome, CPF, carteira de trabalho), mais as datas de admissão e de afastamento e o código da causa do afastamento — o número que diz se foi demissão sem justa causa, pedido de demissão, acordo etc. Confira as datas: a de afastamento já inclui a projeção do aviso prévio indenizado, e ela mexe com férias, 13º e seguro-desemprego.</p>
+  <p><strong>2. Verbas rescisórias.</strong> O coração do documento: saldo de salário, aviso prévio, 13º proporcional, férias vencidas e proporcionais + 1/3. Cada linha tem um código e um valor. O que entra depende do tipo de saída:</p>
+  <table class="lines"><tbody>
+    <tr><td>Sem justa causa</td><td>saldo, aviso, 13º prop., férias + 1/3, FGTS + multa de 40%, seguro-desemprego</td></tr>
+    <tr><td>Pedido de demissão</td><td>saldo, 13º prop., férias + 1/3 (sem FGTS, sem seguro)</td></tr>
+    <tr><td>Acordo (art. 484-A)</td><td>metade do aviso, 20% de multa do FGTS, 80% do saldo (sem seguro)</td></tr>
+    <tr><td>Justa causa</td><td>só saldo de salário e férias vencidas + 1/3</td></tr>
+  </tbody></table>
+  <p><strong>3. Descontos.</strong> INSS, IRRF, adiantamentos, vales, faltas e contribuição assistencial (se autorizada). O limite que muita empresa "esquece": pelo art. 477, §5º, nenhuma compensação pode passar de <strong>um mês da sua remuneração</strong> — e a conta nunca pode fechar com você devendo à empresa.</p>
+  <p><strong>4. FGTS e multas.</strong> Saldo da conta, depósitos do mês da rescisão, multa de 40% e os campos das multas dos arts. 477 e 479. Atenção: a multa de 40% <strong>não cai na sua conta-corrente</strong> — vai direto para a conta do FGTS, e você saca o total com o código de saque.</p>
+</div>
+
+<div class="card">
+  <h2 id="prazo">O prazo: 10 dias corridos, sem exceção</h2>
+  <p>O art. 477, §6º, da CLT é direto: as verbas rescisórias têm que ser pagas em até <strong>10 dias corridos contados do término do contrato</strong>. Corridos — sábado, domingo e feriado entram na conta. E vale para todo tipo de desligamento: demissão sem justa causa, pedido de demissão, acordo, justa causa, fim de experiência. Não existe "prazo maior porque foi pedido de demissão".</p>
+  <p>A contagem começa no último dia do contrato, já com a projeção do aviso prévio indenizado. Demitido no dia 10 com aviso indenizado? O relógio corre a partir do dia 10 — o aviso não empurra o prazo para frente.</p>
+  <p>E o TST cravou em tese repetitiva (Tema 127): <strong>não basta pagar em dia</strong>. A empresa também precisa entregar, nos mesmos 10 dias, os documentos que comprovem a comunicação da extinção do contrato — guia do seguro-desemprego, chave do FGTS, baixa registrada. Pagou tudo mas segurou os papéis? A multa se aplica do mesmo jeito.</p>
+  <p>Conselho de quem já viu muita gente perder dinheiro à toa: no dia da demissão, <strong>marque o 10º dia no calendário do celular</strong>. Se o dinheiro e os documentos não chegaram até lá, você ganhou um direito a mais — o da próxima seção.</p>
+</div>
+
+<div class="card">
+  <h2 id="multa">A multa por atraso: um salário inteiro</h2>
+  <p>O art. 477, §8º, da CLT: quem não cumpre o prazo paga multa de <strong>um salário do empregado</strong>, em favor do empregado. Atrasou um dia ou trinta, a multa é a mesma — o TST já decidiu que ela não é proporcional ao tempo de atraso. É tudo ou nada: um salário cheio.</p>
+  <p>Exemplo: salário de R$ 3.000,00, empresa pagou no 12º dia. Multa: <strong>R$ 3.000,00</strong> — além das verbas, que continuam devidas com correção.</p>
+  <p>Quando ela <strong>não</strong> se aplica? Só na exceção da lei: "salvo quando, comprovadamente, o trabalhador der causa à mora". Se o atraso foi culpa sua — não compareceu para receber, passou dados bancários errados —, a empresa se livra. Fora isso, atrasou, pagou.</p>
+  <p>Vale ser direto: a multa não cai na sua conta sozinha. Você precisa cobrá-la — no sindicato, no Ministério do Trabalho ou na Justiça. Muita empresa paga as verbas atrasadas "esquecendo" a multa, contando com o seu desconhecimento. Agora você sabe.</p>
+  <p>E tem o reforço do <strong>art. 467</strong>: se a empresa contestar os valores e não pagar a parte incontroversa até a primeira audiência, essa parte sofre acréscimo de <strong>50%</strong>. Enrolar na rescisão sai caro.</p>
+</div>
+
+<div class="card">
+  <h2 id="homologacao">Homologação: o que era e o que mudou em 2017</h2>
+  <p>Até 2017, o art. 477, §1º, da CLT exigia que rescisões de contratos com <strong>mais de um ano</strong> fossem feitas com assistência do sindicato ou do Ministério do Trabalho. Na prática, você ia ao sindicato, um representante conferia os cálculos linha por linha, e só então o termo era assinado. Era um fiscal de graça do seu lado da mesa.</p>
+  <p>A reforma trabalhista (Lei 13.467/2017, em vigor desde 11/11/2017) <strong>revogou</strong> esse parágrafo. Desde então, a empresa pode quitar a rescisão diretamente com você, sem sindicato nem Ministério do Trabalho no meio.</p>
+  <p>Duas ressalvas. Primeira: a convenção ou o acordo coletivo da sua categoria pode <strong>exigir</strong> a homologação mesmo assim — o TST já validou cláusula nesse sentido. Confira a norma coletiva da sua categoria. Segunda: você pode <strong>pedir</strong> a assistência do sindicato. Não é mais obrigatório, mas continua sendo um direito — e, diante de números estranhos, é o melhor favor que você pode fazer a si mesmo.</p>
+  <p>E não confunda: o <strong>exame demissional</strong> (ASO de demissão) continua obrigatório. Empresa que dispensa sem fazê-lo está errada, com ou sem homologação.</p>
+  <p>Resumo honesto: antes, um terceiro conferia a conta por você. Hoje, esse terceiro é você — com este guia na mão.</p>
+</div>
+
+<div class="card">
+  <h2 id="checklist">Como conferir o TRCT linha por linha</h2>
+  <p>Pegue o TRCT, os três últimos holerites e o celular com o app FGTS aberto:</p>
+  <p><strong>1. Datas.</strong> Admissão, afastamento e causa do afastamento. A data de afastamento já deve trazer a projeção do aviso indenizado — data errada contamina férias, 13º e seguro-desemprego.</p>
+  <p><strong>2. Saldo de salário.</strong> Dias trabalhados no mês da saída × (salário ÷ 30). Bateu?</p>
+  <p><strong>3. Aviso prévio.</strong> Indenizado: 30 dias + 3 por ano completo, até 60 dias (Lei 12.506/2011). Com 2 anos de casa, 36 dias. Trabalhado: confira se os dias foram cumpridos ou descontados corretamente.</p>
+  <p><strong>4. Férias.</strong> Cada 12 meses = 30 dias. Período vencido não gozado: 30 dias + 1/3 em dinheiro. Período em curso: proporcional (meses ÷ 12) + 1/3. Férias indenizadas <strong>não sofrem INSS nem IRRF</strong> — se vieram com desconto, está errado.</p>
+  <p><strong>5. 13º proporcional.</strong> Meses trabalhados no ano ÷ 12, incluindo a projeção do aviso (fração de 15+ dias conta como mês cheio).</p>
+  <p><strong>6. FGTS no app.</strong> Os depósitos mensais estão todos lá? Os 8% incidem também sobre as verbas da rescisão — saldo, 13º proporcional e aviso prévio geram depósito. Depois confira a multa de 40% sobre o total.</p>
+  <p><strong>7. Some tudo e guarde.</strong> Verbas menos descontos têm que bater com o líquido do termo — diferença de centavos é arredondamento, de reais é problema. Fotografe cada página e salve na nuvem.</p>
+</div>
+
+<div class="card">
+  <h2 id="erros">Os 6 erros mais comuns</h2>
+  <p><strong>1. Aviso prévio contado errado.</strong> O erro campeão. Com 2 anos e 4 meses de casa, o aviso indenizado é de 36 dias — não 30, não 33. Muita empresa calcula "30 dias para todo mundo" e embolsa a diferença.</p>
+  <p><strong>2. Férias sem o terço.</strong> O adicional de 1/3 é constitucional e vale para vencidas e proporcionais. "Férias proporcionais" sem o terço está incompleto.</p>
+  <p><strong>3. FGTS sem os 8% das verbas rescisórias.</strong> 8% incidem sobre saldo de salário, 13º proporcional e aviso prévio. É o erro mais silencioso: não aparece no líquido que cai na sua conta — só no app do FGTS.</p>
+  <p><strong>4. Multa de 40% sobre base menor.</strong> Ela incide sobre <strong>todos</strong> os depósitos da conta vinculada, incluindo os da rescisão. Base "esquecida" = multa menor.</p>
+  <p><strong>5. Desconto acima do permitido.</strong> Compensação limitada a um mês de remuneração (art. 477, §5º), e a rescisão jamais fecha negativa para o trabalhador. Desconto estranho, questione por escrito.</p>
+  <p><strong>6. Afastamento sem projeção do aviso.</strong> Com aviso indenizado, o contrato se projeta para frente — e a projeção conta para 13º, férias e seguro-desemprego. Sem ela, você perde avos e pode perder parcela do benefício.</p>
+</div>
+
+<div class="card">
+  <h2 id="exemplo">Exemplo com números reais</h2>
+  <p>O Carlos: salário de R$ 3.000,00, admitido em 01/03/2024, demitido sem justa causa em 10/06/2026, aviso prévio indenizado. Tirou as férias do primeiro período em dezembro de 2025 — então tem um período vencido a receber. Com 2 anos completos, o aviso é de 36 dias (30 + 3 por ano), e a projeção leva o contrato até 16/07/2026.</p>
+  <table class="lines"><tbody>
+    <tr><td>Saldo de salário — 10 dias de junho/2026</td><td>R$ 1.000,00</td></tr>
+    <tr><td>Aviso prévio indenizado — 36 dias</td><td>R$ 3.600,00</td></tr>
+    <tr><td>13º proporcional — 7/12 avos (jan–jul, com projeção)</td><td>R$ 1.750,00</td></tr>
+    <tr><td>Férias vencidas — 30 dias + 1/3</td><td>R$ 4.000,00</td></tr>
+    <tr><td>Férias proporcionais — 5/12 avos + 1/3</td><td>R$ 1.666,67</td></tr>
+    <tr><td>Total bruto</td><td>R$ 12.016,67</td></tr>
+    <tr><td>(−) INSS — tabela progressiva 2026</td><td>R$ 208,18</td></tr>
+    <tr><td>(−) IRRF — tabela 2026</td><td>R$ 8,48</td></tr>
+    <tr class="grand"><td>Valor líquido do TRCT</td><td>R$ 11.800,01</td></tr>
+  </tbody></table>
+  <p>E o FGTS, que corre por fora: com os depósitos da rescisão, o saldo chegou a <strong>R$ 8.000,00</strong>, e a multa de 40% (<strong>R$ 3.200,00</strong>) foi depositada direto na conta vinculada. Ele saca o total (R$ 11.200,00) com o código de saque.</p>
+  <p>Repare: líquido do TRCT (R$ 11.800,01) + FGTS (R$ 11.200,00) — esse é o tamanho real do acerto. Quem olha só a conta-corrente subestima o próprio direito.</p>
+</div>
+
+<div class="card">
+  <h2 id="reclamar">Onde reclamar (e por quanto tempo guardar tudo)</h2>
+  <p>Achou erro e a empresa não corrigiu? Três portas — pode bater em todas:</p>
+  <p><strong>1. Sindicato da categoria.</strong> Orienta, confere cálculos e tenta a solução direto com a empresa. Gratuito para a categoria.</p>
+  <p><strong>2. Ministério do Trabalho.</strong> A Superintendência Regional recebe denúncias e media o conflito. Atraso de verbas é um prato cheio para denúncia — fiscalização dói no bolso de um jeito que conversa não dói.</p>
+  <p><strong>3. Justiça do Trabalho.</strong> Quando o acordo não sai. A seu favor: dá para reclamar <strong>sem advogado</strong> (jus postulandi, art. 791 da CLT) — embora um advogado aumente muito as chances — e há <strong>gratuidade de justiça</strong> para quem não pode pagar. Verbas, multa do art. 477 e do art. 467 cabem na mesma ação.</p>
+  <p>Prazo para agir: <strong>até 2 anos após o fim do contrato</strong>, cobrando os <strong>últimos 5 anos</strong> (art. 7º, XXIX, da Constituição). Regra de ouro: <strong>guarde tudo por 5 anos</strong> — TRCT, holerites, extratos do FGTS, comprovantes, conversas com o RH. Papel guardado é direito preservado.</p>
+</div>
+
+<div class="card faq">
+  <h2 id="faq-trct">Perguntas frequentes</h2>
+  <details><summary>Assinei o TRCT. Ainda posso reclamar de um valor errado?</summary><div>Pode. A quitação alcança apenas as parcelas especificadas no termo (art. 477, §2º). Verba errada — ou que nem apareceu — pode ser cobrada na Justiça em até 2 anos. Assinatura não apaga erro de cálculo.</div></details>
+  <details><summary>A empresa atrasou 3 dias. A multa é proporcional?</summary><div>Não. Para o TST, a multa do art. 477, §8º, é de um salário cheio, independente do atraso. Um dia ou um mês: um salário. E as verbas, além da multa, continuam devidas com correção.</div></details>
+  <details><summary>Posso exigir a homologação no sindicato?</summary><div>Exigir, só se a convenção ou o acordo coletivo da categoria determinar. Fora isso, você pode pedir a assistência do sindicato como direito seu — gratuita, e costuma resolver sem Justiça.</div></details>
+  <details><summary>A empresa descontou um valor que eu não reconheço. E agora?</summary><div>Confira o limite: nenhuma compensação passa de um mês da sua remuneração, e a rescisão nunca fecha com você devendo (art. 477, §5º). Furou o teto ou foi algo não autorizado? Conteste por escrito e, se não resolver, leve ao sindicato ou à Justiça.</div></details>
+  <details><summary>Quanto tempo tenho para entrar na Justiça do Trabalho?</summary><div>Até 2 anos do fim do contrato, sobre os últimos 5 anos. Depois, prescreve. Por isso guardar TRCT, holerites e extratos do FGTS por 5 anos não é exagero: é estratégia.</div></details>
+</div>
+
+<div class="card">
+  <h2>Leia também</h2>
+  <p><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão 2026 — quanto vou receber? →</a></p>
+  <p><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão, passo a passo →</a></p>
+  <p><a href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html">Aviso prévio trabalhado vs indenizado →</a></p>
+  <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
+</div>
+
+</div>
+
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
+  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+</footer>
+
+</body>
+</html>

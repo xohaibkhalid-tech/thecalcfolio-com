@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">
+<link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Férias Vencidas na Rescisão: Como Calcular + 1/3">
+<meta property="og:description" content="Férias vencidas na rescisão: período aquisitivo e concessivo, pagamento em dobro, 1/3 constitucional, efeito das faltas e exemplo com números reais.">
+<meta property="og:url" content="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Férias Vencidas na Rescisão: Como Calcular + 1/3</title>
+<meta name="description" content="Férias vencidas na rescisão: período aquisitivo e concessivo, pagamento em dobro, 1/3 constitucional, efeito das faltas e exemplo com números reais.">
+<style>
+  :root{
+    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
+    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
+  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:0;color:#54677e}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
+  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
+  label{display:block;font-weight:600;margin:14px 0 6px}
+  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
+  input:focus,select:focus{outline:none;border-color:var(--blue)}
+  .amount-wrap{position:relative}
+  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+  .amount-wrap input{padding-left:36px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radios input{margin-right:8px}
+  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .k{font-size:.85rem;color:var(--muted)}
+  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
+  .stat.good .v{color:var(--green)}
+  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
+  .stat.total .v{font-size:1.7rem}
+  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
+  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
+  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
+  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
+  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
+  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
+  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .faq details div{padding:0 16px 16px;color:#33475c}
+  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
+  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
+  a{color:var(--blue)}
+</style>
+<style>
+/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
+body{background:#0b1a29!important;color:#e8eef4!important}
+a{color:#7dd3fc!important}
+header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
+header.top p{color:#a9bccd!important}
+.card{background:#12293f!important}
+.card h2{color:#fff!important}
+.card p{color:#a9bccd!important}
+.card li{color:#c6d2de!important}
+label{color:#c6d2de!important}
+input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
+.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
+button.go{background:#c9a227!important;color:#0b1a29!important}
+button.go:hover{background:#e8c95a!important}
+.stat{background:#0b1a29!important;border-color:#2a4258!important}
+.stat .k{color:#a9bccd!important}
+.stat .v{color:#fff!important}
+.stat.good .v{color:#4ade80!important}
+.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
+.stat.total .v{color:#4ade80!important}
+table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
+table.lines tr.grand td{color:#fff!important}
+.formula{color:#8fa1b3!important}
+.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
+.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
+.faq details{background:#12293f!important;border-color:#2a4258!important}
+.faq summary{color:#fff!important}
+.faq details div{color:#a9bccd!important}
+.more{color:#a9bccd!important}
+footer{color:#8fa1b3!important}
+footer a{color:#e8c95a!important}
+:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
+</style>
+</head>
+<body>
+<style>
+.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
+.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
+.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
+.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
+.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
+.topnav .nav-item{position:relative}
+.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
+.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
+.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
+.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
+.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
+.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
+.topnav .nav-item:hover .dropdown{display:block}
+@media(max-width:760px){
+.topnav .hamburger{display:block}
+.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
+.topnav .nav-links.open{display:flex}
+.topnav .nav-item:hover .dropdown{display:none}
+.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
+}
+</style>
+<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
+<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
+<nav class="topnav">
+<div class="nav-inner">
+<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
+<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<div class="nav-links">
+
+</div>
+</div>
+</nav>
+<script>
+(function(){
+var nav=document.querySelector('.topnav'); if(!nav) return;
+var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
+hb.addEventListener('click',function(){links.classList.toggle('open');});
+nav.querySelectorAll('.drop > a').forEach(function(a){
+a.addEventListener('click',function(e){
+if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
+});
+});
+})();
+</script>
+
+<div class="wrap">
+<header class="top">
+  <h1>Férias Vencidas na Rescisão: Como Calcular + 1/3</h1>
+  <p>Você saiu da empresa e, no meio da papelada da rescisão, aparece aquela linha: "férias vencidas". Para muita gente é a maior surpresa boa da rescisão — porque férias que a empresa deixou vencer são pagas em dobro, com mais um terço em cima de tudo. Este guia explica a diferença entre período aquisitivo e concessivo, quando o dobro se aplica, como as faltas cortam os seus dias e faz a conta com números reais: um salário de R$ 3.000 virando R$ 8.000,00 na rescisão.</p>
+</header>
+
+<div class="card">
+  <h2>Em resumo</h2>
+  <ul>
+    <li>A cada 12 meses trabalhados você conquista 30 dias de férias (<strong>período aquisitivo</strong>); a empresa tem os 12 meses seguintes para concedê-las (<strong>período concessivo</strong>).</li>
+    <li>Não gozou dentro do concessivo? A lei manda pagar <strong>em dobro</strong> (art. 137 da CLT) — é a multa pelo atraso da empresa.</li>
+    <li>Sobre tudo — férias simples ou dobradas — entra o <strong>adicional de 1/3 constitucional</strong>.</li>
+    <li><strong>Faltas injustificadas</strong> reduzem os dias: até 5 faltas = 30 dias; 6–14 = 24; 15–23 = 18; 24–32 = 12; acima de 32 = zero.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Neste guia</h2>
+  <ul>
+    <li><a href="#aquisitivo-concessivo">Período aquisitivo x concessivo: a diferença que decide tudo</a></li>
+    <li><a href="#pagamento-dobro">Não gozou no prazo? Recebe em dobro</a></li>
+    <li><a href="#terco">O 1/3 constitucional: em cima de tudo</a></li>
+    <li><a href="#faltas">Faltas injustificadas cortam os seus dias</a></li>
+    <li><a href="#proporcionais">Férias proporcionais na rescisão</a></li>
+    <li><a href="#exemplo">Exemplo completo: R$ 3.000 virando R$ 8.000</a></li>
+    <li><a href="#descontos">Tem desconto? Na rescisão, quase nada</a></li>
+    <li><a href="#faq-ferias">Perguntas frequentes</a></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 id="aquisitivo-concessivo">Período aquisitivo x concessivo: a diferença que decide tudo</h2>
+  <p>Quase toda confusão sobre férias nasce aqui, então vamos com calma. O <strong>período aquisitivo</strong> são os 12 meses de trabalho que fazem nascer o direito: trabalhou um ano, conquistou 30 dias de férias. O <strong>período concessivo</strong> são os 12 meses seguintes, durante os quais a empresa é obrigada a conceder essas férias.</p>
+  <p>Exemplo com datas, que é como a coisa fica clara: o João foi admitido em 10/03/2024. O período aquisitivo dele foi de 10/03/2024 a 09/03/2025 — ali nasceram 30 dias de férias. O período concessivo foi de 10/03/2025 a 09/03/2026 — a empresa tinha até essa data para colocá-lo de férias. Ele saiu da empresa em maio de 2026 sem ter gozado: essas férias <strong>venceram</strong>, e na rescisão elas vêm em dobro.</p>
+  <p>Vale ser direto sobre quem manda no calendário: <strong>dentro do período concessivo, é a empresa quem escolhe quando você tira férias</strong> — ela só precisa avisar por escrito com 30 dias de antecedência. O que ela não pode fazer é deixar o concessivo acabar sem conceder. Se deixou, o preço é o pagamento em dobro.</p>
+  <p>E um detalhe que pega quem troca de emprego: cada período aquisitivo é independente. Você pode sair da empresa com um período vencido (dobro), um período simples ainda no concessivo e mais alguns meses de proporcional — os três entram na rescisão, cada um com sua regra.</p>
+</div>
+
+<div class="card">
+  <h2 id="pagamento-dobro">Não gozou no prazo? Recebe em dobro</h2>
+  <p>É o art. 137 da CLT, sem rodeio: férias concedidas <strong>após</strong> o fim do período concessivo têm que ser pagas em dobro. Não é bônus, não é gentileza — é a multa que a lei criou para a empresa não enrolar o trabalhador.</p>
+  <p>O dobro incide sobre a <strong>remuneração das férias</strong>, ou seja, sobre o valor que você receberia pelos dias de descanso. Se o seu salário na rescisão é R$ 3.000, as férias vencidas valem R$ 6.000 — antes mesmo do terço constitucional, que a gente calcula no próximo tópico.</p>
+  <p>Na rescisão, isso entra de forma automática: as férias vencidas e não gozadas são pagas em dobro na homologação, junto com as demais verbas. Não precisa pedir, não precisa brigar — mas <strong>precisa conferir</strong>. É um dos itens que mais aparecem errados (ou "esquecidos") em rescisões feitas às pressas.</p>
+  <p>Conselho de quem já viu muita rescisão: se você está pedindo demissão ou sendo demitido e sabe que tem férias vencidas, mencione isso na conversa com o RH. Não como ameaça — como conferência. "Só confirmando: tem um período vencido de 2024/2025, certo?" Resolve 90% dos "esquecimentos".</p>
+</div>
+
+<div class="card">
+  <h2 id="terco">O 1/3 constitucional: em cima de tudo</h2>
+  <p>O art. 7º, inciso XVII, da Constituição garante: nas férias, o trabalhador recebe a remuneração normal <strong>acrescida de um terço</strong>. É o famoso "terço de férias", e ele se aplica sobre tudo — férias simples, férias em dobro, férias proporcionais.</p>
+  <p>Nas férias dobradas, o terço incide sobre o valor dobrado. Ou seja: não é um terço "só da parte simples". Com salário de R$ 3.000 e férias vencidas: dobro = R$ 6.000; terço = R$ 2.000; total = <strong>R$ 8.000,00</strong>. É assim que um salário de 3 mil vira 8 mil na rescisão — e é exatamente a conta que vamos detalhar no exemplo completo.</p>
+  <p>Para férias simples, a conta que todo mundo deveria saber de cor: salário + 1/3. Com R$ 3.000 → 3.000 + 1.000 = <strong>R$ 4.000,00</strong> de férias gozadas. Se algum dia o valor que caiu na sua conta foi menor que isso (descontadas as deduções legais), alguma coisa saiu errada.</p>
+  <p>Um erro comum: achar que o terço é "um benefício à parte" que a empresa pode escolher pagar ou não. Não pode. É direito constitucional, tão obrigatório quanto o próprio salário — e na rescisão ele acompanha cada verba de férias, sem exceção.</p>
+</div>
+
+<div class="card">
+  <h2 id="faltas">Faltas injustificadas cortam os seus dias</h2>
+  <p>Aqui está a parte que surpreende: <strong>faltas sem justificativa reduzem a quantidade de dias de férias</strong> a que você tem direito naquele período aquisitivo. A tabela é do art. 130 da CLT e não mudou:</p>
+  <table class="lines"><tbody>
+    <tr><td>Até 5 faltas</td><td>30 dias de férias</td></tr>
+    <tr><td>6 a 14 faltas</td><td>24 dias de férias</td></tr>
+    <tr><td>15 a 23 faltas</td><td>18 dias de férias</td></tr>
+    <tr><td>24 a 32 faltas</td><td>12 dias de férias</td></tr>
+    <tr><td>Acima de 32 faltas</td><td>Perde o direito às férias</td></tr>
+  </tbody></table>
+  <p>O ponto-chave: só contam as <strong>faltas injustificadas</strong>. Atestado médico, licença-maternidade/paternidade, doação de sangue, alistamento, casamento, falecimento de familiar — tudo isso é falta justificada e não entra na conta. Muita gente perde dias de férias por não entregar o atestado no prazo e a falta virar "injustificada" no sistema.</p>
+  <p>Na rescisão, as férias vencidas são calculadas sobre os dias a que você <strong>efetivamente tinha direito</strong>. Teve 10 faltas injustificadas no período? São 24 dias de férias — e é sobre esses 24 dias que incidem o dobro e o terço. Vamos fazer essa conta exata no exemplo lá embaixo.</p>
+</div>
+
+<div class="card">
+  <h2 id="proporcionais">Férias proporcionais na rescisão</h2>
+  <p>Além das vencidas, a rescisão traz as <strong>férias proporcionais</strong>: 1/12 por mês trabalhado no período aquisitivo em curso, mais o terço constitucional em cima. A regra da fração é a mesma do 13º — 15 dias ou mais no mês contam como mês cheio.</p>
+  <p>Quem tem direito? Na <strong>demissão sem justa causa</strong>, sim. No <strong>pedido de demissão</strong>, sim — mesmo com menos de 12 meses de empresa (a Súmula 261 do TST garante). No <strong>acordo</strong>, sim. Na <strong>demissão por justa causa</strong>, não: a falta grave corta as proporcionais.</p>
+  <p>Exemplo: a Patrícia ganhava R$ 3.000, trabalhou 7 meses do período aquisitivo atual e pediu demissão. Proporcional: 3.000 ÷ 12 × 7 = R$ 1.750,00. Terço: 1.750 ÷ 3 = R$ 583,33. Total de férias proporcionais na rescisão: <strong>R$ 2.333,33</strong>.</p>
+  <p>Repare que as proporcionais são sempre "simples" — o dobro só existe para férias <strong>vencidas</strong>, ou seja, de períodos aquisitivos já completos cujo concessivo expirou. Proporcional em dobro não existe na lei, por mais que a situação pareça injusta.</p>
+</div>
+
+<div class="card">
+  <h2 id="exemplo">Exemplo completo: R$ 3.000 virando R$ 8.000</h2>
+  <p>Vamos à conta que interessa, com o Roberto: salário de R$ 3.000 na rescisão, um período de férias <strong>vencido e não gozado</strong> (30 dias, sem faltas), demissão sem justa causa.</p>
+  <p><strong>Passo 1 — férias em dobro:</strong> 3.000 × 2 = <strong>R$ 6.000,00</strong>.</p>
+  <p><strong>Passo 2 — terço constitucional sobre o dobro:</strong> 6.000 ÷ 3 = <strong>R$ 2.000,00</strong> (é o terço de cada "metade": 1.000 + 1.000).</p>
+  <p><strong>Passo 3 — total:</strong> 6.000 + 2.000 = <strong>R$ 8.000,00</strong>.</p>
+  <table class="lines"><tbody>
+    <tr><td>Férias vencidas (30 dias, em dobro)</td><td>R$ 6.000,00</td></tr>
+    <tr><td>1/3 constitucional</td><td>R$ 2.000,00</td></tr>
+    <tr class="grand"><td><strong>Total na rescisão</strong></td><td><strong>R$ 8.000,00</strong></td></tr>
+  </tbody></table>
+  <p><strong>E com faltas, como fica?</strong> Digamos que o Roberto teve 10 faltas injustificadas naquele período aquisitivo: cai para 24 dias de férias. A conta: 3.000 ÷ 30 × 24 = R$ 2.400,00; em dobro = R$ 4.800,00; terço = R$ 1.600,00. Total: <strong>R$ 6.400,00</strong>. Dez faltas "custaram" R$ 1.600,00 — é assim que a tabela de faltas dói no bolso.</p>
+  <p>Perceba a lógica: cada dia de férias vale 1/30 do salário (R$ 100,00 no exemplo). Em dobro, cada dia vale R$ 200,00, mais o terço. Por isso conferir os dias lançados na rescisão é tão importante quanto conferir o valor.</p>
+</div>
+
+<div class="card">
+  <h2 id="descontos">Tem desconto? Na rescisão, quase nada</h2>
+  <p>Boa notícia para fechar a conta: as férias pagas na rescisão de forma <strong>indenizatória</strong> — vencidas e proporcionais — <strong>não sofrem desconto de INSS</strong> e <strong>não entram no Imposto de Renda</strong>. A jurisprudência é pacífica: verba indenizatória não é salário, então não gera contribuição previdenciária nem IR (Súmula 125 do STJ para as férias indenizadas).</p>
+  <p>Na prática, isso significa que os R$ 8.000,00 do exemplo chegam <strong>limpos</strong> na rescisão — sem fatiar INSS, sem redutor de IR para conferir. É um dos poucos itens da rescisão que vêm sem desconto, e vale saber disso para não aceitar "desconto de INSS sobre as férias" na homologação.</p>
+  <p>Mas atenção à diferença: <strong>férias gozadas durante o contrato</strong> são tributadas normalmente — têm INSS e IR como qualquer remuneração. O tratamento especial vale só para as férias pagas em dinheiro na rescisão. E o <strong>FGTS</strong>? Não incide sobre férias indenizatórias — só sobre as gozadas.</p>
+  <p>Resumo honesto: na rescisão, férias vencidas em dobro + terço é dinheiro limpo. Se aparecer desconto nessa linha do termo de rescisão, questione na hora.</p>
+</div>
+
+<div class="card faq">
+  <h2 id="faq-ferias">Perguntas frequentes</h2>
+  <details><summary>Posso vender parte das férias?</summary><div>Sim: é o abono pecuniário. Você pode converter até 1/3 das férias em dinheiro (10 dias), mas precisa pedir por escrito até 15 dias antes de terminar o período aquisitivo. Os dias vendidos já são pagos — na rescisão, contam só os dias restantes.</div></details>
+  <details><summary>A empresa pode escolher quando eu tiro férias?</summary><div>Dentro do período concessivo, sim — ela define o período e avisa você por escrito com 30 dias de antecedência. O que ela não pode é deixar o concessivo vencer sem conceder: aí as férias são pagas em dobro.</div></details>
+  <details><summary>Férias vencidas têm desconto de INSS e IR na rescisão?</summary><div>Não. Pagas de forma indenizatória na rescisão, as férias vencidas (e as proporcionais) não sofrem INSS e não entram no Imposto de Renda. O valor que você calculou é o valor que entra.</div></details>
+  <details><summary>Fui demitido no período de experiência. Tenho férias?</summary><div>Tem as proporcionais: 1/12 por mês trabalhado, mais o terço — mesmo com menos de 12 meses de empresa, tanto na demissão sem justa causa quanto no pedido de demissão. Só a justa causa corta esse direito.</div></details>
+  <details><summary>O terço também dobra nas férias vencidas?</summary><div>Sim. O adicional de 1/3 incide sobre o valor total das férias — e nas vencidas esse total já está dobrado. Com salário de R$ 3.000: dobro de R$ 6.000 + terço de R$ 2.000 = R$ 8.000,00.</div></details>
+</div>
+
+<div class="card">
+  <h2>Leia também</h2>
+  <p><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão 2026 — quanto vou receber? →</a></p>
+  <p><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão: o que você recebe →</a></p>
+  <p><a href="https://thecalcfolio.com/br/seguro-desemprego-2026.html">Seguro-desemprego 2026: valores e parcelas →</a></p>
+  <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
+</div>
+
+</div>
+
+
+<footer>
+  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
+  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
+  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
+  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
+  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+</footer>
+
+</body>
+</html>
