@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://thecalcfolio.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://thecalcfolio.com/paypal-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/ebay-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/etsy-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/stripe-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thecalcfolio.com/paypal-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/ebay-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/etsy-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/stripe-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://thecalcfolio.com/refinance-calculator.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://thecalcfolio.com/car-accident-settlement-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/about.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://thecalcfolio.com/contact.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://thecalcfolio.com/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://thecalcfolio.com/disclaimer.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://thecalcfolio.com/about.html</loc><lastmod>2026-10-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://thecalcfolio.com/contact.html</loc><lastmod>2026-10-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://thecalcfolio.com/privacy-policy.html</loc><lastmod>2026-10-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://thecalcfolio.com/disclaimer.html</loc><lastmod>2026-10-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://thecalcfolio.com/average-settlement-back-neck-injury.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thecalcfolio.com/ebay-vs-etsy-fees.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thecalcfolio.com/ebay-vs-etsy-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/when-should-you-refinance.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thecalcfolio.com/square-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/how-to-reduce-paypal-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/square-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/how-to-reduce-paypal-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/how-long-does-car-accident-settlement-take.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/venmo-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/depop-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/grailed-fee-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/square-vs-stripe-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/venmo-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/depop-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/grailed-fee-calculator.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/square-vs-stripe-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/refinance-closing-costs-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/etsy-offsite-ads-fee-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/etsy-offsite-ads-fee-explained.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/average-car-accident-settlement.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/depop-vs-poshmark-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/how-to-reduce-etsy-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/venmo-vs-cash-app-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/depop-vs-poshmark-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/how-to-reduce-etsy-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/venmo-vs-cash-app-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/overtime-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/is-overtime-taxed.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/what-is-time-and-a-half.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/california-overtime-rules.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/how-to-calculate-overtime-pay.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/interest-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/calculators.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/guides.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thecalcfolio.com/calculators.html</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/guides.html</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/simple-vs-compound-interest.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/what-is-apy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/rule-of-72-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/compounding-frequency-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/can-employer-refuse-overtime.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/how-insurance-companies-calculate-settlements.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/paypal-vs-stripe-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/paypal-vs-stripe-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/how-to-calculate-loan-interest.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/what-is-a-good-apy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/salaried-overtime-pay.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/ebay-seller-fees-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/ebay-seller-fees-explained.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/what-is-mortgage-refinance.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/stripe-vs-square-fees.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/stripe-vs-square-fees.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/personal-loan-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/mortgage-overpayment-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/car-loan-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -63,7 +63,7 @@
   <url><loc>https://thecalcfolio.com/gold-price-today-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/loan-amortization-explained.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/how-to-calculate-credit-card-interest.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thecalcfolio.com/poshmark-seller-fees-explained.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thecalcfolio.com/poshmark-seller-fees-explained.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/cash-out-refinance-vs-home-equity-loan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/personal-loan-foreclosure-charges-india.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/cibil-score-personal-loan-rate-india.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -76,25 +76,25 @@
   <url><loc>https://thecalcfolio.com/conviene-comprare-oro-oggi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/oro-usato-compro-oro-guida.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/it/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thecalcfolio.com/de/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thecalcfolio.com/de/arbeitszeitrechner.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thecalcfolio.com/de/ueberstunden-berechnen.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thecalcfolio.com/de/arbeitszeitrechner.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thecalcfolio.com/de/ueberstunden-berechnen.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thecalcfolio.com/br/calculadora-rescisao.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://thecalcfolio.com/br/como-calcular-rescisao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/fgts-na-rescisao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/teilzeit-arbeitszeit.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/teilzeit-arbeitszeit.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/seguro-desemprego-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/it/oro-fisico-vs-etc.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/minijob-arbeitszeit.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/arbeitszeitkonto.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/gleitzeit-berechnen.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://thecalcfolio.com/de/wochenendarbeit-sonntag.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/minijob-arbeitszeit.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/arbeitszeitkonto.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/gleitzeit-berechnen.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thecalcfolio.com/de/wochenendarbeit-sonntag.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/decimo-terceiro-salario.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/ferias-vencidas-rescisao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thecalcfolio.com/br/rescisao-empregada-domestica.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
