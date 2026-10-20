@@ -84,6 +84,7 @@ FOOT_COLS = {
                          ("Stripe fee calculator", "/stripe-fee-calculator.html"),
                          ("Square fee calculator", "/square-fee-calculator.html"),
                          ("Venmo fee calculator", "/venmo-fee-calculator.html"),
+                         ("Cash App fee calculator", "/cash-app-fee-calculator.html"),
                          ("Depop fee calculator", "/depop-fee-calculator.html"),
                          ("Grailed fee calculator", "/grailed-fee-calculator.html")]),
         ("Compare", [("Venmo vs Cash App", "/venmo-vs-cash-app-fees.html"),

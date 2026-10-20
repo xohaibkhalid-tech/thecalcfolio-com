@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/cash-app-fee-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Cash App Fee Calculator (2026): Instant Transfer &amp; Business Fees">
+<meta property="og:description" content="Free Cash App fee calculator with official 2026 rates: instant transfer (0.5%–2.5%), business payments (2.6% + $0.15), Tap to Pay and credit card fees.">
+<meta property="og:url" content="https://thecalcfolio.com/cash-app-fee-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Cash App Fee Calculator (2026): Instant Transfer &amp; Business Fees</title>
+<meta name="description" content="Free Cash App fee calculator with official 2026 rates: instant transfer (0.5%–2.5%), business payments (2.6% + $0.15), Tap to Pay and credit card fees.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
+</head>
+<body>
+<!--v2:header:en:seller-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html" aria-current="page">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a></li><li aria-current="page">Cash App Fee Calculator</li></ol>
+<span class="tag">Official rates · Oct 2026</span>
+<h1>Cash App Fee Calculator</h1>
+<p class="lede">See exactly what Cash App takes on an instant transfer, a business payment, Tap to Pay or a credit card send — and what you keep. Uses Cash App's current official fees, including the newer 2.6% + $0.15 business rate. Free, no sign-up.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="card tool">
+    <h2>Calculate your Cash App fee</h2>
+    <label for="ca-amt">Amount (USD)</label>
+    <input type="number" id="ca-amt" min="0" step="0.01" value="100" inputmode="decimal">
+    <label>What are you doing?</label>
+    <div class="types" id="ca-types">
+      <label class="type sel"><input type="radio" name="ca-t" value="instant" checked><b>Instant transfer</b><span>Cash out to your bank or debit card now · 0.5%–2.5%</span></label>
+      <label class="type"><input type="radio" name="ca-t" value="business"><b>Business payment</b><span>Received to a Business account · 2.6% + $0.15</span></label>
+      <label class="type"><input type="radio" name="ca-t" value="tap"><b>Tap to Pay</b><span>In-person card payment · 3%</span></label>
+      <label class="type"><input type="radio" name="ca-t" value="cc"><b>Send with credit card</b><span>Sender pays · 3%</span></label>
+      <label class="type"><input type="radio" name="ca-t" value="free"><b>Personal / standard</b><span>Friends &amp; family, 1–3 day transfer · free</span></label>
+    </div>
+    <div id="ca-instant">
+      <label for="ca-rate">Your instant transfer rate (%) — Cash App shows it before you confirm</label>
+      <input type="number" id="ca-rate" min="0.5" max="2.5" step="0.01" value="1.75" inputmode="decimal">
+      <label for="ca-min">Minimum fee ($) — between $0.25 and $1 on your account</label>
+      <input type="number" id="ca-min" min="0" step="0.01" value="0.25" inputmode="decimal">
+    </div>
+    <button class="go" id="ca-btn">Calculate</button>
+    <div class="result" id="ca-result" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h2>Reverse calculator — what to charge</h2>
+    <p>Want to <strong>keep</strong> a set amount after Cash App's cut? Enter it and get the amount to charge (or cash out). Uses the type picked above.</p>
+    <label for="ca-want">Amount you want to keep (USD)</label>
+    <input type="number" id="ca-want" min="0" step="0.01" value="100" inputmode="decimal">
+    <button class="go" id="ca-rev">What should I charge?</button>
+    <div class="result" id="ca-revres" aria-live="polite"></div>
+  </div>
+
+  <div class="card" id="ca-tab-card">
+    <h2>Fee at common amounts</h2>
+    <table class="fees">
+      <thead><tr><th>Amount</th><th>Cash App fee</th><th>You keep</th></tr></thead>
+      <tbody id="ca-tab"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="answer">
+    <p><strong>Cash App is free for personal payments and standard (1–3 day) transfers. You pay a fee for speed and for business: instant transfers cost 0.5%–2.5% (minimum $0.25–$1, maximum $75), Business account payments cost 2.6% + $0.15, Tap to Pay costs 3%, and sending with a credit card costs the sender 3%.</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Cash App fees 2026</h2>
+    <table class="fees">
+      <thead><tr><th>Action</th><th>Fee</th><th>$100 example</th></tr></thead>
+      <tbody>
+      <tr><td>Send or receive (bank, debit, balance)</td><td>Free</td><td>$0.00</td></tr>
+      <tr><td>Standard transfer to bank (1–3 business days)</td><td>Free</td><td>$0.00</td></tr>
+      <tr><td>Instant transfer to bank or debit card</td><td>0.5%–2.5% ($0.25–$1 min, $75 max)</td><td>$0.50–$2.50</td></tr>
+      <tr><td>Payment received to a Business account</td><td>2.6% + $0.15</td><td>$2.75</td></tr>
+      <tr><td>Tap to Pay (in person)</td><td>3%</td><td>$3.00</td></tr>
+      <tr><td>Send with a credit card</td><td>3% (sender pays)</td><td>$3.00</td></tr>
+      <tr><td>Paper money deposit at a store</td><td>$1 per deposit</td><td>$1.00</td></tr>
+      <tr><td>ATM withdrawal</td><td>$2.50 (can be waived with qualifying deposits or spend)</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Rates checked 20 October 2026 on Cash App's official pages: <a href="https://cash.app/help/6521-cash-app-business-fees" target="_blank" rel="noopener">Business fees</a>, <a href="https://cash.app/bank/no-fees" target="_blank" rel="noopener">fees overview</a> and <a href="https://cash.app/legal/us/en-us/cashappterms" target="_blank" rel="noopener">terms</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Cash App instant transfer fee, explained</h2>
+    <p>Cash App no longer charges everyone the same instant fee. Your rate sits somewhere between <strong>0.5% and 2.5%</strong>, with a minimum of $0.25 to $1 and a cap of $75. The app shows your exact fee on the screen before you confirm the transfer — type that percentage into the calculator above and it will match.</p>
+    <p>The easy way to pay $0: choose the <strong>standard</strong> transfer. It's free and lands in 1–3 business days. Instant only buys speed.</p>
+  </div>
+
+  <div class="card">
+    <h2>Selling with Cash App? Compare first</h2>
+    <p>On business payments, Cash App's 2.6% + $0.15 is higher than Venmo's 1.9% + $0.10 at every amount — see the full math in <a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App fees</a>. Taking card payments online? Check the <a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a> and <a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a> too.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Cash App fees — quick answers</h2>
+    <h3>How much does Cash App charge to cash out instantly?</h3>
+    <p>Instant transfers cost 0.5% to 2.5% of the amount, with a minimum fee of $0.25 to $1 and a maximum of $75. Cash App sets your exact rate and shows it before you confirm. Standard transfers that take 1–3 business days are free.</p>
+    <h3>What is the Cash App fee for $100?</h3>
+    <p>Sending $100 to a friend from your balance, bank or debit card is free. Cashing out $100 instantly costs $0.50 to $2.50 depending on your rate. Receiving $100 into a Business account costs $2.75 (2.6% + $0.15).</p>
+    <h3>What is the Cash App business fee?</h3>
+    <p>Cash App charges 2.6% + $0.15 on each payment a customer sends to your Cash App Business account, and 3% on Tap to Pay payments. The fee is taken from the payment before it reaches your balance.</p>
+    <h3>Does Cash App charge for using a credit card?</h3>
+    <p>Yes. Sending money with a linked credit card costs the sender 3% of the amount. Using a debit card, your bank account or your Cash App balance is free.</p>
+    <h3>How do I avoid Cash App fees?</h3>
+    <p>Use standard transfers instead of instant, fund payments from your balance, bank or debit card instead of a credit card, and use a personal account only for friends and family. For regular sales, compare business rates on other apps first.</p>
+  </div>
+
+  <div class="card">
+    <p class="disc">General information only. Cash App changes fees from time to time and sets some rates per account — always check the fee shown in the app before you confirm. Not affiliated with Cash App or Block, Inc.</p>
+  </div>
+</div>
+<aside class="side" aria-label="Related">
+<div class="box"><h2>Related</h2><a class="row" href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html"><span>Venmo vs Cash App fees</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/venmo-fee-calculator.html"><span>Venmo fee calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/paypal-fee-calculator.html"><span>PayPal fee calculator</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Top tools</h2><div class="top-tools"><a href="https://thecalcfolio.com/ebay-fee-calculator.html"><span class="ic c-yellow" aria-hidden="true">e</span>eBay fees</a><a href="https://thecalcfolio.com/paypal-fee-calculator.html"><span class="ic c-sky" aria-hidden="true">P</span>PayPal fees</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html"><span class="ic c-coral" aria-hidden="true">E</span>Etsy fees</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html"><span class="ic c-lilac" aria-hidden="true">S</span>Stripe fees</a><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><span class="ic c-yellow" aria-hidden="true">A</span>Arbeitszeitrechner</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Cash App Fee Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "url": "https://thecalcfolio.com/cash-app-fee-calculator.html"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does Cash App charge to cash out instantly?", "acceptedAnswer": {"@type": "Answer", "text": "Instant transfers cost 0.5% to 2.5% of the amount, with a minimum fee of $0.25 to $1 and a maximum of $75. Cash App sets your exact rate and shows it before you confirm. Standard transfers that take 1–3 business days are free."}}, {"@type": "Question", "name": "What is the Cash App fee for $100?", "acceptedAnswer": {"@type": "Answer", "text": "Sending $100 to a friend from your balance, bank or debit card is free. Cashing out $100 instantly costs $0.50 to $2.50 depending on your rate. Receiving $100 into a Business account costs $2.75 (2.6% + $0.15)."}}, {"@type": "Question", "name": "What is the Cash App business fee?", "acceptedAnswer": {"@type": "Answer", "text": "Cash App charges 2.6% + $0.15 on each payment a customer sends to your Cash App Business account, and 3% on Tap to Pay payments. The fee is taken from the payment before it reaches your balance."}}, {"@type": "Question", "name": "Does Cash App charge for using a credit card?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sending money with a linked credit card costs the sender 3% of the amount. Using a debit card, your bank account or your Cash App balance is free."}}, {"@type": "Question", "name": "How do I avoid Cash App fees?", "acceptedAnswer": {"@type": "Answer", "text": "Use standard transfers instead of instant, fund payments from your balance, bank or debit card instead of a credit card, and use a personal account only for friends and family. For regular sales, compare business rates on other apps first."}}]}]}
+</script>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function m(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function type(){return document.querySelector('input[name=ca-t]:checked').value;}
+function rate(){var r=parseFloat($('ca-rate').value);if(!(r>=0))r=1.75;return r/100;}
+function minf(){var x=parseFloat($('ca-min').value);return x>=0?x:0.25;}
+function fee(a,t){
+  if(t==='instant')return Math.min(Math.max(a*rate(),minf()),75,a);
+  if(t==='business')return a*0.026+0.15;
+  if(t==='tap'||t==='cc')return a*0.03;
+  return 0;
+}
+function charge(w,t){
+  if(t==='instant'){var r=rate(),a=w/(1-r);if(a*r<minf())a=w+minf();if(a*r>75)a=w+75;return a;}
+  if(t==='business')return (w+0.15)/(1-0.026);
+  if(t==='tap')return w/(1-0.03);
+  if(t==='cc')return w*1.03;
+  return w;
+}
+var LBL={instant:'instant transfer fee',business:'business payment fee',tap:'Tap to Pay fee',cc:'credit card fee (paid by sender)',free:'no fee'};
+document.querySelectorAll('#ca-types .type').forEach(function(el){el.addEventListener('click',function(){
+  document.querySelectorAll('#ca-types .type').forEach(function(x){x.classList.remove('sel');});el.classList.add('sel');
+  $('ca-instant').style.display=type()==='instant'?'block':'none';$('ca-btn').click();$('ca-rev').click();});});
+$('ca-btn').addEventListener('click',function(){
+  var a=parseFloat($('ca-amt').value),t=type(),box=$('ca-result');
+  $('ca-instant').style.display=t==='instant'?'block':'none';
+  if(!(a>0)){box.className='result';box.innerHTML='';return;}
+  var f=fee(a,t);box.className='result show';
+  if(t==='cc'){box.innerHTML='<div class="big">Fee: '+m(f)+'</div><p>The sender pays <span class="keep">'+m(a+f)+'</span> in total; the receiver gets the full '+m(a)+'.</p>';}
+  else{box.innerHTML='<div class="big">Fee: '+m(f)+'</div><p>You keep: <span class="keep">'+m(a-f)+'</span> from '+m(a)+' ('+LBL[t]+(f>0?', '+(f/a*100).toFixed(2)+'% effective':'')+').</p>';}
+  var rows='';[10,50,100,500,1000].forEach(function(x){var fx=fee(x,t);rows+='<tr><td>'+m(x)+'</td><td>'+m(fx)+'</td><td>'+(t==='cc'?m(x)+' (sender pays '+m(x+fx)+')':m(x-fx))+'</td></tr>';});
+  $('ca-tab').innerHTML=rows;
+});
+['ca-rate','ca-min'].forEach(function(id){$(id).addEventListener('input',function(){$('ca-rev').click();});});
+$('ca-rev').addEventListener('click',function(){
+  var w=parseFloat($('ca-want').value),t=type(),box=$('ca-revres');
+  if(!(w>0)){box.className='result';box.innerHTML='';return;}
+  var c=charge(w,t);box.className='result show';
+  var verb=t==='instant'?'Cash out':t==='cc'?'Sender pays':'Charge';
+  box.innerHTML='<div class="big">'+verb+': '+m(c)+'</div><p>That leaves <span class="keep">'+m(w)+'</span> after a '+m(c-w)+' fee'+(t==='free'?' (this one is free)':'')+'.</p>';
+});
+})();
+</script>
+<script>
+/* v2: recalculate as you type — clicks the card's own Calculate button */
+(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go');if(!b)return;
+var run=function(){b.click();};c.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',run);i.addEventListener('change',run);});});
+document.querySelectorAll('.card button.go').forEach(function(b){b.click();});})();
+</script>
+
+</body>
+</html>
