@@ -55,6 +55,10 @@ PAGES = {
     "how-to-reduce-paypal-fees.html": ("guide", "en", "guides", ["paypal"], [("PayPal vs Stripe fees", "/paypal-vs-stripe-fees.html"), ("Venmo vs Cash App fees", "/venmo-vs-cash-app-fees.html")]),
     "poshmark-seller-fees-explained.html": ("guide", "en", "guides", ["depop", "ebay"], [("Depop vs Poshmark fees", "/depop-vs-poshmark-fees.html"), ("eBay seller fees explained", "/ebay-seller-fees-explained.html")]),
     "calculators.html": ("hub", "en", "seller", [], []),
+    "about.html": ("page", "en", "about", [], [("Contact", "/contact.html"), ("Disclaimer", "/disclaimer.html"), ("Privacy policy", "/privacy-policy.html")]),
+    "contact.html": ("page", "en", "", [], [("About", "/about.html"), ("Disclaimer", "/disclaimer.html"), ("Privacy policy", "/privacy-policy.html")]),
+    "privacy-policy.html": ("page", "en", "", [], [("About", "/about.html"), ("Contact", "/contact.html"), ("Disclaimer", "/disclaimer.html")]),
+    "disclaimer.html": ("page", "en", "", [], [("About", "/about.html"), ("Contact", "/contact.html"), ("Privacy policy", "/privacy-policy.html")]),
     "guides.html": ("hub", "en", "guides", [], []),
     "de/index.html": ("hub", "de", "ratgeber", [], []),
 }
@@ -99,7 +103,7 @@ def sidebar(lang, related, page=""):
     rows = "".join(f'<a class="row" href="{SITE}{u}"><span>{n}</span><span aria-hidden="true">→</span></a>' for n, u in related if u.lstrip("/") != page)
     keys = ["azr"] if lang == "de" else ["ebay", "paypal", "etsy", "stripe", "azr"]
     tops = "".join(f'<a href="{SITE}{TOOLS[k][1]}"><span class="ic {TOOLS[k][2]}" aria-hidden="true">{TOOLS[k][3]}</span>{TOOLS[k][0].replace(" Fee Calculator", " fees")}'
-                   + (' <small style="opacity:.7;font-weight:600">(DE)</small>' if k == "azr" and lang == "en" else "") + '</a>' for k in keys)
+                   + '</a>' for k in keys)
     if lang == "de":
         tops += f'<a href="{SITE}/de/ueberstunden-berechnen.html"><span class="ic c-coral" aria-hidden="true">Ü</span>Überstunden berechnen</a>'
     out = '<aside class="side" aria-label="' + t["related"] + '">\n'
@@ -147,10 +151,17 @@ def convert(page):
     body = re.sub(r'<nav class="topnav">.*?</nav>\s*(<script>\s*\(function\(\)\{\s*var nav=.*?</script>\s*)?', "", body, flags=re.S)
     body = re.sub(r"<footer>.*?</footer>\s*", "", body, flags=re.S)
     m = re.search(r'<header class="(?:art|top)">(.*?)</header>\s*', body, flags=re.S)
-    if not m:
-        raise SystemExit(f"no hero header in {page}")
-    hero_inner = m.group(1)
-    body = body[:m.start()] + body[m.end():]
+    if m:
+        hero_inner = m.group(1)
+        body = body[:m.start()] + body[m.end():]
+    else:
+        # simple pages (about/contact/legal): <header><a>brand</a></header> + <h1> inside the first card
+        body = re.sub(r'<header>\s*<a href="/">The Calcfolio</a>\s*</header>\s*', "", body)
+        mh = re.search(r"\s*<h1>(.*?)</h1>\s*", body, flags=re.S)
+        if not mh:
+            raise SystemExit(f"no hero header in {page}")
+        hero_inner = f"<h1>{mh.group(1)}</h1>"
+        body = body[:mh.start()] + "\n" + body[mh.end():]
     h1 = re.search(r"<h1>(.*?)</h1>", hero_inner, flags=re.S).group(1).strip()
     lede = re.search(r"<p>(.*?)</p>", hero_inner, flags=re.S)
     meta = re.search(r'<div class="meta">(.*?)</div>', hero_inner, flags=re.S)
@@ -187,7 +198,7 @@ def convert(page):
         if sec:
             crumbs += f'<li><a href="{SITE}{sec[1]}">{sec[0]}</a></li>'
         crumbs += f'<li aria-current="page">{html.escape(strip_tags(h1))}</li>'
-        tag = strip_tags(meta.group(1)) if meta else ("2026 US rates" if kind == "calc" else "The Calcfolio")
+        tag = strip_tags(meta.group(1)) if meta else ("2026 US rates" if kind == "calc" else "The Calcfolio · free calculators, honest numbers")
     hero = ('<section class="hero">\n<div class="container">\n'
             f'<ol class="crumbs">{crumbs}</ol>\n<span class="tag">{html.escape(tag) if "&amp;" not in tag else tag}</span>\n'
             f'<h1>{h1}</h1>\n' + (f'<p class="lede">{lede.group(1).strip()}</p>\n' if lede else "") + '</div>\n</section>\n')
