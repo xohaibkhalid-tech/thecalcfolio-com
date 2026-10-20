@@ -15,7 +15,7 @@ import re
 import sys
 
 SITE = "https://thecalcfolio.com"
-CSS_VER = "3"
+CSS_VER = "4"
 HEAD_LINKS = (
     '<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>\n'
     '<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>\n'
@@ -32,6 +32,15 @@ TOOLS = {
     "depop": ("Depop Fee Calculator", "/depop-fee-calculator.html", "c-coral", "D"),
     "grailed": ("Grailed Fee Calculator", "/grailed-fee-calculator.html", "c-lilac", "G"),
     "azr": ("Arbeitszeitrechner", "/de/arbeitszeitrechner.html", "c-yellow", "A"),
+    "refi": ("Refinance Calculator", "/refinance-calculator.html", "c-mint", "R"),
+    "ploan": ("Personal Loan Calculator", "/personal-loan-calculator.html", "c-sky", "L"),
+    "car": ("Car Loan Calculator", "/car-loan-calculator.html", "c-coral", "C"),
+    "mort": ("Mortgage Overpayment Calculator", "/mortgage-overpayment-calculator.html", "c-lilac", "M"),
+    "int": ("Interest Calculator", "/interest-calculator.html", "c-yellow", "%"),
+    "ot": ("Overtime Calculator", "/overtime-calculator.html", "c-mint", "OT"),
+    "acc": ("Car Accident Settlement Calculator", "/car-accident-settlement-calculator.html", "c-coral", "$"),
+    "oro": ("Quotazione Oro Oggi", "/it/quotazione-oro-oggi.html", "c-yellow", "Au"),
+    "resc": ("Calculadora de Rescisão", "/br/calculadora-rescisao.html", "c-mint", "R$"),
 }
 
 # page -> (kind, lang, nav, [cta tools], related links)
@@ -75,6 +84,10 @@ T = {
                open="Open calculator →", related="Related", top="Top tools", guides="Guides", seller="Seller Fees"),
     "de": dict(home="Deutsch", calc_now="Jetzt deine Arbeitszeit berechnen", calc_sub="Kostenlos, ohne Anmeldung — mit Pausen nach § 4 ArbZG.",
                open="Zum Rechner →", related="Weiterlesen", top="Rechner", guides="Ratgeber", seller="Rechner"),
+    "it": dict(home="Italiano", calc_now="Calcola il valore del tuo oro", calc_sub="Gratis, senza registrazione — prezzo al grammo per 24kt, 18kt e 14kt.",
+               open="Apri il calcolatore →", related="Leggi anche", top="Strumenti", guides="Guide", seller="Calcolatori"),
+    "br": dict(home="Português", calc_now="Calcule sua rescisão agora", calc_sub="Grátis, sem cadastro — com INSS e IRRF pelas tabelas 2026.",
+               open="Abrir a calculadora →", related="Leia também", top="Calculadoras", guides="Guias", seller="Calculadoras"),
 }
 
 
@@ -93,15 +106,16 @@ def head_part(src):
 
 def tool_cta(keys, lang):
     t = T[lang]
+    sub = t["calc_sub"] if lang != "en" or any(k in ("ebay", "paypal", "etsy", "stripe", "square", "venmo", "depop", "grailed") for k in keys) else "Free, no sign-up — runs entirely in your browser."
     btns = "".join(f'<a class="btn" href="{SITE}{TOOLS[k][1]}">{TOOLS[k][0]} →</a>' for k in keys)
-    return (f'<div class="tool-cta"><div class="tc-text"><strong>{t["calc_now"]}</strong><span>{t["calc_sub"]}</span></div>'
+    return (f'<div class="tool-cta"><div class="tc-text"><strong>{t["calc_now"]}</strong><span>{sub}</span></div>'
             f'<div style="display:flex;flex-wrap:wrap;gap:10px">{btns}</div></div>\n')
 
 
 def sidebar(lang, related, page=""):
     t = T[lang]
     rows = "".join(f'<a class="row" href="{SITE}{u}"><span>{n}</span><span aria-hidden="true">→</span></a>' for n, u in related if u.lstrip("/") != page)
-    keys = ["azr"] if lang == "de" else ["ebay", "paypal", "etsy", "stripe", "azr"]
+    keys = {"de": ["azr"], "it": ["oro"], "br": ["resc"]}.get(lang, ["ebay", "paypal", "etsy", "stripe", "azr"])
     tops = "".join(f'<a href="{SITE}{TOOLS[k][1]}"><span class="ic {TOOLS[k][2]}" aria-hidden="true">{TOOLS[k][3]}</span>{TOOLS[k][0].replace(" Fee Calculator", " fees")}'
                    + '</a>' for k in keys)
     if lang == "de":
@@ -114,6 +128,16 @@ def sidebar(lang, related, page=""):
 
 
 def hub_hero(page):
+    if page == "it/index.html":
+        return (f'<div class="hub-hero"><a class="hub-big" href="{SITE}/it/quotazione-oro-oggi.html"><strong>Quotazione Oro Oggi</strong>'
+                '<span>Prezzo al grammo in tempo reale e calcolatore del valore del tuo oro.</span><em>Calcola →</em></a>'
+                f'<a class="hub-big" href="{SITE}/it/tasse-oro-italia.html"><strong>Tasse sull&#x27;oro</strong><span>Plusvalenze, imposta sostitutiva al 26% e cosa dichiarare.</span><em>Leggi la guida →</em></a>'
+                f'<a class="hub-big" href="{SITE}/it/quando-vendere-oro.html"><strong>Quando vendere l&#x27;oro</strong><span>Segnali, tempi e come non svendere.</span><em>Leggi la guida →</em></a></div>\n')
+    if page == "br/index.html":
+        return (f'<div class="hub-hero"><a class="hub-big" href="{SITE}/br/calculadora-rescisao.html"><strong>Calculadora de Rescisão</strong>'
+                '<span>Saldo de salário, aviso prévio, férias, 13º e multa do FGTS — com INSS e IRRF 2026.</span><em>Calcular →</em></a>'
+                f'<a class="hub-big" href="{SITE}/br/fgts-na-rescisao.html"><strong>FGTS na rescisão</strong><span>Quando você saca, quanto recebe e a multa de 40%.</span><em>Ler o guia →</em></a>'
+                f'<a class="hub-big" href="{SITE}/br/seguro-desemprego-2026.html"><strong>Seguro-desemprego 2026</strong><span>Quem tem direito, parcelas e valores.</span><em>Ler o guia →</em></a></div>\n')
     if page == "de/index.html":
         items = [("azr", "Arbeitszeit mit Pausen, Wochenstunden und Überstunden berechnen."),]
         big = "".join(f'<a class="hub-big" href="{SITE}{TOOLS[k][1]}"><strong>{TOOLS[k][0]}</strong><span>{d}</span><em>Jetzt berechnen →</em></a>' for k, d in items)
@@ -130,9 +154,9 @@ def hub_hero(page):
 
 AUTO_CALC = """<script>
 /* v2: recalculate as you type — clicks the card's own Calculate button */
-(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go');if(!b)return;
+(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go,button.btn');if(!b)return;
 var run=function(){b.click();};c.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',run);i.addEventListener('change',run);});});
-document.querySelectorAll('.card button.go').forEach(function(b){b.click();});})();
+var f=document.querySelector('.card.tool button.go,.card.tool button.btn');if(f)f.click();})();
 </script>
 """
 
@@ -150,7 +174,9 @@ def convert(page):
     body = re.sub(r'<div class="langbar">.*?</div>\s*', "", body, flags=re.S)
     body = re.sub(r'<nav class="topnav">.*?</nav>\s*(<script>\s*\(function\(\)\{\s*var nav=.*?</script>\s*)?', "", body, flags=re.S)
     body = re.sub(r"<footer>.*?</footer>\s*", "", body, flags=re.S)
-    m = re.search(r'<header class="(?:art|top)">(.*?)</header>\s*', body, flags=re.S)
+    body = re.sub(r"</footer>\s*", "", body)  # stray closing tags in some legacy pages
+    body = re.sub(r"<script>\s*document\.querySelector\('\.hamburger'\)\.addEventListener.*?</script>\s*", "", body, flags=re.S)  # old nav script variant
+    m = re.search(r'<header class="(?:art|top)">(.*?)</header>\s*', body, flags=re.S) or re.search(r'<header>\s*(<h1>.*?)</header>\s*', body, flags=re.S)
     if m:
         hero_inner = m.group(1)
         body = body[:m.start()] + body[m.end():]
@@ -184,14 +210,23 @@ def convert(page):
     content = content.strip()
     # DE articles: details.faq inside a plain card → keep as-is (CSS handles details.faq)
     if kind == "calc":
-        content = content.replace('<div class="card">', '<div class="card tool">', 1)
+        bt = re.search(r'<button class="(?:go|btn)"', content)
+        cut = content.rfind('<div class="card">', 0, bt.start()) if bt else -1
+        if cut < 0:
+            cut = content.find('<div class="card">')
+        if cut >= 0:
+            content = content[:cut] + '<div class="card tool">' + content[cut + len('<div class="card">'):]
 
     t = T[lang]
-    if lang == "de":
-        crumbs = f'<li><a href="{SITE}/de/">{t["home"]}</a></li>'
-        if page != "de/index.html":
+    if lang in ("de", "it", "br"):
+        crumbs = f'<li><a href="{SITE}/{lang}/">{t["home"]}</a></li>'
+        if page != f"{lang}/index.html":
             crumbs += f'<li aria-current="page">{html.escape(strip_tags(h1))}</li>'
-        tag = "Ratgeber · Arbeitszeit" if kind == "guide" else "Rechner &amp; Ratgeber auf Deutsch"
+        tag = {"de": ("Ratgeber · Arbeitszeit", "Rechner &amp; Ratgeber auf Deutsch"),
+               "it": ("Guida · Oro", "Calcolatori e guide in italiano"),
+               "br": ("Guia · Rescisão", "Calculadoras e guias em português")}[lang][0 if kind == "guide" else 1]
+        if meta:
+            tag = strip_tags(meta.group(1))
     else:
         sec = {"calc": (t["seller"], "/calculators.html"), "guide": (t["guides"], "/guides.html")}.get(kind)
         crumbs = f'<li><a href="{SITE}/">{t["home"]}</a></li>'
@@ -214,9 +249,77 @@ def convert(page):
                  f"<!--v2:header:{lang}:{nav}--><!--/v2:header-->\n" + hero +
                  '<main id="main" class="page">\n<div class="layout">\n' + layout_main + aside + "</div>\n</main>\n"
                  f"<!--v2:footer:{lang}--><!--/v2:footer-->\n" + tail_scripts +
-                 (AUTO_CALC if kind == "calc" else "") + trailing_comments + "\n</body>\n</html>\n")
+                 (AUTO_CALC if kind == "calc" and "scrollIntoView" not in tail_scripts else "") + trailing_comments + "\n</body>\n</html>\n")
     p.write_text(page_html, encoding="utf-8")
     print("converted", page)
+
+
+PAGES['car-loan-calculator.html'] = ('calc', 'en', 'money', [], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['interest-calculator.html'] = ('calc', 'en', 'money', [], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['mortgage-overpayment-calculator.html'] = ('calc', 'en', 'money', [], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['overtime-calculator.html'] = ('calc', 'en', 'money', [], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['personal-loan-calculator.html'] = ('calc', 'en', 'money', [], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['refinance-calculator.html'] = ('calc', 'en', 'money', [], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['car-accident-settlement-calculator.html'] = ('calc', 'en', 'money', [], [('Average car accident settlement', '/average-car-accident-settlement.html'), ('How insurers calculate settlements', '/how-insurance-companies-calculate-settlements.html'), ('How long a settlement takes', '/how-long-does-car-accident-settlement-take.html'), ('Back & neck injury settlements', '/average-settlement-back-neck-injury.html')])
+PAGES['average-car-accident-settlement.html'] = ('guide', 'en', 'money', ['acc'], [('Average car accident settlement', '/average-car-accident-settlement.html'), ('How insurers calculate settlements', '/how-insurance-companies-calculate-settlements.html'), ('How long a settlement takes', '/how-long-does-car-accident-settlement-take.html'), ('Back & neck injury settlements', '/average-settlement-back-neck-injury.html')])
+PAGES['average-settlement-back-neck-injury.html'] = ('guide', 'en', 'money', ['acc'], [('Average car accident settlement', '/average-car-accident-settlement.html'), ('How insurers calculate settlements', '/how-insurance-companies-calculate-settlements.html'), ('How long a settlement takes', '/how-long-does-car-accident-settlement-take.html'), ('Back & neck injury settlements', '/average-settlement-back-neck-injury.html')])
+PAGES['how-insurance-companies-calculate-settlements.html'] = ('guide', 'en', 'money', ['acc'], [('Average car accident settlement', '/average-car-accident-settlement.html'), ('How insurers calculate settlements', '/how-insurance-companies-calculate-settlements.html'), ('How long a settlement takes', '/how-long-does-car-accident-settlement-take.html'), ('Back & neck injury settlements', '/average-settlement-back-neck-injury.html')])
+PAGES['how-long-does-car-accident-settlement-take.html'] = ('guide', 'en', 'money', ['acc'], [('Average car accident settlement', '/average-car-accident-settlement.html'), ('How insurers calculate settlements', '/how-insurance-companies-calculate-settlements.html'), ('How long a settlement takes', '/how-long-does-car-accident-settlement-take.html'), ('Back & neck injury settlements', '/average-settlement-back-neck-injury.html')])
+PAGES['california-overtime-rules.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['can-employer-refuse-overtime.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['how-to-calculate-overtime-pay.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['is-overtime-taxed.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['salaried-overtime-pay.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['what-is-time-and-a-half.html'] = ('guide', 'en', 'money', ['ot'], [('How to calculate overtime pay', '/how-to-calculate-overtime-pay.html'), ('Is overtime taxed?', '/is-overtime-taxed.html'), ('What is time and a half?', '/what-is-time-and-a-half.html'), ('California overtime rules', '/california-overtime-rules.html')])
+PAGES['car-loan-guide.html'] = ('guide', 'en', 'money', ['car'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['dealer-financing-vs-credit-union-auto-loan.html'] = ('guide', 'en', 'money', ['car'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['electric-car-loan-guide-2026.html'] = ('guide', 'en', 'money', ['car'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['how-much-car-can-i-afford.html'] = ('guide', 'en', 'money', ['car'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['should-i-pay-off-car-loan-early.html'] = ('guide', 'en', 'money', ['car'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['cibil-score-personal-loan-rate-india.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['how-to-calculate-credit-card-interest.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['how-to-calculate-loan-interest.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['how-to-improve-loan-eligibility.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['loan-amortization-explained.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['personal-loan-calculator-guide.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['personal-loan-foreclosure-charges-india.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['personal-loan-vs-credit-card.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['top-up-loan-vs-personal-loan-india.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['fixed-vs-variable-interest-rate.html'] = ('guide', 'en', 'money', ['ploan'], [('Personal loan calculator', '/personal-loan-calculator.html'), ('Car loan calculator', '/car-loan-calculator.html'), ('How to calculate loan interest', '/how-to-calculate-loan-interest.html'), ('Loan amortization, explained', '/loan-amortization-explained.html')])
+PAGES['cash-out-refinance-vs-home-equity-loan.html'] = ('guide', 'en', 'money', ['refi'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['refinance-closing-costs-explained.html'] = ('guide', 'en', 'money', ['refi'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['what-is-mortgage-refinance.html'] = ('guide', 'en', 'money', ['refi'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['when-should-you-refinance.html'] = ('guide', 'en', 'money', ['refi'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['mortgage-overpayment-allowance-uk.html'] = ('guide', 'en', 'money', ['mort'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['mortgage-overpayment-guide.html'] = ('guide', 'en', 'money', ['mort'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['offset-mortgage-vs-overpayment-uk.html'] = ('guide', 'en', 'money', ['mort'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['remortgage-vs-overpayment-uk.html'] = ('guide', 'en', 'money', ['mort'], [('When should you refinance?', '/when-should-you-refinance.html'), ('Refinance closing costs', '/refinance-closing-costs-explained.html'), ('What is a mortgage refinance?', '/what-is-mortgage-refinance.html'), ('Mortgage overpayment guide', '/mortgage-overpayment-guide.html')])
+PAGES['compounding-frequency-explained.html'] = ('guide', 'en', 'money', ['int'], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['rule-of-72-explained.html'] = ('guide', 'en', 'money', ['int'], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['simple-vs-compound-interest.html'] = ('guide', 'en', 'money', ['int'], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['what-is-a-good-apy.html'] = ('guide', 'en', 'money', ['int'], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['what-is-apy.html'] = ('guide', 'en', 'money', ['int'], [('Simple vs compound interest', '/simple-vs-compound-interest.html'), ('What is APY?', '/what-is-apy.html'), ('Rule of 72, explained', '/rule-of-72-explained.html'), ('Compounding frequency', '/compounding-frequency-explained.html')])
+PAGES['gold-price-today-guide.html'] = ('guide', 'en', 'guides', [], [('Quotazione oro oggi (IT)', '/it/quotazione-oro-oggi.html'), ('Interest calculator', '/interest-calculator.html')])
+PAGES['conviene-comprare-oro-oggi.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['oro-usato-compro-oro-guida.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/come-leggere-quotazione-oro.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/oro-e-inflazione.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/oro-fisico-vs-etc.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/quando-vendere-oro.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/tasse-oro-italia.html'] = ('guide', 'it', 'guide', ['oro'], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/quotazione-oro-oggi.html'] = ('calc', 'it', 'guide', [], [('Quotazione oro oggi', '/it/quotazione-oro-oggi.html'), ("Tasse sull'oro in Italia", '/it/tasse-oro-italia.html'), ("Quando vendere l'oro", '/it/quando-vendere-oro.html'), ('Oro fisico vs ETC', '/it/oro-fisico-vs-etc.html'), ('Come leggere la quotazione', '/it/come-leggere-quotazione-oro.html')])
+PAGES['it/index.html'] = ('hub', 'it', 'guide', [], [])
+PAGES['br/aviso-previo-trabalhado-indenizado.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/como-calcular-rescisao.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/decimo-terceiro-salario.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/ferias-vencidas-rescisao.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/fgts-na-rescisao.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/multa-fgts-40-20.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/rescisao-empregada-domestica.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/seguro-desemprego-2026.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/trct-homologacao-rescisao.html'] = ('guide', 'br', 'guias', ['resc'], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/calculadora-rescisao.html'] = ('calc', 'br', 'calc', [], [('Como calcular a rescisão', '/br/como-calcular-rescisao.html'), ('FGTS na rescisão', '/br/fgts-na-rescisao.html'), ('Multa do FGTS 40% e 20%', '/br/multa-fgts-40-20.html'), ('Aviso prévio', '/br/aviso-previo-trabalhado-indenizado.html'), ('Seguro-desemprego 2026', '/br/seguro-desemprego-2026.html')])
+PAGES['br/index.html'] = ('hub', 'br', 'guias', [], [])
 
 
 if __name__ == "__main__":

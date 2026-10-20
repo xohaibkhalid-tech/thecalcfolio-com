@@ -123,13 +123,33 @@ FOOT_COLS = {
                            ("Datenschutz", "/privacy-policy.html"), ("Haftungsausschluss", "/disclaimer.html")]),
     ],
 }
+FOOT_COLS["it"] = [
+    ("Oro", [("Quotazione oro oggi", "/it/quotazione-oro-oggi.html"), ("Come leggere la quotazione", "/it/come-leggere-quotazione-oro.html"),
+             ("Tasse sull'oro in Italia", "/it/tasse-oro-italia.html"), ("Quando vendere l'oro", "/it/quando-vendere-oro.html"),
+             ("Oro fisico vs ETC", "/it/oro-fisico-vs-etc.html"), ("Oro e inflazione", "/it/oro-e-inflazione.html")]),
+    ("Altre lingue", [("English · Seller fees", "/"), ("Deutsch · Arbeitszeitrechner", "/de/"), ("Português · Rescisão", "/br/")]),
+    ("The Calcfolio", [("Chi siamo", "/about.html"), ("Contatti", "/contact.html"), ("Privacy", "/privacy-policy.html"), ("Disclaimer", "/disclaimer.html")]),
+]
+FOOT_COLS["br"] = [
+    ("Calculadoras", [("Calculadora de rescisão", "/br/calculadora-rescisao.html"), ("Como calcular a rescisão", "/br/como-calcular-rescisao.html")]),
+    ("Guias", [("FGTS na rescisão", "/br/fgts-na-rescisao.html"), ("Multa do FGTS 40% e 20%", "/br/multa-fgts-40-20.html"),
+               ("Aviso prévio", "/br/aviso-previo-trabalhado-indenizado.html"), ("Férias vencidas", "/br/ferias-vencidas-rescisao.html"),
+               ("13º salário", "/br/decimo-terceiro-salario.html"), ("Seguro-desemprego 2026", "/br/seguro-desemprego-2026.html"),
+               ("Empregada doméstica", "/br/rescisao-empregada-domestica.html"), ("TRCT e homologação", "/br/trct-homologacao-rescisao.html")]),
+    ("Outros idiomas", [("English · Seller fees", "/"), ("Deutsch · Arbeitszeitrechner", "/de/"), ("Italiano · Oro", "/it/")]),
+    ("The Calcfolio", [("Sobre", "/about.html"), ("Contato", "/contact.html"), ("Privacidade", "/privacy-policy.html"), ("Aviso legal", "/disclaimer.html")]),
+]
 FOOT_NOTE = {
     "en": "© 2026 The Calcfolio — free calculators, honest numbers.",
     "de": "© 2026 The Calcfolio — kostenlose Rechner, ehrliche Zahlen.",
+    "it": "© 2026 The Calcfolio — calcolatori gratuiti, numeri onesti.",
+    "br": "© 2026 The Calcfolio — calculadoras grátis, números honestos.",
 }
 FOOT_SUB = {
     "en": "Estimates only — not financial, tax or legal advice.",
     "de": "Nur Schätzungen — keine Rechts- oder Steuerberatung.",
+    "it": "Solo stime — non è consulenza fiscale o finanziaria.",
+    "br": "Apenas estimativas — não é consultoria jurídica ou contábil.",
 }
 
 

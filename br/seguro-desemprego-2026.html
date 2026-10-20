@@ -32,140 +32,35 @@ document.addEventListener('click', function(e){
 <meta name="twitter:card" content="summary_large_image">
 <title>Seguro-Desemprego 2026: Quem Tem Direito, Valores e Parcelas</title>
 <meta name="description" content="Seguro-desemprego 2026: quem tem direito, quantas parcelas (3 a 5), valores por faixa salarial (piso R$ 1.621, teto R$ 2.518,65) e como pedir no app.">
-<style>
-  :root{
-    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
-    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
-  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
-  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
-  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
-  header.top p{margin:0;color:#54677e}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
-  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
-  label{display:block;font-weight:600;margin:14px 0 6px}
-  input[type=number],input[type=text],input[type=date],select{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
-  input:focus,select:focus{outline:none;border-color:var(--blue)}
-  .amount-wrap{position:relative}
-  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
-  .amount-wrap input{padding-left:36px}
-  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
-  .radios input{margin-right:8px}
-  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
-  button.go{display:block;width:100%;margin-top:20px;padding:14px;font-size:1.1rem;font-weight:800;border:0;border-radius:10px;cursor:pointer;background:#0f2a43;color:#fff}
-  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
-  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
-  .stat .k{font-size:.85rem;color:var(--muted)}
-  .stat .v{font-size:1.3rem;font-weight:800;color:var(--navy)}
-  .stat.good .v{color:var(--green)}
-  .stat.total{grid-column:1/-1;background:#eef4ff;border:2px solid var(--blue)}
-  .stat.total .v{font-size:1.7rem}
-  table.lines{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem}
-  table.lines td{padding:9px 4px;border-bottom:1px solid var(--border)}
-  table.lines td:last-child{text-align:right;font-weight:700;white-space:nowrap}
-  table.lines tr.grand td{font-size:1.1rem;color:var(--navy)}
-  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
-  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px;margin-top:16px}
-  .err{display:none;background:#fdecec;border:1px solid #f5c2c2;color:#b42318;border-radius:10px;padding:12px 16px;margin-top:14px;font-weight:600}
-  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
-  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
-  .faq details div{padding:0 16px 16px;color:#33475c}
-  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
-  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
-  a{color:var(--blue)}
-</style>
-<style>
-/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
-body{background:#0b1a29!important;color:#e8eef4!important}
-a{color:#7dd3fc!important}
-header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.top p{color:#a9bccd!important}
-.card{background:#12293f!important}
-.card h2{color:#fff!important}
-.card p{color:#a9bccd!important}
-.card li{color:#c6d2de!important}
-label{color:#c6d2de!important}
-input[type=number],input[type=text],input[type=date],select{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
-.radios label:has(input:checked){background:#16293f!important;border-color:#7dd3fc!important}
-button.go{background:#c9a227!important;color:#0b1a29!important}
-button.go:hover{background:#e8c95a!important}
-.stat{background:#0b1a29!important;border-color:#2a4258!important}
-.stat .k{color:#a9bccd!important}
-.stat .v{color:#fff!important}
-.stat.good .v{color:#4ade80!important}
-.stat.total{background:#0e2a1a!important;border-color:#4ade80!important}
-.stat.total .v{color:#4ade80!important}
-table.lines td{border-bottom-color:#2a4258!important;color:#c6d2de!important}
-table.lines tr.grand td{color:#fff!important}
-.formula{color:#8fa1b3!important}
-.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
-.err{background:#2a1215!important;border-color:#7f1d1d!important;color:#f87171!important}
-.faq details{background:#12293f!important;border-color:#2a4258!important}
-.faq summary{color:#fff!important}
-.faq details div{color:#a9bccd!important}
-.more{color:#a9bccd!important}
-footer{color:#8fa1b3!important}
-footer a{color:#e8c95a!important}
-:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
-</style>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
 </head>
 <body>
-<style>
-.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
-.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
-.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
-.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
-.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
-.topnav .nav-item{position:relative}
-.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
-.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
-.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
-.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
-.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
-.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
-.topnav .nav-item:hover .dropdown{display:block}
-@media(max-width:760px){
-.topnav .hamburger{display:block}
-.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
-.topnav .nav-links.open{display:flex}
-.topnav .nav-item:hover .dropdown{display:none}
-.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
-}
-</style>
-<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
-<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
-<nav class="topnav">
-<div class="nav-inner">
-<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
-<button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-<div class="nav-links">
-
+<!--v2:header:br:guias-->
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/br/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Menu principal"><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadoras</a><a href="https://thecalcfolio.com/br/" aria-current="page">Guias</a><a href="https://thecalcfolio.com/about.html">Sobre</a></nav>
+<div class="lang" role="group" aria-label="Idioma"><a href="https://thecalcfolio.com/" hreflang="en" lang="en">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" aria-current="true">PT</a></div>
 </div>
-</div>
-</nav>
-<script>
-(function(){
-var nav=document.querySelector('.topnav'); if(!nav) return;
-var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
-hb.addEventListener('click',function(){links.classList.toggle('open');});
-nav.querySelectorAll('.drop > a').forEach(function(a){
-a.addEventListener('click',function(e){
-if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
-});
-});
-})();
-</script>
-
-<div class="wrap">
-<header class="top">
-  <h1>Seguro-Desemprego 2026: Quem Tem Direito, Valores e Parcelas</h1>
-  <p>Você foi demitido e a primeira pergunta que martela na cabeça é bem prática: "e as contas do mês que vem?" O seguro-desemprego existe exatamente para esse intervalo — uma ponte de renda entre um emprego e outro. Só que ele tem regras, prazos e uma tabelinha de cálculo que confunde muita gente. Este guia explica tudo em português claro, com os valores atualizados de 2026 e um exemplo completo com números reais.</p>
 </header>
-
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/br/">Português</a></li><li aria-current="page">Seguro-Desemprego 2026: Quem Tem Direito, Valores e Parcelas</li></ol>
+<span class="tag">Guia · Rescisão</span>
+<h1>Seguro-Desemprego 2026: Quem Tem Direito, Valores e Parcelas</h1>
+<p class="lede">Você foi demitido e a primeira pergunta que martela na cabeça é bem prática: "e as contas do mês que vem?" O seguro-desemprego existe exatamente para esse intervalo — uma ponte de renda entre um emprego e outro. Só que ele tem regras, prazos e uma tabelinha de cálculo que confunde muita gente. Este guia explica tudo em português claro, com os valores atualizados de 2026 e um exemplo completo com números reais.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="tool-cta"><div class="tc-text"><strong>Calcule sua rescisão agora</strong><span>Grátis, sem cadastro — com INSS e IRRF pelas tabelas 2026.</span></div><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de Rescisão →</a></div></div>
 <div class="card">
   <h2>Em resumo</h2>
   <ul>
@@ -305,17 +200,19 @@ if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElem
   <p><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão: o que você recebe →</a></p>
   <p><a href="https://thecalcfolio.com/br/">Ver tudo em português →</a></p>
 </div>
-
 </div>
-
-
-<footer>
-  <a href="https://thecalcfolio.com/about.html">Sobre</a> ·
-  <a href="https://thecalcfolio.com/contact.html">Contato</a> ·
-  <a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a> ·
-  <a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a><br><br>
-  © 2026 The Calcfolio — calculadoras grátis, números honestos.
+<aside class="side" aria-label="Leia também">
+<div class="box"><h2>Leia também</h2><a class="row" href="https://thecalcfolio.com/br/como-calcular-rescisao.html"><span>Como calcular a rescisão</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/br/fgts-na-rescisao.html"><span>FGTS na rescisão</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/br/multa-fgts-40-20.html"><span>Multa do FGTS 40% e 20%</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html"><span>Aviso prévio</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Calculadoras</h2><div class="top-tools"><a href="https://thecalcfolio.com/br/calculadora-rescisao.html"><span class="ic c-mint" aria-hidden="true">R$</span>Calculadora de Rescisão</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:br-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Calculadoras</h2><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão</a><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão</a></div><div><h2>Guias</h2><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão</a><a href="https://thecalcfolio.com/br/multa-fgts-40-20.html">Multa do FGTS 40% e 20%</a><a href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html">Aviso prévio</a><a href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">Férias vencidas</a><a href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">13º salário</a><a href="https://thecalcfolio.com/br/seguro-desemprego-2026.html">Seguro-desemprego 2026</a><a href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">Empregada doméstica</a><a href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">TRCT e homologação</a></div><div><h2>Outros idiomas</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Sobre</a><a href="https://thecalcfolio.com/contact.html">Contato</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a><a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — calculadoras grátis, números honestos.</span><span>Apenas estimativas — não é consultoria jurídica ou contábil.</span></div>
 </footer>
+<!--/v2:footer-->
 
 </body>
 </html>

@@ -350,3 +350,7 @@ button.go:hover{background:var(--ink-2)}
 .cluster>p{color:var(--muted);margin:0 0 16px}
 .card .answer strong{color:#fff}
 @media (max-width:700px){.card table.cmp,.card table.fees,.card table.rates{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}.card table.cmp td,.card table.cmp th{white-space:nowrap}}
+@media (max-width:600px){.results .stat,.results .stat-row{flex-wrap:wrap}.results .v,.results .stat-val{white-space:normal;text-align:right}}
+input[type=date],input[type=email],input[type=tel]{width:100%;font:600 18px/1.2 var(--body);color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;min-height:52px}
+[lang="pt-BR"] .amount-wrap input,[lang="it"] .amount-wrap input{padding-left:54px}
+.layout>.main>.card.tool{order:-1}

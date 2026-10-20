@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<!-- Google tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -93,111 +93,35 @@ document.addEventListener('click', function(e){
   ]
 }
 </script>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f9; color:#1a1a1a; line-height:1.6; }
-header.art { background:#0f2a43; color:#fff; padding:2.2rem 1rem; text-align:center; }
-header.art h1 { font-size:1.7rem; max-width:720px; margin:0 auto .5rem; }
-header.art p { opacity:.85; max-width:640px; margin:0 auto; }
-.container { max-width:720px; margin:0 auto; padding:1.5rem 1rem 3rem; }
-.card { background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:1.25rem; }
-.card h2 { font-size:1.2rem; color:#0f2a43; margin-bottom:.8rem; }
-.card p { color:#475569; font-size:.94rem; margin-bottom:.7rem; }
-.card ul, .card ol { color:#475569; font-size:.94rem; margin:.4rem 0 .8rem 1.2rem; }
-.card li { margin-bottom:.4rem; }
-.toc a { display:block; padding:.35rem 0; font-size:.94rem; }
-table.fees { width:100%; border-collapse:collapse; font-size:.92rem; margin-top:.5rem; }
-table.fees th, table.fees td { text-align:left; padding:.6rem; border-bottom:1px solid #e2e8f0; }
-table.fees th { background:#f1f5f9; color:#0f2a43; }
-.faq h3 { font-size:1rem; color:#0f2a43; margin:1rem 0 .3rem; }
-.faq p { font-size:.93rem; color:#475569; margin-bottom:.6rem; }
-.disc { font-size:.82rem; color:#94a3b8; }
-footer { text-align:center; padding:2rem 1rem; color:#64748b; font-size:.85rem; }
-footer a { color:#0f2a43; text-decoration:none; margin:0 .6rem; }
-</style>
-<style>
-/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
-body{background:#0b1a29!important;color:#e8eef4!important}
-a{color:#7dd3fc!important}
-header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header a{color:#fff!important}
-header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important;border-bottom:3px solid #c9a227!important}
-header.art h1{color:#fff!important}
-header.art p{color:#a9bccd!important}
-.card{background:#12293f!important}
-.card h2{color:#fff!important}
-.card p{color:#a9bccd!important}
-.card ul,.card ol{color:#a9bccd!important}
-.card a{color:#e8c95a!important}
-.faq h3{color:#fff!important}
-.faq p{color:#a9bccd!important}
-table.fees th{background:#1a2f47!important;color:#fff!important}
-table.fees th,table.fees td{border-bottom-color:#2a4258!important}
-table.fees td{color:#c6d2de!important}
-.disc{color:#8fa1b3!important}
-footer{color:#8fa1b3!important}
-footer a{color:#e8c95a!important}
-</style>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
 </head>
 <body>
-<style>
-.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
-.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
-.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
-.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
-.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
-.topnav .nav-item{position:relative}
-.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
-.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
-.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
-.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
-.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
-.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
-.topnav .nav-item:hover .dropdown{display:block}
-@media(max-width:760px){
-.topnav .hamburger{display:block}
-.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
-.topnav .nav-links.open{display:flex}
-.topnav .nav-item:hover .dropdown{display:none}
-.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
-}
-</style>
-<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
-<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
-<nav class="topnav">
-<div class="nav-inner">
-<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
-<button class="hamburger" aria-label="Apri menu"><span></span><span></span><span></span></button>
-<div class="nav-links">
-
+<!--v2:header:it:guide-->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/it/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Apri menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Menu principale"><a href="https://thecalcfolio.com/it/" aria-current="page">Guide sull'oro</a><a href="https://thecalcfolio.com/about.html">Chi siamo</a></nav>
+<div class="lang" role="group" aria-label="Lingua"><a href="https://thecalcfolio.com/" hreflang="en" lang="en">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" aria-current="true">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
 </div>
-</div>
-</nav>
-<script>
-(function(){
-var nav=document.querySelector('.topnav'); if(!nav) return;
-var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
-hb.addEventListener('click',function(){links.classList.toggle('open');});
-nav.querySelectorAll('.drop > a').forEach(function(a){
-a.addEventListener('click',function(e){
-if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
-});
-});
-var path=(location.pathname.split('/').pop()||'index.html');
-nav.querySelectorAll('.nav-links a').forEach(function(a){
-var h=a.getAttribute('href');
-if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
-});
-})();
-</script>
-<header class="art">
-  <h1>Oro fisico vs ETC: quale conviene davvero nel 2026</h1>
-  <p>Lingotto in mano o titolo sul conto? I costi veri, le tasse italiane e due esempi da 10.000 euro per decidere senza farti convincere da chi vende.</p>
 </header>
-
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
 <div class="container">
-
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/it/">Italiano</a></li><li aria-current="page">Oro fisico vs ETC: quale conviene davvero nel 2026</li></ol>
+<span class="tag">Guida · Oro</span>
+<h1>Oro fisico vs ETC: quale conviene davvero nel 2026</h1>
+<p class="lede">Lingotto in mano o titolo sul conto? I costi veri, le tasse italiane e due esempi da 10.000 euro per decidere senza farti convincere da chi vende.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="tool-cta"><div class="tc-text"><strong>Calcola il valore del tuo oro</strong><span>Gratis, senza registrazione — prezzo al grammo per 24kt, 18kt e 14kt.</span></div><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://thecalcfolio.com/it/quotazione-oro-oggi.html">Quotazione Oro Oggi →</a></div></div>
 <div class="card">
   <h2>In breve</h2>
   <ul>
@@ -331,11 +255,18 @@ if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
 <div class="card">
   <p class="disc">Solo a scopo informativo, non è consulenza finanziaria. Quadro fiscale aggiornato al 2026: verifica sempre la normativa vigente prima di operare.</p>
 </div>
-
-<footer>
-  <a href="https://thecalcfolio.com/">Home</a> · <a href="https://thecalcfolio.com/about.html">Chi siamo</a> · <a href="https://thecalcfolio.com/contact.html">Contatti</a> · <a href="https://thecalcfolio.com/privacy-policy.html">Privacy</a> · <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
-  © 2026 The Calcfolio — calcolatori gratuiti, numeri onesti.
-</footer></footer>
+<aside class="side" aria-label="Leggi anche">
+<div class="box"><h2>Leggi anche</h2><a class="row" href="https://thecalcfolio.com/it/quotazione-oro-oggi.html"><span>Quotazione oro oggi</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/it/tasse-oro-italia.html"><span>Tasse sull'oro in Italia</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/it/quando-vendere-oro.html"><span>Quando vendere l'oro</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html"><span>Come leggere la quotazione</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Strumenti</h2><div class="top-tools"><a href="https://thecalcfolio.com/it/quotazione-oro-oggi.html"><span class="ic c-yellow" aria-hidden="true">Au</span>Quotazione Oro Oggi</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:it-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Oro</h2><a href="https://thecalcfolio.com/it/quotazione-oro-oggi.html">Quotazione oro oggi</a><a href="https://thecalcfolio.com/it/come-leggere-quotazione-oro.html">Come leggere la quotazione</a><a href="https://thecalcfolio.com/it/tasse-oro-italia.html">Tasse sull'oro in Italia</a><a href="https://thecalcfolio.com/it/quando-vendere-oro.html">Quando vendere l'oro</a><a href="https://thecalcfolio.com/it/oro-fisico-vs-etc.html">Oro fisico vs ETC</a><a href="https://thecalcfolio.com/it/oro-e-inflazione.html">Oro e inflazione</a></div><div><h2>Altre lingue</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Chi siamo</a><a href="https://thecalcfolio.com/contact.html">Contatti</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — calcolatori gratuiti, numeri onesti.</span><span>Solo stime — non è consulenza fiscale o finanziaria.</span></div>
+</footer>
+<!--/v2:footer-->
 
 </body>
 </html>
