@@ -94,6 +94,7 @@ FOOT_COLS = {
         ("Money", [("Refinance calculator", "/refinance-calculator.html"),
                    ("Personal loan calculator", "/personal-loan-calculator.html"),
                    ("Balance transfer calculator", "/balance-transfer-calculator.html"),
+                   ("Minimum payment calculator", "/credit-card-minimum-payment-calculator.html"),
                    ("Car loan calculator", "/car-loan-calculator.html"),
                    ("Mortgage overpayment", "/mortgage-overpayment-calculator.html"),
                    ("Interest calculator", "/interest-calculator.html"),
