@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<!-- Google tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -32,146 +32,35 @@ document.addEventListener('click', function(e){
 <meta name="twitter:card" content="summary_large_image">
 <title>Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</title>
 <meta name="description" content="Sonntagsarbeit nach §§ 9–11 ArbZG: 15 freie Sonntage, Ersatzruhetag, übliche Zuschläge und Ausgleich — mit Beispielen.">
-<style>
-  :root{
-    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
-    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
-  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
-  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
-  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
-  header.top p{margin:0;color:#54677e}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
-  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
-  .card p{color:#33475c}
-  .card ul,.card ol{color:#33475c}
-  label{display:block;font-weight:600;margin:14px 0 6px}
-  input[type=number],input[type=text],input[type=time]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
-  input:focus{outline:none;border-color:var(--blue)}
-  input:disabled{opacity:.45}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
-  @media(max-width:520px){.grid2{grid-template-columns:1fr}}
-  .checkrow{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:16px 0 4px;cursor:pointer}
-  .checkrow input{width:20px;height:20px;margin-top:2px;flex:none}
-  .checkhint{font-size:.88rem;color:var(--muted);margin:0 0 4px 30px}
-  button.go{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:10px;cursor:pointer}
-  button.go:hover{filter:brightness(1.08)}
-  .result{margin-top:18px;padding:16px;border-radius:10px;background:#f0f7f0;border:1px solid #cfe6cf;font-size:1.05rem}
-  .result strong{font-size:1.2rem}
-  .result .pos{color:var(--green)}
-  .result .err{color:#b42318}
-  .warnbox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px;margin-top:12px;font-size:.95rem}
-  .warnbox strong{color:#8a6d1c}
-  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
-  .infobox{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px;margin-top:8px}
-  .infobox h3{margin:0 0 8px;font-size:1.05rem}
-  .infobox p{font-size:.93rem;margin:0 0 8px}
-  .infobox p:last-child{margin-bottom:0}
-  details.faq{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
-  details.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}
-  details.faq p{margin:8px 0 4px;font-size:.95rem}
-  .morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-  .morerech a{display:block;border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:var(--navy);font-weight:600}
-  .morerech a span{display:block;font-weight:400;font-size:.88rem;color:var(--muted);margin-top:4px}
-  .quellen{font-size:.82rem;color:var(--muted);margin:6px 0 26px}
-  a{color:var(--blue)}
-  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
-  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
-</style>
-<style>
-/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
-body{background:#0b1a29!important;color:#e8eef4!important}
-a{color:#7dd3fc!important}
-header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.top h1{color:#fff!important}
-header.top p{color:#a9bccd!important}
-.card{background:#12293f!important}
-.card h2{color:#fff!important}
-.card p,.card ul,.card ol{color:#a9bccd!important}
-label{color:#c6d2de!important}
-input[type=number],input[type=text],input[type=time]{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important;color-scheme:dark}
-button.go{background:#c9a227!important;color:#0b1a29!important}
-button.go:hover{background:#e8c95a!important}
-.result{background:#0e2a1a!important;border-color:#1f5130!important}
-.result strong{color:#fff!important}
-.result .pos{color:#4ade80!important}
-.result .err{color:#f87171!important}
-.warnbox{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8d9a8!important}
-.warnbox strong{color:#e8c95a!important}
-.formula{color:#8fa1b3!important}
-.checkhint{color:#8fa1b3!important}
-.infobox{background:#2a2113!important;border-color:#8a6d1c!important}
-.infobox h3{color:#e8c95a!important}
-.infobox p{color:#e8d9a8!important}
-details.faq{border-color:#2a4258!important}
-details.faq summary{color:#fff!important}
-.morerech a{border-color:#2a4258!important;color:#fff!important}
-.morerech a span{color:#8fa1b3!important}
-.quellen{color:#8fa1b3!important}
-footer{color:#8fa1b3!important}
-footer a{color:#e8c95a!important}
-/* THEME: Full Dark v1 — :root variable remap */
-:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
-</style>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
-<style>
-.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
-.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
-.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
-.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
-.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
-.topnav .nav-item{position:relative}
-.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
-.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
-.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
-.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
-.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
-.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
-.topnav .nav-item:hover .dropdown{display:block}
-@media(max-width:760px){
-.topnav .hamburger{display:block}
-.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
-.topnav .nav-links.open{display:flex}
-.topnav .nav-item:hover .dropdown{display:none}
-.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
-}
-</style>
-<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
-<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
-<nav class="topnav">
-<div class="nav-inner">
-<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
-<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-<div class="nav-links">
-
+<!--v2:header:de:ratgeber-->
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/de/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Hauptmenü"><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Rechner</a><a href="https://thecalcfolio.com/de/" aria-current="page">Ratgeber</a><a href="https://thecalcfolio.com/about.html">Über uns</a></nav>
+<div class="lang" role="group" aria-label="Sprache"><a href="https://thecalcfolio.com/" hreflang="en" lang="en">EN</a><a href="https://thecalcfolio.com/de/" aria-current="true">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
 </div>
-</div>
-</nav>
-<script>
-(function(){
-var nav=document.querySelector('.topnav'); if(!nav) return;
-var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
-hb.addEventListener('click',function(){links.classList.toggle('open');});
-nav.querySelectorAll('.drop > a').forEach(function(a){
-a.addEventListener('click',function(e){
-if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
-});
-});
-})();
-</script>
-
-<div class="wrap">
-<header class="top">
-<h1>Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</h1>
-<p>Wann du sonntags arbeiten musst (und wann nicht), welche Zuschläge üblich sind, was der Ersatzruhetag bedeutet — mit Beispielen zum Nachrechnen.</p>
 </header>
-
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/de/">Deutsch</a></li><li aria-current="page">Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</li></ol>
+<span class="tag">Ratgeber · Arbeitszeit</span>
+<h1>Wochenend- &amp; Sonntagsarbeit: Regeln, Zuschläge, Ausgleich</h1>
+<p class="lede">Wann du sonntags arbeiten musst (und wann nicht), welche Zuschläge üblich sind, was der Ersatzruhetag bedeutet — mit Beispielen zum Nachrechnen.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="tool-cta"><div class="tc-text"><strong>Jetzt deine Arbeitszeit berechnen</strong><span>Kostenlos, ohne Anmeldung — mit Pausen nach § 4 ArbZG.</span></div><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner →</a></div></div>
 <div class="card">
 <h2>Das Wichtigste in Kürze</h2>
 <ul>
@@ -299,15 +188,19 @@ Jonas' Optionen: Mit dem Chef über einen Zuschlag verhandeln (50 % als branchen
 </div>
 
 <p class="quellen">Quellen: Arbeitszeitgesetz (ArbZG) §§ 9, 10, 11 (Sonn- und Feiertagsruhe); § 3b EStG (Steuerfreiheit von Sonntagszuschlägen bis 50 %); Grundgesetz Art. 140 i.V.m. Art. 139 WRV (Sonntagsschutz). Keine Rechts- oder Steuerberatung — bei Zweifeln frag deinen Betriebsrat, einen Anwalt für Arbeitsrecht oder einen Steuerberater.</p>
-
-<footer>
-  <a href="https://thecalcfolio.com/about.html">About</a> ·
-  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
-  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
-  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
-  © 2026 The Calcfolio — free calculators, honest numbers.
-</footer>
 </div>
+<aside class="side" aria-label="Weiterlesen">
+<div class="box"><h2>Weiterlesen</h2><a class="row" href="https://thecalcfolio.com/de/ueberstunden-berechnen.html"><span>Überstunden berechnen</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html"><span>Arbeitszeitgesetz: Regeln</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html"><span>Pausenregelung</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/de/arbeitszeitkonto.html"><span>Arbeitszeitkonto</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/de/gleitzeit-berechnen.html"><span>Gleitzeit berechnen</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Rechner</h2><div class="top-tools"><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><span class="ic c-yellow" aria-hidden="true">A</span>Arbeitszeitrechner</a><a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html"><span class="ic c-coral" aria-hidden="true">Ü</span>Überstunden berechnen</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:de-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Rechner</h2><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a><a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen</a></div><div><h2>Ratgeber</h2><a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln</a><a href="https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html">Pausenregelung</a><a href="https://thecalcfolio.com/de/arbeitszeitkonto.html">Arbeitszeitkonto</a><a href="https://thecalcfolio.com/de/gleitzeit-berechnen.html">Gleitzeit berechnen</a><a href="https://thecalcfolio.com/de/minijob-arbeitszeit.html">Minijob</a><a href="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html">Teilzeit</a><a href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">Nachtschicht</a><a href="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html">Wochenend- & Sonntagsarbeit</a><a href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">Überstunden: Geld oder Freizeit</a></div><div><h2>Andere Sprachen</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Über uns</a><a href="https://thecalcfolio.com/contact.html">Kontakt</a><a href="https://thecalcfolio.com/privacy-policy.html">Datenschutz</a><a href="https://thecalcfolio.com/disclaimer.html">Haftungsausschluss</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — kostenlose Rechner, ehrliche Zahlen.</span><span>Nur Schätzungen — keine Rechts- oder Steuerberatung.</span></div>
+</footer>
+<!--/v2:footer-->
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<!-- Google tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -32,108 +32,35 @@ document.addEventListener('click', function(e){
 <meta name="twitter:card" content="summary_large_image">
 <title>Rechner auf Deutsch — Arbeitszeit & Anleitungen | The Calcfolio</title>
 <meta name="description" content="Arbeitszeitrechner und Anleitungen auf Deutsch: Tages- und Wochenstunden berechnen, Überstunden prüfen, Arbeitszeitgesetz verstehen. Kostenlos, ohne Anmeldung.">
-<style>
-  :root{
-    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
-    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
-  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
-  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
-  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
-  header.top p{margin:0;color:#54677e}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
-  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
-  .card p{color:#33475c}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
-  .tool-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-decoration:none;display:block}
-  .tool-card h3{margin:0 0 8px;font-size:1.1rem;color:var(--navy)}
-  .tool-card p{font-size:.93rem;color:var(--muted);margin:0}
-  .tool-card .go{display:inline-block;margin-top:10px;font-weight:700;color:var(--blue)}
-  .note{font-size:.9rem;color:var(--muted);margin-top:20px;text-align:center}
-  a{color:var(--blue)}
-  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
-  footer a{color:var(--blue);text-decoration:none;margin:0 .6rem}
-</style>
-<style>
-/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
-body{background:#0b1a29!important;color:#e8eef4!important}
-a{color:#7dd3fc!important}
-header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header a{color:#fff!important}
-header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.top h1{color:#fff!important}
-header.top p{color:#a9bccd!important}
-.card{background:#12293f!important}
-.card h2{color:#fff!important}
-.card p{color:#a9bccd!important}
-.tool-card{background:#12293f!important}
-.tool-card h3{color:#fff!important}
-.tool-card p{color:#a9bccd!important}
-.tool-card .go{color:#e8c95a!important}
-.note{color:#8fa1b3!important}
-.note a{color:#e8c95a!important}
-footer{color:#8fa1b3!important}
-footer a{color:#e8c95a!important}
-/* THEME: Full Dark v1 — :root variable remap */
-:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
-</style>
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
-<style>
-.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
-.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
-.topnav .hamburger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.3rem .5rem}
-.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
-.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
-.topnav .nav-item{position:relative}
-.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
-.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
-.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
-.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
-.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
-.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
-.topnav .nav-item:hover .dropdown{display:block}
-@media(max-width:760px){
-.topnav .hamburger{display:block}
-.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
-.topnav .nav-links.open{display:flex}
-.topnav .nav-item:hover .dropdown{display:none}
-.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
-}
-</style>
-<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
-<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
-<nav class="topnav">
-<div class="nav-inner">
-<a href="https://thecalcfolio.com/" class="brand">🧮 The Calcfolio</a>
-<button class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-<div class="nav-links">
-
+<!--v2:header:de:ratgeber-->
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/de/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Hauptmenü"><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Rechner</a><a href="https://thecalcfolio.com/de/" aria-current="page">Ratgeber</a><a href="https://thecalcfolio.com/about.html">Über uns</a></nav>
+<div class="lang" role="group" aria-label="Sprache"><a href="https://thecalcfolio.com/" hreflang="en" lang="en">EN</a><a href="https://thecalcfolio.com/de/" aria-current="true">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
 </div>
-</div>
-</nav>
-<script>
-(function(){
-var nav=document.querySelector('.topnav'); if(!nav) return;
-var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
-hb.addEventListener('click',function(){links.classList.toggle('open');});
-nav.querySelectorAll('.drop > a').forEach(function(a){
-a.addEventListener('click',function(e){
-if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
-});
-});
-})();
-</script>
-
-<div class="wrap">
-<header class="top">
-<h1>Rechner &amp; Anleitungen auf Deutsch</h1>
-<p>Arbeitszeit berechnen, Überstunden prüfen, Arbeitsrecht verstehen — kostenlos, ohne Anmeldung, ohne Kleingedrucktes.</p>
 </header>
-
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/de/">Deutsch</a></li></ol>
+<span class="tag">Rechner &amp; Ratgeber auf Deutsch</span>
+<h1>Rechner &amp; Anleitungen auf Deutsch</h1>
+<p class="lede">Arbeitszeit berechnen, Überstunden prüfen, Arbeitsrecht verstehen — kostenlos, ohne Anmeldung, ohne Kleingedrucktes.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="hub-hero"><a class="hub-big" href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><strong>Arbeitszeitrechner</strong><span>Arbeitszeit mit Pausen, Wochenstunden und Überstunden berechnen.</span><em>Jetzt berechnen →</em></a><a class="hub-big" href="https://thecalcfolio.com/de/ueberstunden-berechnen.html"><strong>Überstunden berechnen</strong><span>Was zählt als Überstunde — und wie du sie dokumentierst.</span><em>Zum Ratgeber →</em></a><a class="hub-big" href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html"><strong>Arbeitszeitgesetz</strong><span>Pausen, Höchstarbeitszeit, Ruhezeiten — die Regeln auf einen Blick.</span><em>Zum Ratgeber →</em></a></div>
 <div class="card">
 <h2>Deutsche Rechner &amp; Guides</h2>
 <div class="cards">
@@ -201,14 +128,15 @@ if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElem
 </div>
 
 <p class="note">Suchst du unsere englischen Rechner? <a href="https://thecalcfolio.com/">Alle Rechner auf thecalcfolio.com →</a></p>
-
-<footer>
-  <a href="https://thecalcfolio.com/about.html">About</a> ·
-  <a href="https://thecalcfolio.com/contact.html">Contact</a> ·
-  <a href="https://thecalcfolio.com/privacy-policy.html">Privacy Policy</a> ·
-  <a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a><br><br>
-  © 2026 The Calcfolio — free calculators, honest numbers.
-</footer>
 </div>
+</div>
+</main>
+<!--v2:footer:de-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Rechner</h2><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html">Arbeitszeitrechner</a><a href="https://thecalcfolio.com/de/ueberstunden-berechnen.html">Überstunden berechnen</a></div><div><h2>Ratgeber</h2><a href="https://thecalcfolio.com/de/arbeitszeitgesetz-regeln.html">Arbeitszeitgesetz: Regeln</a><a href="https://thecalcfolio.com/de/pausenregelung-arbeitszeitgesetz.html">Pausenregelung</a><a href="https://thecalcfolio.com/de/arbeitszeitkonto.html">Arbeitszeitkonto</a><a href="https://thecalcfolio.com/de/gleitzeit-berechnen.html">Gleitzeit berechnen</a><a href="https://thecalcfolio.com/de/minijob-arbeitszeit.html">Minijob</a><a href="https://thecalcfolio.com/de/teilzeit-arbeitszeit.html">Teilzeit</a><a href="https://thecalcfolio.com/de/nachtschicht-arbeitszeit.html">Nachtschicht</a><a href="https://thecalcfolio.com/de/wochenendarbeit-sonntag.html">Wochenend- & Sonntagsarbeit</a><a href="https://thecalcfolio.com/de/ueberstunden-auszahlen-freizeit.html">Überstunden: Geld oder Freizeit</a></div><div><h2>Andere Sprachen</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Über uns</a><a href="https://thecalcfolio.com/contact.html">Kontakt</a><a href="https://thecalcfolio.com/privacy-policy.html">Datenschutz</a><a href="https://thecalcfolio.com/disclaimer.html">Haftungsausschluss</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — kostenlose Rechner, ehrliche Zahlen.</span><span>Nur Schätzungen — keine Rechts- oder Steuerberatung.</span></div>
+</footer>
+<!--/v2:footer-->
+
 </body>
 </html>
