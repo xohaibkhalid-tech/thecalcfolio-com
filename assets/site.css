@@ -241,3 +241,23 @@ table.rates tr:last-child td{border-bottom:0}
 .err{color:var(--fee);font-weight:700;font-size:14px}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- German calculator pages ---------- */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 10px}
+@media (max-width:560px){.grid5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+label.checkrow{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;margin:16px 0 4px;padding:12px 14px;border:2px solid var(--ink);border-radius:12px;background:#FFF6D6;cursor:pointer;min-height:48px}
+label.checkrow input{width:20px;height:20px;accent-color:var(--ink);flex:none}
+.checkhint{font-size:14px;color:var(--muted);margin:4px 0 0}
+input:disabled{opacity:.45;border-style:dashed}
+.result{margin-top:20px;background:var(--ink);color:#fff;border-radius:14px;padding:18px 20px;font-size:17px;line-height:1.6}
+.result strong{color:var(--mint);font-family:var(--mono)}
+.result .pos{color:var(--coral)}
+.result .err{color:var(--yellow)}
+.morerech{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.morerech a{display:block;border:2px solid var(--ink);border-radius:14px;padding:14px 16px;font-weight:700;text-decoration:none}
+.morerech a span{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:4px}
+.quellen{font-size:14px;color:var(--muted)}
+.card ul,.card ol{padding-left:22px;margin:0 0 14px}
+.card li{margin:0 0 8px}
+.infobox h3{margin-top:0}
