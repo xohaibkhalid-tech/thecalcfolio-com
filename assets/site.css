@@ -1,6 +1,12 @@
 /* The Calcfolio — v2 design system ("fee receipt")
    One shared stylesheet for redesigned pages. Tokens first, then layout, then components. */
 
+/* Self-hosted fonts (SIL Open Font License — see /assets/fonts/LICENSES.txt) */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/bricolage-800.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/inter-var.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/jbmono-500.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/jbmono-700.woff2) format("woff2")}
+
 :root{
   --ink:#0B1220; --ink-2:#16213A; --cream:#FFF9EC; --paper:#FFFFFF;
   --yellow:#FFD23F; --coral:#FF6B4A; --mint:#2BD9A0; --lilac:#B9A6FF; --sky:#7DB9FF;
