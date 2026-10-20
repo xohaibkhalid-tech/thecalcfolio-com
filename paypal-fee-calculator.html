@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) - GA4: replace G-Z35E1S5RPT with the real Measurement ID, then re-upload -->
+<!-- Google tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -25,254 +25,77 @@ document.addEventListener('click', function(e){
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Calcfolio">
 <meta property="og:title" content="PayPal Fee Calculator 2026 — See Exactly What You&#x27;ll Keep">
-<meta property="og:description" content="Free PayPal fee calculator for US sellers — Goods & Services (3.49% + $0.49). See PayPal's cut, your net profit, and what to charge. Rates verified 2026.">
+<meta property="og:description" content="Free PayPal fee calculator: Checkout (3.49% + $0.49), Goods &amp; Services (2.99%) and card rates. See PayPal's cut, your net and what to charge. 2026 rates.">
 <meta property="og:url" content="https://thecalcfolio.com/paypal-fee-calculator.html">
 <meta property="og:image" content="https://thecalcfolio.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <title>PayPal Fee Calculator 2026 — See Exactly What You'll Keep</title>
-<meta name="description" content="Free PayPal fee calculator for US sellers — Goods & Services (3.49% + $0.49). See PayPal's cut, your net profit, and what to charge. Rates verified 2026.">
-<style>
-  :root{
-    --navy:#0f2a4a; --blue:#1f6feb; --green:#1a7f37; --bg:#f6f8fb;
-    --card:#ffffff; --muted:#5b6b7f; --border:#e2e8f0; --radius:14px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.6}
-  .wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
-  header.top{background:linear-gradient(180deg,#eef3f9 0%,#e2eaf4 100%);color:#0c2340;border-radius:var(--radius);padding:32px 28px;margin-bottom:24px;border-bottom:3px solid #c9a227}
-  header.top h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25}
-  header.top p{margin:0;color:#54677e}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 10px rgba(15,42,74,.05)}
-  .card h2{margin-top:0;font-size:1.25rem;color:var(--navy)}
-  label{display:block;font-weight:600;margin:14px 0 6px}
-  input[type=number],input[type=text]{width:100%;padding:12px 14px;font-size:1.05rem;border:2px solid var(--border);border-radius:10px}
-  input:focus{outline:none;border-color:var(--blue)}
-  .amount-wrap{position:relative}
-  .amount-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
-  .amount-wrap input{padding-left:32px}
-  .radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-  .radios label{font-weight:500;margin:0;flex:1 1 200px;border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer}
-  .radios input{margin-right:8px}
-  .radios label:has(input:checked){border-color:var(--blue);background:#eef4ff}
-  .check{display:flex;align-items:center;gap:10px;margin-top:16px;font-weight:500}
-  .check input{width:20px;height:20px}
-  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
-  .stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
-  .stat .k{font-size:.85rem;color:var(--muted)}
-  .stat .v{font-size:1.45rem;font-weight:800;color:var(--navy)}
-  .stat.good .v{color:var(--green)}
-  .stat.bad .v{color:#b42318}
-  .formula{font-size:.9rem;color:var(--muted);margin-top:12px}
-  table.rates{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}
-  table.rates th,table.rates td{text-align:left;padding:10px;border-bottom:1px solid var(--border)}
-  table.rates th{background:var(--bg)}
-  .faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff}
-  .faq summary{padding:14px 16px;font-weight:600;cursor:pointer;color:var(--navy)}
-  .faq details div{padding:0 16px 16px;color:#33475c}
-  .disc{font-size:.85rem;color:var(--muted);background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:14px 16px}
-  .more{text-align:center;font-size:.95rem;color:var(--muted);margin:26px 0 8px}
-  footer{margin-top:10px;font-size:.85rem;color:var(--muted);text-align:center}
-  a{color:var(--blue)}
-</style>
-<style>
-/* THEME: thecalcfolio Full Dark v1 — 12 Oct 2026 */
-body{background:#0b1a29!important;color:#e8eef4!important}
-a{color:#7dd3fc!important}
-header{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header a{color:#fff!important}
-.tool-card{background:#12293f!important}
-.tool-card h3{color:#fff!important}
-.tool-card p{color:#a9bccd!important}
-.tool-card .go{color:#e8c95a!important}
-.cluster h2,.cluster-head h2{color:#fff!important}
-.cluster-head .count{color:#8fa1b3!important}
-.cluster>p,.cluster p{color:#a9bccd!important}
-.see-all{color:#e8c95a!important;border-color:#2a4258!important}
-.see-all:hover{border-color:#c9a227!important;background:#16293f!important}
-.type{border-color:#2a4258!important}
-.type.sel{border-color:#c9a227!important;background:#16293f!important}
-.type b{color:#fff!important}
-.btn{background:#c9a227!important;color:#0b1a29!important}
-.sources a{color:#e8c95a!important}
-.verdict{background:#0e2a1a!important}
-.verdict p{color:#bbf7d0!important}
-.stage b{color:#fff!important}
-.stage .time{background:#1a2f47!important;color:#fff!important}
-.step{background:#16293f!important}
-.step b{color:#fff!important}
-header.art{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.art h1{color:#fff!important}
-header.art .meta{color:#a9bccd!important;opacity:1!important}
-header.art p{color:#a9bccd!important}
-.card{background:#12293f!important}
-.card h2{color:#fff!important}
-.card p{color:#a9bccd!important}
-.card ol,.card ul{color:#a9bccd!important}
-.card li{color:#c6d2de!important}
-.card a{color:#e8c95a!important}
-.faq h3{color:#fff!important}
-.faq p{color:#a9bccd!important}
-.faq p a,.card p a,.tip p a,.answer p a{color:#e8c95a!important}
-table.cmp th,table.fees th,table.rates th{background:#1a2f47!important;color:#fff!important}
-table.cmp th,table.cmp td,table.fees th,table.fees td,table.rates th,table.rates td{border-bottom-color:#2a4258!important}
-table.cmp td,table.fees td,table.rates td{color:#c6d2de!important}
-.stat-val.good,.keep,td.win{color:#4ade80!important}
-.answer{background:#16293f!important;border-left-color:#c9a227!important}
-.answer p{color:#e8eef4!important}
-.tip{background:#0e2a1a!important}
-.tip p{color:#bbf7d0!important}
-.cta a{background:#c9a227!important;color:#0b1a29!important}
-.disc{color:#8fa1b3!important}
-.src{color:#8fa1b3!important}
-label{color:#c6d2de!important}
-input[type=number],input[type=text],input[type=email],select,textarea{background:#0b1a29!important;border-color:#2a4258!important;color:#e8eef4!important}
-button.go{background:#c9a227!important;color:#0b1a29!important}
-button.go:hover{background:#e8c95a!important}
-.result{background:#0e2a1a!important}
-.result .big{color:#fff!important}
-.result .keep{color:#4ade80!important}
-.result p{color:#a9bccd!important}
-footer{color:#8fa1b3!important}
-footer a{color:#e8c95a!important}
-.card h1{color:#fff!important}
-.warning{background:#231a12!important}
-.warning p{color:#fde68a!important}
-
-/* THEME: Full Dark v1 — :root variable remap */
-:root{--bg:#0b1a29;--card:#12293f;--muted:#a9bccd;--border:#2a4258;--navy:#ffffff;--blue:#7dd3fc;--green:#4ade80}
-body{color:#e8eef4!important}
-header.top{background:linear-gradient(180deg,#14283d 0%,#0b1a29 100%)!important;color:#fff!important}
-header.top p{color:#a9bccd!important}
-.faq details{background:#12293f!important}
-.faq details div{color:#a9bccd!important}
-.disc{background:#2a2113!important;border-color:#8a6d1c!important;color:#e8c95a!important}
-input[type=number],input[type=text]{background:#0b1a29!important;color:#e8eef4!important}
-.radios label:has(input:checked){background:#16293f!important}
-.stat.bad .v{color:#f87171!important}
-
-</style>
+<meta name="description" content="Free PayPal fee calculator: Checkout (3.49% + $0.49), Goods &amp; Services (2.99%) and card rates. See PayPal's cut, your net and what to charge. 2026 rates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=1">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"PayPal Fee Calculator 2026","url":"https://thecalcfolio.com/paypal-fee-calculator.html","description":"Free PayPal fee calculator for US sellers: PayPal Checkout, Goods & Services, card and micropayment rates, plus a reverse calculator.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"The Calcfolio","url":"https://thecalcfolio.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the PayPal fee calculated?","acceptedAnswer":{"@type":"Answer","text":"PayPal takes a percentage of the total sale, plus a fixed fee on most transaction types. For PayPal Checkout in the US: fee = sale × 3.49% + $0.49. Goods & Services payments are 2.99% with no fixed fee. International sales add another 1.50%."}},{"@type":"Question","name":"When are micropayments worth it?","acceptedAnswer":{"@type":"Answer","text":"Micropayments charge a higher percentage (4.99%) but a smaller fixed fee ($0.09 vs $0.49). Against PayPal Checkout (3.49% + $0.49) they win on sales under about $26.67. Above that, the standard rate is cheaper. Try both in the calculator and compare."}},{"@type":"Question","name":"Does PayPal refund the fee if I refund a buyer?","acceptedAnswer":{"@type":"Answer","text":"In most cases, no — PayPal keeps the original transaction fee when you issue a refund. Factor this into your return policy and pricing."}},{"@type":"Question","name":"What's the difference between Goods & Services and Friends & Family?","acceptedAnswer":{"@type":"Answer","text":"Goods & Services is for commercial sales and carries the seller fees above (with buyer/seller protection). Friends & Family is for personal transfers and is generally free from a bank/balance — but using it for business violates PayPal's terms."}},{"@type":"Question","name":"How can I reduce PayPal fees?","acceptedAnswer":{"@type":"Answer","text":"Use micropayments pricing for small-ticket sales, avoid unnecessary international transactions when possible, and consider PayPal's merchant rates if your volume is high. The reverse calculator above helps you pass the exact fee through to your pricing."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thecalcfolio.com/"},{"@type":"ListItem","position":2,"name":"Seller Fees","item":"https://thecalcfolio.com/calculators.html"},{"@type":"ListItem","position":3,"name":"PayPal Fee Calculator","item":"https://thecalcfolio.com/paypal-fee-calculator.html"}]}]}</script>
 </head>
 <body>
-<style>
-.topnav{background:#0f2a43;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.topnav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem}
-.topnav .brand{color:#fff;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap;margin-right:auto}
-.topnav .hamburger{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer;padding:.3rem .5rem}.topnav .hamburger span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;margin:4px 0}
-.topnav .nav-links{display:flex;align-items:center;gap:.15rem}
-.topnav .nav-item{position:relative}
-.topnav .nav-item>a{color:#cbd5e1;text-decoration:none;font-size:.9rem;padding:.5rem .7rem;border-radius:6px;display:block;white-space:nowrap}
-.topnav .nav-item>a:hover,.topnav .nav-item>a.active{background:#1e3a5f;color:#fff}
-.topnav .drop>a::after{content:"";display:inline-block;width:0;height:0;margin-left:.35rem;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;vertical-align:middle}
-.topnav .dropdown{position:absolute;top:100%;left:0;background:#162f4d;border-radius:0 0 10px 10px;min-width:230px;display:none;box-shadow:0 8px 20px rgba(0,0,0,.25);overflow:hidden}
-.topnav .dropdown a{display:block;color:#cbd5e1;text-decoration:none;font-size:.88rem;padding:.6rem .9rem}
-.topnav .dropdown a:hover{background:#1e3a5f;color:#fff}
-.topnav .nav-item:hover .dropdown{display:block}
-@media(max-width:760px){
-.topnav .hamburger{display:block}
-.topnav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0f2a43;flex-direction:column;align-items:stretch;padding:.5rem;gap:0}
-.topnav .nav-links.open{display:flex}
-.topnav .nav-item:hover .dropdown{display:none}
-.topnav .nav-item.open .dropdown{display:block;position:static;box-shadow:none;border-radius:6px;margin:.2rem 0 .4rem}
-}
-</style>
-<style>.langbar{background:#0f2a43;border-bottom:1px solid #1e3a5f;text-align:center;font-size:.8rem;padding:.32rem .5rem;color:#8fa1b3}.langbar a{color:#e8c95a;text-decoration:none;margin:0 .55rem;white-space:nowrap}.langbar a:hover{text-decoration:underline}</style>
-<div class="langbar">Also in: <a href="https://thecalcfolio.com/de/">🇩🇪 Deutsch</a><a href="https://thecalcfolio.com/it/">🇮🇹 Italiano</a><a href="https://thecalcfolio.com/br/">🇧🇷 Português</a></div>
-<nav class="topnav">
-<div class="nav-inner">
-<a href="/" class="brand">🧮 The Calcfolio</a>
-<button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-<div class="nav-links">
-<div class="nav-item"><a href="/">Home</a></div>
-<div class="nav-item drop"><a href="calculators.html">Fee Calculators</a>
-<div class="dropdown">
-<a href="paypal-fee-calculator.html">PayPal Fee Calculator</a>
-<a href="ebay-fee-calculator.html">eBay Fee Calculator</a>
-<a href="etsy-fee-calculator.html">Etsy Fee Calculator</a>
-<a href="stripe-fee-calculator.html">Stripe Fee Calculator</a>
-<a href="square-fee-calculator.html">Square Fee Calculator</a>
-<a href="venmo-fee-calculator.html">Venmo Fee Calculator</a>
-<a href="depop-fee-calculator.html">Depop Fee Calculator</a>
-<a href="grailed-fee-calculator.html">Grailed Fee Calculator</a>
-<a href="calculators.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All calculators →</a>
-</div></div>
-<div class="nav-item drop"><a href="index.html#money">Money</a>
-<div class="dropdown">
-<a href="refinance-calculator.html">Refinance Calculator</a>
-<a href="overtime-calculator.html">Overtime Calculator</a>
-<a href="interest-calculator.html">Interest Calculator</a>
-</div></div>
-<div class="nav-item drop"><a href="index.html#settlements">Settlements</a>
-<div class="dropdown"><a href="car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></div></div>
-<div class="nav-item drop"><a href="guides.html">Guides</a>
-<div class="dropdown">
-<a href="square-vs-stripe-fees.html">Square vs Stripe Fees</a>
-<a href="depop-vs-poshmark-fees.html">Depop vs Poshmark Fees</a>
-<a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App Fees</a>
-<a href="is-overtime-taxed.html">Is Overtime Taxed?</a>
-<a href="https://thecalcfolio.com/it/" style="border-top:1px solid #1e3a5f;">🇮🇹 Guide in Italiano</a>
-<a href="https://thecalcfolio.com/de/">🇩🇪 Guides auf Deutsch</a>
-<a href="https://thecalcfolio.com/br/">🇧🇷 Guias em Português</a>
-<a href="guides.html" style="font-weight:700;border-top:1px solid #1e3a5f;">All guides →</a>
-</div></div>
-<div class="nav-item"><a href="about.html">About</a></div>
-<div class="nav-item"><a href="contact.html">Contact</a></div>
+<!--v2:header:en:seller-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html" aria-current="page">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
 </div>
-</div>
-</nav>
-<script>
-(function(){
-var nav=document.querySelector('.topnav'); if(!nav) return;
-var hb=nav.querySelector('.hamburger'), links=nav.querySelector('.nav-links');
-hb.addEventListener('click',function(){links.classList.toggle('open');});
-nav.querySelectorAll('.drop > a').forEach(function(a){
-a.addEventListener('click',function(e){
-if(window.getComputedStyle(hb).display!=='none'){e.preventDefault();a.parentElement.classList.toggle('open');}
-});
-});
-var path=(location.pathname.split('/').pop()||'index.html');
-nav.querySelectorAll('.nav-links a').forEach(function(a){
-var h=a.getAttribute('href');
-if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
-});
-})();
-</script>
-
-<div class="wrap">
-
-<header class="top">
-  <h1>PayPal Fee Calculator 2026</h1>
-  <p>Enter your sale amount. See PayPal's exact cut, what you keep, and what to charge to hit your target. Free, no sign-up, runs entirely in your browser.</p>
 </header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
 
-<div class="card">
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a></li><li aria-current="page">PayPal</li></ol>
+<span class="tag">2026 US rates · verified Oct 20, 2026</span>
+<h1><span class="pmark c-sky" aria-hidden="true">P</span>PayPal Fee Calculator 2026</h1>
+<p class="lede">Enter your sale amount. See PayPal's exact cut, what you keep, and what to charge to hit your target. Free, no sign-up, runs entirely in your browser.</p>
+<p class="live" aria-live="polite">PayPal keeps <b id="live-fee">$3.98</b> of your <span id="live-amt">$100.00</span> sale. You keep <i id="live-net">$96.02</i>.</p>
+</div>
+</section>
+
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+
+<div class="card tool">
   <h2>Calculate your fees</h2>
   <label for="amount">Sale amount (USD)</label>
   <div class="amount-wrap"><span>$</span><input type="number" id="amount" min="0" step="0.01" value="100" inputmode="decimal"></div>
-
-  <label>Transaction type</label>
+  <fieldset style="border:0;padding:0;margin:0">
+  <legend style="font-weight:700;font-size:14px;margin:16px 0 6px">Transaction type</legend>
   <div class="radios">
-    <label><input type="radio" name="ttype" value="standard" checked> Standard — 3.49% + $0.49</label>
-    <label><input type="radio" name="ttype" value="card"> Card payments — 2.99% + $0.49</label>
-    <label><input type="radio" name="ttype" value="micro"> Micropayments — 5.00% + $0.05</label>
+    <label><input type="radio" name="ttype" value="standard" checked> PayPal Checkout (online store) — 3.49% + $0.49</label>
+    <label><input type="radio" name="ttype" value="gs"> Goods &amp; Services (send/receive money) — 2.99%</label>
+    <label><input type="radio" name="ttype" value="card"> Credit / debit card payments — 2.99% + $0.49</label>
+    <label><input type="radio" name="ttype" value="micro"> Micropayments — 4.99% + $0.09</label>
   </div>
-
+  </fieldset>
   <label class="check"><input type="checkbox" id="intl"> International transaction (+1.50%)</label>
-
   <div class="results">
     <div class="stat bad"><div class="k">PayPal fee</div><div class="v" id="r-fee">$0.00</div></div>
-    <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
     <div class="stat"><div class="k">Effective rate</div><div class="v" id="r-rate">0%</div></div>
+    <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
   </div>
   <p class="formula" id="r-formula"></p>
 </div>
 
+<div class="answer"><strong>Short answer:</strong> PayPal Checkout costs <strong>3.49% + $0.49</strong> per US sale, so on $100 you keep <strong>$96.02</strong>. Goods &amp; Services payments (send/receive money) cost <strong>2.99%</strong> with no fixed fee — you keep <strong>$97.01</strong>. International buyers add <strong>1.50%</strong>.</div>
+
 <div class="card">
   <h2>Reverse: I want to receive…</h2>
-  <p style="margin-top:0;color:var(--muted)">Enter the net amount you want in your pocket. We'll tell you what to charge.</p>
+  <p>Enter the net amount you want in your pocket. We'll tell you what to charge.</p>
   <label for="want">I want to receive (USD)</label>
   <div class="amount-wrap"><span>$</span><input type="number" id="want" min="0" step="0.01" value="100" inputmode="decimal"></div>
   <div class="results">
-    <div class="stat"><div class="k">Charge your buyer</div><div class="v" id="r-charge" style="color:var(--blue)">$0.00</div></div>
+    <div class="stat"><div class="k">Charge your buyer</div><div class="v" id="r-charge">$0.00</div></div>
     <div class="stat bad"><div class="k">PayPal will take</div><div class="v" id="r-rfee">$0.00</div></div>
   </div>
   <p class="formula">Uses the same transaction type selected above.</p>
@@ -280,38 +103,39 @@ if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
 
 <div class="card">
   <h2>2026 US rates used</h2>
-  <table class="rates">
+  <div class="table-wrap"><table class="rates">
     <tr><th>Transaction type</th><th>Rate</th></tr>
-    <tr><td>Standard (PayPal Checkout, Goods &amp; Services)</td><td><strong>3.49% + $0.49</strong></td></tr>
+    <tr><td>PayPal Checkout (online store checkout)</td><td><strong>3.49% + $0.49</strong></td></tr>
+    <tr><td>Send/receive money for Goods &amp; Services</td><td><strong>2.99%</strong> (no fixed fee)</td></tr>
     <tr><td>Credit / debit card payments</td><td><strong>2.99% + $0.49</strong></td></tr>
-    <tr><td>Micropayments (small tickets)</td><td><strong>5.00% + $0.05</strong></td></tr>
+    <tr><td>Micropayments</td><td><strong>4.99% + $0.09</strong></td></tr>
     <tr><td>International add-on</td><td><strong>+1.50%</strong> on top</td></tr>
-  </table>
-  <p class="formula">Source: <a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="sponsored noopener">paypal.com — US merchant fees</a>. Last verified: October 4, 2026. PayPal changes fees periodically — always confirm on their official page before relying on these numbers for accounting.</p>
+  </table></div>
+  <p class="formula">Source: <a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener">paypal.com — US merchant fees</a>. Last verified: October 20, 2026. PayPal changes fees periodically — always confirm on their official page before relying on these numbers for accounting.</p>
 </div>
 
 <div class="card">
   <h2>PayPal Goods &amp; Services Fee Calculator</h2>
-  <p style="margin-top:0;color:var(--muted)">Selling on PayPal with <strong>Goods &amp; Services</strong>? That's the "Standard" rate in the calculator above — <strong>3.49% + $0.49</strong> per US sale. Here's what that means in practice:</p>
-  <table class="rates">
+  <p>Getting paid through PayPal's <strong>Goods &amp; Services</strong> option (send/receive money)? PayPal's US fee page lists it at <strong>2.99%</strong> per sale, with no fixed fee. Pick "Goods &amp; Services" above to calculate any amount. Here's what that means in practice:</p>
+  <div class="table-wrap"><table class="rates">
     <tr><th>Sale amount</th><th>G&amp;S fee</th><th>You keep</th></tr>
-    <tr><td>$25</td><td><strong>$1.36</strong></td><td>$23.64</td></tr>
-    <tr><td>$50</td><td><strong>$2.24</strong></td><td>$47.76</td></tr>
-    <tr><td>$100</td><td><strong>$3.98</strong></td><td>$96.02</td></tr>
-    <tr><td>$500</td><td><strong>$17.94</strong></td><td>$482.06</td></tr>
-  </table>
-  <p class="formula">Goods &amp; Services is PayPal's commercial payment type — it includes Purchase Protection for the buyer and Seller Protection for you. That's what the fee pays for. <strong>Friends &amp; Family</strong> skips the fee but also skips all protection, and using it for business violates PayPal's terms. Select "Standard" above and enter your amount to calculate any G&amp;S sale.</p>
+    <tr><td>$25</td><td><strong>$0.75</strong></td><td>$24.25</td></tr>
+    <tr><td>$50</td><td><strong>$1.50</strong></td><td>$48.50</td></tr>
+    <tr><td>$100</td><td><strong>$2.99</strong></td><td>$97.01</td></tr>
+    <tr><td>$500</td><td><strong>$14.95</strong></td><td>$485.05</td></tr>
+  </table></div>
+  <p class="formula">Goods &amp; Services is PayPal's commercial payment type — it includes Purchase Protection for the buyer and Seller Protection for you. That's what the fee pays for. <strong>Friends &amp; Family</strong> skips the fee but also skips all protection, and using it for business violates PayPal's terms. Selling through a website checkout instead? That's PayPal Checkout at 3.49% + $0.49.</p>
 </div>
 
 <div class="card faq">
   <h2>Frequently asked questions</h2>
   <details>
     <summary>How is the PayPal fee calculated?</summary>
-    <div>PayPal takes a percentage of the total sale plus a fixed fee per transaction. For a standard US sale: <strong>fee = sale × 3.49% + $0.49</strong>. You keep the rest. International sales add another 1.50%.</div>
+    <div>PayPal takes a percentage of the total sale, plus a fixed fee on most transaction types. For PayPal Checkout in the US: <strong>fee = sale × 3.49% + $0.49</strong>. Goods &amp; Services payments are 2.99% with no fixed fee. International sales add another 1.50%.</div>
   </details>
   <details>
     <summary>When are micropayments worth it?</summary>
-    <div>Micropayments charge a higher percentage (5.00%) but a much smaller fixed fee ($0.05 vs $0.49). They win on small transactions — roughly under $22 per sale. Above that, the standard rate is cheaper. Try both in the calculator and compare.</div>
+    <div>Micropayments charge a higher percentage (4.99%) but a smaller fixed fee ($0.09 vs $0.49). Against PayPal Checkout (3.49% + $0.49) they win on sales under about $26.67. Above that, the standard rate is cheaper. Try both in the calculator and compare.</div>
   </details>
   <details>
     <summary>Does PayPal refund the fee if I refund a buyer?</summary>
@@ -330,17 +154,46 @@ if(h&&h.indexOf('#')===-1&&h===path){a.classList.add('active');}
 <div class="disc">
   <strong>Disclaimer:</strong> This calculator provides estimates for planning purposes only, based on PayPal's published US commercial rates. It is not financial advice. Actual fees depend on your account type, transaction details, and PayPal's current terms.
 </div>
-
-<p class="more">More free seller tools: <a href="ebay-fee-calculator.html">eBay Fee Calculator</a> · <a href="etsy-fee-calculator.html">Etsy Fee Calculator</a> · <a href="stripe-fee-calculator.html">Stripe Fee Calculator</a></p>
-<footer>Free tool · No sign-up · Your numbers never leave your browser</footer>
 </div>
+
+<aside class="side" aria-label="Related">
+  <div class="box">
+    <h2>Compare PayPal</h2>
+    <a class="row" href="https://thecalcfolio.com/paypal-vs-stripe-fees.html"><span>PayPal vs Stripe fees</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html"><span>Venmo vs Cash App fees</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/how-to-reduce-paypal-fees.html"><span>How to reduce PayPal fees</span><span aria-hidden="true">→</span></a>
+  </div>
+  <div class="box dark">
+    <h2>More fee calculators</h2>
+    <div class="chips">
+      <a class="chip c-yellow" href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay</a>
+      <a class="chip c-coral" href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy</a>
+      <a class="chip c-lilac" href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe</a>
+      <a class="chip c-mint" href="https://thecalcfolio.com/square-fee-calculator.html">Square</a>
+      <a class="chip c-sky" href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo</a>
+      <a class="chip c-coral" href="https://thecalcfolio.com/depop-fee-calculator.html">Depop</a>
+      <a class="chip c-lilac" href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed</a>
+    </div>
+  </div>
+</aside>
+</div>
+</main>
+
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
 
 <script>
 const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+// Source: paypal.com/us/business/paypal-business-fees (verified Oct 20, 2026)
 const RATES = {
-  standard:{pct:0.0349, fixed:0.49, label:'3.49% + $0.49'},
-  card:{pct:0.0299, fixed:0.49, label:'2.99% + $0.49'},
-  micro:{pct:0.05, fixed:0.05, label:'5.00% + $0.05'}
+  standard:{pct:0.0349, fixed:0.49, label:'PayPal Checkout 3.49% + $0.49'},
+  gs:{pct:0.0299, fixed:0, label:'Goods & Services 2.99%'},
+  card:{pct:0.0299, fixed:0.49, label:'Card payments 2.99% + $0.49'},
+  micro:{pct:0.0499, fixed:0.09, label:'Micropayments 4.99% + $0.09'}
 };
 function current(){
   const t=document.querySelector('input[name=ttype]:checked').value;
@@ -351,20 +204,24 @@ function current(){
 function calc(){
   const amt=parseFloat(document.getElementById('amount').value)||0;
   const {pct,fixed,label}=current();
-  const fee=amt*pct+fixed;
+  const fee=amt>0?amt*pct+fixed:0;
   const net=Math.max(0,amt-fee);
   document.getElementById('r-fee').textContent=fmt.format(fee);
   document.getElementById('r-net').textContent=fmt.format(net);
   document.getElementById('r-rate').textContent=amt>0?((fee/amt*100).toFixed(2)+'%'):'0%';
   document.getElementById('r-formula').textContent=
-    `Fee = ${fmt.format(amt)} × ${(pct*100).toFixed(2)}% + ${fmt.format(fixed)} (${label})`;
+    `Fee = ${fmt.format(amt)} × ${(pct*100).toFixed(2)}%`+(fixed?` + ${fmt.format(fixed)}`:'')+` (${label})`;
   const want=parseFloat(document.getElementById('want').value)||0;
-  const gross=(want+fixed)/(1-pct);
-  const rfee=gross*pct+fixed;
+  const gross=want>0?(want+fixed)/(1-pct):0;
+  const rfee=gross>0?gross*pct+fixed:0;
   document.getElementById('r-charge').textContent=fmt.format(gross);
   document.getElementById('r-rfee').textContent=fmt.format(rfee);
+  document.getElementById('live-fee').textContent=fmt.format(fee);
+  document.getElementById('live-amt').textContent=fmt.format(amt);
+  document.getElementById('live-net').textContent=fmt.format(net);
 }
 ['amount','want','intl'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+document.getElementById('intl').addEventListener('change',calc);
 document.querySelectorAll('input[name=ttype]').forEach(r=>r.addEventListener('change',calc));
 calc();
 </script>
