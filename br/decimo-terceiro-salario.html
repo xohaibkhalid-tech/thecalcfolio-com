@@ -25,13 +25,13 @@ document.addEventListener('click', function(e){
 <link rel="alternate" hreflang="pt-BR" href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Calcfolio">
-<meta property="og:title" content="13º Salário 2026: Como Calcular, Parcelas e Prazos">
-<meta property="og:description" content="13º salário 2026: como calcular por avos, datas da 1ª e 2ª parcela (30/11 e 20/12), descontos de INSS e IRRF e exemplo completo com R$ 3.000.">
+<meta property="og:title" content="Calculadora 13º Salário 2026: Parcelas, INSS e IRRF">
+<meta property="og:description" content="Calculadora do 13º salário 2026 grátis: valor da 1ª parcela (30/11) e da 2ª (20/12), com INSS e IRRF pelas tabelas 2026. Como calcular por avos e exemplo.">
 <meta property="og:url" content="https://thecalcfolio.com/br/decimo-terceiro-salario.html">
 <meta property="og:image" content="https://thecalcfolio.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>13º Salário 2026: Como Calcular, Parcelas e Prazos</title>
-<meta name="description" content="13º salário 2026: como calcular por avos, datas da 1ª e 2ª parcela (30/11 e 20/12), descontos de INSS e IRRF e exemplo completo com R$ 3.000.">
+<title>Calculadora 13º Salário 2026: Parcelas, INSS e IRRF</title>
+<meta name="description" content="Calculadora do 13º salário 2026 grátis: valor da 1ª parcela (30/11) e da 2ª (20/12), com INSS e IRRF pelas tabelas 2026. Como calcular por avos e exemplo.">
 <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=4">
@@ -51,16 +51,62 @@ document.addEventListener('click', function(e){
 <!--/v2:header-->
 <section class="hero">
 <div class="container">
-<ol class="crumbs"><li><a href="https://thecalcfolio.com/br/">Português</a></li><li aria-current="page">13º Salário 2026: Como Calcular, Parcelas e Prazos</li></ol>
-<span class="tag">Guia · Rescisão</span>
-<h1>13º Salário 2026: Como Calcular, Parcelas e Prazos</h1>
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/br/">Português</a></li><li aria-current="page">Calculadora 13º Salário 2026: Parcelas, INSS e IRRF</li></ol>
+<span class="tag">Calculadora · 13º salário</span>
+<h1>Calculadora 13º Salário 2026: Parcelas, INSS e IRRF</h1>
 <p class="lede">Chegou dezembro e a pergunta que todo mundo faz no almoço é a mesma: "quanto vai cair de 13º?" A resposta não é chute — é uma conta com regras claras, prazos que são lei e descontos que só aparecem na segunda parcela. Este guia faz a conta com você, com os valores atualizados de 2026, incluindo a grande novidade do ano: quem ganha até R$ 5.000 por mês não paga Imposto de Renda no 13º. E tem exemplo completo: salário de R$ 3.000, do bruto ao líquido, parcela por parcela.</p>
 </div>
 </section>
 <main id="main" class="page">
 <div class="layout">
 <div class="main">
-<div class="tool-cta"><div class="tc-text"><strong>Calcule sua rescisão agora</strong><span>Grátis, sem cadastro — com INSS e IRRF pelas tabelas 2026.</span></div><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de Rescisão →</a></div></div>
+<div class="card tool" id="calculadora">
+  <h2>Calcule seu 13º salário</h2>
+  <label for="d-sal">Salário mensal bruto (R$)</label>
+  <div class="amount-wrap"><span>R$</span><input type="number" id="d-sal" min="0" step="0.01" value="3000" inputmode="decimal"></div>
+  <label for="d-var">Média de horas extras, comissões e adicionais (opcional)</label>
+  <div class="amount-wrap"><span>R$</span><input type="number" id="d-var" min="0" step="0.01" value="0" inputmode="decimal"></div>
+  <label for="d-meses">Meses trabalhados em 2026 (15 dias ou mais = mês cheio)</label>
+  <select id="d-meses"></select>
+  <button class="go" id="d-btn">Calcular meu 13º</button>
+  <div class="err" id="d-err"></div>
+  <div id="d-out" style="display:none">
+    <div class="results">
+      <div class="stat"><div class="k">1ª parcela (até 30/11)</div><div class="v" id="d-p1">R$ 0,00</div></div>
+      <div class="stat"><div class="k">2ª parcela (até 20/12)</div><div class="v" id="d-p2">R$ 0,00</div></div>
+      <div class="stat total"><div class="k">Total líquido do 13º</div><div class="v" id="d-tot">R$ 0,00</div></div>
+    </div>
+    <table class="lines" id="d-tab"></table>
+    <p class="formula" id="d-nota"></p>
+    <div class="disc"><strong>Estimativa, não valor final.</strong> INSS e IRRF pelas tabelas oficiais de 2026 (Portaria MPS/MF nº 13/2026; Leis 15.191/2025 e 15.270/2025), sem dependentes. O holerite da empresa prevalece. Saiu da empresa? Use a <a href="https://thecalcfolio.com/br/calculadora-rescisao.html">calculadora de rescisão</a>.</div>
+  </div>
+</div>
+<script>
+(function(){
+  var sel=document.getElementById('d-meses');
+  for(var i=12;i>=1;i--){var o=document.createElement('option');o.value=i;o.textContent=i+(i==1?' mês':' meses');sel.appendChild(o);}
+  function brl(n){return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+  function r2(n){return Math.round(n*100)/100;}
+  function inss(b){var f=[[1621.00,.075],[2902.84,.09],[4354.27,.12],[8475.55,.14]],p=0,t=0;for(var i=0;i<f.length;i++){var l=Math.min(b,f[i][0]);if(l>p){t+=Math.round((l-p)*f[i][1]*100+1e-6)/100;p=f[i][0];}}return t;}
+  function irrf(rend,base){var ir=0;if(base<=2428.80)ir=0;else if(base<=2826.65)ir=base*.075-182.16;else if(base<=3751.05)ir=base*.15-394.16;else if(base<=4664.68)ir=base*.225-675.49;else ir=base*.275-908.73;if(ir<0)ir=0;if(rend<=5000)return 0;if(rend<=7350){ir-=978.62-.133145*rend;if(ir<0)ir=0;}return ir;}
+  var err=document.getElementById('d-err'),out=document.getElementById('d-out');
+  document.getElementById('d-btn').addEventListener('click',function(){
+    err.style.display='none';
+    var sal=parseFloat(document.getElementById('d-sal').value)||0,va=parseFloat(document.getElementById('d-var').value)||0,m=parseInt(sel.value,10);
+    if(sal<=0||va<0){out.style.display='none';err.textContent='Informe um salário mensal maior que zero.';err.style.display='block';return;}
+    var bruto=r2((sal+va)/12*m),p1=r2(bruto/2),i=r2(inss(bruto)),ir=r2(irrf(bruto,bruto-i)),p2=r2(bruto-p1-i-ir),liq=r2(p1+p2);
+    document.getElementById('d-p1').textContent=brl(p1);
+    document.getElementById('d-p2').textContent=brl(p2);
+    document.getElementById('d-tot').textContent=brl(liq);
+    var rows=[['13º bruto ('+m+'/12 avos)',bruto],['1ª parcela — sem descontos',p1],['INSS sobre o total',-i],['IRRF'+(ir>0?' (tabela 2026)':' — isento até R$ 5.000 em 2026'),-ir],['2ª parcela',p2]];
+    var h='';rows.forEach(function(r){h+='<tr><td>'+r[0]+'</td><td>'+(r[1]<0?'− '+brl(-r[1]):(r[1]===0&&r[0].indexOf('IRRF')===0?'− '+brl(0):brl(r[1])))+'</td></tr>';});
+    h+='<tr class="grand"><td><strong>Total líquido</strong></td><td><strong>'+brl(liq)+'</strong></td></tr>';
+    document.getElementById('d-tab').innerHTML=h;
+    document.getElementById('d-nota').textContent='Os descontos de INSS e IRRF incidem sobre o 13º inteiro, mas são cobrados só na 2ª parcela. Se a empresa pagar em parcela única, o valor líquido é o mesmo: '+brl(liq)+', até 30/11.';
+    out.style.display='block';
+  });
+})();
+</script>
 <div class="card">
   <h2>Em resumo</h2>
   <ul>
@@ -193,7 +239,7 @@ document.addEventListener('click', function(e){
 </main>
 <!--v2:footer:br-->
 <footer class="site-footer">
-<div class="sf-grid"><div><h2>Calculadoras</h2><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão</a><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão</a></div><div><h2>Guias</h2><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão</a><a href="https://thecalcfolio.com/br/multa-fgts-40-20.html">Multa do FGTS 40% e 20%</a><a href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html">Aviso prévio</a><a href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">Férias vencidas</a><a href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">13º salário</a><a href="https://thecalcfolio.com/br/seguro-desemprego-2026.html">Seguro-desemprego 2026</a><a href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">Empregada doméstica</a><a href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">TRCT e homologação</a></div><div><h2>Outros idiomas</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Sobre</a><a href="https://thecalcfolio.com/contact.html">Contato</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a><a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a></div></div>
+<div class="sf-grid"><div><h2>Calculadoras</h2><a href="https://thecalcfolio.com/br/calculadora-rescisao.html">Calculadora de rescisão</a><a href="https://thecalcfolio.com/br/decimo-terceiro-salario.html">Calculadora 13º salário</a><a href="https://thecalcfolio.com/br/como-calcular-rescisao.html">Como calcular a rescisão</a></div><div><h2>Guias</h2><a href="https://thecalcfolio.com/br/fgts-na-rescisao.html">FGTS na rescisão</a><a href="https://thecalcfolio.com/br/multa-fgts-40-20.html">Multa do FGTS 40% e 20%</a><a href="https://thecalcfolio.com/br/aviso-previo-trabalhado-indenizado.html">Aviso prévio</a><a href="https://thecalcfolio.com/br/ferias-vencidas-rescisao.html">Férias vencidas</a><a href="https://thecalcfolio.com/br/seguro-desemprego-2026.html">Seguro-desemprego 2026</a><a href="https://thecalcfolio.com/br/rescisao-empregada-domestica.html">Empregada doméstica</a><a href="https://thecalcfolio.com/br/trct-homologacao-rescisao.html">TRCT e homologação</a></div><div><h2>Outros idiomas</h2><a href="https://thecalcfolio.com/">English · Seller fees</a><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/about.html">Sobre</a><a href="https://thecalcfolio.com/contact.html">Contato</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacidade</a><a href="https://thecalcfolio.com/disclaimer.html">Aviso legal</a></div></div>
 <div class="sf-bottom"><span>© 2026 The Calcfolio — calculadoras grátis, números honestos.</span><span>Apenas estimativas — não é consultoria jurídica ou contábil.</span></div>
 </footer>
 <!--/v2:footer-->

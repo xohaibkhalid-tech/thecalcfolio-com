@@ -135,10 +135,10 @@ FOOT_COLS["it"] = [
     ("The Calcfolio", [("Chi siamo", "/about.html"), ("Contatti", "/contact.html"), ("Privacy", "/privacy-policy.html"), ("Disclaimer", "/disclaimer.html")]),
 ]
 FOOT_COLS["br"] = [
-    ("Calculadoras", [("Calculadora de rescisão", "/br/calculadora-rescisao.html"), ("Como calcular a rescisão", "/br/como-calcular-rescisao.html")]),
+    ("Calculadoras", [("Calculadora de rescisão", "/br/calculadora-rescisao.html"), ("Calculadora 13º salário", "/br/decimo-terceiro-salario.html"), ("Como calcular a rescisão", "/br/como-calcular-rescisao.html")]),
     ("Guias", [("FGTS na rescisão", "/br/fgts-na-rescisao.html"), ("Multa do FGTS 40% e 20%", "/br/multa-fgts-40-20.html"),
                ("Aviso prévio", "/br/aviso-previo-trabalhado-indenizado.html"), ("Férias vencidas", "/br/ferias-vencidas-rescisao.html"),
-               ("13º salário", "/br/decimo-terceiro-salario.html"), ("Seguro-desemprego 2026", "/br/seguro-desemprego-2026.html"),
+               ("Seguro-desemprego 2026", "/br/seguro-desemprego-2026.html"),
                ("Empregada doméstica", "/br/rescisao-empregada-domestica.html"), ("TRCT e homologação", "/br/trct-homologacao-rescisao.html")]),
     ("Outros idiomas", [("English · Seller fees", "/"), ("Deutsch · Arbeitszeitrechner", "/de/"), ("Italiano · Oro", "/it/")]),
     ("The Calcfolio", [("Sobre", "/about.html"), ("Contato", "/contact.html"), ("Privacidade", "/privacy-policy.html"), ("Aviso legal", "/disclaimer.html")]),
