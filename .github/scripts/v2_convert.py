@@ -32,6 +32,7 @@ TOOLS = {
     "cashapp": ("Cash App Fee Calculator", "/cash-app-fee-calculator.html", "c-mint", "$"),
     "depop": ("Depop Fee Calculator", "/depop-fee-calculator.html", "c-coral", "D"),
     "grailed": ("Grailed Fee Calculator", "/grailed-fee-calculator.html", "c-lilac", "G"),
+    "whatnot": ("Whatnot Fee Calculator", "/whatnot-fee-calculator.html", "c-yellow", "W"),
     "azr": ("Arbeitszeitrechner", "/de/arbeitszeitrechner.html", "c-yellow", "A"),
     "refi": ("Refinance Calculator", "/refinance-calculator.html", "c-mint", "R"),
     "ploan": ("Personal Loan Calculator", "/personal-loan-calculator.html", "c-sky", "L"),

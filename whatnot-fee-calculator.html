@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/whatnot-fee-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Whatnot Fee Calculator (2026): Commission by Category &amp; Tier">
+<meta property="og:description" content="Free Whatnot fee calculator with official 2026 rates: commission by category and sales tier, 2.9% + $0.30 processing, your payout and profit.">
+<meta property="og:url" content="https://thecalcfolio.com/whatnot-fee-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Whatnot Fee Calculator (2026): Commission by Category &amp; Tier</title>
+<meta name="description" content="Free Whatnot fee calculator with official 2026 rates: commission by category and sales tier, 2.9% + $0.30 processing, your payout and profit.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
+</head>
+<body>
+<!--v2:header:en:seller-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html" aria-current="page">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a></li><li aria-current="page">Whatnot Fee Calculator</li></ol>
+<span class="tag">Official rates · Oct 2026</span>
+<h1>Whatnot Fee Calculator</h1>
+<p class="lede">Enter your sale price and see exactly what Whatnot takes — commission by category and sales tier, plus the 2.9% + $0.30 processing fee — and what lands in your payout. Built on Whatnot's official October 2026 fee table, not a flat 8% guess.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="card tool">
+    <h2>Calculate your Whatnot fees</h2>
+    <label for="wn-price">Item sale price ($)</label>
+    <input type="number" id="wn-price" min="0" step="0.01" value="50" inputmode="decimal">
+    <label for="wn-cat">Category</label>
+    <select id="wn-cat">
+      <option value="tcg" selected>Trading Card Games (TCG)</option>
+      <option value="sports">Sports cards</option>
+      <option value="fashion">Fashion</option>
+      <option value="coll">Other Collectibles</option>
+      <option value="coins">Coins &amp; Money</option>
+      <option value="other">Other</option>
+    </select>
+    <label for="wn-tier">Your sales in the last 28 days</label>
+    <select id="wn-tier">
+      <option value="0" selected>Under $15,000 (standard)</option>
+      <option value="1">$15,000 – $34,999 (Tier 1)</option>
+      <option value="2">$35,000 – $49,999 (Tier 2)</option>
+      <option value="3">$50,000 – $99,999 (Tier 3)</option>
+      <option value="4">$100,000 – $249,999 (Tier 4)</option>
+      <option value="5">$250,000 – $499,999 (Tier 5)</option>
+      <option value="6">$500,000+ (Tier 6)</option>
+    </select>
+    <label for="wn-ship">Shipping the buyer pays ($)</label>
+    <input type="number" id="wn-ship" min="0" step="0.01" value="5" inputmode="decimal">
+    <label for="wn-tax">Sales tax the buyer pays (%) — leave 0 if unsure</label>
+    <input type="number" id="wn-tax" min="0" step="0.01" value="0" inputmode="decimal">
+    <label for="wn-cost">What the item cost you ($) — optional, for profit</label>
+    <input type="number" id="wn-cost" min="0" step="0.01" value="20" inputmode="decimal">
+    <label class="type" style="display:flex;gap:8px;align-items:flex-start;margin-top:12px"><input type="checkbox" id="wn-hv" style="width:auto;margin-top:4px"><span>Apply the high-value order discount (0% commission above $1,500 in eligible categories — limited-time promotion)</span></label>
+    <button class="go" id="wn-btn">Calculate →</button>
+    <p class="err" id="wn-err" role="alert"></p>
+    <div class="result" id="wn-result" aria-live="polite">
+      <div style="font-size:.85rem;color:#a9bccd;">Your payout</div>
+      <div class="big" id="wn-net">–</div>
+      <p>Commission (<span id="wn-crate">–</span>): <span class="keep" id="wn-comm">–</span></p>
+      <p>Payment processing (2.9% + $0.30): <span class="keep" id="wn-proc">–</span></p>
+      <p>Total Whatnot fees: <span class="keep" id="wn-total">–</span> (<span id="wn-pct">–</span> of the sale price)</p>
+      <p>Profit after item cost: <span class="keep" id="wn-profit">–</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Reverse calculator — what to sell for</h2>
+    <p>Want to <strong>keep</strong> a set amount after fees? Uses the category, tier, shipping and tax you picked above.</p>
+    <label for="wn-want">Payout you want ($)</label>
+    <input type="number" id="wn-want" min="0" step="0.01" value="50" inputmode="decimal">
+    <button class="go" id="wn-rev">What price do I need?</button>
+    <div class="result" id="wn-revres" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <div class="answer">
+    <p><strong>Whatnot charges two fees on every US sale: a commission of 8% of the item price for most categories (4% for coins, lower at higher sales tiers) and a 2.9% + $0.30 payment processing fee on the full order, including shipping and tax. On a $50 card with $5 shipping, that's $4.00 + $1.90 = $5.90, so you keep $44.10.</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Whatnot commission rates by category (US, 2026)</h2>
+    <p>Your tier is set by your total sales across all categories in a 28-day period, and the rate stays locked for that period.</p>
+    <div style="overflow-x:auto">
+    <table class="fees">
+      <thead><tr><th>Category</th><th>Standard</th><th>Tier 1</th><th>Tier 2</th><th>Tier 3</th><th>Tier 4</th><th>Tier 5</th><th>Tier 6</th></tr></thead>
+      <tbody>
+      <tr><td>Sports</td><td>8%</td><td>7.75%</td><td>7.5%</td><td>7.25%</td><td>7%</td><td>6.75%</td><td>6.5%</td></tr>
+      <tr><td>TCG</td><td>8%</td><td>7.75%</td><td>7.5%</td><td>7.25%</td><td>7%</td><td>6.75%</td><td>6.5%</td></tr>
+      <tr><td>Fashion</td><td>8%</td><td>7%</td><td>6.5%</td><td>5.5%</td><td>5%</td><td>4.5%</td><td>4.5%</td></tr>
+      <tr><td>Other Collectibles</td><td>8%</td><td>7.25%</td><td>6.5%</td><td>6%</td><td>5%</td><td>5%</td><td>5%</td></tr>
+      <tr><td>Coins</td><td>4%</td><td>3.9%</td><td>3.8%</td><td>3.7%</td><td>3.6%</td><td>3.55%</td><td>3.5%</td></tr>
+      <tr><td>Other</td><td>8%</td><td>7%</td><td>6.5%</td><td>5.5%</td><td>4%</td><td>4%</td><td>4%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Tiers: Standard under $15,000 · Tier 1 $15k–$34,999 · Tier 2 $35k–$49,999 · Tier 3 $50k–$99,999 · Tier 4 $100k–$249,999 · Tier 5 $250k–$499,999 · Tier 6 $500k+ in 28-day sales.</p>
+    <p class="src">Rates checked 21 October 2026 on Whatnot's official help pages: <a href="https://help.whatnot.com/hc/en-us/articles/4847069165965-Whatnot-seller-fees" target="_blank" rel="noopener">Whatnot seller fees</a> and <a href="https://help.whatnot.com/hc/en-us/articles/27912945518733-Reduced-Commission-on-High-Value-Orders" target="_blank" rel="noopener">Reduced commission on high-value orders</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>How the two Whatnot fees work</h2>
+    <ul>
+    <li><strong>Commission</strong> is charged on the item's sale price only. Shipping and tax the buyer pays are not included. Live sales use the show's category; marketplace listings use the product's category.</li>
+    <li><strong>Payment processing</strong> is 2.9% + $0.30 on the whole order the buyer pays — item, shipping and tax. A lower commission tier does not reduce it.</li>
+    <li><strong>High-value orders:</strong> in eligible categories (including trading cards, coins, sports singles, comics, toys, jewelry and watches) Whatnot currently charges commission only on the first $1,500 of an order. It's a limited-time promotion that Whatnot can change at any time.</li>
+    </ul>
+    <p>Low-priced items get hit hardest by the fixed $0.30. On a $5 sale with $5 shipping, processing alone is $0.59 — almost 12% of the item price. Bundling cheap items into one order keeps more in your pocket.</p>
+  </div>
+
+  <div class="card">
+    <h2>Selling on more than one platform?</h2>
+    <p>Compare your Whatnot cut with the <a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a>, <a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a> and <a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a> before you decide where to list.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Whatnot fees — quick answers</h2>
+    <h3>How much does Whatnot take from a sale?</h3>
+    <p>For most US categories Whatnot takes an 8% commission on the item price plus a 2.9% + $0.30 payment processing fee on the full order. On a $100 item with $5 shipping that's $8.00 + $3.35 = $11.35, about 11% of the item price.</p>
+    <h3>What is Whatnot's commission on coins?</h3>
+    <p>Coins have a lower commission: 4% at the standard tier, dropping to 3.5% for the highest sales tier. The 2.9% + $0.30 processing fee still applies.</p>
+    <h3>Does Whatnot charge fees on shipping?</h3>
+    <p>Commission is not charged on shipping, but the 2.9% + $0.30 payment processing fee is charged on the full amount the buyer pays, including shipping and tax.</p>
+    <h3>How do Whatnot seller tiers work?</h3>
+    <p>Your commission tier is based on your total sales across all categories in a 28-day period. Higher sales unlock lower commission, and the rate is locked for that period. The processing fee stays the same at every tier.</p>
+    <h3>Is this calculator official?</h3>
+    <p>No. It uses Whatnot's published US rates as of October 2026. Promotions and custom rates for top sellers can change your actual fee, so check your seller statement for exact figures.</p>
+  </div>
+
+  <div class="card">
+    <p class="disc">General information only. Payout = item price minus commission and processing; we assume the shipping the buyer pays covers your label. Whatnot can change fees, tiers and promotions at any time. Not affiliated with Whatnot Inc.</p>
+  </div>
+</div>
+<aside class="side" aria-label="Related">
+<div class="box"><h2>Related</h2><a class="row" href="https://thecalcfolio.com/ebay-fee-calculator.html"><span>eBay fee calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/depop-fee-calculator.html"><span>Depop fee calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/cash-app-fee-calculator.html"><span>Cash App fee calculator</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Top tools</h2><div class="top-tools"><a href="https://thecalcfolio.com/ebay-fee-calculator.html"><span class="ic c-yellow" aria-hidden="true">e</span>eBay fees</a><a href="https://thecalcfolio.com/paypal-fee-calculator.html"><span class="ic c-sky" aria-hidden="true">P</span>PayPal fees</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html"><span class="ic c-coral" aria-hidden="true">E</span>Etsy fees</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html"><span class="ic c-lilac" aria-hidden="true">S</span>Stripe fees</a><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><span class="ic c-yellow" aria-hidden="true">A</span>Arbeitszeitrechner</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a><a href="https://thecalcfolio.com/whatnot-fee-calculator.html">Whatnot fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Whatnot Fee Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "url": "https://thecalcfolio.com/whatnot-fee-calculator.html"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does Whatnot take from a sale?", "acceptedAnswer": {"@type": "Answer", "text": "For most US categories Whatnot takes an 8% commission on the item price plus a 2.9% + $0.30 payment processing fee on the full order. On a $100 item with $5 shipping that's $8.00 + $3.35 = $11.35, about 11% of the item price."}}, {"@type": "Question", "name": "What is Whatnot's commission on coins?", "acceptedAnswer": {"@type": "Answer", "text": "Coins have a lower commission: 4% at the standard tier, dropping to 3.5% for the highest sales tier. The 2.9% + $0.30 processing fee still applies."}}, {"@type": "Question", "name": "Does Whatnot charge fees on shipping?", "acceptedAnswer": {"@type": "Answer", "text": "Commission is not charged on shipping, but the 2.9% + $0.30 payment processing fee is charged on the full amount the buyer pays, including shipping and tax."}}, {"@type": "Question", "name": "How do Whatnot seller tiers work?", "acceptedAnswer": {"@type": "Answer", "text": "Your commission tier is based on your total sales across all categories in a 28-day period. Higher sales unlock lower commission, and the rate is locked for that period. The processing fee stays the same at every tier."}}, {"@type": "Question", "name": "Is this calculator official?", "acceptedAnswer": {"@type": "Answer", "text": "No. It uses Whatnot's published US rates as of October 2026. Promotions and custom rates for top sellers can change your actual fee, so check your seller statement for exact figures."}}]}]}
+</script>
+<script>
+(function(){
+var R={sports:[8,7.75,7.5,7.25,7,6.75,6.5],tcg:[8,7.75,7.5,7.25,7,6.75,6.5],fashion:[8,7,6.5,5.5,5,4.5,4.5],coll:[8,7.25,6.5,6,5,5,5],coins:[4,3.9,3.8,3.7,3.6,3.55,3.5],other:[8,7,6.5,5.5,4,4,4]};
+function $(id){return document.getElementById(id);}
+function m(n){return (n<0?'-$':'$')+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function v(id){var x=parseFloat($(id).value);return x>=0?x:0;}
+function rate(){return R[$('wn-cat').value][+$('wn-tier').value];}
+function fees(P){
+  var c=rate()/100,S=v('wn-ship'),t=v('wn-tax')/100;
+  var base=$('wn-hv').checked?Math.min(P,1500):P;
+  var r2=function(x){return Math.round(x*100)/100;};
+  var comm=r2(base*c),proc=r2(0.029*(P*(1+t)+S)+0.30);
+  return {comm:comm,proc:proc,total:comm+proc};
+}
+$('wn-btn').addEventListener('click',function(){
+  var P=parseFloat($('wn-price').value),err=$('wn-err');err.textContent='';
+  if(!(P>0)){err.textContent='Enter a sale price greater than 0.';$('wn-result').classList.remove('show');return;}
+  var f=fees(P),net=P-f.total;
+  $('wn-net').textContent=m(net);
+  $('wn-crate').textContent=rate()+'%'+($('wn-hv').checked&&P>1500?' on the first $1,500':'');
+  $('wn-comm').textContent=m(f.comm);$('wn-proc').textContent=m(f.proc);
+  $('wn-total').textContent=m(f.total);$('wn-pct').textContent=(f.total/P*100).toFixed(1)+'%';
+  $('wn-profit').textContent=m(net-v('wn-cost'));
+  $('wn-result').classList.add('show');$('wn-rev').click();
+});
+$('wn-rev').addEventListener('click',function(){
+  var W=parseFloat($('wn-want').value),box=$('wn-revres');
+  if(!(W>0)){box.className='result';box.innerHTML='';return;}
+  var c=rate()/100,S=v('wn-ship'),t=v('wn-tax')/100;
+  var P=(W+0.029*S+0.30)/(1-c-0.029*(1+t));
+  if($('wn-hv').checked&&P>1500){P=(W+0.029*S+0.30+1500*c)/(1-0.029*(1+t));}
+  var Pc=Math.ceil(P*100)/100,f=fees(Pc);
+  box.className='result show';
+  box.innerHTML='<div class="big">Sell for: '+m(Pc)+'</div><p>That leaves <span class="keep">'+m(Pc-f.total)+'</span> after '+m(f.total)+' in Whatnot fees.</p>';
+});
+})();
+</script>
+<script>
+/* v2: recalculate as you type — clicks the card's own Calculate button */
+(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go');if(!b)return;
+var run=function(){b.click();};c.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',run);i.addEventListener('change',run);});});
+document.querySelectorAll('.card button.go').forEach(function(b){b.click();});})();
+</script>
+
+</body>
+</html>
