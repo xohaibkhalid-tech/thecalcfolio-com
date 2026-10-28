@@ -107,10 +107,13 @@ document.addEventListener('click', function(e){
     <tr><td>PayPal Checkout (online store checkout)</td><td><strong>3.49% + $0.49</strong></td></tr>
     <tr><td>Send/receive money for Goods &amp; Services</td><td><strong>2.99%</strong> (no fixed fee)</td></tr>
     <tr><td>Credit / debit card payments</td><td><strong>2.99% + $0.49</strong></td></tr>
+    <tr><td>Advanced credit / debit card payments</td><td><strong>2.89% + $0.49</strong></td></tr>
     <tr><td>Micropayments</td><td><strong>4.99% + $0.09</strong></td></tr>
+    <tr><td>QR code (in person)</td><td><strong>2.29% + $0.09</strong></td></tr>
+    <tr><td>Invoice paid by bank (ACH)</td><td><strong>1%</strong>, capped at $10</td></tr>
     <tr><td>International add-on</td><td><strong>+1.50%</strong> on top</td></tr>
   </table></div>
-  <p class="formula">Source: <a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener">paypal.com — US merchant fees</a>. Last verified: October 20, 2026. PayPal changes fees periodically — always confirm on their official page before relying on these numbers for accounting.</p>
+  <p class="formula">Source: <a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener">paypal.com — US merchant fees</a> (fee schedule last updated October 1, 2026). Last verified: October 28, 2026. PayPal changes fees periodically — always confirm on their official page before relying on these numbers for accounting.</p>
 </div>
 
 <div class="card">
@@ -126,6 +129,33 @@ document.addEventListener('click', function(e){
   <p class="formula">Goods &amp; Services is PayPal's commercial payment type — it includes Purchase Protection for the buyer and Seller Protection for you. That's what the fee pays for. <strong>Friends &amp; Family</strong> skips the fee but also skips all protection, and using it for business violates PayPal's terms. Selling through a website checkout instead? That's PayPal Checkout at 3.49% + $0.49.</p>
 </div>
 
+<div class="card">
+  <h2>PayPal fees on common amounts</h2>
+  <p>How much does PayPal take per transaction? Here's the fee and your payout on typical US sales, so you can see the difference between a website checkout and a Goods &amp; Services payment at a glance:</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Sale</th><th>Checkout fee</th><th>You keep</th><th>G&amp;S fee</th><th>You keep</th><th>Checkout + intl.</th></tr>
+    <tr><td>$10</td><td>$0.84</td><td>$9.16</td><td>$0.30</td><td>$9.70</td><td>$0.99</td></tr>
+    <tr><td>$50</td><td>$2.24</td><td>$47.77</td><td>$1.49</td><td>$48.51</td><td>$2.99</td></tr>
+    <tr><td>$100</td><td>$3.98</td><td>$96.02</td><td>$2.99</td><td>$97.01</td><td>$5.48</td></tr>
+    <tr><td>$500</td><td>$17.94</td><td>$482.06</td><td>$14.95</td><td>$485.05</td><td>$25.44</td></tr>
+    <tr><td>$1,000</td><td>$35.39</td><td>$964.61</td><td>$29.90</td><td>$970.10</td><td>$50.39</td></tr>
+  </table></div>
+  <p class="formula">Notice the $0.49 fixed fee: on a $10 sale it adds almost five percentage points to your real cost. On $1,000 it barely registers. Small-ticket sellers feel PayPal's fixed fee the most, which is why micropayments pricing exists.</p>
+</div>
+
+<div class="card">
+  <h2>PayPal costs beyond the transaction fee</h2>
+  <p>The percentage on each sale isn't the only way PayPal charges sellers. These are the ones that catch people out:</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Charge</th><th>US amount</th></tr>
+    <tr><td>Currency conversion</td><td><strong>3%&ndash;4%</strong> above the base exchange rate</td></tr>
+    <tr><td>Chargeback</td><td><strong>$20</strong> per chargeback</td></tr>
+    <tr><td>Dispute fee</td><td><strong>$15</strong> (standard), $30 for high-volume sellers</td></tr>
+    <tr><td>Refunding a buyer</td><td>No fee to refund, but the original fee is <strong>not returned</strong></td></tr>
+  </table></div>
+  <p class="formula">Currency conversion is the quiet one. Sell to a buyer abroad who pays in another currency and you can lose the 1.50% international fee <em>plus</em> a 3&ndash;4% conversion spread. If you sell internationally often, holding a balance in that currency or pricing in your buyers' currency can cut this.</p>
+</div>
+
 <div class="card faq">
   <h2>Frequently asked questions</h2>
   <details>
@@ -138,11 +168,15 @@ document.addEventListener('click', function(e){
   </details>
   <details>
     <summary>Does PayPal refund the fee if I refund a buyer?</summary>
-    <div>In most cases, <strong>no</strong> — PayPal keeps the original transaction fee when you issue a refund. Factor this into your return policy and pricing.</div>
+    <div><strong>No.</strong> PayPal doesn't charge you to issue a refund, but it keeps the fee you paid when you received the money. On a $100 Checkout sale you refund in full, you're still out $3.98. Factor this into your return policy and pricing.</div>
   </details>
   <details>
     <summary>What's the difference between Goods &amp; Services and Friends &amp; Family?</summary>
     <div>Goods &amp; Services is for commercial sales and carries the seller fees above (with buyer/seller protection). Friends &amp; Family is for personal transfers and is generally free from a bank/balance — but using it for business violates PayPal's terms.</div>
+  </details>
+  <details>
+    <summary>How much does PayPal charge on $1,000?</summary>
+    <div>Through PayPal Checkout, the fee on a $1,000 US sale is $35.39 (3.49% + $0.49), so you keep $964.61. As a Goods &amp; Services payment it's $29.90 (2.99%), so you keep $970.10. If the buyer is outside the US, add another 1.50%, or $15.</div>
   </details>
   <details>
     <summary>How can I reduce PayPal fees?</summary>
