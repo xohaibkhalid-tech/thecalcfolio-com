@@ -34,7 +34,7 @@ document.addEventListener('click', function(e){
 <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=4">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Calculate Credit Card Interest (Without the Headache)", "description": "Credit card interest = average daily balance × daily periodic rate × days. A $3,000 balance at 24% APR costs about $60/month — here’s the full breakdown.", "url": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html", "mainEntityOfPage": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html", "inLanguage": "en", "author": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}, "publisher": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}, "dateModified": "2026-10-20"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thecalcfolio.com/"}, {"@type": "ListItem", "position": 2, "name": "How to Calculate Credit Card Interest (Without the Headache)", "item": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Calculate Credit Card Interest (Without the Headache)", "description": "Credit card interest = average daily balance × daily periodic rate × days. A $3,000 balance at 24% APR costs about $60/month — here’s the full breakdown.", "url": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html", "mainEntityOfPage": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html", "inLanguage": "en", "author": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}, "publisher": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}, "dateModified": "2026-10-28"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thecalcfolio.com/"}, {"@type": "ListItem", "position": 2, "name": "How to Calculate Credit Card Interest (Without the Headache)", "item": "https://thecalcfolio.com/how-to-calculate-credit-card-interest.html"}]}]}</script>
 </head>
 <body>
 <!--v2:header:en:money-->
@@ -52,7 +52,7 @@ document.addEventListener('click', function(e){
 <section class="hero">
 <div class="container">
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/guides.html">Guides</a></li><li aria-current="page">How to Calculate Credit Card Interest (Without the Headache)</li></ol>
-<span class="tag">Updated October 2026 · 5 min read</span>
+<span class="tag">Updated October 2026 · 8 min read</span>
 <h1>How to Calculate Credit Card Interest (Without the Headache)</h1>
 </div>
 </section>
@@ -91,13 +91,45 @@ document.addEventListener('click', function(e){
 <p><strong>Tip:</strong> Made a big purchase mid-cycle? Pay it off <em>before</em> the statement closes and it barely accrues interest at all &mdash; interest runs on daily balances, so days matter.</p>
 </div>
 </div><div class="card">
+<h2>Interest at different APRs</h2>
+<p>Your rate changes the bill more than most people expect. Here's one 30-day billing cycle at common card APRs, using the same daily method your issuer uses:</p>
+<table class="cmp">
+<tr><th>Balance</th><th>19.99% APR</th><th>24.99% APR</th><th>26.99% APR</th><th>29.99% APR</th></tr>
+<tr><td>$1,000</td><td>$16.43</td><td>$20.54</td><td>$22.18</td><td>$24.65</td></tr>
+<tr><td>$3,000</td><td>$49.29</td><td>$61.62</td><td>$66.55</td><td>$73.95</td></tr>
+<tr><td>$5,000</td><td>$82.15</td><td>$102.70</td><td>$110.92</td><td>$123.25</td></tr>
+</table>
+<p>Moving a $5,000 balance from 29.99% to 19.99% saves about $41 a month before you pay down a single dollar of principal. That's why a <a href="balance-transfer-calculator.html">balance transfer</a> or a lower-rate <a href="personal-loan-vs-credit-card.html">personal loan</a> can be worth a look.</p>
+</div><div class="card">
+<h2>The monthly shortcut (and why it's slightly off)</h2>
+<p>Want a quick monthly number without counting days? Divide your APR by 12 and multiply by the balance:</p>
+<p><strong>Monthly interest &asymp; balance &times; (APR &divide; 12)</strong></p>
+<p>For $3,000 at 24%, that's $3,000 &times; 2% = <strong>$60</strong>. Close to the $59.18 above, but not exact, because your card doesn't charge by the month. It charges by the day, so a 31-day cycle costs a little more than a 28-day one. Use the shortcut for a ballpark; use the daily method when you want to match your statement.</p>
+<p>The same logic works backward. If you know your APR and want the <strong>annual</strong> cost of a balance you never pay down, it's roughly balance &times; APR, plus a bit more from compounding each month.</p>
+</div><div class="card">
+<h2>Average daily balance, step by step</h2>
+<p>Real months aren't one flat balance. You buy things, you make a payment, the number moves. Here's how the issuer handles that, using a 30-day cycle at 24% APR:</p>
+<p><strong>Days 1&ndash;10:</strong> balance $2,000.<br><strong>Day 11:</strong> you buy a $600 laptop &rarr; balance $2,600 for days 11&ndash;20.<br><strong>Day 21:</strong> you pay $500 &rarr; balance $2,100 for days 21&ndash;30.</p>
+<p><strong>Step 1, add up each day's balance:</strong> (10 &times; $2,000) + (10 &times; $2,600) + (10 &times; $2,100) = $67,000.</p>
+<p><strong>Step 2, divide by days in the cycle:</strong> $67,000 &divide; 30 = <strong>$2,233.33</strong> average daily balance.</p>
+<p><strong>Step 3, apply the daily rate:</strong> $2,233.33 &times; 0.000658 &times; 30 = <strong>$44.05</strong> interest.</p>
+<p>Notice the timing effect: paying that $500 ten days earlier would have shaved the average down further. On a card you carry a balance on, paying as soon as you get paid, rather than on the due date, lowers your interest every month.</p>
+</div><div class="card">
+<h2>How to find your interest rate</h2>
+<p>Look on your monthly statement for a section usually titled <strong>"Interest Charge Calculation."</strong> It lists separate rows for purchases, balance transfers and cash advances, each with its own APR, the balance it applied to, and the interest charged. Many issuers also show the daily periodic rate there, so you don't have to divide by 365 yourself.</p>
+<p>Can't find a statement? Your card's app or online account usually shows the purchase APR under account details, and the full rate table is in your cardholder agreement. Most US card rates are variable, which means they move when the prime rate moves, so the APR you signed up with may not be the one you pay today.</p>
+</div><div class="card">
+<h2>Cash advances cost more, fast</h2>
+<p>Withdrawing cash on a credit card is the most expensive way to use it. Three things stack up at once: a higher cash-advance APR (often near 30%), <strong>no grace period</strong> so interest starts on day one, and an upfront fee, commonly around 5% of the amount.</p>
+<p>Take $500 at 29.99% for one 30-day cycle and you pay about $12.32 in interest, plus a $25 fee at 5%. That's roughly $37 to borrow $500 for a month. If you need short-term cash, almost anything is cheaper.</p>
+</div><div class="card">
 <h2>The grace period (use it or lose it)</h2>
 <p>Most cards give you roughly 21&ndash;25 days after the statement closes to pay in full with zero interest on purchases. But the grace period has a catch most people learn the expensive way: <strong>it only applies if you paid your previous balance in full.</strong></p>
 <p>Carry even $1 into the new cycle and the grace period vanishes &mdash; new purchases start accruing interest <em>the day you make them</em>. One leftover dollar can cost you a full month of interest on everything you buy next. If you've been carrying a balance, the only way back to free grace-period living is paying the whole thing to zero.</p>
 <p>Also note: cash advances and balance transfers usually have <strong>no grace period at all</strong>. Interest starts ticking the second the money moves.</p>
 </div><div class="card">
 <h2>Why minimum payments are a trap</h2>
-<p>A $5,000 balance at 24% APR with a $125 minimum payment takes roughly <strong>7 years</strong> to clear &mdash; and costs over $5,600 in interest alone. You'd pay more in interest than you borrowed.</p>
+<p>A $5,000 balance at 24% APR with a $125 minimum payment takes roughly <strong>7 years</strong> to clear &mdash; and costs about $5,160 in interest alone. You'd pay more in interest than you borrowed.</p>
 <p>Bump that payment to $200 and you're done in about 3 years with roughly $2,000 in interest. Same debt, same rate &mdash; the only thing that changed is how aggressively you attacked the principal. Minimum payments are designed to keep the account profitable for the lender, not to get you out of debt.</p>
 </div><div class="cta">
 <h2>See your real payoff date</h2>
@@ -113,6 +145,10 @@ document.addEventListener('click', function(e){
 <p>Because it's based on your <em>average daily</em> balance, not the balance on any one day. Payments, purchases, and refunds during the cycle all move the number.</p>
 <h3>Do all cards use APR &divide; 365?</h3>
 <p>Nearly all US cards use 365 days. A few use 360 &mdash; check your cardholder agreement if you want the exact figure, but the difference is tiny.</p>
+<h3>What is the formula for credit card interest?</h3>
+<p>Interest = average daily balance &times; (APR &divide; 365) &times; days in the billing cycle. For a quick estimate, balance &times; APR &divide; 12 gets you within a dollar or two for most balances.</p>
+<h3>Do I pay interest on purchases if I pay my bill in full?</h3>
+<p>No. If you pay the full statement balance by the due date every month, the grace period means purchases cost you nothing in interest. Interest only applies to the part you carry over, plus any cash advances.</p>
 </div>
 <div class="card">
 <p class="disc">General information only, not financial advice.</p>
