@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/cd-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="CD Calculator (2026): Interest Earned at Maturity">
+<meta property="og:description" content="Free CD calculator: enter your deposit, APY and term to see interest earned and your balance at maturity, plus the cost of an early withdrawal penalty.">
+<meta property="og:url" content="https://thecalcfolio.com/cd-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>CD Calculator (2026): Interest Earned at Maturity</title>
+<meta name="description" content="Free CD calculator: enter your deposit, APY and term to see interest earned and your balance at maturity, plus the cost of an early withdrawal penalty.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "CD Calculator", "url": "https://thecalcfolio.com/cd-calculator.html", "description": "Free CD calculator: enter your deposit, APY and term to see interest earned and your balance at maturity, plus the cost of an early withdrawal penalty.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much interest will a $10,000 CD earn?", "acceptedAnswer": {"@type": "Answer", "text": "At 4.00% APY, a $10,000 CD earns about $198 in 6 months, $400 in 12 months, $816 in 2 years and $2,167 in 5 years, assuming the interest stays in the CD and compounds."}}, {"@type": "Question", "name": "How is CD interest calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Banks quote APY, which already includes compounding. Your balance at maturity = deposit × (1 + APY)years. For a term shorter than a year, years is a fraction: 6 months is 0.5."}}, {"@type": "Question", "name": "What's the difference between APY and the interest rate on a CD?", "acceptedAnswer": {"@type": "Answer", "text": "The interest rate (APR) is the base rate; APY adds the effect of compounding over a year, so it's slightly higher whenever interest compounds more than once a year. Compare CDs by APY. If you only have a rate and compounding frequency, tick the box in the calculator to convert it."}}, {"@type": "Question", "name": "What happens if I withdraw from a CD early?", "acceptedAnswer": {"@type": "Answer", "text": "Most banks charge a penalty measured in months of interest, often a few months for a one-year CD and more for longer terms. On a $10,000 CD at 4% APY, a 3-month penalty is about $99. Check your bank's terms, since penalties vary widely."}}, {"@type": "Question", "name": "Are CDs safe?", "acceptedAnswer": {"@type": "Answer", "text": "CDs at FDIC-insured banks, or NCUA-insured credit unions, are insured up to $250,000 per depositor, per institution, per ownership category. Above that, spread money across banks or account types."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thecalcfolio.com/"}, {"@type": "ListItem", "position": 2, "name": "Money", "item": "https://thecalcfolio.com/#money"}, {"@type": "ListItem", "position": 3, "name": "CD Calculator", "item": "https://thecalcfolio.com/cd-calculator.html"}]}]}</script>
+</head>
+<body>
+<!--v2:header:en:money-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money" aria-current="page">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/#money">Money</a></li><li aria-current="page">CD Calculator</li></ol>
+<span class="tag">APY-based · early withdrawal penalty</span>
+<h1><span class="pmark c-mint" aria-hidden="true">$</span>CD Calculator</h1>
+<p class="lede">Enter your deposit, the CD's APY and its term. See exactly how much interest you'll earn by maturity, and what breaking the CD early would cost.</p>
+<p class="live" aria-live="polite">Your CD earns <b id="live-int">$400.00</b> and matures at <i id="live-bal">$10,400.00</i>.</p>
+</div>
+</section>
+
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+
+<div class="card tool">
+  <h2>Calculate CD interest</h2>
+  <label for="dep">Deposit amount</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="dep" min="0" step="1" value="10000" inputmode="decimal"></div>
+  <div class="two">
+    <div>  <label for="apy">APY (%)</label>
+  <input type="number" id="apy" min="0" step="0.01" value="4.0" inputmode="decimal">
+</div>
+    <div><label for="term">Term</label><select id="term"><option value="3">3 months</option><option value="6">6 months</option><option value="9">9 months</option><option value="12" selected>1 year</option><option value="18">18 months</option><option value="24">2 years</option><option value="36">3 years</option><option value="48">4 years</option><option value="60">5 years</option></select></div>
+  </div>
+  <label class="check"><input type="checkbox" id="isapr"> My bank gave an interest rate (APR), not APY</label>
+  <div id="aprbox" hidden><label for="comp">Compounding</label><select id="comp"><option value="365" selected>Daily</option><option value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select></div>
+  <label for="pen">Early withdrawal penalty (months of interest, optional)</label>
+  <input type="number" id="pen" min="0" step="1" value="3" inputmode="decimal">
+  <div class="results">
+    <div class="stat good"><div class="k">Interest earned at maturity</div><div class="v" id="r-int">–</div></div>
+    <div class="stat"><div class="k">Balance at maturity</div><div class="v" id="r-bal">–</div></div>
+    <div class="stat"><div class="k">Effective APY</div><div class="v" id="r-apy">–</div></div>
+    <div class="stat bad"><div class="k">Early withdrawal penalty</div><div class="v" id="r-pen">–</div></div>
+  </div>
+  <p class="formula" id="r-f"></p>
+</div>
+
+<div class="answer"><strong>Short answer:</strong> CD balance at maturity = <strong>deposit &times; (1 + APY)<sup>years</sup></strong>. A $10,000 CD at 4.00% APY earns <strong>$400 in one year</strong> and $2,167 over five years. Compare CDs by APY, not the base rate.</div>
+
+<div class="card">
+  <h2>Interest on a $10,000 CD</h2>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>APY</th><th>6 months</th><th>1 year</th><th>2 years</th><th>5 years</th></tr>
+    <tr><td>3.50%</td><td>$173.49</td><td>$350.00</td><td>$712.25</td><td>$1,876.86</td></tr>
+    <tr><td>4.00%</td><td>$198.04</td><td>$400.00</td><td>$816.00</td><td>$2,166.53</td></tr>
+    <tr><td>4.50%</td><td>$222.52</td><td>$450.00</td><td>$920.25</td><td>$2,461.82</td></tr>
+  </table></div>
+  <p class="formula">Assumes interest stays in the CD until maturity. If your bank pays interest out monthly instead, you'll earn slightly less, because it stops compounding.</p>
+</div>
+
+<div class="card">
+  <h2>Choosing a CD term</h2>
+  <p>A longer CD locks in today's APY, which helps if rates fall and hurts if they rise. Before you lock money away for years, compare the APY against a high-yield savings account you can withdraw from any time: if the gap is small, flexibility is usually worth more. Our <a href="savings-interest-calculator.html">savings interest calculator</a> shows the savings side.</p>
+  <p>A <strong>CD ladder</strong> splits money across several terms, say 1, 2 and 3 years, so part of it matures every year. You keep some access to cash while still getting longer-term rates on the rest.</p>
+  <p>Remember that CD interest is generally taxable as ordinary income in the year it's credited, even before the CD matures. For a deeper look at how APY works, see <a href="what-is-apy.html">what is APY</a> and <a href="what-is-a-good-apy.html">what is a good APY</a>.</p>
+</div>
+
+<div class="card faq">
+  <h2>Frequently asked questions</h2>
+  <details>
+    <summary>How much interest will a $10,000 CD earn?</summary>
+    <div>At 4.00% APY, a $10,000 CD earns about $198 in 6 months, $400 in 12 months, $816 in 2 years and $2,167 in 5 years, assuming the interest stays in the CD and compounds.</div>
+  </details>
+  <details>
+    <summary>How is CD interest calculated?</summary>
+    <div>Banks quote APY, which already includes compounding. Your balance at maturity = deposit &times; (1 + APY)<sup>years</sup>. For a term shorter than a year, years is a fraction: 6 months is 0.5.</div>
+  </details>
+  <details>
+    <summary>What's the difference between APY and the interest rate on a CD?</summary>
+    <div>The interest rate (APR) is the base rate; APY adds the effect of compounding over a year, so it's slightly higher whenever interest compounds more than once a year. Compare CDs by APY. If you only have a rate and compounding frequency, tick the box in the calculator to convert it.</div>
+  </details>
+  <details>
+    <summary>What happens if I withdraw from a CD early?</summary>
+    <div>Most banks charge a penalty measured in months of interest, often a few months for a one-year CD and more for longer terms. On a $10,000 CD at 4% APY, a 3-month penalty is about $99. Check your bank's terms, since penalties vary widely.</div>
+  </details>
+  <details>
+    <summary>Are CDs safe?</summary>
+    <div>CDs at FDIC-insured banks, or NCUA-insured credit unions, are insured up to $250,000 per depositor, per institution, per ownership category. Above that, spread money across banks or account types.</div>
+  </details>
+</div>
+
+<div class="disc"><strong>Disclaimer:</strong> Estimates for planning only, not financial or tax advice. Confirm APY, compounding and penalty terms with your bank.</div>
+</div>
+
+<aside class="side" aria-label="Related">
+  <div class="box">
+    <h2>Related</h2>
+    <a class="row" href="https://thecalcfolio.com/what-is-apy.html"><span>What is APY?</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/what-is-a-good-apy.html"><span>What is a good APY?</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/compounding-frequency-explained.html"><span>Compounding frequency</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/simple-vs-compound-interest.html"><span>Simple vs compound interest</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/rule-of-72-explained.html"><span>Rule of 72</span><span aria-hidden="true">→</span></a>
+  </div>
+  <div class="box dark">
+    <h2>Savings &amp; interest</h2>
+    <div class="chips">
+      <a class="chip c-yellow" href="https://thecalcfolio.com/interest-calculator.html">Interest</a>
+      <a class="chip c-coral" href="https://thecalcfolio.com/savings-interest-calculator.html">Savings</a>
+      <a class="chip c-lilac" href="https://thecalcfolio.com/cd-calculator.html">CD</a>
+      <a class="chip c-mint" href="https://thecalcfolio.com/401k-calculator.html">401(k)</a>
+      <a class="chip c-sky" href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer</a>
+    </div>
+  </div>
+</aside>
+</div>
+</main>
+
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a><a href="https://thecalcfolio.com/whatnot-fee-calculator.html">Whatnot fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script>
+(function(){
+const $=i=>document.getElementById(i), v=i=>Math.max(0,parseFloat($(i).value)||0);
+const fmt=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+function calc(){
+  const P=v('dep'), m=parseInt($('term').value,10), isapr=$('isapr').checked;
+  $('aprbox').hidden=!isapr;
+  let apy=v('apy')/100;
+  if(isapr){const k=parseInt($('comp').value,10);apy=Math.pow(1+apy/k,k)-1;}
+  const bal=P*Math.pow(1+apy,m/12), int=bal-P;
+  const pen=P*(Math.pow(1+apy,Math.min(v('pen'),m)/12)-1);
+  $('r-int').textContent=fmt(int);$('r-bal').textContent=fmt(bal);$('r-apy').textContent=(apy*100).toFixed(3)+'%';$('r-pen').textContent=fmt(pen);
+  $('r-f').textContent='Balance = '+fmt(P)+' × (1 + '+(apy*100).toFixed(3)+'%)^'+(m/12).toFixed(2)+' years';
+  $('live-int').textContent=fmt(int);$('live-bal').textContent=fmt(bal);
+}
+['dep','apy','pen'].forEach(i=>$(i).addEventListener('input',calc));['term','comp','isapr'].forEach(i=>$(i).addEventListener('change',calc));calc();
+})();
+</script>
+</body>
+</html>

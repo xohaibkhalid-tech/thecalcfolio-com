@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/car-lease-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Car Lease Calculator (2026): Monthly Payment &amp; Money Factor">
+<meta property="og:description" content="Free car lease calculator: enter MSRP, negotiated price, residual and money factor or APR to see your monthly lease payment, rent charge and total cost.">
+<meta property="og:url" content="https://thecalcfolio.com/car-lease-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Car Lease Calculator (2026): Payment &amp; Money Factor</title>
+<meta name="description" content="Free car lease calculator: enter MSRP, negotiated price, residual and money factor or APR to see your monthly lease payment, rent charge and total cost.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Car Lease Calculator", "url": "https://thecalcfolio.com/car-lease-calculator.html", "description": "Free car lease calculator: enter MSRP, negotiated price, residual and money factor or APR to see your monthly lease payment, rent charge and total cost.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "The Calcfolio", "url": "https://thecalcfolio.com/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a car lease payment calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly payment = depreciation fee + rent charge (+ sales tax). Depreciation fee = (adjusted cap cost − residual value) ÷ months. Rent charge = (adjusted cap cost + residual value) × money factor."}}, {"@type": "Question", "name": "How do I convert a money factor to APR?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the money factor by 2,400. A money factor of 0.0025 equals a 6% APR. To go the other way, divide the APR by 2,400."}}, {"@type": "Question", "name": "What is a good residual value?", "acceptedAnswer": {"@type": "Answer", "text": "Higher is better for the person leasing, because you only pay for the value the car loses. Residuals are set by the leasing company for each model and term, so you can't negotiate them, but you can choose models and terms with strong residuals."}}, {"@type": "Question", "name": "What can I negotiate on a lease?", "acceptedAnswer": {"@type": "Answer", "text": "The selling price (capitalized cost) is the big one, just as when buying. You can also ask about the money factor, since dealers sometimes mark it up above the lender's base rate, and about fees. The residual percentage is fixed by the lender."}}, {"@type": "Question", "name": "Is putting money down on a lease a good idea?", "acceptedAnswer": {"@type": "Answer", "text": "Often not. A down payment lowers the monthly payment, but if the car is totaled or stolen early, gap coverage typically pays the lender, not your down payment back. Many people prefer to keep the cash and accept a slightly higher payment."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thecalcfolio.com/"}, {"@type": "ListItem", "position": 2, "name": "Money", "item": "https://thecalcfolio.com/#money"}, {"@type": "ListItem", "position": 3, "name": "Car Lease Calculator", "item": "https://thecalcfolio.com/car-lease-calculator.html"}]}]}</script>
+</head>
+<body>
+<!--v2:header:en:money-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money" aria-current="page">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/#money">Money</a></li><li aria-current="page">Car Lease Calculator</li></ol>
+<span class="tag">Money factor · residual · sales tax</span>
+<h1><span class="pmark c-coral" aria-hidden="true">L</span>Car Lease Calculator</h1>
+<p class="lede">Enter the numbers from a dealer's lease quote: MSRP, selling price, residual and money factor. See the real monthly payment, how much of it is interest, and what the lease costs in total.</p>
+<p class="live" aria-live="polite">Your lease payment is <b id="live-pay">$506.41</b> a month, <span id="live-tot">$20,231</span> over the whole lease.</p>
+</div>
+</section>
+
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+
+<div class="card tool">
+  <h2>Calculate your lease payment</h2>
+  <div class="two">
+    <div>  <label for="msrp">MSRP (sticker price)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="msrp" min="0" step="1" value="40000" inputmode="decimal"></div>
+</div>
+    <div>  <label for="price">Negotiated price (cap cost)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="price" min="0" step="1" value="37000" inputmode="decimal"></div>
+</div>
+  </div>
+  <div class="two">
+    <div>  <label for="down">Down payment / cap cost reduction</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="down" min="0" step="1" value="2000" inputmode="decimal"></div>
+</div>
+    <div>  <label for="trade">Trade-in credit</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="trade" min="0" step="1" value="0" inputmode="decimal"></div>
+</div>
+  </div>
+  <div class="two">
+    <div>  <label for="res">Residual value (% of MSRP)</label>
+  <input type="number" id="res" min="0" step="0.5" value="58" inputmode="decimal">
+</div>
+    <div><label for="term">Lease term</label><select id="term"><option value="24">24 months</option><option value="36" selected>36 months</option><option value="39">39 months</option><option value="48">48 months</option></select></div>
+  </div>
+  <div class="two">
+    <div>  <label for="apr">Interest: APR (%)</label>
+  <input type="number" id="apr" min="0" step="0.01" value="6.0" inputmode="decimal">
+<p class="formula" id="mf-note"></p></div>
+    <div>  <label for="tax">Sales tax on payment (%)</label>
+  <input type="number" id="tax" min="0" step="0.01" value="7.0" inputmode="decimal">
+</div>
+  </div>
+  <div class="results">
+    <div class="stat"><div class="k">Depreciation fee / month</div><div class="v" id="r-dep">–</div></div>
+    <div class="stat"><div class="k">Rent charge / month</div><div class="v" id="r-rent">–</div></div>
+    <div class="stat"><div class="k">Sales tax / month</div><div class="v" id="r-tax">–</div></div>
+    <div class="stat good"><div class="k">Monthly payment</div><div class="v" id="r-pay">–</div></div>
+    <div class="stat"><div class="k">Total cost of lease (incl. down)</div><div class="v" id="r-tot">–</div></div>
+  </div>
+  <p class="formula" id="r-f"></p>
+</div>
+
+<div class="answer"><strong>Short answer:</strong> A lease payment = <strong>(cap cost &minus; residual) &divide; months</strong> + <strong>(cap cost + residual) &times; money factor</strong>, plus tax. On a $40,000 car negotiated to $37,000 with $2,000 down, a 58% residual, 6% APR (money factor 0.0025) and 36 months, that's <strong>$473 a month before tax, about $506 with 7% tax</strong>.</div>
+
+<div class="card">
+  <h2>The lease terms, decoded</h2>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Term</th><th>What it means</th></tr>
+    <tr><td>Capitalized cost</td><td>The price of the car in the lease. Negotiate it exactly as if you were buying.</td></tr>
+    <tr><td>Cap cost reduction</td><td>Down payment, rebates or trade-in credit that lower the cap cost.</td></tr>
+    <tr><td>Residual value</td><td>What the leasing company expects the car to be worth at the end, set as a % of MSRP.</td></tr>
+    <tr><td>Money factor</td><td>The lease's interest rate in decimal form. APR &divide; 2,400 = money factor.</td></tr>
+    <tr><td>Depreciation fee</td><td>The value you use up, spread across the months.</td></tr>
+    <tr><td>Rent charge</td><td>The finance charge, effectively the interest you pay.</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>Where the payment actually goes</h2>
+  <p>In the example above, $328 of the $473 pre-tax payment is depreciation and $146 is rent charge, the lease's interest. Over 36 months that rent charge adds up to about $5,240.</p>
+  <p>Two levers move the payment most. Every $1,000 knocked off the negotiated price saves about $30 a month on a 36-month lease. And because the rent charge is calculated on cap cost <em>plus</em> residual, a dealer marking up the money factor by even 0.0004 (about 1% APR) adds roughly $23 a month here, around $840 over the lease. Ask for the "buy rate" money factor.</p>
+  <p>Taxes vary: most states tax each monthly payment, as this calculator does, but a few tax the full price upfront. Thinking about buying instead? Compare with the <a href="car-loan-calculator.html">car loan calculator</a> and see <a href="how-much-car-can-i-afford.html">how much car you can afford</a>.</p>
+</div>
+
+<div class="card faq">
+  <h2>Frequently asked questions</h2>
+  <details>
+    <summary>How is a car lease payment calculated?</summary>
+    <div>Monthly payment = depreciation fee + rent charge (+ sales tax). Depreciation fee = (adjusted cap cost &minus; residual value) &divide; months. Rent charge = (adjusted cap cost + residual value) &times; money factor.</div>
+  </details>
+  <details>
+    <summary>How do I convert a money factor to APR?</summary>
+    <div>Multiply the money factor by 2,400. A money factor of 0.0025 equals a 6% APR. To go the other way, divide the APR by 2,400.</div>
+  </details>
+  <details>
+    <summary>What is a good residual value?</summary>
+    <div>Higher is better for the person leasing, because you only pay for the value the car loses. Residuals are set by the leasing company for each model and term, so you can't negotiate them, but you can choose models and terms with strong residuals.</div>
+  </details>
+  <details>
+    <summary>What can I negotiate on a lease?</summary>
+    <div>The selling price (capitalized cost) is the big one, just as when buying. You can also ask about the money factor, since dealers sometimes mark it up above the lender's base rate, and about fees. The residual percentage is fixed by the lender.</div>
+  </details>
+  <details>
+    <summary>Is putting money down on a lease a good idea?</summary>
+    <div>Often not. A down payment lowers the monthly payment, but if the car is totaled or stolen early, gap coverage typically pays the lender, not your down payment back. Many people prefer to keep the cash and accept a slightly higher payment.</div>
+  </details>
+</div>
+
+<div class="disc"><strong>Disclaimer:</strong> Estimates for planning only. Excludes acquisition, disposition and dealer fees, which vary. Not financial advice.</div>
+</div>
+
+<aside class="side" aria-label="Related">
+  <div class="box">
+    <h2>Related</h2>
+    <a class="row" href="https://thecalcfolio.com/car-loan-calculator.html"><span>Car loan calculator</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/how-much-car-can-i-afford.html"><span>How much car can I afford?</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/dealer-financing-vs-credit-union-auto-loan.html"><span>Dealer vs credit union loan</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/electric-car-loan-guide-2026.html"><span>Electric car loan guide</span><span aria-hidden="true">→</span></a>
+    <a class="row" href="https://thecalcfolio.com/debt-to-income-ratio-calculator.html"><span>Debt-to-income calculator</span><span aria-hidden="true">→</span></a>
+  </div>
+  <div class="box dark">
+    <h2>Money calculators</h2>
+    <div class="chips">
+      <a class="chip c-yellow" href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan</a>
+      <a class="chip c-coral" href="https://thecalcfolio.com/car-loan-calculator.html">Car loan</a>
+      <a class="chip c-lilac" href="https://thecalcfolio.com/debt-to-income-ratio-calculator.html">Debt-to-income</a>
+      <a class="chip c-mint" href="https://thecalcfolio.com/interest-calculator.html">Interest</a>
+      <a class="chip c-sky" href="https://thecalcfolio.com/refinance-calculator.html">Refinance</a>
+    </div>
+  </div>
+</aside>
+</div>
+</main>
+
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a><a href="https://thecalcfolio.com/whatnot-fee-calculator.html">Whatnot fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script>
+(function(){
+const $=i=>document.getElementById(i), v=i=>Math.max(0,parseFloat($(i).value)||0);
+const fmt=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+function calc(){
+  const msrp=v('msrp'),cap=Math.max(0,v('price')-v('down')-v('trade')),rv=msrp*v('res')/100,n=parseInt($('term').value,10);
+  const mf=v('apr')/2400, dep=Math.max(0,(cap-rv)/n), rent=(cap+rv)*mf, base=dep+rent, tax=base*v('tax')/100, pay=base+tax;
+  $('mf-note').textContent='Money factor: '+mf.toFixed(5);
+  $('r-dep').textContent=fmt(dep);$('r-rent').textContent=fmt(rent);$('r-tax').textContent=fmt(tax);$('r-pay').textContent=fmt(pay);
+  const tot=pay*n+v('down');$('r-tot').textContent=money(tot);
+  $('r-f').textContent='Adjusted cap cost '+money(cap)+' · residual '+money(rv)+' · total rent charge '+money(rent*n)+' over '+n+' months';
+  $('live-pay').textContent=fmt(pay);$('live-tot').textContent=money(tot);
+}
+['msrp','price','down','trade','res','apr','tax'].forEach(i=>$(i).addEventListener('input',calc));$('term').addEventListener('change',calc);calc();
+})();
+</script>
+</body>
+</html>
