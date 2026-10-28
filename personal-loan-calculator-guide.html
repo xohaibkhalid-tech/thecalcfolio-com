@@ -31,19 +31,49 @@ document.addEventListener('click', function(e){
 <meta name="twitter:card" content="summary_large_image">
 <title>Personal Loan Calculator: What You'll Really Pay</title>
 <meta name="description" content="Before you sign, run the numbers. A personal loan calculator shows your monthly payment and total interest — here's how to read it like a pro.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Personal Loan Calculator: What You'll Really Pay",
-  "description": "Before you sign, run the numbers. A personal loan calculator shows your monthly payment and total interest — here's how to read it like a pro.",
-  "author": {"@type": "Organization", "name": "The Calcfolio"},
-  "publisher": {"@type": "Organization", "name": "The Calcfolio"},
-  "datePublished": "2026-10-09",
-  "dateModified": "2026-10-28",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thecalcfolio.com/personal-loan-calculator-guide.html"}
-}
-</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Personal Loan Calculator: What You'll Really Pay",
+   "description": "Before you sign, run the numbers. A personal loan calculator shows your monthly payment and total interest — here's how to read it like a pro.",
+   "author": {
+    "@type": "Organization",
+    "name": "The Calcfolio"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "The Calcfolio"
+   },
+   "datePublished": "2026-10-09",
+   "dateModified": "2026-10-28",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thecalcfolio.com/personal-loan-calculator-guide.html"
+   }
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Personal Loan Interest Calculator",
+   "url": "https://thecalcfolio.com/personal-loan-calculator-guide.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "Any",
+   "inLanguage": "en",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "The Calcfolio",
+    "url": "https://thecalcfolio.com/"
+   }
+  }
+ ]
+}</script>
 <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=4">
@@ -71,7 +101,36 @@ document.addEventListener('click', function(e){
 <main id="main" class="page">
 <div class="layout">
 <div class="main">
-<div class="tool-cta"><div class="tc-text"><strong>Calculate it for your own numbers</strong><span>Free, no sign-up — runs entirely in your browser.</span></div><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://thecalcfolio.com/personal-loan-calculator.html">Personal Loan Calculator →</a></div></div>
+<div class="card tool" id="pl-calc">
+  <h2>Personal loan interest calculator</h2>
+  <label for="pl-amt">Loan amount (USD)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="pl-amt" min="0" step="100" value="10000" inputmode="decimal"></div>
+  <div class="two">
+    <div><label for="pl-apr">APR (%)</label><input type="number" id="pl-apr" min="0" max="100" step="0.01" value="15" inputmode="decimal"></div>
+    <div><label for="pl-term">Term</label><select id="pl-term"><option value="12">1 year</option><option value="24">2 years</option><option value="36" selected>3 years</option><option value="48">4 years</option><option value="60">5 years</option><option value="72">6 years</option><option value="84">7 years</option></select></div>
+  </div>
+  <label for="pl-fee">Origination fee (% of loan, optional)</label>
+  <input type="number" id="pl-fee" min="0" max="12" step="0.1" value="0" inputmode="decimal">
+  <div class="results">
+    <div class="stat"><div class="k">Monthly payment</div><div class="v" id="pl-pay">$0.00</div></div>
+    <div class="stat bad"><div class="k">Total interest</div><div class="v" id="pl-int">$0.00</div></div>
+    <div class="stat"><div class="k">Origination fee</div><div class="v" id="pl-ofee">$0.00</div></div>
+    <div class="stat good"><div class="k">Total cost of loan</div><div class="v" id="pl-tot">$0.00</div></div>
+  </div>
+  <p class="formula" id="pl-note"></p>
+  <p class="formula">Want a year-by-year payoff schedule or other currencies? Use the <a href="https://thecalcfolio.com/personal-loan-calculator.html">full personal loan calculator</a>.</p>
+</div>
+<script>(function(){
+var $=function(i){return document.getElementById(i)};
+var f=function(n){return "$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})};
+function run(){
+  var P=Math.max(0,parseFloat($("pl-amt").value)||0),a=Math.max(0,parseFloat($("pl-apr").value)||0),n=parseInt($("pl-term").value,10),fp=Math.max(0,parseFloat($("pl-fee").value)||0);
+  var r=a/1200,pay=r>0?P*r/(1-Math.pow(1+r,-n)):P/n,intr=pay*n-P,fee=P*fp/100;
+  $("pl-pay").textContent=f(pay);$("pl-int").textContent=f(intr);$("pl-ofee").textContent=f(fee);$("pl-tot").textContent=f(intr+fee);
+  $("pl-note").textContent=P>0?("You repay "+f(pay*n)+" over "+n+" months on "+f(P)+" borrowed"+(fee>0?", and the fee means you receive about "+f(P-fee)+" if it's deducted upfront.":".")):"";
+}
+["pl-amt","pl-apr","pl-term","pl-fee"].forEach(function(i){$(i).addEventListener("input",run);$(i).addEventListener("change",run);});
+run();})();</script>
 <div class="card">
 <div class="answer">
 <p><strong>A personal loan calculator turns three inputs — amount, rate, term — into the two numbers that matter: your monthly payment and the total interest you'll pay. Run it before you sign anything, because the monthly payment alone never tells the full story.</strong></p>
