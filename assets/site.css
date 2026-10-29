@@ -354,3 +354,10 @@ button.go:hover{background:var(--ink-2)}
 input[type=date],input[type=email],input[type=tel]{width:100%;font:600 18px/1.2 var(--body);color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;min-height:52px}
 [lang="pt-BR"] .amount-wrap input,[lang="it"] .amount-wrap input{padding-left:54px}
 .layout>.main>.card.tool{order:-1}
+
+/* ---------- Footer: built-by / hire strip ---------- */
+.sf-hire{max-width:var(--max);margin:0 auto;padding:22px 24px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.sf-hire p{margin:0;flex:1 1 420px;color:var(--on-ink-muted);font-size:14px;line-height:1.6}
+.sf-hire strong{color:#fff;font-weight:700}
+.sf-hire-btn{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:700;font-size:14px;text-decoration:none;padding:10px 18px;border-radius:var(--r-sm);white-space:nowrap}
+.sf-hire-btn:hover{background:#fff;color:var(--ink)}

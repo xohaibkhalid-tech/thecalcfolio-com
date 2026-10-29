@@ -157,6 +157,11 @@ FOOT_SUB = {
 }
 
 
+HIRE_STRIP = ('<div class="sf-hire"><p><strong>Want a calculator website like this one?</strong> '
+    'The Calcfolio is built and run by Zohaib Khalid (ZKDigitalCraft). I build fast, custom-coded tool and calculator sites for other businesses.</p>'
+    '<a class="sf-hire-btn" href="https://workar.com/gigs/xohaibkhalid/build-seo-tool-calculator-website" target="_blank" rel="noopener">Hire me on Workar &rarr;</a></div>\n')
+
+
 def footer(lang: str) -> str:
     cols = []
     for title, links in FOOT_COLS.get(lang, FOOT_COLS["en"]):
@@ -164,7 +169,8 @@ def footer(lang: str) -> str:
         cols.append(f'<div><h2>{title}</h2>{a}</div>')
     note = FOOT_NOTE.get(lang, FOOT_NOTE["en"])
     sub = FOOT_SUB.get(lang, FOOT_SUB["en"])
-    return ('<footer class="site-footer">\n<div class="sf-grid">' + "".join(cols) + '</div>\n'
+    hire = HIRE_STRIP if lang == "en" else ""
+    return ('<footer class="site-footer">\n<div class="sf-grid">' + "".join(cols) + '</div>\n' + hire +
             f'<div class="sf-bottom"><span>{note}</span><span>{sub}</span></div>\n</footer>\n')
 
 
