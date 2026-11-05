@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/credit-card-payment-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Credit Card Payment Calculator: Payoff Date (2026)">
+<meta property="og:description" content="Free credit card payment calculator: see your payoff date, months to debt-free and total interest — and how a fixed payment beats paying the minimum.">
+<meta property="og:url" content="https://thecalcfolio.com/credit-card-payment-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Credit Card Payment Calculator: Payoff Date (2026)</title>
+<meta name="description" content="Free credit card payment calculator: see your payoff date, months to debt-free and total interest — and how a fixed payment beats paying the minimum.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=5">
+</head>
+<body>
+<!--v2:header:en:money-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money" aria-current="page">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Calculators</a></li><li aria-current="page">Credit Card Payment Calculator</li></ol>
+<span class="tag">Updated 6 November 2026 · Last verified: 6 November 2026</span>
+<h1>Credit Card Payment Calculator</h1>
+<p class="lede">Enter your balance, APR and monthly payment to see your payoff date, how many months until you're debt-free, and what the interest will cost you. Then compare it with paying only the minimum — the difference is usually shocking.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="card tool">
+    <h2>Calculate your credit card payment</h2>
+    <p>All amounts in US dollars. Results update as you type — nothing is sent anywhere.</p>
+    <label for="cp-mode">What do you want to work out?</label>
+    <select id="cp-mode">
+      <option value="pay" selected>I have a monthly payment — how long until I'm debt-free?</option>
+      <option value="months">I have a deadline — what do I need to pay each month?</option>
+    </select>
+    <label for="cp-bal">Card balance ($)</label>
+    <input type="number" id="cp-bal" value="5000" min="1" step="any" inputmode="decimal">
+    <label for="cp-apr">APR (%)</label>
+    <input type="number" id="cp-apr" value="24" min="0" step="any" inputmode="decimal">
+    <div id="cp-pay-row">
+    <label for="cp-pay">Monthly payment ($)</label>
+    <input type="number" id="cp-pay" value="125" min="1" step="any" inputmode="decimal">
+    </div>
+    <div id="cp-months-row" style="display:none;">
+    <label for="cp-months">Pay it off in (months)</label>
+    <input type="number" id="cp-months" value="36" min="1" max="600" step="1" inputmode="numeric">
+    </div>
+    <button class="go" id="cp-btn">Calculate →</button>
+    <p class="err" id="cp-err" role="alert"></p>
+    <div class="result" id="cp-result" aria-live="polite">
+      <div style="font-size:.85rem;color:#a9bccd;">Debt-free in</div>
+      <div class="big" id="cp-time">–</div>
+      <p>Monthly payment: <span class="keep" id="cp-pay-out">–</span></p>
+      <p>Payoff date: <span class="keep" id="cp-date">–</span></p>
+      <p>Total interest: <span class="keep" id="cp-int">–</span></p>
+      <p>Total paid: <span class="keep" id="cp-total">–</span></p>
+    </div>
+  </div>
+
+  <div class="card" id="cp-cmp-card" style="display:none;">
+    <h2>Fixed payment vs minimum only</h2>
+    <p>Same balance, same APR — only the monthly payment changes. The minimum here is 1% of the balance plus that month's interest, with a $25 floor.</p>
+    <table class="fees">
+      <thead><tr><th>Plan</th><th>Monthly</th><th>Time</th><th>Interest</th></tr></thead>
+      <tbody id="cp-cmp"></tbody>
+    </table>
+    <p class="note" id="cp-note"></p>
+  </div>
+
+  <div class="card" id="cp-sched-card" style="display:none;">
+    <h2>Your payoff schedule</h2>
+    <p>How each payment splits between interest and principal on your fixed plan. First 12 months shown, plus the final month.</p>
+    <table class="fees">
+      <thead><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance</th></tr></thead>
+      <tbody id="cp-sched"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="answer">
+    <p><strong>A $5,000 balance at 24% APR paid at $125 a month takes 82 months — until September 2033 — and costs $5,159 in interest. Pay $200 a month instead and you're done in 3 years for $2,001 in interest. Pay only the minimum and it drags on for 19 years 6 months and $8,887 in interest.</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>The same $5,000 card, three ways</h2>
+    <p>All at 24% APR. No new purchases, no fees. Figures from our own simulation (monthly compounding, APR ÷ 12).</p>
+    <table class="fees">
+      <thead><tr><th>Plan</th><th>Monthly</th><th>Time</th><th>Interest</th><th>Total paid</th></tr></thead>
+      <tbody>
+      <tr><td>Minimum only</td><td>$150 falling</td><td>19 years 6 months</td><td>$8,887</td><td>$13,887</td></tr>
+      <tr><td>Fixed $125</td><td>$125</td><td>6 years 10 months</td><td>$5,159</td><td>$10,159</td></tr>
+      <tr><td>Fixed $200</td><td>$200</td><td>3 years</td><td>$2,001</td><td>$7,001</td></tr>
+      <tr><td>3-year plan</td><td>$197</td><td>3 years</td><td>$2,049</td><td>$7,049</td></tr>
+      </tbody>
+    </table>
+    <p class="note">The 3-year plan is the smallest fixed payment that clears the card in exactly 36 months. Our <a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">minimum payment calculator</a> shows the same comparison for any balance, and our <a href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">guide to calculating credit card interest</a> walks through the $125 and minimum cases step by step.</p>
+  </div>
+
+  <div class="card">
+    <h2>What a bigger payment is worth</h2>
+    <p>Same $5,000 balance at 24% APR, only the fixed monthly payment changes:</p>
+    <table class="fees">
+      <thead><tr><th>Monthly payment</th><th>Time to debt-free</th><th>Total interest</th></tr></thead>
+      <tbody>
+      <tr><td>$100</td><td>Never</td><td>Keeps growing</td></tr>
+      <tr><td>$125</td><td>6 years 10 months</td><td>$5,159</td></tr>
+      <tr><td>$150</td><td>4 years 8 months</td><td>$3,322</td></tr>
+      <tr><td>$200</td><td>3 years</td><td>$2,001</td></tr>
+      <tr><td>$300</td><td>1 year 9 months</td><td>$1,143</td></tr>
+      </tbody>
+    </table>
+    <p class="note">$100 a month never clears this card: the first month's interest alone is $100, so nothing goes to the balance. Every dollar above the interest is what actually shrinks what you owe — that's why $25 extra a month ($125 instead of $100) turns "never" into 82 months.</p>
+  </div>
+
+  <div class="card">
+    <h2>How the calculator works</h2>
+    <p>Each month, your card adds interest first, then your payment comes off. The interest is your balance times the monthly rate — APR divided by 12. So on $5,000 at 24% APR, month one adds $100 in interest. A $125 payment covers that $100 and takes $25 off the balance. The next month's interest is worked out on the new, smaller balance, so a little more of each payment goes to principal every month.</p>
+    <p>To find the payment that clears a balance in a set number of months, the calculator uses the standard loan formula: payment = balance × monthly rate ÷ (1 − (1 + monthly rate)^(−months)). At 0% APR the answer is simply the balance divided by the months.</p>
+    <p>What it assumes: a fixed APR, no new purchases, no fees, and monthly compounding. Real issuers usually work interest out daily on your average daily balance, so your statement may differ by a few dollars. Your card agreement lists your exact minimum-payment formula — most US cards use 1% of the balance plus that month's interest, with a $25 to $40 floor.</p>
+  </div>
+
+  <div class="card">
+    <h2>3 ways to pay it off faster</h2>
+    <h3>1. Pay a fixed amount, not the minimum</h3>
+    <p>Take your first minimum payment and keep paying that same amount every month, even as the minimum drops. On the $5,000 example above, holding the first minimum of $150 fixed clears the card in 4 years 8 months instead of 19 years 6 months.</p>
+    <h3>2. Move the balance to a 0% card</h3>
+    <p>If your credit qualifies, a balance transfer card stops interest for 12 to 21 months. Check whether the transfer fee is worth it with our <a href="https://thecalcfolio.com/balance-transfer-calculator.html">balance transfer calculator</a>.</p>
+    <h3>3. Refinance with a fixed-rate loan</h3>
+    <p>A personal loan with a lower rate and a fixed end date can beat a 24% card. Compare the two in <a href="https://thecalcfolio.com/personal-loan-vs-credit-card.html">personal loan vs credit card</a>, then price it with the <a href="https://thecalcfolio.com/personal-loan-calculator-guide.html">personal loan calculator guide</a>.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Credit card payment questions, answered</h2>
+    <h3>How much should I pay on my credit card each month?</h3>
+    <p>At least the minimum, always — missing it means late fees and a mark on your credit history. But the minimum is designed to keep you paying for years. A fixed payment you can afford, even a little above the minimum, cuts years and thousands in interest. Use the calculator above to find a payment that fits your budget and your deadline.</p>
+    <h3>How long will it take to pay off my credit card?</h3>
+    <p>It depends on your balance, your APR and your monthly payment. A $5,000 balance at 24% APR takes 82 months at $125 a month, 36 months at $200 a month, and 234 months if you only ever pay the minimum. Enter your own numbers above for your exact payoff date.</p>
+    <h3>How can I pay off my credit card faster?</h3>
+    <p>Pay the same fixed amount every month instead of the shrinking minimum, add any spare cash to the payment, stop new purchases on the card while you pay it down, and look at a 0% balance transfer or a lower-rate personal loan if your credit allows it.</p>
+    <h3>Is it better to pay a fixed amount or only the minimum?</h3>
+    <p>A fixed amount, by a wide margin. On a $5,000 balance at 24% APR, a fixed $200 a month saves $6,886 in interest and 16 years 6 months of payments compared with paying only the minimum.</p>
+    <h3>What monthly payment clears my balance in 3 years?</h3>
+    <p>Use the "I have a deadline" mode above and set 36 months. On $5,000 at 24% APR the answer is $197 a month. US statements must show a similar 3-year payment box — the <a href="https://www.consumerfinance.gov/ask-cfpb/a-box-on-my-credit-card-bill-says-that-i-will-pay-off-the-balance-in-three-years-if-i-pay-a-certain-amount-what-does-that-mean-do-i-have-to-pay-that-much-if-i-pay-that-much-and-make-new-purchases-will-i-still-owe-nothing-after-three-years-en-36/">Consumer Financial Protection Bureau explains what that 3-year box on your statement means</a>.</p>
+    <h3>Does paying more than the minimum help my credit score?</h3>
+    <p>Yes. Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history.</p>
+    <h3>What if my payment doesn't cover the monthly interest?</h3>
+    <p>Then the balance grows instead of shrinking, and you never pay the card off. A $100 payment on a $5,000 balance at 24% APR covers exactly the $100 of interest in month one — nothing goes to the balance. Pay more than the monthly interest, or move the balance to a 0% card, to start making progress.</p>
+  </div>
+
+  <div class="card">
+    <h2>Sources &amp; how we checked this</h2>
+    <p>Built by The Calcfolio — rates checked at the source, last verified 6 November 2026.</p>
+    <ul>
+    <li><a href="https://www.consumerfinance.gov/ask-cfpb/a-box-on-my-credit-card-bill-says-that-i-will-pay-off-the-balance-in-three-years-if-i-pay-a-certain-amount-what-does-that-mean-do-i-have-to-pay-that-much-if-i-pay-that-much-and-make-new-purchases-will-i-still-owe-nothing-after-three-years-en-36/">Consumer Financial Protection Bureau: What the 3-year payoff box on your statement means</a></li>
+    <li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-grace-period-for-a-credit-card-en-47/">Consumer Financial Protection Bureau: What is a grace period for a credit card?</a></li>
+    </ul>
+    <p>Payoff figures on this page come from our own simulation (monthly compounding, APR ÷ 12, no new purchases, no fees). The $5,000 at 24% APR figures — $125 a month for 82 months and $5,159 in interest, $200 a month for 36 months and $2,001 in interest, minimum-only for 234 months and $8,887 in interest — match the figures on our <a href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">interest guide</a> and <a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">minimum payment calculator</a>. Your issuer's exact minimum formula and daily interest method may give slightly different figures — check your statement and cardholder agreement.</p>
+    <p>Last verified: 6 November 2026.</p>
+  </div>
+
+  <div class="card">
+    <p class="disc">General information only, not financial advice. Results are estimates using monthly compounding, no new purchases and no fees; your issuer's actual minimum-payment formula and daily interest method may give slightly different figures.</p>
+  </div>
+</div>
+<aside class="side" aria-label="Related">
+<div class="box"><h2>Related</h2><a class="row" href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html"><span>Minimum payment calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html"><span>How to calculate credit card interest</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/balance-transfer-calculator.html"><span>Balance transfer calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/personal-loan-calculator-guide.html"><span>Personal loan calculator guide</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Top tools</h2><div class="top-tools"><a href="https://thecalcfolio.com/ebay-fee-calculator.html"><span class="ic c-yellow" aria-hidden="true">e</span>eBay fees</a><a href="https://thecalcfolio.com/paypal-fee-calculator.html"><span class="ic c-sky" aria-hidden="true">P</span>PayPal fees</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html"><span class="ic c-coral" aria-hidden="true">E</span>Etsy fees</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html"><span class="ic c-lilac" aria-hidden="true">S</span>Stripe fees</a><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><span class="ic c-yellow" aria-hidden="true">A</span>Arbeitszeitrechner</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a><a href="https://thecalcfolio.com/whatnot-fee-calculator.html">Whatnot fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/credit-card-payment-calculator.html">Credit card payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-hire"><p><strong>Want a calculator website like this one?</strong> The Calcfolio is built and run by Zohaib Khalid (ZKDigitalCraft). I build fast, custom-coded tool and calculator sites for other businesses.</p><a class="sf-hire-btn" href="https://workar.com/gigs/xohaibkhalid/build-seo-tool-calculator-website" target="_blank" rel="noopener">Hire me on Workar &rarr;</a></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","applicationCategory":"FinanceApplication","dateModified":"2026-11-06","description":"Free credit card payment calculator: see your payoff date, months to debt-free and total interest — and how a fixed payment beats paying the minimum.","name":"Credit Card Payment Calculator","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"},"operatingSystem":"Any","url":"https://thecalcfolio.com/credit-card-payment-calculator.html"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"At least the minimum, always. But a fixed payment you can afford, even a little above the minimum, cuts years and thousands in interest."},"name":"How much should I pay on my credit card each month?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"It depends on your balance, APR and monthly payment. A $5,000 balance at 24% APR takes 82 months at $125 a month, 36 months at $200 a month, and 234 months if you only ever pay the minimum."},"name":"How long will it take to pay off my credit card?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Pay the same fixed amount every month instead of the shrinking minimum, add any spare cash to the payment, stop new purchases on the card while you pay it down, and look at a 0% balance transfer or a lower-rate personal loan if your credit allows it."},"name":"How can I pay off my credit card faster?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"A fixed amount, by a wide margin. On a $5,000 balance at 24% APR, a fixed $200 a month saves $6,886 in interest and 16 years 6 months of payments compared with paying only the minimum."},"name":"Is it better to pay a fixed amount or only the minimum?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"On $5,000 at 24% APR the answer is $197 a month. Use the deadline mode on this page and set 36 months for your own balance."},"name":"What monthly payment clears my balance in 3 years?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Yes. Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history."},"name":"Does paying more than the minimum help my credit score?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Then the balance grows instead of shrinking, and you never pay the card off. A $100 payment on a $5,000 balance at 24% APR covers exactly the $100 of interest in month one — nothing goes to the balance."},"name":"What if my payment doesn't cover the monthly interest?"}]}]}
+</script>
+
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function usd(x){return '$'+Math.round(x).toLocaleString('en-US');}
+function usd2(x){return '$'+x.toFixed(2);}
+function num(id){return parseFloat($(id).value);}
+function months(m){if(m<12)return m+' mo';var y=Math.floor(m/12),r=m%12;return y+' yr'+(y>1?'s':'')+(r?' '+r+' mo':'');}
+function payoffDate(m){var d=new Date();d.setMonth(d.getMonth()+m);return d.toLocaleDateString('en-US',{month:'long',year:'numeric'});}
+var CAP=1200;
+function minPay(bal,i,pct,floor){
+  var m=bal*pct/100+i;
+  return Math.min(Math.max(m,floor),bal+i);
+}
+function simMin(B,apr,pct,floor){
+  var bal=B,tot=0,n=0,first=null;
+  while(bal>0.005&&n<CAP){n++;var i=bal*apr/1200,p=minPay(bal,i,pct,floor);if(first===null)first=p;
+    if(p<=i&&p<bal+i)return {never:true,first:first,months:n,interest:tot};
+    bal+=i;tot+=i;bal-=p;}
+  return {never:bal>0.005,capped:bal>0.005,first:first,months:n,interest:tot};
+}
+function simFixed(B,apr,pay){
+  var bal=B,tot=0,n=0,rows=[];
+  while(bal>0.005&&n<CAP){n++;var i=bal*apr/1200;if(pay<=i)return {never:true,months:n,interest:tot,rows:rows};bal+=i;tot+=i;var p=Math.min(pay,bal);bal-=p;rows.push({m:n,pay:p,int:i,prin:p-i,bal:Math.max(bal,0)});}
+  return {never:bal>0.005,capped:bal>0.005,months:n,interest:tot,rows:rows};
+}
+function pmt(B,apr,n){var r=apr/1200;return r===0?B/n:B*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
+$('cp-mode').addEventListener('change',function(){
+  var monthsMode=this.value==='months';
+  $('cp-pay-row').style.display=monthsMode?'none':'block';
+  $('cp-months-row').style.display=monthsMode?'block':'none';
+});
+$('cp-btn').addEventListener('click',function(){
+  var B=num('cp-bal'),A=num('cp-apr'),mode=$('cp-mode').value,err=$('cp-err');
+  var fail=function(m){err.textContent=m;$('cp-result').classList.remove('show');$('cp-cmp-card').style.display='none';$('cp-sched-card').style.display='none';};
+  err.textContent='';
+  if(!(B>0))return fail('Enter a balance greater than 0.');
+  if(!(A>=0))return fail('APR cannot be negative.');
+  var pay,monthsN,fx;
+  if(mode==='months'){
+    monthsN=num('cp-months');
+    if(!(monthsN>=1))return fail('Enter a payoff time of at least 1 month.');
+    pay=Math.ceil(pmt(B,A,monthsN));
+    fx=simFixed(B,A,pay);
+  }else{
+    pay=num('cp-pay');
+    if(!(pay>0))return fail('Enter a monthly payment greater than 0.');
+    fx=simFixed(B,A,pay);
+  }
+  if(fx.never){
+    var firstInt=B*A/1200;
+    return fail('Your payment of '+usd(pay)+' does not cover the monthly interest of '+usd(firstInt)+', so the balance never shrinks. Pay more than '+usd(Math.ceil(firstInt))+' a month, or move the balance to a 0% card.');
+  }
+  if(fx.capped)return fail('This payoff would take more than 100 years. Pay more each month to make real progress.');
+  $('cp-time').textContent=months(fx.months);
+  $('cp-pay-out').textContent=usd(Math.ceil(pay))+' / month';
+  $('cp-date').textContent=payoffDate(fx.months);
+  $('cp-int').textContent=usd(fx.interest);
+  $('cp-total').textContent=usd(B+fx.interest);
+  $('cp-result').classList.add('show');
+  var mn=simMin(B,A,1,25),p36=pmt(B,A,36),t3=simFixed(B,A,Math.ceil(p36));
+  var rows='<tr><td>Your fixed plan</td><td>'+usd(Math.ceil(pay))+'</td><td>'+months(fx.months)+'</td><td>'+usd(fx.interest)+'</td></tr>';
+  rows+='<tr><td>Minimum only</td><td>'+usd(mn.first)+' falling</td><td>'+(mn.capped?'100+ yrs':mn.never?'Never':months(mn.months))+'</td><td>'+(mn.capped?'Over '+usd(mn.interest):mn.never?'Keeps growing':usd(mn.interest))+'</td></tr>';
+  rows+='<tr><td>3-year plan</td><td>'+usd(Math.ceil(p36))+'</td><td>'+months(t3.months)+'</td><td>'+usd(t3.interest)+'</td></tr>';
+  $('cp-cmp').innerHTML=rows;
+  var note='';
+  if(!mn.never&&mn.interest>fx.interest)note='Your fixed plan saves '+usd(mn.interest-fx.interest)+' in interest and '+months(Math.max(mn.months-fx.months,0))+' of payments compared with paying only the minimum.';
+  $('cp-note').textContent=note;
+  $('cp-cmp-card').style.display='block';
+  var sched='';
+  var show=fx.rows.slice(0,12);
+  show.forEach(function(r){sched+='<tr><td>'+r.m+'</td><td>'+usd2(r.pay)+'</td><td>'+usd2(r.int)+'</td><td>'+usd2(r.prin)+'</td><td>'+usd2(r.bal)+'</td></tr>';});
+  var last=fx.rows[fx.rows.length-1];
+  if(fx.rows.length>12)sched+='<tr><td>'+last.m+' (final)</td><td>'+usd2(last.pay)+'</td><td>'+usd2(last.int)+'</td><td>'+usd2(last.prin)+'</td><td>'+usd2(last.bal)+'</td></tr>';
+  $('cp-sched').innerHTML=sched;
+  $('cp-sched-card').style.display='block';
+});
+})();
+</script>
+
+
+<script>
+/* v2: recalculate as you type — clicks the card's own Calculate button */
+(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go,button.btn');if(!b)return;
+var run=function(){b.click();};c.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',run);i.addEventListener('change',run);});});
+var f=document.querySelector('.card.tool button.go,.card.tool button.btn');if(f){var y=window.scrollY;f.click();window.scrollTo(0,y);}})();
+</script>
+
+</body>
+</html>
