@@ -47,7 +47,7 @@ document.addEventListener('click', function(e){
     "name": "The Calcfolio"
    },
    "datePublished": "2026-10-09",
-   "dateModified": "2026-10-28",
+   "dateModified": "2026-11-14",
    "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://thecalcfolio.com/personal-loan-calculator-guide.html"
@@ -94,7 +94,7 @@ document.addEventListener('click', function(e){
 <section class="hero">
 <div class="container">
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/guides.html">Guides</a></li><li aria-current="page">Personal Loan Calculator: What You&#x27;ll Really Pay</li></ol>
-<span class="tag">Updated October 2026 · 9 min read</span>
+<span class="tag">Updated November 2026 · 11 min read</span>
 <h1>Personal Loan Calculator: What You'll Really Pay</h1>
 </div>
 </section>
@@ -106,31 +106,130 @@ document.addEventListener('click', function(e){
   <label for="pl-amt">Loan amount (USD)</label>
   <div class="amount-wrap"><span>$</span><input type="number" id="pl-amt" min="0" step="100" value="10000" inputmode="decimal"></div>
   <div class="two">
-    <div><label for="pl-apr">APR (%)</label><input type="number" id="pl-apr" min="0" max="100" step="0.01" value="15" inputmode="decimal"></div>
+    <div><label for="pl-apr">Interest rate (%)</label><input type="number" id="pl-apr" min="0" max="100" step="0.01" value="15" inputmode="decimal"><p class="formula">Enter the interest rate, not the APR — the APR already includes the fee, so using it here would count the fee twice.</p></div>
     <div><label for="pl-term">Term</label><select id="pl-term"><option value="12">1 year</option><option value="24">2 years</option><option value="36" selected>3 years</option><option value="48">4 years</option><option value="60">5 years</option><option value="72">6 years</option><option value="84">7 years</option></select></div>
   </div>
   <label for="pl-fee">Origination fee (% of loan, optional)</label>
   <input type="number" id="pl-fee" min="0" max="12" step="0.1" value="0" inputmode="decimal">
+  <label for="pl-extra">Extra payment each month ($, optional)</label>
+  <input type="number" id="pl-extra" min="0" step="10" value="0" inputmode="decimal">
   <div class="results">
     <div class="stat"><div class="k">Monthly payment</div><div class="v" id="pl-pay">$0.00</div></div>
     <div class="stat"><div class="k">Total interest</div><div class="v" id="pl-int">$0.00</div></div>
     <div class="stat"><div class="k">Origination fee</div><div class="v" id="pl-ofee">$0.00</div></div>
+    <div class="stat"><div class="k">Cash you receive</div><div class="v" id="pl-cash">$0.00</div></div>
+    <div class="stat"><div class="k">True APR (with fee)</div><div class="v" id="pl-apr2">—</div></div>
     <div class="stat good"><div class="k">Total cost of loan</div><div class="v" id="pl-tot">$0.00</div></div>
   </div>
   <p class="formula" id="pl-note"></p>
-  <p class="formula">Want a year-by-year payoff schedule or other currencies? Use the <a href="https://thecalcfolio.com/personal-loan-calculator.html">full personal loan calculator</a>.</p>
+  <p class="formula" id="pl-extra-note"></p>
+  <p class="formula">Need a set amount in hand? Divide what you need by (1 − fee). Need $10,000 in hand with a 5% fee? Borrow $10,527 — $10,000 ÷ 0.95 — because the lender keeps $527 before the money reaches you.</p>
+  <p class="formula">Want other currencies? Use the <a href="https://thecalcfolio.com/personal-loan-calculator.html">full personal loan calculator</a>.</p>
 </div>
 <script>(function(){
 var $=function(i){return document.getElementById(i)};
 var f=function(n){return "$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})};
-function run(){
-  var P=Math.max(0,parseFloat($("pl-amt").value)||0),a=Math.max(0,parseFloat($("pl-apr").value)||0),n=parseInt($("pl-term").value,10),fp=Math.max(0,parseFloat($("pl-fee").value)||0);
-  var r=a/1200,pay=r>0?P*r/(1-Math.pow(1+r,-n)):P/n,intr=pay*n-P,fee=P*fp/100;
-  $("pl-pay").textContent=f(pay);$("pl-int").textContent=f(intr);$("pl-ofee").textContent=f(fee);$("pl-tot").textContent=f(intr+fee);
-  $("pl-note").textContent=P>0?("You repay "+f(pay*n)+" over "+n+" months on "+f(P)+" borrowed"+(fee>0?", and the fee means you receive about "+f(P-fee)+" if it's deducted upfront.":".")):"";
+var f0=function(n){return "$"+Math.round(n).toLocaleString("en-US")};
+function payFor(P,a,n){var r=a/1200;return r>0?P*r/(1-Math.pow(1+r,-n)):P/n;}
+function trueApr(P,fee,a,n){
+  /* The true APR is the rate that makes the present value of the monthly
+     payments equal the cash actually received (loan minus fee). Solved by
+     bisection on the monthly rate: PV falls as the rate rises. */
+  if(!(fee>0))return a;
+  var pay=payFor(P,a,n),net=P-fee,lo=0,hi=1;
+  function pv(m){return m===0?pay*n:pay*(1-Math.pow(1+m,-n))/m;}
+  for(var i=0;i<200;i++){var mid=(lo+hi)/2;if(pv(mid)>net)lo=mid;else hi=mid;}
+  return (lo+hi)/2*1200;
 }
-["pl-amt","pl-apr","pl-term","pl-fee"].forEach(function(i){$(i).addEventListener("input",run);$(i).addEventListener("change",run);});
+function simulate(P,a,n,extra){
+  /* Monthly amortization with an optional extra payment. Returns months
+     taken, total interest, and year-by-year principal/interest/balance. */
+  var r=a/1200,base=payFor(P,a,n),eff=base+Math.max(0,extra||0),bal=P,m=0,ti=0,years=[];
+  var yP=0,yI=0;
+  while(bal>0.005&&m<600){
+    var intr=bal*r,prin=Math.min(eff-intr,bal);
+    if(prin<=0)break;
+    ti+=intr;bal-=prin;m++;yP+=prin;yI+=intr;
+    if(m%12===0||bal<=0.005){years.push({y:years.length+1,prin:yP,int:yI,bal:Math.max(bal,0)});yP=0;yI=0;}
+  }
+  return {months:m,interest:ti,years:years};
+}
+function run(){
+  var P=Math.max(0,parseFloat($("pl-amt").value)||0),a=Math.max(0,parseFloat($("pl-apr").value)||0),n=parseInt($("pl-term").value,10),fp=Math.max(0,parseFloat($("pl-fee").value)||0),extra=Math.max(0,parseFloat($("pl-extra").value)||0);
+  var r=a/1200,pay=payFor(P,a,n),intr=pay*n-P,fee=P*fp/100,cash=P-fee;
+  $("pl-pay").textContent=f(pay);$("pl-int").textContent=f(intr);$("pl-ofee").textContent=f(fee);$("pl-cash").textContent=f(cash);
+  $("pl-apr2").textContent=fee>0?trueApr(P,fee,a,n).toFixed(2)+"%":a.toFixed(2)+"%";
+  $("pl-tot").textContent=f(intr+fee);
+  $("pl-note").textContent=P>0?("You repay "+f(pay*n)+" over "+n+" months on "+f(P)+" borrowed"+(fee>0?", and the fee means you receive about "+f(cash)+" if it's deducted upfront.":".")):"";
+  /* Extra payments: compare the plain schedule with the faster one. */
+  var base=simulate(P,a,n,0),fast=simulate(P,a,n,extra);
+  if(P>0&&extra>0){
+    var saved=base.interest-fast.interest;
+    $("pl-extra-note").textContent="With "+f(extra)+" extra a month you finish in "+fast.months+" months instead of "+base.months+(fast.months<base.months?" — "+(base.months-fast.months)+" months sooner":"")+" — and save "+f(saved)+" in interest.";
+  }else{$("pl-extra-note").textContent="";}
+  /* Year-by-year payoff schedule (reflects any extra payment). */
+  var rows="";
+  fast.years.forEach(function(y){rows+="<tr><td>Year "+y.y+"</td><td>"+f0(y.prin)+"</td><td>"+f0(y.int)+"</td><td>"+f0(y.bal)+"</td></tr>";});
+  $("pl-sched").innerHTML=rows;
+  $("pl-sched-card").style.display=P>0?"":"none";
+  /* Term comparison: the same loan at 3, 4, 5 and 7 years. */
+  var tr="";
+  [36,48,60,84].forEach(function(m){var p=payFor(P,a,m);tr+="<tr><td>"+(m/12)+" years</td><td>"+f(p)+"</td><td>"+f(p*m-P)+"</td><td>"+f(p*m)+"</td></tr>";});
+  $("pl-term-tbl").innerHTML=tr;
+  /* Rate table: $10,000 over 36 months at 8, 12, 18 and 25%. */
+  var rr="";
+  [8,12,18,25].forEach(function(rt){var p=payFor(10000,rt,36);rr+="<tr><td>"+rt+"%</td><td>"+f(p)+"</td><td>"+f(p*36-10000)+"</td><td>"+f(p*36)+"</td></tr>";});
+  $("pl-rate-tbl").innerHTML=rr;
+  /* Affordability mode: monthly payment you can afford -> max loan. */
+  var ap=Math.max(0,parseFloat($("pl-aff-pay").value)||0),ar=Math.max(0,parseFloat($("pl-aff-rate").value)||0),an=parseInt($("pl-aff-term").value,10),arate=ar/1200;
+  var max=arate>0?ap*(1-Math.pow(1+arate,-an))/arate:ap*an;
+  $("pl-aff-max").textContent=ap>0?f(max):"$0.00";
+  $("pl-aff-note").textContent=ap>0?("At "+f(ap)+" a month, "+ar.toFixed(2)+"% over "+an+" months, you can borrow up to "+f(max)+" — before any origination fee. That's the ceiling; borrowing less leaves room for everything else in your budget."):"";
+}
+["pl-amt","pl-apr","pl-term","pl-fee","pl-extra"].forEach(function(i){$(i).addEventListener("input",run);$(i).addEventListener("change",run);});
+["pl-aff-pay","pl-aff-rate","pl-aff-term"].forEach(function(i){$(i).addEventListener("input",run);$(i).addEventListener("change",run);});
 run();})();</script>
+<div class="card" id="pl-sched-card" style="display:none;">
+<h2>Your year-by-year payoff schedule</h2>
+<p>Every payment splits into interest (the lender's cut) and principal (your actual repayment). Early on, interest eats most of the payment — watch the balance fall faster each year, and faster still if you add an extra payment above:</p>
+<table class="cmp">
+<thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Balance left</th></tr></thead>
+<tbody id="pl-sched"></tbody>
+</table>
+</div>
+<div class="card">
+<h2>Same loan, different terms</h2>
+<p>Same amount, same rate — only the term changes. The table below is built live from the numbers in the calculator above, so change the amount or rate and watch the trade-off move:</p>
+<table class="cmp">
+<tr><th>Term</th><th>Monthly payment</th><th>Total interest</th><th>Total repaid</th></tr>
+<tbody id="pl-term-tbl"></tbody>
+</table>
+<p>Shorter always costs less overall. The only reason to stretch is a payment you genuinely can't afford otherwise — and even then, extra payments claw back much of the difference.</p>
+</div>
+<div class="card">
+<h2>What the rate does to $10,000</h2>
+<p>Same $10,000, same 36 months — only the rate changes. A few percentage points is not a small difference; it's thousands of dollars:</p>
+<table class="cmp">
+<tr><th>Rate</th><th>Monthly payment</th><th>Total interest</th><th>Total repaid</th></tr>
+<tbody id="pl-rate-tbl"></tbody>
+</table>
+<p>This is why the rate you get matters more than the loan amount you pick. Improving your credit before you borrow can move you a whole row up this table.</p>
+</div>
+<div class="card tool" id="pl-afford">
+<h2>What can I afford?</h2>
+<p>Start from the other end: decide what you can comfortably pay each month, and work backwards to the biggest loan that payment supports.</p>
+<label for="pl-aff-pay">Monthly payment you can afford (USD)</label>
+<div class="amount-wrap"><span>$</span><input type="number" id="pl-aff-pay" min="0" step="10" value="300" inputmode="decimal"></div>
+<div class="two">
+<div><label for="pl-aff-rate">Interest rate (%)</label><input type="number" id="pl-aff-rate" min="0" max="100" step="0.01" value="15" inputmode="decimal"></div>
+<div><label for="pl-aff-term">Term</label><select id="pl-aff-term"><option value="12">1 year</option><option value="24">2 years</option><option value="36" selected>3 years</option><option value="48">4 years</option><option value="60">5 years</option><option value="72">6 years</option><option value="84">7 years</option></select></div>
+</div>
+<div class="results">
+<div class="stat good"><div class="k">Most you can borrow</div><div class="v" id="pl-aff-max">$0.00</div></div>
+</div>
+<p class="formula" id="pl-aff-note"></p>
+<p class="formula">A payment you can afford on paper still has to fit your real budget. A quick check: add up all your monthly debt payments and divide by your gross monthly income — that's your debt-to-income ratio. Most lenders want it under 36%, and few will approve much above 43%. Run your numbers in the <a href="https://thecalcfolio.com/debt-to-income-ratio-calculator.html">debt-to-income ratio calculator</a> before you borrow up to the ceiling above.</p>
+</div>
 <div class="card">
 <div class="answer">
 <p><strong>A personal loan calculator turns three inputs — amount, rate, term — into the two numbers that matter: your monthly payment and the total interest you'll pay. Run it before you sign anything, because the monthly payment alone never tells the full story.</strong></p>
@@ -144,7 +243,7 @@ run();})();</script>
 <p>Every personal loan boils down to three inputs and two outputs. The inputs:</p>
 <ul>
 <li><strong>Loan amount</strong> — what you're borrowing. Obvious, but borrow only what you need. Every extra thousand costs you interest for years.</li>
-<li><strong>Interest rate (APR)</strong> — the yearly cost of borrowing, expressed as a percentage. This is where your credit score does its damage or its magic.</li>
+<li><strong>Interest rate</strong> — the yearly cost of borrowing, expressed as a percentage. This is where your credit score does its damage or its magic. The APR is the same rate with fees folded in, so the two numbers only match when there's no fee at all.</li>
 <li><strong>Term</strong> — how long you take to repay, usually 2 to 7 years for personal loans. Longer term = smaller payment, much bigger total cost.</li>
 </ul>
 <p>And the two outputs you actually care about:</p>
@@ -199,6 +298,8 @@ run();})();</script>
 <h2>Watch out for origination fees</h2>
 <p>Some lenders charge an origination fee — usually 1% to 8% of the loan — just for setting it up. Sometimes it's deducted from your loan amount, so you borrow $12,000 but only receive $11,400. Sometimes it's rolled into the balance, so you're paying interest on the fee itself.</p>
 <p>Either way, compare the APR — not just the rate — when shopping lenders, since APR is supposed to include fees. And if a lender won't clearly tell you the total cost? Walk away.</p>
+<p>Here's the part that catches people: if the fee comes out of the loan, the cash in hand is less than the amount you're paying interest on. Borrow $15,000 at 12% for 5 years with a $750 fee and you only receive $14,250 — but your payments are still calculated on the full $15,000. Fold the fee in properly and the true APR is about 14.28%, not 12%. That's the number the calculator above shows as "True APR (with fee)".</p>
+<p>Working backwards helps too. If you need a set amount in hand, divide it by (1 − fee). Need $10,000 in hand with a 5% fee? Borrow $10,527, because the lender keeps $527 before the money reaches you. Borrowing exactly $10,000 would leave you $500 short.</p>
 </div><div class="cta">
 <h2>Run your own loan numbers</h2>
 <p>Enter any amount, rate, and term — see your monthly payment and total interest instantly.</p>
