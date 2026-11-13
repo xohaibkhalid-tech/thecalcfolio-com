@@ -155,6 +155,43 @@ document.addEventListener('click', function(e){
 </div>
 
 <div class="card">
+  <h2>Selling a $250 item: what each PayPal option really costs</h2>
+  <p>Say you sell a handmade item for $250 and the buyer pays through PayPal. The fee depends on how they pay — and the gap between the cheapest and priciest option is real money:</p>
+  <p><strong>PayPal Checkout — $9.22 fee.</strong> The buyer checks out on your site with PayPal. The fee is $250 × 3.49% + $0.49 = $9.22, so you keep $240.79. To land exactly $250 in your pocket, charge $259.55 — PayPal then takes $9.55 and you keep $250.00.</p>
+  <p><strong>Goods &amp; Services — $7.48 fee.</strong> The buyer sends the money directly and marks it as a purchase. The fee is $250 × 2.99% = $7.48, so you keep $242.53 — $1.74 more than Checkout. To receive $250 exactly, charge $257.71; PayPal takes $7.71.</p>
+  <p><strong>Card through PayPal — $7.97 fee.</strong> The buyer pays by card without logging into PayPal. The fee is $250 × 2.99% + $0.49 = $7.97, so you keep $242.04. To receive $250 exactly, charge $258.21; PayPal takes $8.21.</p>
+  <p class="formula">The pattern holds at any price: Goods &amp; Services is the cheapest of the three because it has no fixed fee, and Checkout is the priciest because it combines the highest percentage with the $0.49 fixed fee. Try your own amount in the calculator above — the reverse box gives you the exact charge for any target.</p>
+</div>
+
+<div class="card">
+  <h2>What the fee does to your profit</h2>
+  <p>The fee looks small next to the sale price. It looks bigger next to your profit. Enter your cost per item in the calculator above and it shows your profit after the fee — or read the table below, which assumes your cost is half the sale price (a 50% gross margin) and uses the PayPal Checkout rate:</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Sale</th><th>Your cost</th><th>PayPal fee</th><th>Profit before fee</th><th>Profit after fee</th><th>Fee as share of profit</th></tr>
+    <tr><td>$10</td><td>$5.00</td><td>$0.84</td><td>$5.00</td><td>$4.16</td><td><strong>16.8%</strong></td></tr>
+    <tr><td>$25</td><td>$12.50</td><td>$1.36</td><td>$12.50</td><td>$11.14</td><td><strong>10.9%</strong></td></tr>
+    <tr><td>$50</td><td>$25.00</td><td>$2.24</td><td>$25.00</td><td>$22.77</td><td><strong>8.9%</strong></td></tr>
+    <tr><td>$100</td><td>$50.00</td><td>$3.98</td><td>$50.00</td><td>$46.02</td><td><strong>8.0%</strong></td></tr>
+    <tr><td>$250</td><td>$125.00</td><td>$9.22</td><td>$125.00</td><td>$115.79</td><td><strong>7.4%</strong></td></tr>
+  </table></div>
+  <p class="formula">Two things to notice. First, the $0.49 fixed fee hits hardest on small sales: on a $10 sale it eats almost 17% of your profit. Second, the fee's share of profit shrinks as the sale grows, because the fixed fee stops mattering. If your margin is thinner than 50%, the fee takes a bigger bite — and if it's fatter, a smaller one. That is why pricing to cover the fee matters most on cheap items.</p>
+</div>
+
+<div class="card">
+  <h2>PayPal vs other platforms: the fee on a $100 sale</h2>
+  <p>PayPal is rarely the cheapest way to take $100 — but it is often the one your buyer already has. Here is what each platform keeps on the same $100 domestic sale, using the business rates from our own comparisons:</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Platform</th><th>Rate</th><th>Fee on $100</th><th>You keep</th></tr>
+    <tr><td>PayPal Checkout</td><td>3.49% + $0.49</td><td><strong>$3.98</strong></td><td>$96.02</td></tr>
+    <tr><td>PayPal Goods &amp; Services</td><td>2.99%</td><td><strong>$2.99</strong></td><td>$97.01</td></tr>
+    <tr><td>Stripe</td><td>2.9% + $0.30</td><td><strong>$3.20</strong></td><td>$96.80</td></tr>
+    <tr><td>Venmo (business)</td><td>1.9% + $0.10</td><td><strong>$2.00</strong></td><td>$98.00</td></tr>
+    <tr><td>Cash App (business)</td><td>2.6% + $0.15</td><td><strong>$2.75</strong></td><td>$97.25</td></tr>
+  </table></div>
+  <p class="formula">Stripe beats PayPal Checkout by 78&cent; on $100 but still costs more than Goods &amp; Services. Venmo and Cash App are cheaper still — on business payments. Personal transfers on those apps are priced differently. Full breakdowns: <a href="paypal-vs-stripe-fees.html">PayPal vs Stripe fees</a> and <a href="venmo-vs-cash-app-fees.html">Venmo vs Cash App fees</a>.</p>
+</div>
+
+<div class="card">
   <h2>PayPal costs beyond the transaction fee</h2>
   <p>The percentage on each sale isn't the only way PayPal charges sellers. These are the ones that catch people out:</p>
   <div class="table-wrap"><table class="rates">
