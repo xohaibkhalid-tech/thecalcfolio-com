@@ -53,7 +53,7 @@ document.addEventListener('click', function(e){
 <section class="hero">
 <div class="container">
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a></li><li aria-current="page">eBay</li></ol>
-<span class="tag">2026 US rates · verified Oct 20, 2026</span>
+<span class="tag">2026 US rates · verified Nov 14, 2026</span>
 <h1><span class="pmark c-yellow" aria-hidden="true">e</span>eBay Fee Calculator 2026</h1>
 <p class="lede">Enter your sale amount. See eBay's exact final value fee, per-order fee, and what you'll keep. Free, no sign-up, runs entirely in your browser.</p>
 <p class="live" id="live" aria-live="polite">eBay keeps <b id="live-fee">$14.00</b> of your <span id="live-amt">$100.00</span> sale. You keep <i id="live-net">$86.00</i>.</p>
@@ -172,16 +172,30 @@ document.addEventListener('click', function(e){
 <div class="card">
   <h2>2026 US rates used</h2>
   <div class="table-wrap"><table class="rates">
-    <tr><th>Fee</th><th>Rate</th></tr>
-    <tr><td>Final value fee — most categories</td><td><strong>13.6%</strong> up to $7,500 per item, then <strong>2.35%</strong></td></tr>
-    <tr><td>Books, movies &amp; music</td><td><strong>15.3%</strong></td></tr>
-    <tr><td>Trading cards &amp; collectibles</td><td><strong>13.25%</strong></td></tr>
-    <tr><td>Guitars &amp; basses</td><td><strong>6.7%</strong></td></tr>
-    <tr><td>Athletic shoes ($150+)</td><td><strong>8%</strong>, no per-order fee</td></tr>
-    <tr><td>Per-order fee</td><td><strong>$0.30</strong> on orders ≤ $10 · <strong>$0.40</strong> on orders &gt; $10</td></tr>
-    <tr><td>Insertion fee</td><td>First <strong>250 listings/month free</strong>, then $0.35</td></tr>
+    <tr><th>Category</th><th>No Store</th><th>Store (Basic+)</th></tr>
+    <tr><td>Most categories (incl. vinyl records)</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>12.7%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Books, movies &amp; music*</td><td><strong>15.3%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>15.3%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Trading cards &amp; collectibles</td><td><strong>13.25%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>12.35%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Coins &amp; paper money (excl. bullion)</td><td><strong>13.25%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>9%</strong> up to $4,000, then <strong>2.35%</strong></td></tr>
+    <tr><td>Bullion</td><td><strong>13.6%</strong> up to $7,500, then <strong>7%</strong></td><td><strong>7.5%</strong> up to $1,500, <strong>5%</strong> to $10,000, then <strong>4.5%</strong></td></tr>
+    <tr><td>Jewelry (excl. watches)</td><td><strong>15%</strong> up to $5,000, then <strong>9%</strong></td><td><strong>13%</strong> up to $5,000, then <strong>7%</strong></td></tr>
+    <tr><td>Watches, parts &amp; accessories</td><td><strong>15%</strong> up to $1,000, <strong>6.5%</strong> to $7,500, then <strong>3%</strong></td><td><strong>12.5%</strong> up to $1,000, <strong>4%</strong> to $5,000, then <strong>3%</strong></td></tr>
+    <tr><td>Women's bags &amp; handbags</td><td><strong>15%</strong> up to $2,000, then <strong>9%</strong></td><td><strong>13%</strong> up to $2,000, then <strong>7%</strong></td></tr>
+    <tr><td>Athletic shoes</td><td><strong>13.6%</strong> under $150, <strong>8%</strong> at $150+ (no per-order fee)</td><td><strong>12.7%</strong> under $150, <strong>7%</strong> at $150+ (no per-order fee)</td></tr>
+    <tr><td>Guitars &amp; basses</td><td><strong>6.7%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>6.7%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Musical instruments &amp; gear</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>10.35%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Cameras, cell phones, computers &amp; electronics</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>9.35%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Desktops, laptops, tablets &amp; consoles</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>7.35%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Electronics &amp; video game accessories</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>12.7%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Motors parts &amp; accessories</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>11.5%</strong> up to $1,000, then <strong>2.35%</strong></td></tr>
+    <tr><td>Stamps</td><td><strong>13.6%</strong> up to $7,500, then <strong>2.35%</strong></td><td><strong>9.7%</strong> up to $2,500, then <strong>2.35%</strong></td></tr>
+    <tr><td>Heavy equipment, printing presses, food trucks</td><td><strong>3%</strong> up to $15,000, then <strong>0.5%</strong></td><td><strong>2.5%</strong> up to $15,000, then <strong>0.5%</strong></td></tr>
+    <tr><td>NFTs</td><td><strong>5%</strong></td><td><strong>5%</strong></td></tr>
+    <tr><td>Per-order fee</td><td><strong>$0.30</strong> on orders ≤ $10 · <strong>$0.40</strong> on orders &gt; $10</td><td>Same</td></tr>
+    <tr><td>Insertion fee</td><td>First <strong>250 listings/month free</strong>, then $0.35</td><td><strong>1,000 free listings/month</strong> (Basic), more at higher tiers</td></tr>
   </table></div>
-  <p class="formula">The final value fee applies to the <strong>total amount of the sale</strong> — item price + shipping you charge + handling + sales tax eBay collects. Sources: <a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees?id=4822" target="_blank" rel="noopener">eBay — Selling fees</a> (checked Oct 20, 2026), <a href="https://marketplacefeecalc.com/ebay-fee-calculator/" target="_blank" rel="noopener">marketplacefeecalc.com</a>, <a href="https://taxomate.com/blog/ebay-seller-fees" target="_blank" rel="noopener">taxomate.com</a>, <a href="https://quicksync.pro/blog/ebay-seller-fees/" target="_blank" rel="noopener">quicksync.pro</a>. Last verified: October 20, 2026. eBay adjusts rates by category and over time — confirm your exact rate in Seller Hub.</p>
+  <p class="formula">*Books, movies &amp; music excludes Movie NFTs, Music NFTs and Vinyl Records (vinyl follows Most categories). Store = Basic, Premium, Anchor or Enterprise; Starter pays No-Store rates. "Up to" amounts are per item, on the total amount of the sale.</p>
+  <p class="formula">The final value fee applies to the <strong>total amount of the sale</strong> — item price + shipping you charge + handling + sales tax eBay collects. Sources: <a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees?id=4822" target="_blank" rel="noopener">eBay — Selling fees</a> and <a href="https://www.ebay.com/help/selling/selling-fees/store-fees?id=4809" target="_blank" rel="noopener">eBay — Store selling fees</a> (checked Nov 14, 2026), <a href="https://marketplacefeecalc.com/ebay-fee-calculator/" target="_blank" rel="noopener">marketplacefeecalc.com</a>, <a href="https://taxomate.com/blog/ebay-seller-fees" target="_blank" rel="noopener">taxomate.com</a>, <a href="https://quicksync.pro/blog/ebay-seller-fees/" target="_blank" rel="noopener">quicksync.pro</a>. Last verified: November 14, 2026. eBay adjusts rates by category and over time — confirm your exact rate in Seller Hub.</p>
 </div>
 
 <div class="card faq">
