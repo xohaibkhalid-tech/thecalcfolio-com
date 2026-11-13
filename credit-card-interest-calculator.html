@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z35E1S5RPT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z35E1S5RPT');
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a') : null;
+  if(!a || !a.href) return;
+  try {
+    var u = new URL(a.href, location.href);
+    if(u.hostname && u.hostname !== location.hostname && typeof gtag === 'function'){
+      gtag('event', 'outbound_click', {destination: u.hostname, page_path: location.pathname, link_url: a.href});
+    }
+  } catch(err){}
+}, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://thecalcfolio.com/credit-card-interest-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Calcfolio">
+<meta property="og:title" content="Credit Card Interest Calculator: Monthly Interest & Payoff Date (2026)">
+<meta property="og:description" content="Free credit card interest calculator: enter your balance, APR and monthly payment to see your monthly interest, payoff date and total interest.">
+<meta property="og:url" content="https://thecalcfolio.com/credit-card-interest-calculator.html">
+<meta property="og:image" content="https://thecalcfolio.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Credit Card Interest Calculator: Monthly Interest & Payoff Date (2026)</title>
+<meta name="description" content="Free credit card interest calculator: enter your balance, APR and monthly payment to see your monthly interest, payoff date and total interest.">
+<link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=5">
+</head>
+<body>
+<!--v2:header:en:money-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="sh-inner">
+<a class="brand" href="https://thecalcfolio.com/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#FFD23F"/><path d="M24 11.5a8 8 0 1 0 0 13" fill="none" stroke="#0B1220" stroke-width="3.4" stroke-linecap="round"/><rect x="21" y="16" width="7" height="2.4" rx="1.2" fill="#0B1220"/><rect x="21" y="19.6" width="7" height="2.4" rx="1.2" fill="#0B1220"/></svg><span>The Calcfolio</span></a>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main"><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a><a href="https://thecalcfolio.com/#compare">Compare</a><a href="https://thecalcfolio.com/#money" aria-current="page">Money</a><a href="https://thecalcfolio.com/guides.html">Guides</a><a href="https://thecalcfolio.com/about.html">About</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="https://thecalcfolio.com/" aria-current="true">EN</a><a href="https://thecalcfolio.com/de/" hreflang="de" lang="de">DE</a><a href="https://thecalcfolio.com/it/" hreflang="it" lang="it">IT</a><a href="https://thecalcfolio.com/br/" hreflang="pt-BR" lang="pt-BR">PT</a></div>
+</div>
+</header>
+<script>(function(){var b=document.querySelector(".nav-toggle"),n=document.getElementById("site-nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});})();</script>
+<!--/v2:header-->
+<section class="hero">
+<div class="container">
+<ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Calculators</a></li><li aria-current="page">Credit Card Interest Calculator</li></ol>
+<span class="tag">Updated November 14, 2026</span>
+<h1>Credit Card Interest Calculator</h1>
+<p class="lede">Enter your balance, APR and monthly payment to see what interest costs you each month, when you'll be debt-free, and how much interest you'll pay in total.</p>
+</div>
+</section>
+<main id="main" class="page">
+<div class="layout">
+<div class="main">
+<div class="card tool">
+    <h2>Calculate your credit card interest</h2>
+    <p>All amounts in US dollars. Results update as you type — nothing is sent anywhere.</p>
+    <label for="cc-bal">Card balance ($)</label>
+    <input type="number" id="cc-bal" value="3000" min="1" step="any" inputmode="decimal">
+    <label for="cc-apr">APR (%)</label>
+    <input type="number" id="cc-apr" value="24" min="0" step="any" inputmode="decimal">
+    <label for="cc-pay">Monthly payment ($)</label>
+    <input type="number" id="cc-pay" value="200" min="1" step="any" inputmode="decimal">
+    <button class="go" id="cc-btn">Calculate →</button>
+    <p class="err" id="cc-err" role="alert"></p>
+    <div class="result" id="cc-result" aria-live="polite">
+      <div style="font-size:.85rem;color:#a9bccd;">Your first month's interest</div>
+      <div class="big" id="cc-int">–</div>
+      <p>Debt-free in: <span class="keep" id="cc-time">–</span></p>
+      <p>Payoff date: <span class="keep" id="cc-date">–</span></p>
+      <p>Total interest you'll pay: <span class="keep" id="cc-total">–</span></p>
+      <p>Total you'll pay overall: <span class="keep" id="cc-paid">–</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="answer">
+    <p><strong>A $3,000 balance at 24% APR with a $200 monthly payment costs $59.18 in interest the first month. Keep paying $200 and you're debt-free in about 18 months, after about $592 in interest.</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>How the math works</h2>
+    <p>This calculator uses the same daily method your card issuer uses:</p>
+    <ol>
+    <li><strong>Daily rate:</strong> your APR divided by 365. At 24% APR that's 0.0658% a day.</li>
+    <li><strong>Monthly interest:</strong> your balance &times; the daily rate &times; 30 days. On $3,000 at 24% that's $59.18 the first month.</li>
+    <li><strong>Month by month:</strong> interest is added to the balance, then your payment comes off. As the balance falls, so does the interest — which is why the same payment clears the card faster and faster.</li>
+    </ol>
+    <p>It assumes no new purchases, no fees, and 30-day months, so treat the payoff date as an estimate. Our <a href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">guide to calculating credit card interest</a> walks through the daily-balance method step by step, including a worked average-daily-balance example.</p>
+  </div>
+
+  <div class="card">
+    <h2>3 ways to pay less interest</h2>
+    <h3>1. Pay a fixed amount, not the minimum</h3>
+    <p>Minimum payments shrink as your balance shrinks, which stretches payoff out for years. Pick a fixed monthly payment and stick to it — see the difference with our <a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">minimum payment calculator</a>.</p>
+    <h3>2. Move the balance to a 0% card</h3>
+    <p>If your credit qualifies, a balance transfer card stops interest for 12 to 21 months. Check whether the transfer fee is worth it with our <a href="https://thecalcfolio.com/balance-transfer-calculator.html">balance transfer calculator</a>.</p>
+    <h3>3. Pay early in the cycle</h3>
+    <p>Interest runs on your daily balance, so paying as soon as you get paid — rather than on the due date — lowers the average balance your issuer charges interest on.</p>
+  </div>
+
+  <div class="card faq">
+    <h2>Credit card interest questions, answered</h2>
+    <h3>What monthly interest will I pay on my card?</h3>
+    <p>Your first month's interest is your balance &times; (APR &divide; 365) &times; 30. On $3,000 at 24% APR that's $59.18. As the balance falls, so does the interest — the calculator above shows the full payoff picture.</p>
+    <h3>What if my monthly payment doesn't cover the interest?</h3>
+    <p>Then the balance grows instead of shrinking, and the card is never paid off. The calculator will tell you when that happens — raise the payment above the monthly interest to make any progress.</p>
+    <h3>Does the calculator include the grace period?</h3>
+    <p>No. It assumes you already carry a balance, so interest applies from day one. If you pay the full statement balance by the due date every month, the grace period means you pay no interest on purchases at all.</p>
+    <h3>Why is my result different from my statement?</h3>
+    <p>Your issuer uses your actual average daily balance over the real number of days in the cycle (28 to 31), while this calculator uses 30-day months and assumes no new purchases, payments or fees. The figures should be close, not exact.</p>
+    <h3>Is this financial advice?</h3>
+    <p>No. This page does the math only. Your issuer's rates, fees and interest method may differ — check your statement and cardholder agreement.</p>
+  </div>
+
+  <div class="card">
+    <p class="disc">General information only, not financial advice. Estimates use the daily method (APR &divide; 365, 30-day months), no new purchases and no fees; your issuer's actual daily balance and cycle length may give slightly different figures. Rates and method checked November 14, 2026.</p>
+  </div>
+</div>
+<aside class="side" aria-label="Related">
+<div class="box"><h2>Related</h2><a class="row" href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html"><span>Minimum payment calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/balance-transfer-calculator.html"><span>Balance transfer calculator</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html"><span>How to calculate credit card interest</span><span aria-hidden="true">→</span></a><a class="row" href="https://thecalcfolio.com/personal-loan-calculator.html"><span>Personal loan calculator</span><span aria-hidden="true">→</span></a></div>
+<div class="box dark"><h2>Top tools</h2><div class="top-tools"><a href="https://thecalcfolio.com/ebay-fee-calculator.html"><span class="ic c-yellow" aria-hidden="true">e</span>eBay fees</a><a href="https://thecalcfolio.com/paypal-fee-calculator.html"><span class="ic c-sky" aria-hidden="true">P</span>PayPal fees</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html"><span class="ic c-coral" aria-hidden="true">E</span>Etsy fees</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html"><span class="ic c-lilac" aria-hidden="true">S</span>Stripe fees</a><a href="https://thecalcfolio.com/de/arbeitszeitrechner.html"><span class="ic c-yellow" aria-hidden="true">A</span>Arbeitszeitrechner</a></div></div>
+</aside>
+</div>
+</main>
+<!--v2:footer:en-->
+<footer class="site-footer">
+<div class="sf-grid"><div><h2>Seller fees</h2><a href="https://thecalcfolio.com/paypal-fee-calculator.html">PayPal fee calculator</a><a href="https://thecalcfolio.com/ebay-fee-calculator.html">eBay fee calculator</a><a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a><a href="https://thecalcfolio.com/stripe-fee-calculator.html">Stripe fee calculator</a><a href="https://thecalcfolio.com/square-fee-calculator.html">Square fee calculator</a><a href="https://thecalcfolio.com/venmo-fee-calculator.html">Venmo fee calculator</a><a href="https://thecalcfolio.com/cash-app-fee-calculator.html">Cash App fee calculator</a><a href="https://thecalcfolio.com/depop-fee-calculator.html">Depop fee calculator</a><a href="https://thecalcfolio.com/grailed-fee-calculator.html">Grailed fee calculator</a><a href="https://thecalcfolio.com/whatnot-fee-calculator.html">Whatnot fee calculator</a></div><div><h2>Compare</h2><a href="https://thecalcfolio.com/venmo-vs-cash-app-fees.html">Venmo vs Cash App</a><a href="https://thecalcfolio.com/ebay-vs-etsy-fees.html">eBay vs Etsy</a><a href="https://thecalcfolio.com/paypal-vs-stripe-fees.html">PayPal vs Stripe</a><a href="https://thecalcfolio.com/square-vs-stripe-fees.html">Square vs Stripe</a><a href="https://thecalcfolio.com/depop-vs-poshmark-fees.html">Depop vs Poshmark</a></div><div><h2>Money</h2><a href="https://thecalcfolio.com/refinance-calculator.html">Refinance calculator</a><a href="https://thecalcfolio.com/personal-loan-calculator.html">Personal loan calculator</a><a href="https://thecalcfolio.com/balance-transfer-calculator.html">Balance transfer calculator</a><a href="https://thecalcfolio.com/credit-card-minimum-payment-calculator.html">Minimum payment calculator</a><a href="https://thecalcfolio.com/car-loan-calculator.html">Car loan calculator</a><a href="https://thecalcfolio.com/mortgage-overpayment-calculator.html">Mortgage overpayment</a><a href="https://thecalcfolio.com/interest-calculator.html">Interest calculator</a><a href="https://thecalcfolio.com/overtime-calculator.html">Overtime calculator</a><a href="https://thecalcfolio.com/car-accident-settlement-calculator.html">Car accident settlement</a></div><div><h2>Languages</h2><a href="https://thecalcfolio.com/de/">Deutsch · Arbeitszeitrechner</a><a href="https://thecalcfolio.com/it/">Italiano · Oro</a><a href="https://thecalcfolio.com/br/">Português · Rescisão</a></div><div><h2>The Calcfolio</h2><a href="https://thecalcfolio.com/calculators.html">All calculators</a><a href="https://thecalcfolio.com/guides.html">All guides</a><a href="https://thecalcfolio.com/about.html">About</a><a href="https://thecalcfolio.com/contact.html">Contact</a><a href="https://thecalcfolio.com/privacy-policy.html">Privacy policy</a><a href="https://thecalcfolio.com/disclaimer.html">Disclaimer</a></div></div>
+<div class="sf-hire"><p><strong>Want a calculator website like this one?</strong> The Calcfolio is built and run by Zohaib Khalid (ZKDigitalCraft). I build fast, custom-coded tool and calculator sites for other businesses.</p><a class="sf-hire-btn" href="https://workar.com/gigs/xohaibkhalid/build-seo-tool-calculator-website" target="_blank" rel="noopener">Hire me on Workar &rarr;</a></div>
+<div class="sf-bottom"><span>© 2026 The Calcfolio — free calculators, honest numbers.</span><span>Estimates only — not financial, tax or legal advice.</span></div>
+</footer>
+<!--/v2:footer-->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Credit Card Interest Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "url": "https://thecalcfolio.com/credit-card-interest-calculator.html"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What monthly interest will I pay on my card?", "acceptedAnswer": {"@type": "Answer", "text": "Your first month's interest is your balance × (APR ÷ 365) × 30. On $3,000 at 24% APR that's $59.18. As the balance falls, so does the interest — the calculator above shows the full payoff picture."}}, {"@type": "Question", "name": "What if my monthly payment doesn't cover the interest?", "acceptedAnswer": {"@type": "Answer", "text": "Then the balance grows instead of shrinking, and the card is never paid off. The calculator will tell you when that happens — raise the payment above the monthly interest to make any progress."}}, {"@type": "Question", "name": "Does the calculator include the grace period?", "acceptedAnswer": {"@type": "Answer", "text": "No. It assumes you already carry a balance, so interest applies from day one. If you pay the full statement balance by the due date every month, the grace period means you pay no interest on purchases at all."}}, {"@type": "Question", "name": "Why is my result different from my statement?", "acceptedAnswer": {"@type": "Answer", "text": "Your issuer uses your actual average daily balance over the real number of days in the cycle (28 to 31), while this calculator uses 30-day months and assumes no new purchases, payments or fees. The figures should be close, not exact."}}, {"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page does the math only. Your issuer's rates, fees and interest method may differ — check your statement and cardholder agreement."}}]}]}
+</script>
+
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function usd(x){return '$'+Math.round(x).toLocaleString('en-US');}
+function usd2(x){return '$'+x.toFixed(2);}
+function num(id){return parseFloat($(id).value);}
+function months(m){if(m<12)return m+' mo';var y=Math.floor(m/12),r=m%12;return y+' yr'+(y>1?'s':'')+(r?' '+r+' mo':'');}
+function payoffDate(m){var d=new Date();d.setMonth(d.getMonth()+m);return d.toLocaleDateString('en-US',{month:'long',year:'numeric'});}
+var CAP=1200;
+function sim(B,apr,pay){
+  var r=apr/100/365*30,bal=B,tot=0,n=0,first=bal*r;
+  if(pay<=first)return {never:true,first:first,months:0,interest:0};
+  while(bal>0.005&&n<CAP){n++;var i=bal*r;bal+=i;tot+=i;bal-=Math.min(pay,bal);}
+  return {never:bal>0.005,first:first,months:n,interest:tot};
+}
+$('cc-btn').addEventListener('click',function(){
+  var B=num('cc-bal'),A=num('cc-apr'),P=num('cc-pay'),err=$('cc-err');
+  var fail=function(m){err.textContent=m;$('cc-result').classList.remove('show');};
+  err.textContent='';
+  if(!(B>0))return fail('Enter a balance greater than 0.');
+  if(!(A>=0))return fail('APR cannot be negative.');
+  if(!(P>0))return fail('Enter a monthly payment greater than 0.');
+  var s=sim(B,A,P);
+  $('cc-int').textContent=usd2(s.first)+' / month';
+  if(s.never){
+    $('cc-time').textContent='never — the payment doesn\u2019t cover the interest';
+    $('cc-date').textContent='—';
+    $('cc-total').textContent='keeps growing';
+    $('cc-paid').textContent='keeps growing';
+  }else{
+    $('cc-time').textContent=months(s.months);
+    $('cc-date').textContent=payoffDate(s.months);
+    $('cc-total').textContent=usd(s.interest);
+    $('cc-paid').textContent=usd(B+s.interest);
+  }
+  $('cc-result').classList.add('show');
+});
+})();
+</script>
+<script>
+/* v2: recalculate as you type — clicks the card's own Calculate button */
+(function(){document.querySelectorAll('.card').forEach(function(c){var b=c.querySelector('button.go,button.btn');if(!b)return;
+var run=function(){b.click();};c.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',run);i.addEventListener('change',run);});});
+var f=document.querySelector('.card.tool button.go,.card.tool button.btn');if(f){var y=window.scrollY;f.click();window.scrollTo(0,y);}})();
+</script>
+
+</body>
+</html>
