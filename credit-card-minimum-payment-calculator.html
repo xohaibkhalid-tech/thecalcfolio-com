@@ -70,11 +70,16 @@ document.addEventListener('click', function(e){
     <select id="mp-method">
       <option value="pi" selected>% of balance + that month's interest</option>
       <option value="p">% of balance only</option>
+      <option value="fixed">Fixed $___ every month</option>
     </select>
     <label for="mp-pct">Minimum payment percentage (%)</label>
     <input type="number" id="mp-pct" value="1" min="0" step="any" inputmode="decimal">
     <label for="mp-floor">Minimum payment floor ($)</label>
     <input type="number" id="mp-floor" value="25" min="0" step="any" inputmode="decimal">
+    <label for="mp-fixamt">Fixed monthly payment ($) — only used with the fixed-dollar rule</label>
+    <input type="number" id="mp-fixamt" value="25" min="1" step="any" inputmode="decimal">
+    <label for="mp-extra">Extra $ per month (on top of the minimum)</label>
+    <input type="number" id="mp-extra" value="50" min="0" step="any" inputmode="decimal">
     <label for="mp-fixed">Compare with a fixed monthly payment of ($)</label>
     <input type="number" id="mp-fixed" value="200" min="1" step="any" inputmode="decimal">
     <button class="go" id="mp-btn">Calculate →</button>
@@ -82,8 +87,10 @@ document.addEventListener('click', function(e){
     <div class="result" id="mp-result" aria-live="polite">
       <div style="font-size:.85rem;color:#a9bccd;">Your first minimum payment</div>
       <div class="big" id="mp-first">–</div>
+      <div class="warn" id="mp-warn" role="alert" style="display:none;"></div>
       <p>Paying only the minimum, you're debt-free in: <span class="keep" id="mp-time">–</span></p>
       <p>Total interest at minimum payments: <span class="keep" id="mp-int">–</span></p>
+      <p id="mp-extra-line" style="display:none;">With an extra <span class="keep" id="mp-extra-amt">–</span> a month: debt-free in <span class="keep" id="mp-extra-time">–</span>, total interest <span class="keep" id="mp-extra-int">–</span> — that saves <span class="keep" id="mp-extra-save">–</span> in interest.</p>
       <p>Pay this monthly to clear it in 3 years: <span class="keep" id="mp-36">–</span></p>
     </div>
   </div>
@@ -98,6 +105,31 @@ document.addEventListener('click', function(e){
     <p class="note" id="mp-note"></p>
   </div>
 
+  <div class="card" id="mp-sched-card" style="display:none;">
+    <h2>Your first 12 months, month by month</h2>
+    <p id="mp-y1"></p>
+    <table class="fees">
+      <thead><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance left</th></tr></thead>
+      <tbody id="mp-sched"></tbody>
+    </table>
+    <p class="note">Each month’s interest is the balance times the APR divided by 12. What’s left of the payment after interest is what actually shrinks the balance. No new purchases, fees or rate changes are included.</p>
+  </div>
+
+  <div class="card">
+    <h2>Same card, four different rules</h2>
+    <p>One card — a $5,000 balance at 22% APR, $25 floor where a percentage rule applies. Only the minimum-payment rule changes:</p>
+    <table class="fees">
+      <thead><tr><th>Minimum rule</th><th>First payment</th><th>Time to pay off</th><th>Total interest</th></tr></thead>
+      <tbody>
+      <tr><td>2% of the balance</td><td>$100.00</td><td>968 months (80 yrs 8 mo)</td><td>$43,419</td></tr>
+      <tr><td>3% of the balance</td><td>$150.00</td><td>205 months (17 yrs 1 mo)</td><td>$7,014</td></tr>
+      <tr><td>1% of the balance + interest</td><td>$141.67</td><td>230 months (19 yrs 2 mo)</td><td>$8,100</td></tr>
+      <tr><td>Fixed $25 a month</td><td>$25.00</td><td>Never pays off</td><td>Keeps growing</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Figures come from the same month-by-month simulation the calculator above runs. A fixed $25 payment covers only part of the $91.67 first-month interest, so the balance grows by about $67 a month. The jump from a 2% rule to a 3% rule is the big one: the same card is cleared in 17 years instead of 81.</p>
+  </div>
+
   <div class="card">
     <div class="answer">
     <p><strong>Paying only the minimum on a $5,000 card at 24% APR (1% of the balance + interest, $25 floor) takes about 19 years and costs roughly $8,900 in interest. A fixed $200 a month clears the same card in 3 years for about $2,000 in interest.</strong></p>
@@ -105,11 +137,37 @@ document.addEventListener('click', function(e){
   </div>
 
   <div class="card">
+    <h2>Worked example: month 1 on a $5,000 card at 22% APR</h2>
+    <p>Take a $5,000 balance at 22% APR on a card whose minimum is 2% of the balance. Here is exactly what happens in the first month:</p>
+    <ol>
+    <li><strong>Interest for the month:</strong> $5,000 × 22% ÷ 12 = <strong>$91.67</strong>.</li>
+    <li><strong>Minimum payment:</strong> 2% × $5,000 = <strong>$100.00</strong> — above the card’s $25 floor, so the floor doesn’t apply.</li>
+    <li><strong>What goes to the balance:</strong> $100.00 − $91.67 = <strong>$8.33</strong>.</li>
+    <li><strong>New balance:</strong> $5,000.00 − $8.33 = <strong>$4,991.67</strong>.</li>
+    </ol>
+    <p>Only $8.33 of that first $100 payment touches what you owe. Month 2 runs the same way on the slightly smaller balance, and the payment shrinks a little each month — which is why this card takes 968 months (80 years 8 months) to clear at the minimum, at a total interest cost of about $43,419.</p>
+    <h3>What the percentage does to the same card</h3>
+    <p>Same $5,000 balance at 22% APR, $25 floor — only the minimum percentage changes:</p>
+    <table class="fees">
+      <thead><tr><th>Minimum</th><th>First payment</th><th>Time to pay off</th><th>Total interest</th></tr></thead>
+      <tbody>
+      <tr><td>1% of balance</td><td>$50.00</td><td>Never pays off</td><td>Keeps growing</td></tr>
+      <tr><td>2% of balance</td><td>$100.00</td><td>80 yrs 8 mo</td><td>$43,419</td></tr>
+      <tr><td>3% of balance</td><td>$150.00</td><td>17 yrs 1 mo</td><td>$7,014</td></tr>
+      <tr><td>5% of balance</td><td>$250.00</td><td>8 yrs 1 mo</td><td>$2,734</td></tr>
+      <tr><td>10% of balance</td><td>$500.00</td><td>3 yrs 11 mo</td><td>$1,095</td></tr>
+      </tbody>
+    </table>
+    <p class="note">At 1%, the $50 minimum is smaller than the $91.67 monthly interest, so the balance grows every month and the card is never paid off. Every step up in percentage cuts the payoff time sharply because more of each payment reaches the balance.</p>
+  </div>
+
+  <div class="card">
     <h2>How card issuers set your minimum payment</h2>
-    <p>Your cardholder agreement spells out the exact formula. Most US cards use one of two patterns:</p>
+    <p>Your cardholder agreement spells out the exact formula. Most US cards use one of three patterns:</p>
     <ul>
     <li><strong>A percentage plus interest:</strong> often 1% of the balance plus that month's interest (and any fees). This guarantees a little principal gets paid every month.</li>
     <li><strong>A flat percentage:</strong> often 2% to 3% of the balance, interest included.</li>
+    <li><strong>A fixed dollar amount:</strong> the same dollar figure every month — common on store cards — until the balance drops below it. The catch: if that fixed amount is smaller than the month's interest, the balance grows instead of shrinking.</li>
     </ul>
     <p>Either way there's a <strong>floor</strong>, commonly $25 to $40 — if the formula comes out lower, you pay the floor (or the full balance, if it's smaller). Because the percentage shrinks as the balance shrinks, the minimum payment falls every month. That's exactly why minimum-only payoff takes so long.</p>
     <p>Want to see how the interest part is worked out? Our <a href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">guide to calculating credit card interest</a> shows the daily-balance method step by step.</p>
@@ -135,6 +193,16 @@ document.addEventListener('click', function(e){
     <p>US card statements must include a minimum payment warning: how long payoff takes at the minimum, and the monthly payment that would clear the balance in about 3 years. The calculator above shows both numbers for your own balance.</p>
     <h3>Does paying more than the minimum help my credit score?</h3>
     <p>Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history.</p>
+    <h3>How do I calculate my minimum payment by hand?</h3>
+    <p>Work out the month’s interest first: balance × APR ÷ 12. Then work out the percentage part: balance × your card’s minimum percentage. If your card uses the “percentage plus interest” formula, add the two together; if it uses a flat percentage, the percentage figure is the payment. Finally, if the result is below your card’s floor (often $25 to $40), the floor is what you pay — or the full balance, if that’s smaller. Example: $5,000 at 22% APR on a 2% card is $91.67 interest and a $100 payment, so the minimum is $100.</p>
+    <h3>What is the difference between the statement balance and the current balance?</h3>
+    <p>The statement balance is what you owed when the billing cycle closed — that’s the figure your minimum payment is worked out from, and paying it in full by the due date avoids interest on purchases. The current balance is what you owe right now, including charges made since the statement was issued. Your minimum is based on the statement balance, not the current one.</p>
+    <h3>Why is my statement minimum higher than the calculator’s?</h3>
+    <p>Most often because the statement adds things the calculator leaves out: fees, interest already charged, a past-due amount from a missed payment, or a promotional balance on different terms. Your issuer may also use a higher percentage or floor than the ones you typed in, or work out interest daily rather than monthly. Check the minimum-payment section of your statement — it usually breaks the figure down.</p>
+    <h3>What happens if the minimum is less than the monthly interest?</h3>
+    <p>The unpaid interest is added to the balance, so you owe more after paying than before — even though you paid on time. The card is never paid off that way, and the balance keeps growing month after month. The only fix is to pay more than the monthly interest every month: the calculator above flags this case and shows how much an extra amount, or a fixed payment, changes the outcome.</p>
+    <h3>What if the fixed minimum is more than my balance?</h3>
+    <p>Then you pay the balance in full, not the fixed amount — you never pay more than you owe. That’s also how the calculator treats it: once the remaining balance plus that month’s interest drops below the minimum, the final payment is just what’s left, and the card is cleared.</p>
     <h3>Is this financial advice?</h3>
     <p>No. This page does the math only. Your issuer's formula, fees and interest method may differ — check your statement and cardholder agreement.</p>
   </div>
@@ -185,27 +253,57 @@ function simFixed(B,apr,pay){
 }
 function pmt(B,apr,n){var r=apr/1200;return r===0?B/n:B*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
 $('mp-btn').addEventListener('click',function(){
-  var B=num('mp-bal'),A=num('mp-apr'),meth=$('mp-method').value,pct=num('mp-pct'),fl=num('mp-floor'),F=num('mp-fixed'),err=$('mp-err');
-  var fail=function(m){err.textContent=m;$('mp-result').classList.remove('show');$('mp-cmp-card').style.display='none';};
+  var B=num('mp-bal'),A=num('mp-apr'),meth=$('mp-method').value,pct=num('mp-pct'),fl=num('mp-floor'),fx=num('mp-fixamt'),ex=num('mp-extra'),F=num('mp-fixed'),err=$('mp-err');
+  var fail=function(m){err.textContent=m;$('mp-result').classList.remove('show');$('mp-cmp-card').style.display='none';$('mp-sched-card').style.display='none';$('mp-warn').style.display='none';$('mp-extra-line').style.display='none';};
   err.textContent='';
   if(!(B>0))return fail('Enter a balance greater than 0.');
   if(!(A>=0))return fail('APR cannot be negative.');
-  if(!(pct>=0)||!(fl>=0))return fail('Percentage and floor cannot be negative.');
-  if(!(pct>0)&&!(fl>0))return fail('Enter a minimum payment percentage or a floor above 0.');
-  var mn=simMin(B,A,meth,pct,fl),p36=pmt(B,A,36);
+  if(!(pct>=0)||!(fl>=0)||!(ex>=0))return fail('Percentage, floor and extra payment cannot be negative.');
+  if(meth==='fixed'){if(!(fx>0))return fail('Enter a fixed monthly payment above 0.');}
+  else if(!(pct>0)&&!(fl>0))return fail('Enter a minimum payment percentage or a floor above 0.');
+  var mn=sim(B,A,meth,pct,fl,fx,0),p36=pmt(B,A,36);
+  var plan=(ex>0)?sim(B,A,meth,pct,fl,fx,ex):mn;
   $('mp-first').textContent=usd(mn.first)+' / month';
   $('mp-time').textContent=mn.capped?'more than 100 years':mn.never?'never — the minimum doesn’t cover the interest':months(mn.months);
   $('mp-int').textContent=mn.capped?'over '+usd(mn.interest):mn.never?'keeps growing':usd(mn.interest);
   $('mp-36').textContent=usd(Math.ceil(p36))+' / month';
+  var warn=$('mp-warn');
+  if(mn.never){
+    var i1=B*A/1200;
+    warn.innerHTML='<strong>Watch out — this minimum doesn’t cover the interest.</strong> The first month’s interest alone is '+usd2(i1)+', but the minimum is only '+usd2(mn.first)+', so the balance grows by about '+usd2(i1-mn.first)+' every month instead of shrinking. Paying only this minimum never clears the card. Try a fixed monthly payment below, or add an extra amount each month so every payment beats the interest.';
+    warn.style.display='block';
+  } else {warn.style.display='none';warn.innerHTML='';}
+  var exLine=$('mp-extra-line');
+  if(ex>0&&!plan.never&&!plan.capped){
+    $('mp-extra-amt').textContent=usd(ex);
+    $('mp-extra-time').textContent=months(plan.months);
+    $('mp-extra-int').textContent=usd(plan.interest);
+    $('mp-extra-save').textContent=mn.never?'—':usd(Math.max(mn.interest-plan.interest,0));
+    exLine.style.display='block';
+  } else {exLine.style.display='none';}
   $('mp-result').classList.add('show');
   var rows='<tr><td>Minimum only</td><td>'+usd(mn.first)+' falling</td><td>'+(mn.capped?'100+ yrs':mn.never?'Never':months(mn.months))+'</td><td>'+(mn.capped?'Over '+usd(mn.interest):mn.never?'Keeps growing':usd(mn.interest))+'</td></tr>';
+  if(ex>0){
+    rows+='<tr><td>Minimum + '+usd(ex)+' extra</td><td>'+usd(plan.first+ex)+' falling</td><td>'+(plan.capped?'100+ yrs':plan.never?'Never':months(plan.months))+'</td><td>'+(plan.capped?'Over '+usd(plan.interest):plan.never?'Keeps growing':usd(plan.interest))+'</td></tr>';
+  }
   var note='';
-  if(F>0){var fx=simFixed(B,A,F);rows+='<tr><td>Fixed payment</td><td>'+usd(F)+'</td><td>'+(fx.never?'Never':months(fx.months))+'</td><td>'+(fx.never?'Keeps growing':usd(fx.interest))+'</td></tr>';
-    if(fx.never)note='Your fixed payment of '+usd(F)+' is less than the monthly interest, so the balance never shrinks.';
-    else if(!mn.never&&mn.interest>fx.interest)note='Paying '+usd(F)+' a month instead of the minimum saves '+usd(mn.interest-fx.interest)+' in interest and '+months(Math.max(mn.months-fx.months,0))+' of payments.';}
+  if(F>0){var fxr=simFixed(B,A,F);rows+='<tr><td>Fixed payment</td><td>'+usd(F)+'</td><td>'+(fxr.never?'Never':months(fxr.months))+'</td><td>'+(fxr.never?'Keeps growing':usd(fxr.interest))+'</td></tr>';
+    if(fxr.never)note='Your fixed payment of '+usd(F)+' is less than the monthly interest, so the balance never shrinks.';
+    else if(!mn.never&&mn.interest>fxr.interest)note='Paying '+usd(F)+' a month instead of the minimum saves '+usd(mn.interest-fxr.interest)+' in interest and '+months(Math.max(mn.months-fxr.months,0))+' of payments.';}
+  if(!note&&ex>0&&!plan.never&&!mn.never&&mn.interest>plan.interest)note='Adding '+usd(ex)+' a month on top of the minimum saves '+usd(mn.interest-plan.interest)+' in interest and '+months(Math.max(mn.months-plan.months,0))+' of payments.';
+  if(!note&&ex>0&&mn.never&&!plan.never)note='Adding '+usd(ex)+' a month turns a minimum that never pays the card off into payoff in '+months(plan.months)+'.';
   var t3=simFixed(B,A,Math.ceil(p36));
   rows+='<tr><td>3-year plan</td><td>'+usd(Math.ceil(p36))+'</td><td>'+months(t3.months)+'</td><td>'+usd(t3.interest)+'</td></tr>';
   $('mp-cmp').innerHTML=rows;$('mp-note').textContent=note;$('mp-cmp-card').style.display='block';
+  var srows='',s=plan.sched;
+  for(var k=0;k<s.length;k++){srows+='<tr><td>'+s[k].m+'</td><td>'+usd2(s[k].pay)+'</td><td>'+usd2(s[k].int)+'</td><td>'+usd2(s[k].prin)+'</td><td>'+usd2(Math.max(s[k].bal,0))+'</td></tr>';}
+  $('mp-sched').innerHTML=srows;
+  var y1=$('mp-y1');
+  if(plan.never){y1.textContent='After 12 months you’ve paid '+usd(plan.paid12)+', but '+usd(plan.int12)+' of it was interest — and you still owe '+usd(plan.bal12)+', more than you started with. That’s the trap: the balance grows while you keep paying.';}
+  else if(s.length<12){y1.textContent='This balance is cleared before month 12, so the table ends early — you’ve paid '+usd(plan.paid12)+' in total, '+usd(plan.int12)+' of it interest.';}
+  else{y1.textContent='After 12 months you’ve paid '+usd(plan.paid12)+', of which '+usd(plan.int12)+' was interest, and you still owe '+usd(plan.bal12)+'. Only '+usd(plan.paid12-plan.int12)+' of the year’s payments actually cut the balance.';}
+  if(ex>0)y1.textContent+=' (Your extra '+usd(ex)+' a month is included above.)';
+  $('mp-sched-card').style.display='block';
 });
 })();
 </script>
