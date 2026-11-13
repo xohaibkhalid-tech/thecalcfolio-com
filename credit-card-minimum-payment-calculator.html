@@ -225,26 +225,37 @@ document.addEventListener('click', function(e){
 </footer>
 <!--/v2:footer-->
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Credit Card Minimum Payment Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "url": "https://thecalcfolio.com/credit-card-minimum-payment-calculator.html"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a credit card minimum payment calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Most cards use either a percentage of your balance plus that month's interest (often 1% + interest), or a flat percentage of the balance (often 2% to 3%). If the result is below a set floor, usually $25 to $40, you pay the floor instead. Your card agreement lists the exact formula."}}, {"@type": "Question", "name": "What happens if I only pay the minimum?", "acceptedAnswer": {"@type": "Answer", "text": "You avoid late fees, but most of each payment goes to interest. The minimum shrinks as your balance shrinks, so payoff can take many years and cost thousands in interest on a mid-size balance."}}, {"@type": "Question", "name": "Why does my statement show a 3-year payment?", "acceptedAnswer": {"@type": "Answer", "text": "US card statements must include a minimum payment warning: how long payoff takes at the minimum, and the monthly payment that would clear the balance in about 3 years. The calculator above shows both numbers for your own balance."}}, {"@type": "Question", "name": "Does paying more than the minimum help my credit score?", "acceptedAnswer": {"@type": "Answer", "text": "Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history."}}, {"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page does the math only. Your issuer's formula, fees and interest method may differ — check your statement and cardholder agreement."}}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Credit Card Minimum Payment Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "url": "https://thecalcfolio.com/credit-card-minimum-payment-calculator.html"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a credit card minimum payment calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Most cards use either a percentage of your balance plus that month's interest (often 1% + interest), or a flat percentage of the balance (often 2% to 3%). If the result is below a set floor, usually $25 to $40, you pay the floor instead. Your card agreement lists the exact formula."}}, {"@type": "Question", "name": "What happens if I only pay the minimum?", "acceptedAnswer": {"@type": "Answer", "text": "You avoid late fees, but most of each payment goes to interest. The minimum shrinks as your balance shrinks, so payoff can take many years and cost thousands in interest on a mid-size balance."}}, {"@type": "Question", "name": "Why does my statement show a 3-year payment?", "acceptedAnswer": {"@type": "Answer", "text": "US card statements must include a minimum payment warning: how long payoff takes at the minimum, and the monthly payment that would clear the balance in about 3 years. The calculator above shows both numbers for your own balance."}}, {"@type": "Question", "name": "Does paying more than the minimum help my credit score?", "acceptedAnswer": {"@type": "Answer", "text": "Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history."}}, {"@type": "Question", "name": "How do I calculate my minimum payment by hand?", "acceptedAnswer": {"@type": "Answer", "text": "Work out the month's interest first: balance × APR ÷ 12. Then work out the percentage part: balance × your card's minimum percentage. If your card uses the “percentage plus interest” formula, add the two together; if it uses a flat percentage, the percentage figure is the payment. Finally, if the result is below your card's floor (often $25 to $40), the floor is what you pay — or the full balance, if that's smaller. Example: $5,000 at 22% APR on a 2% card is $91.67 interest and a $100 payment, so the minimum is $100."}}, {"@type": "Question", "name": "What is the difference between the statement balance and the current balance?", "acceptedAnswer": {"@type": "Answer", "text": "The statement balance is what you owed when the billing cycle closed — that's the figure your minimum payment is worked out from, and paying it in full by the due date avoids interest on purchases. The current balance is what you owe right now, including charges made since the statement was issued. Your minimum is based on the statement balance, not the current one."}}, {"@type": "Question", "name": "Why is my statement minimum higher than the calculator’s?", "acceptedAnswer": {"@type": "Answer", "text": "Most often because the statement adds things the calculator leaves out: fees, interest already charged, a past-due amount from a missed payment, or a promotional balance on different terms. Your issuer may also use a higher percentage or floor than the ones you typed in, or work out interest daily rather than monthly. Check the minimum-payment section of your statement — it usually breaks the figure down."}}, {"@type": "Question", "name": "What happens if the minimum is less than the monthly interest?", "acceptedAnswer": {"@type": "Answer", "text": "The unpaid interest is added to the balance, so you owe more after paying than before — even though you paid on time. The card is never paid off that way, and the balance keeps growing month after month. The only fix is to pay more than the monthly interest every month: the calculator above flags this case and shows how much an extra amount, or a fixed payment, changes the outcome."}}, {"@type": "Question", "name": "What if the fixed minimum is more than my balance?", "acceptedAnswer": {"@type": "Answer", "text": "Then you pay the balance in full, not the fixed amount — you never pay more than you owe. That's also how the calculator treats it: once the remaining balance plus that month's interest drops below the minimum, the final payment is just what's left, and the card is cleared."}}, {"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page does the math only. Your issuer's formula, fees and interest method may differ — check your statement and cardholder agreement."}}]}]}
 </script>
 
 <script>
 (function(){
 function $(id){return document.getElementById(id);}
 function usd(x){return '$'+Math.round(x).toLocaleString('en-US');}
+function usd2(x){return '$'+x.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function num(id){return parseFloat($(id).value);}
 function months(m){if(m<12)return m+' mo';var y=Math.floor(m/12),r=m%12;return y+' yr'+(y>1?'s':'')+(r?' '+r+' mo':'');}
 var CAP=1200;
-function minPay(bal,i,meth,pct,floor){
-  var m=meth==='pi'?bal*pct/100+i:(bal+i)*pct/100;
+function rulePay(bal,i,meth,pct,floor,fx){
+  var m;
+  if(meth==='pi')m=bal*pct/100+i;
+  else if(meth==='fixed')m=fx;
+  else m=bal*pct/100;
+  if(meth==='fixed')return Math.min(m,bal+i);
   return Math.min(Math.max(m,floor),bal+i);
 }
-function simMin(B,apr,meth,pct,floor){
-  var bal=B,tot=0,n=0,first=null;
-  while(bal>0.005&&n<CAP){n++;var i=bal*apr/1200,p=minPay(bal,i,meth,pct,floor);if(first===null)first=p;
-    if(p<=i&&p<bal+i)return {never:true,first:first,months:n,interest:tot};
-    bal+=i;tot+=i;bal-=p;}
-  return {never:bal>0.005,capped:bal>0.005,first:first,months:n,interest:tot};
+function sim(B,apr,meth,pct,floor,fx,extra){
+  var bal=B,tot=0,n=0,first=null,sched=[],paid12=0,int12=0,bal12=null,never=false;
+  while(bal>0.005&&n<CAP){
+    n++;var i=bal*apr/1200,m=rulePay(bal,i,meth,pct,floor,fx);
+    if(first===null)first=m;
+    var p=Math.min(m+extra,bal+i);
+    if(p<=i&&p<bal+i)never=true;
+    bal+=i;tot+=i;bal-=p;
+    if(n<=12){sched.push({m:n,pay:p,int:i,prin:p-i,bal:bal});paid12+=p;int12+=i;bal12=bal;}
+    if(never&&n>=12)break;
+  }
+  return {never:never,capped:!never&&bal>0.005,first:first,months:n,interest:tot,sched:sched,paid12:paid12,int12:int12,bal12:bal12};
 }
 function simFixed(B,apr,pay){
   var bal=B,tot=0,n=0;
