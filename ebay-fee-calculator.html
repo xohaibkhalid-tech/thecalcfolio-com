@@ -66,16 +66,48 @@ document.addEventListener('click', function(e){
 
 <div class="card tool">
   <h2>Calculate your fees</h2>
-  <label for="amount">Sale amount — item price + shipping you charge (USD)</label>
-  <div class="amount-wrap"><span>$</span><input type="number" id="amount" min="0" step="0.01" value="100" inputmode="decimal"></div>
+  <div class="two">
+    <div>
+      <label for="item">Item price (USD)</label>
+      <div class="amount-wrap"><span>$</span><input type="number" id="item" min="0" step="0.01" value="100" inputmode="decimal"></div>
+    </div>
+    <div>
+      <label for="ship">Shipping you charge (USD)</label>
+      <div class="amount-wrap"><span>$</span><input type="number" id="ship" min="0" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div>
+      <label for="tax">Buyer sales-tax rate (%)</label>
+      <div class="amount-wrap"><span>%</span><input type="number" id="tax" min="0" max="100" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+    <div>
+      <label for="ad">Promoted Listings ad rate (%)</label>
+      <div class="amount-wrap"><span>%</span><input type="number" id="ad" min="0" max="100" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+  </div>
 
   <label for="cat">Category</label>
   <select id="cat">
     <option value="most" selected>Most categories — 13.6%</option>
     <option value="books">Books, movies &amp; music — 15.3%</option>
     <option value="cards">Trading cards &amp; collectibles — 13.25%</option>
+    <option value="coins">Coins &amp; paper money (excl. bullion) — 13.25%</option>
+    <option value="bullion">Bullion — 13.6%</option>
+    <option value="jewelry">Jewelry (excl. watches) — 15%</option>
+    <option value="watches">Watches, parts &amp; accessories — 15%</option>
+    <option value="handbags">Women's bags &amp; handbags — 15%</option>
+    <option value="sneakers">Athletic shoes — 8% at $150+</option>
     <option value="guitars">Guitars &amp; basses — 6.7%</option>
-    <option value="sneakers">Athletic shoes ($150+) — 8%, no per-order fee</option>
+    <option value="heavy">Heavy equipment, printing presses, food trucks — 3%</option>
+    <option value="nfts">NFTs — 5%</option>
+    <option value="electronics">Cameras, cell phones, computers &amp; electronics — 13.6%</option>
+    <option value="computers">Desktops, laptops, tablets &amp; consoles — 13.6%</option>
+    <option value="accessories">Electronics &amp; video game accessories — 13.6%</option>
+    <option value="stamps">Stamps — 13.6%</option>
+    <option value="motors">Motors parts &amp; accessories — 13.6%</option>
+    <option value="instruments">Musical instruments &amp; gear — 13.6%</option>
     <option value="custom">Custom rate…</option>
   </select>
   <div id="customRateWrap">
@@ -83,9 +115,40 @@ document.addEventListener('click', function(e){
     <input type="number" id="crate" min="0" max="100" step="0.01" value="13.6" inputmode="decimal">
   </div>
 
+  <label for="store">eBay Store</label>
+  <select id="store">
+    <option value="none" selected>No Store</option>
+    <option value="starter">Starter Store — same rates as No Store</option>
+    <option value="basic">Basic Store ($21.95/mo)</option>
+    <option value="premium">Premium Store ($59.95/mo)</option>
+    <option value="anchor">Anchor Store ($299.95/mo)</option>
+    <option value="enterprise">Enterprise Store ($2,999.95/mo)</option>
+  </select>
+  <p class="formula">Basic and above pay lower rates in most categories (12.7% up to $2,500). Starter pays No-Store rates.</p>
+
+  <label class="check"><input type="checkbox" id="trp"> Top Rated Plus listing — 10% off the final value fee</label>
+  <label class="check"><input type="checkbox" id="intl"> International buyer — +1.65% international fee</label>
+
+  <div class="two">
+    <div>
+      <label for="cost">Item cost — what you paid (USD)</label>
+      <div class="amount-wrap"><span>$</span><input type="number" id="cost" min="0" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+    <div>
+      <label for="aship">Actual shipping cost — your label (USD)</label>
+      <div class="amount-wrap"><span>$</span><input type="number" id="aship" min="0" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+  </div>
+  <p class="formula">Item cost and your shipping label are only used for the profit calculation — eBay never sees them.</p>
+
   <div class="results">
     <div class="stat bad"><div class="k">Final value fee</div><div class="v" id="r-fvf">$0.00</div></div>
+    <div class="stat bad" id="r-ad-row"><div class="k">Promoted Listings ad fee</div><div class="v" id="r-ad">$0.00</div></div>
+    <div class="stat bad" id="r-intl-row"><div class="k">International fee</div><div class="v" id="r-intl">$0.00</div></div>
     <div class="stat bad"><div class="k">Per-order fee</div><div class="v" id="r-po">$0.00</div></div>
+    <div class="stat bad"><div class="k">Total eBay fees</div><div class="v" id="r-total">$0.00</div></div>
+    <div class="stat"><div class="k">Net profit</div><div class="v" id="r-profit">$0.00</div></div>
+    <div class="stat"><div class="k">Profit margin</div><div class="v" id="r-margin">0%</div></div>
     <div class="stat"><div class="k">Effective rate</div><div class="v" id="r-rate">0%</div></div>
     <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
   </div>
@@ -103,7 +166,7 @@ document.addEventListener('click', function(e){
     <div class="stat"><div class="k">List it for</div><div class="v" id="r-charge">$0.00</div></div>
     <div class="stat bad"><div class="k">eBay will take</div><div class="v" id="r-rfee">$0.00</div></div>
   </div>
-  <p class="formula">Uses the same category selected above. Assumes the standard under-$7,500 tier.</p>
+  <p class="formula">Uses the category and Store selection above, at the first-tier rate. Promoted Listings and international fees are not included.</p>
 </div>
 
 <div class="card">
@@ -183,57 +246,134 @@ document.addEventListener('click', function(e){
 
 <script>
 const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
-function getRate(){
-  const v=document.getElementById('cat').value;
-  const preset={most:0.136,books:0.153,cards:0.1325,guitars:0.067,sneakers:0.08};
-  if(v==='custom') return (parseFloat(document.getElementById('crate').value)||0)/100;
-  return preset[v];
+const r2 = x => Math.round((x + 1e-9) * 100) / 100; /* +1e-9 corrects binary float error at exact half-cent boundaries (e.g. $1,054.145) */
+/* Final value fee tiers: [cap, rate] — fee = sum of (min(base,cap)-prevCap)*rate.
+   Rates from eBay's Selling fees page (id 4822) and Store selling fees page
+   (id 4809), verified Nov 14, 2026. No-Store tiers use the $7,500 cap unless the
+   category has its own; Store tiers (Basic+) use the $2,500 cap. */
+const CATS = {
+  most:        {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.127],[Infinity,0.0235]]},
+  books:       {noStore:[[7500,0.153],[Infinity,0.0235]], store:[[2500,0.153],[Infinity,0.0235]]},
+  cards:       {noStore:[[7500,0.1325],[Infinity,0.0235]], store:[[2500,0.1235],[Infinity,0.0235]]},
+  coins:       {noStore:[[7500,0.1325],[Infinity,0.0235]], store:[[4000,0.09],[Infinity,0.0235]]},
+  bullion:     {noStore:[[7500,0.136],[Infinity,0.07]], store:[[1500,0.075],[10000,0.05],[Infinity,0.045]]},
+  jewelry:     {noStore:[[5000,0.15],[Infinity,0.09]], store:[[5000,0.13],[Infinity,0.07]]},
+  watches:     {noStore:[[1000,0.15],[7500,0.065],[Infinity,0.03]], store:[[1000,0.125],[5000,0.04],[Infinity,0.03]]},
+  handbags:    {noStore:[[2000,0.15],[Infinity,0.09]], store:[[2000,0.13],[Infinity,0.07]]},
+  guitars:     {noStore:[[7500,0.067],[Infinity,0.0235]], store:[[2500,0.067],[Infinity,0.0235]]},
+  heavy:       {noStore:[[15000,0.03],[Infinity,0.005]], store:[[15000,0.025],[Infinity,0.005]]},
+  nfts:        {noStore:[[Infinity,0.05]], store:[[Infinity,0.05]]},
+  electronics: {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.0935],[Infinity,0.0235]]},
+  computers:   {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.0735],[Infinity,0.0235]]},
+  accessories: {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.127],[Infinity,0.0235]]},
+  stamps:      {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.097],[Infinity,0.0235]]},
+  motors:      {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[1000,0.115],[Infinity,0.0235]]},
+  instruments: {noStore:[[7500,0.136],[Infinity,0.0235]], store:[[2500,0.1035],[Infinity,0.0235]]}
+};
+const STORE_TIERS = ['basic','premium','anchor','enterprise'];
+function isStore(){ return STORE_TIERS.includes(document.getElementById('store').value); }
+function tieredFee(base, tiers){
+  let fee=0, prev=0;
+  for(const [cap,rate] of tiers){
+    if(base<=prev) break;
+    fee += (Math.min(base,cap)-prev)*rate;
+    prev=cap;
+  }
+  return fee;
 }
-function perOrder(amt,cat){
-  if(cat==='sneakers'&&amt>=150) return 0;
-  return amt>10?0.40:0.30;
+function fvfCalc(base, cat){
+  const store=isStore();
+  let fee;
+  if(cat==='sneakers'){
+    const rate = base>=150 ? (store?0.07:0.08) : (store?0.127:0.136);
+    fee = base*rate;
+  } else if(cat==='custom'){
+    const rate=(parseFloat(document.getElementById('crate').value)||0)/100;
+    fee = Math.min(base,7500)*rate + Math.max(0,base-7500)*0.0235;
+  } else {
+    fee = tieredFee(base, store ? CATS[cat].store : CATS[cat].noStore);
+  }
+  if(document.getElementById('trp').checked) fee *= 0.9; /* Top Rated Plus: 10% off the percentage portion only, never the per-order fee */
+  return r2(fee);
 }
-function fvf(amt,rate){
-  return Math.min(amt,7500)*rate + Math.max(0,amt-7500)*0.0235;
+function headlineRate(cat){
+  if(cat==='custom') return (parseFloat(document.getElementById('crate').value)||0)/100;
+  if(cat==='sneakers') return isStore()?0.127:0.136;
+  const t = isStore() ? CATS[cat].store : CATS[cat].noStore;
+  return t[0][1];
+}
+function perOrder(base,cat){
+  if(cat==='sneakers'&&base>=150) return 0;
+  return base>10?0.40:0.30;
 }
 function reverseCalc(want,catSel){
-  let rate=getRate(), effCat=catSel;
-  let po=effCat==='sneakers'?0:0.40;
+  const store=isStore();
+  let rate=headlineRate(catSel);
+  let po=catSel==='sneakers'?0:0.40;
   let gross=(want+po)/(1-rate);
-  if(effCat==='sneakers'&&gross<150){effCat='most';rate=0.136;}
-  po=perOrder(gross,effCat);
+  if(catSel==='sneakers'&&gross>=150){ rate=store?0.07:0.08; gross=(want+0)/(1-rate); }
+  po=perOrder(gross,catSel);
   gross=(want+po)/(1-rate);
-  const po2=perOrder(gross,effCat);
-  if(po2!==po){gross=(want+po2)/(1-rate);}
-  const fee=fvf(gross,rate)+perOrder(gross,effCat);
-  const note=(catSel==='sneakers'&&effCat==='most')
-    ?' The 8% sneakers rate needs a $150+ sale — standard 13.6% applied.'
+  const po2=perOrder(gross,catSel);
+  if(po2!==po){ gross=(want+po2)/(1-rate); }
+  let fee;
+  if(catSel==='sneakers'){ fee=r2(gross*rate); }
+  else if(catSel==='custom'){ const r=(parseFloat(document.getElementById('crate').value)||0)/100; fee=r2(Math.min(gross,7500)*r+Math.max(0,gross-7500)*0.0235); }
+  else { fee=r2(tieredFee(gross, store?CATS[catSel].store:CATS[catSel].noStore)); }
+  fee += perOrder(gross,catSel);
+  const note=(catSel==='sneakers'&&gross<150)
+    ?' The 8% (7% with a Store) sneakers rate needs a $150+ sale — standard rate applied.'
     :'';
   return {gross,fee,note};
 }
 function calc(){
   document.getElementById('customRateWrap').style.display =
     document.getElementById('cat').value==='custom'?'block':'none';
-  const amt=parseFloat(document.getElementById('amount').value)||0;
-  let cat=document.getElementById('cat').value;
-  let rate=getRate(), note='';
-  if(cat==='sneakers'&&amt<150&&amt>0){cat='most';rate=0.136;note=' Note: the 8% sneakers rate needs a $150+ sale — standard 13.6% applied.';}
-  const f=fvf(amt,rate), po=perOrder(amt,cat), total=f+po, net=Math.max(0,amt-total);
+  const item=parseFloat(document.getElementById('item').value)||0;
+  const ship=parseFloat(document.getElementById('ship').value)||0;
+  const taxRate=(parseFloat(document.getElementById('tax').value)||0)/100;
+  const cost=parseFloat(document.getElementById('cost').value)||0;
+  const aship=parseFloat(document.getElementById('aship').value)||0;
+  const cat=document.getElementById('cat').value;
+  const adRate=(parseFloat(document.getElementById('ad').value)||0)/100;
+  const intl=document.getElementById('intl').checked;
+  const tax=r2((item+ship)*taxRate);
+  const base=r2(item+ship+tax);
+  const revenue=r2(item+ship);
+  const f=fvfCalc(base,cat);
+  const ad=r2(adRate*base);
+  const intlFee=intl?r2(0.0165*base):0;
+  const po=perOrder(base,cat);
+  const total=r2(f+ad+intlFee+po);
+  const payout=r2(Math.max(0,revenue-total));
+  const profit=r2(payout-cost-aship);
+  const margin=revenue>0?(profit/revenue*100).toFixed(1)+'%':'—';
   document.getElementById('r-fvf').textContent=fmt.format(f);
+  document.getElementById('r-ad').textContent=fmt.format(ad);
+  document.getElementById('r-ad-row').style.display=ad>0?'flex':'none';
+  document.getElementById('r-intl').textContent=fmt.format(intlFee);
+  document.getElementById('r-intl-row').style.display=intlFee>0?'flex':'none';
   document.getElementById('r-po').textContent=fmt.format(po);
-  document.getElementById('r-net').textContent=fmt.format(net);
-  document.getElementById('r-rate').textContent=amt>0?((total/amt*100).toFixed(2)+'%'):'0%';
-  let fl=`Fee = ${fmt.format(Math.min(amt,7500))} × ${(rate*100).toFixed(2)}%`;
-  if(amt>7500) fl+=` + ${fmt.format(amt-7500)} × 2.35% (over-$7,500 tier)`;
-  fl+=` + ${fmt.format(po)} per-order fee.`+note;
+  document.getElementById('r-total').textContent=fmt.format(total);
+  document.getElementById('r-profit').textContent=fmt.format(profit);
+  document.getElementById('r-margin').textContent=margin;
+  document.getElementById('r-net').textContent=fmt.format(payout);
+  document.getElementById('r-rate').textContent=base>0?(total/base*100).toFixed(2)+'%':'0%';
+  let fl=`Fee base ${fmt.format(base)} = ${fmt.format(item)} item + ${fmt.format(ship)} shipping + ${fmt.format(tax)} tax.`;
+  fl+=` Final value fee ${fmt.format(f)}`;
+  if(document.getElementById('trp').checked) fl+=' (incl. 10% Top Rated Plus discount)';
+  fl+=` + ${fmt.format(po)} per-order fee.`;
+  if(ad>0) fl+=` + ${fmt.format(ad)} Promoted Listings ad fee.`;
+  if(intlFee>0) fl+=` + ${fmt.format(intlFee)} international fee.`;
+  if(cat==='sneakers'&&base<150) fl+=' Note: the 8% (7% with a Store) sneakers rate needs a $150+ sale — standard rate applied.';
   document.getElementById('r-formula').textContent=fl;
   const want=parseFloat(document.getElementById('want').value)||0;
   const r=reverseCalc(want,document.getElementById('cat').value);
   document.getElementById('r-charge').textContent=fmt.format(r.gross);
   document.getElementById('r-rfee').textContent=fmt.format(r.fee);
 }
-['amount','want','crate'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
-document.getElementById('cat').addEventListener('change',calc);
+['item','ship','tax','ad','cost','aship','want','crate'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+['cat','store','trp','intl'].forEach(id=>document.getElementById(id).addEventListener('change',calc));
 calc();
 </script>
 
@@ -242,11 +382,12 @@ calc();
   function money(id){return parseFloat((document.getElementById(id).textContent||'').replace(/[^0-9.]/g,''))||0;}
   var f=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
   function live(){
-    var amt=parseFloat(document.getElementById('amount').value)||0;
-    var fee=money('r-fvf')+money('r-po');
+    var item=parseFloat(document.getElementById('item').value)||0;
+    var ship=parseFloat(document.getElementById('ship').value)||0;
+    var fee=money('r-total');
     document.getElementById('live-fee').textContent=f.format(fee);
-    document.getElementById('live-amt').textContent=f.format(amt);
-    document.getElementById('live-net').textContent=f.format(Math.max(0,amt-fee));
+    document.getElementById('live-amt').textContent=f.format(item+ship);
+    document.getElementById('live-net').textContent=f.format(money('r-net'));
   }
   ['input','change'].forEach(function(t){document.querySelector('.card.tool').addEventListener(t,live);});
   live();
