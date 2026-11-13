@@ -24,13 +24,13 @@ document.addEventListener('click', function(e){
 <link rel="canonical" href="https://thecalcfolio.com/personal-loan-calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Calcfolio">
-<meta property="og:title" content="Personal Loan Calculator 2026 — EMI, Interest & Payoff">
-<meta property="og:description" content="Free personal loan calculator: enter amount, rate and tenure to see your EMI, total interest and payoff schedule. INR, USD, GBP supported. No sign-up.">
+<meta property="og:title" content="Personal Loan Calculator 2026 — Monthly Payment, Interest & Payoff">
+<meta property="og:description" content="Free personal loan calculator: enter amount, rate and term to see your monthly payment, total interest and payoff schedule. USD, INR, GBP, EUR supported. No sign-up.">
 <meta property="og:url" content="https://thecalcfolio.com/personal-loan-calculator.html">
 <meta property="og:image" content="https://thecalcfolio.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>Personal Loan Calculator 2026 — EMI, Interest & Payoff</title>
-<meta name="description" content="Free personal loan calculator: enter amount, rate and tenure to see your EMI, total interest and payoff schedule. INR, USD, GBP supported. No sign-up.">
+<title>Personal Loan Calculator 2026 — Monthly Payment, Interest & Payoff</title>
+<meta name="description" content="Free personal loan calculator: enter amount, rate and term to see your monthly payment, total interest and payoff schedule. USD, INR, GBP, EUR supported. No sign-up.">
 <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=5">
@@ -53,42 +53,42 @@ document.addEventListener('click', function(e){
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Seller Fees</a></li><li aria-current="page">Personal Loan Calculator</li></ol>
 <span class="tag">2026 US rates</span>
 <h1>Personal Loan Calculator</h1>
-<p class="lede">This personal loan calculator tells you exactly what your loan costs before you sign. Enter the amount, interest rate and tenure — and see your EMI, total interest and how the balance shrinks year by year.</p>
+<p class="lede">This personal loan calculator tells you exactly what your loan costs before you sign. Enter the amount, interest rate and term — and see your monthly payment, total interest and how the balance shrinks year by year.</p>
 </div>
 </section>
 <main id="main" class="page">
 <div class="layout">
 <div class="main">
 <div class="card tool">
-    <h2>Calculate your EMI</h2>
+    <h2>Calculate your monthly payment</h2>
     <p>Fill in the three numbers every lender gives you: how much you're borrowing, the annual interest rate, and how long you'll take to repay it. Hit calculate — no sign-up, no spam.</p>
     <label for="plc-cur">Currency</label>
     <select id="plc-cur">
-      <option value="INR" selected>Indian Rupee (₹)</option>
-      <option value="USD">US Dollar ($)</option>
+      <option value="USD" selected>US Dollar ($)</option>
+      <option value="INR">Indian Rupee (₹)</option>
       <option value="GBP">British Pound (£)</option>
       <option value="EUR">Euro (€)</option>
     </select>
     <label for="plc-amt">Loan amount</label>
-    <input type="number" id="plc-amt" value="500000" min="1" step="any">
+    <input type="number" id="plc-amt" value="10000" min="1" step="any">
     <div class="row2">
       <div>
         <label for="plc-rate">Annual interest rate (%)</label>
         <input type="number" id="plc-rate" value="11" min="0" step="any">
       </div>
       <div>
-        <label for="plc-unit">Tenure unit</label>
+        <label for="plc-unit">Term unit</label>
         <select id="plc-unit">
           <option value="years" selected>Years</option>
           <option value="months">Months</option>
         </select>
       </div>
     </div>
-    <label for="plc-term">Tenure (<span id="plc-termunit">years</span>)</label>
+    <label for="plc-term">Term (<span id="plc-termunit">years</span>)</label>
     <input type="number" id="plc-term" value="5" min="1" step="any">
-    <button class="go" id="plc-btn">Calculate EMI →</button>
+    <button class="go" id="plc-btn">Calculate payment →</button>
     <div class="result" id="plc-result">
-      <div style="font-size:.85rem;color:#a9bccd;">Monthly EMI</div>
+      <div style="font-size:.85rem;color:#a9bccd;">Monthly payment</div>
       <div class="big" id="plc-emi">–</div>
       <p>Total interest payable: <span class="keep" id="plc-tint">–</span></p>
       <p>Total amount payable: <span class="keep" id="plc-ttotal">–</span></p>
@@ -97,7 +97,7 @@ document.addEventListener('click', function(e){
 
   <div class="card" id="plc-sched-card" style="display:none;">
     <h2>Year-by-year payoff schedule</h2>
-    <p>Every EMI splits into interest (the lender's cut) and principal (your actual repayment). Early on, interest eats most of the EMI. Watch the balance fall each year:</p>
+    <p>Every monthly payment splits into interest (the lender's cut) and principal (your actual repayment). Early on, interest eats most of the payment. Watch the balance fall each year:</p>
     <table class="fees">
       <thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Balance</th></tr></thead>
       <tbody id="plc-sched"></tbody>
@@ -105,15 +105,15 @@ document.addEventListener('click', function(e){
   </div>
 
   <div class="card">
-    <h2>How the EMI math works</h2>
-    <p>Banks don't guess your EMI — they use one fixed formula. Monthly rate r = annual rate ÷ 12 ÷ 100, and n = total number of months:</p>
-    <p style="font-family:monospace;font-size:.9rem;background:#1a2f47;padding:.7rem;border-radius:8px;">EMI = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1)</p>
-    <p>If the rate is 0%, it's just P ÷ n — no interest, no complication. Try it: ₹500,000 at 11% for 5 years works out to an EMI of about ₹10,871, with total interest around ₹152,273. Want to understand the interest side in more depth? Read our <a href="how-to-calculate-loan-interest.html">guide on how to calculate loan interest</a> or play with the <a href="interest-calculator.html">interest calculator</a>.</p>
+    <h2>How the monthly payment math works</h2>
+    <p>Banks don't guess your monthly payment — they use one fixed formula. Monthly rate r = annual rate ÷ 12 ÷ 100, and n = total number of months:</p>
+    <p style="font-family:monospace;font-size:.9rem;background:#1a2f47;padding:.7rem;border-radius:8px;">Payment = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1)</p>
+    <p>If the rate is 0%, it's just P ÷ n — no interest, no complication. Try it: $10,000 at 11% for 5 years works out to a monthly payment of about $217, with total interest around $3,045. Want to understand the interest side in more depth? Read our <a href="how-to-calculate-loan-interest.html">guide on how to calculate loan interest</a> or play with the <a href="interest-calculator.html">interest calculator</a>.</p>
   </div>
 
   <div class="card">
     <h2>Comparing loan offers?</h2>
-    <p>Two offers with the same EMI can still cost very different totals — processing fees, insurance add-ons and longer tenures quietly push the price up. Run each offer through this calculator and compare the "total amount payable" line. That's the only number that matters.</p>
+    <p>Two offers with the same monthly payment can still cost very different totals — processing fees, insurance add-ons and longer terms quietly push the price up. Run each offer through this calculator and compare the "total amount payable" line. That's the only number that matters.</p>
     <p>Already have a loan and wondering if switching helps? Try the <a href="refinance-calculator.html">refinance calculator</a>. Borrowing for a car instead? The <a href="car-loan-calculator.html">car loan calculator</a> and <a href="mortgage-overpayment-calculator.html">mortgage overpayment calculator</a> cover those cases.</p>
   </div>
 
@@ -121,18 +121,18 @@ document.addEventListener('click', function(e){
     <h2>Personal loan questions, answered straight</h2>
     <h3>What is EMI?</h3>
     <p>EMI stands for Equated Monthly Instalment — the fixed amount you pay every month until the loan is cleared. It's "equated" because it never changes, even though the split between interest and principal shifts: early EMIs are mostly interest, later ones are mostly repayment.</p>
-    <h3>How is personal loan EMI calculated?</h3>
-    <p>Take the monthly interest rate (annual rate ÷ 12 ÷ 100) and the total number of months. The formula is: EMI = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1), where P is the loan amount. Plug the numbers in — or just use the calculator above and skip the algebra.</p>
-    <h3>Does a longer tenure always cost more?</h3>
-    <p>Pretty much. A longer tenure shrinks your EMI, which feels easier — but you pay interest for more months, so the total goes up. Sometimes a lot. Always compare the total amount payable, not just the EMI, before choosing a tenure.</p>
+    <h3>How is the monthly payment calculated?</h3>
+    <p>Take the monthly interest rate (annual rate ÷ 12 ÷ 100) and the total number of months. The formula is: payment = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1), where P is the loan amount. Plug the numbers in — or just use the calculator above and skip the algebra.</p>
+    <h3>Does a longer term always cost more?</h3>
+    <p>Pretty much. A longer term shrinks your monthly payment, which feels easier — but you pay interest for more months, so the total goes up. Sometimes a lot. Always compare the total amount payable, not just the monthly payment, before choosing a term.</p>
     <h3>Will prepaying my loan save money?</h3>
-    <p>Yes — if there's no prepayment penalty. Every extra payment goes straight to the principal, which cuts the interest on all future EMIs. Prepaying early in the loan saves the most, because that's when interest is at its highest. Check your loan agreement for lock-in periods or charges first.</p>
+    <p>Yes — if there's no prepayment penalty. Every extra payment goes straight to the principal, which cuts the interest on all future payments. Prepaying early in the loan saves the most, because that's when interest is at its highest. Check your loan agreement for lock-in periods or charges first.</p>
     <h3>Is this financial advice?</h3>
     <p>No. This page does math — it can't tell you whether you should take a loan, how much you can afford, or which lender to pick. For that, talk to a qualified financial advisor who knows your situation.</p>
   </div>
 
   <div class="card">
-    <p class="disc">General information only, not financial advice. EMI figures are estimates based on the reducing-balance method; your lender's actual schedule may differ slightly due to rounding, fees or rate changes. Figures update with market rates — check with your lender for final terms.</p>
+    <p class="disc">General information only, not financial advice. Payment figures are estimates based on the reducing-balance method; your lender's actual schedule may differ slightly due to rounding, fees or rate changes. Figures update with market rates — check with your lender for final terms.</p>
   </div>
 </div>
 <aside class="side" aria-label="Related">
@@ -153,8 +153,8 @@ document.addEventListener('click', function(e){
 {"@type":"WebApplication","name":"Personal Loan Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"},"url":"https://thecalcfolio.com/personal-loan-calculator.html"},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is EMI?","acceptedAnswer":{"@type":"Answer","text":"EMI stands for Equated Monthly Instalment — the fixed amount you pay every month until the loan is cleared. It stays the same every month, but the split shifts: early EMIs are mostly interest, later ones are mostly principal repayment."}},
-{"@type":"Question","name":"How is personal loan EMI calculated?","acceptedAnswer":{"@type":"Answer","text":"EMI = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of months."}},
-{"@type":"Question","name":"Does a longer tenure always cost more?","acceptedAnswer":{"@type":"Answer","text":"Pretty much. A longer tenure lowers your EMI but means paying interest for more months, so the total cost rises. Always compare the total amount payable, not just the EMI."}},
+{"@type":"Question","name":"How is the monthly payment calculated?","acceptedAnswer":{"@type":"Answer","text":"payment = P × r × (1+r)ⁿ ÷ ((1+r)ⁿ − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of months."}},
+{"@type":"Question","name":"Does a longer term always cost more?","acceptedAnswer":{"@type":"Answer","text":"Pretty much. A longer term lowers your monthly payment but means paying interest for more months, so the total cost rises. Always compare the total amount payable, not just the monthly payment."}},
 {"@type":"Question","name":"Will prepaying my loan save money?","acceptedAnswer":{"@type":"Answer","text":"Yes, if there's no prepayment penalty. Extra payments reduce the principal directly, cutting future interest. Prepaying early saves the most. Check your loan agreement for lock-in periods or charges."}},
 {"@type":"Question","name":"Is this financial advice?","acceptedAnswer":{"@type":"Answer","text":"No. This calculator does math only. For advice on whether to take a loan or which lender to choose, talk to a qualified financial advisor."}}
 ]}
