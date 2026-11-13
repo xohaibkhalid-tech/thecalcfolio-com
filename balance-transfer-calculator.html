@@ -51,7 +51,7 @@ document.addEventListener('click', function(e){
 <section class="hero">
 <div class="container">
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Calculators</a></li><li aria-current="page">Balance Transfer Calculator</li></ol>
-<span class="tag">Updated October 2026</span>
+<span class="tag">Updated November 14, 2026</span>
 <h1>Balance Transfer Calculator</h1>
 <p class="lede">Find out if moving your credit card debt to a 0% card actually saves money once the transfer fee is paid. Enter your balance, your current APR and the offer you're looking at — you get the real savings, the payoff date and the monthly payment that clears the debt before the promo ends.</p>
 </div>
@@ -106,6 +106,36 @@ document.addEventListener('click', function(e){
   </div>
 
   <div class="card">
+    <h2>Worked example: $6,000 at 24% APR</h2>
+    <p>Same deal both ways: a $6,000 balance at 24% APR, paying $300 a month. The transfer is a 3% fee ($180) with 0% for 18 months, then the go-to APR of 24%. Run it through the calculator above and you get these numbers:</p>
+    <table class="fees">
+      <thead><tr><th></th><th>Stay on the old card</th><th>Transfer to the 0% card</th></tr></thead>
+      <tbody>
+      <tr><td>Starting balance</td><td>$6,000</td><td>$6,180 ($6,000 + $180 fee)</td></tr>
+      <tr><td>Months to pay off</td><td>26</td><td>21</td></tr>
+      <tr><td>Total interest</td><td>$1,739</td><td>$30 (after the intro ends)</td></tr>
+      <tr><td>Total paid</td><td>$7,739</td><td>$6,210</td></tr>
+      <tr><td>You save</td><td>—</td><td><strong>$1,530</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Why the transfer still pays a little interest: $300 a month for 18 months clears $5,400 of the $6,180, so $780 is left when the 0% ends. That leftover is charged 24% for the last 3 months, which costs about $30. Paying $344 a month instead would clear the whole $6,180 inside the 18 months and the interest would be $0 — that is the "pay this monthly" number the calculator shows.</p>
+    <h3>When the same deal is NOT worth it: $1,200 at 20% APR</h3>
+    <p>Now a small balance with a short payoff: $1,200 at 20% APR, paying $300 a month, moved to a card charging a 5% fee ($60) with 0% for 18 months.</p>
+    <table class="fees">
+      <thead><tr><th></th><th>Stay on the old card</th><th>Transfer to the 0% card</th></tr></thead>
+      <tbody>
+      <tr><td>Starting balance</td><td>$1,200</td><td>$1,260 ($1,200 + $60 fee)</td></tr>
+      <tr><td>Months to pay off</td><td>5</td><td>5</td></tr>
+      <tr><td>Total interest</td><td>$53</td><td>$0</td></tr>
+      <tr><td>Total paid</td><td>$1,253</td><td>$1,260</td></tr>
+      <tr><td>You save</td><td>—</td><td><strong>−$7 (it costs $7 more)</strong></td></tr>
+      </tbody>
+    </table>
+    <p>The balance is gone in 5 months either way, so the old card only ever charges about $53 of interest — less than the $60 fee. A transfer only wins when the interest you would have paid is bigger than the fee. Small balance, short payoff, high fee: that is the combination where staying put is the cheaper move.</p>
+    <p class="note">All figures rounded to the nearest dollar and calculated with this page's own math (monthly compounding, fixed monthly payment, fee added to the new balance). Your statements can differ by a few dollars — see "How this calculator works" below.</p>
+  </div>
+
+  <div class="card">
     <h2>How this calculator works</h2>
     <ul>
     <li><strong>Transfer fee:</strong> balance × fee %. Card issuers add it to your new balance, so you pay it off along with the debt.</li>
@@ -124,6 +154,37 @@ document.addEventListener('click', function(e){
     <p>Fees usually run 3% to 5% of the amount transferred, often with a $5–$10 minimum. A handful of cards charge no fee at all for transfers made in the first weeks — worth comparing when your balance is large.</p>
     <h3>3. Don't add new spending to the new card</h3>
     <p>New purchases on a balance transfer card often don't get the 0% rate. Keep the card for the transferred debt only, and pay on time — a late payment can end the promo rate early on many cards.</p>
+  </div>
+
+  <div class="card">
+    <h2>When a balance transfer is NOT worth it</h2>
+    <p>The break-even test is one subtraction: the interest you would pay if you stayed put, minus the transfer fee. If the fee is bigger, the transfer loses money — no matter how good 0% sounds. That happens most often in three cases:</p>
+    <ul>
+    <li><strong>You can pay it off in a few months anyway.</strong> A balance that is gone in 3–6 months has barely had time to build up interest, so there is little interest for the transfer to save. The $1,200 example above is exactly this: $53 of interest avoided, $60 fee paid.</li>
+    <li><strong>The fee is at the high end.</strong> At 5%, a $4,000 transfer costs $200 before you have saved a cent. Run the numbers at 5% even if the card advertises 3% — some cards only offer the low fee for transfers made in the first weeks.</li>
+    <li><strong>You will not finish before the intro ends.</strong> Whatever is left after the promo is charged the go-to APR, often as high as the card you left. If the "pay this monthly" number is more than you can afford, the transfer only delays the interest instead of removing it.</li>
+    </ul>
+    <h3>How a transfer actually works</h3>
+    <ul>
+    <li><strong>Different issuer only.</strong> You cannot move a balance between two cards from the same bank — a Chase balance cannot go to another Chase card, and the same goes for every other issuer. The new card has to come from a different bank.</li>
+    <li><strong>There is a cap on how much you can move.</strong> Many issuers cap transfers at around 75% of the new card's credit limit, and the fee counts toward that cap — but some allow more, so check your own card's terms rather than assuming a fixed percentage.</li>
+    <li><strong>There is a deadline.</strong> The 0% rate usually only applies to transfers requested within a set window after you open the account — commonly the first 60 to 120 days. Miss it and the transfer is charged the regular APR instead.</li>
+    <li><strong>It takes days to clear.</strong> Most transfers take about 5 to 7 business days to complete, and some issuers take up to 21 days. Keep paying at least the minimum on your old card until the transfer shows as complete and the old balance reads zero.</li>
+    <li><strong>Your credit score matters.</strong> The best 0% offers are typically aimed at people with good to excellent credit — generally a FICO score of 670 or higher. No score guarantees approval: issuers also look at your income, existing debts and payment history.</li>
+    <li><strong>A late payment can end the promo.</strong> If you are more than 60 days late on a payment, the issuer can raise your rate on all balances, including the transferred one — that is the rule the <a href="https://www.consumerfinance.gov/ask-cfpb/what-do-i-need-to-know-if-im-thinking-about-consolidating-my-credit-card-debt-en-1861/">Consumer Financial Protection Bureau's guide to consolidating credit card debt</a> warns about. Some cards end the intro rate sooner, so read the terms before you apply.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>What to look for in a balance transfer card</h2>
+    <p>No card is "the best" for everyone — the right one depends on your balance and how fast you can pay it. Compare these four things, in this order:</p>
+    <ul>
+    <li><strong>The transfer fee (usually 3% to 5%).</strong> This is the one cost you pay for certain. On a large balance, a 3% fee instead of 5% can be worth more than a few extra months of 0%. A few cards charge no fee for transfers made in the first weeks — worth checking when your balance is large.</li>
+    <li><strong>How long the 0% intro lasts (commonly 15 to 21 months).</strong> Longer is only better if you need the time. Divide your balance by the intro months: if that monthly number fits your budget, the length is enough. A 21-month offer you finish in 12 months is no better than a 15-month one.</li>
+    <li><strong>The go-to APR after the intro ends.</strong> This is the rate that applies to anything left over — and to the card in general once the promo is gone. A low go-to APR is your safety net if the payoff runs long; a high one makes the deadline unforgiving.</li>
+    <li><strong>Rewards — last, not first.</strong> Cash back or points are a nice extra once the debt is gone, but they should never decide the card. A card with great rewards and a 5% fee loses to a plain card with a 3% fee when you are carrying a balance.</li>
+    </ul>
+    <p>We do not list specific card offers here because rates and fees change constantly — any list we printed would be out of date within weeks. Check the current terms on the issuer's own site before you apply.</p>
   </div>
 
   <div class="card">
@@ -146,6 +207,7 @@ document.addEventListener('click', function(e){
   </div>
 
   <div class="card">
+    <p class="formula">Rates last verified: <strong>November 14, 2026</strong> — fee range (3–5%), intro lengths (15–21 months) and the FICO 670 guideline checked against issuer and regulator sources. Last updated: <strong>November 14, 2026</strong>. Card terms change often; confirm the current fee, intro period and go-to APR on the issuer's site before you apply. For the regulator's view, see the <a href="https://www.consumerfinance.gov/ask-cfpb/what-do-i-need-to-know-if-im-thinking-about-consolidating-my-credit-card-debt-en-1861/">Consumer Financial Protection Bureau's guide to consolidating credit card debt</a>.</p>
     <p class="disc">General information only, not financial advice. Results are estimates using monthly compounding and a fixed monthly payment; your issuer's actual interest, fees and minimum-payment rules may differ.</p>
   </div>
 </div>
@@ -208,14 +270,13 @@ $('bt-btn').addEventListener('click',function(){
   $('bt-need').textContent=need===null?'no intro period entered':usd(Math.ceil(need))+' / month';
   $('bt-left').textContent=N<1?'–':usd(balanceAfter(start,P,I,N));
   $('bt-result').classList.add('show');
-  var stayT=stay.never?'Never (payment too low)':months(stay.months);
-  var trT=tr.never?'Never (payment too low)':months(tr.months);
   $('bt-cmp').innerHTML=
     '<tr><td>Starting balance</td><td>'+usd(B)+'</td><td>'+usd(start)+'</td></tr>'+
     '<tr><td>Transfer fee</td><td>$0</td><td>'+usd(fee)+'</td></tr>'+
     '<tr><td>Total interest</td><td>'+(stay.never?'Keeps growing':usd(stay.interest))+'</td><td>'+(tr.never?'Keeps growing':usd(tr.interest))+'</td></tr>'+
-    '<tr><td>Total cost (fee + interest)</td><td>'+(stay.never?'—':usd(stayCost))+'</td><td>'+(tr.never?'—':usd(trCost))+'</td></tr>'+
-    '<tr><td>Time to pay off</td><td>'+stayT+'</td><td>'+trT+'</td></tr>';
+    '<tr><td>Total paid (balance + fee + interest)</td><td>'+(stay.never?'—':usd(B+stay.interest))+'</td><td>'+(tr.never?'—':usd(start+tr.interest))+'</td></tr>'+
+    '<tr><td>Months to pay off</td><td>'+(stay.never?'Never (payment too low)':stay.months)+'</td><td>'+(tr.never?'Never (payment too low)':tr.months)+'</td></tr>'+
+    '<tr><td>Total cost (fee + interest)</td><td>'+(stay.never?'—':usd(stayCost))+'</td><td>'+(tr.never?'—':usd(trCost))+'</td></tr>';
   $('bt-note').textContent=(N>0&&need>P)?'Heads-up: at '+usd(P)+'/month you won’t finish before the intro rate ends, so the leftover balance is charged '+G+'% APR.':'';
   $('bt-cmp-card').style.display='block';
 });
