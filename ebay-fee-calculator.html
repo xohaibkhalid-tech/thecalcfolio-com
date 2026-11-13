@@ -158,6 +158,38 @@ document.addEventListener('click', function(e){
 <div class="answer"><strong>Short answer:</strong> eBay takes <strong>13.6%</strong> of the total sale (item + shipping + tax) in most categories, plus a per-order fee of <strong>$0.40</strong> on orders over $10 (<strong>$0.30</strong> on orders of $10 or less). On a $100 sale you keep <strong>$86.00</strong>.</div>
 
 <div class="card">
+  <h2>Worked example: a $50 sale</h2>
+  <p>Item price <strong>$50.00</strong>, shipping charged <strong>$8.00</strong>, buyer sales tax <strong>6%</strong>. No Store, no Promoted Listings. Item cost <strong>$20.00</strong>, what you pay to ship it <strong>$6.00</strong>.</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Line</th><th>Amount</th></tr>
+    <tr><td>Item price</td><td>$50.00</td></tr>
+    <tr><td>Shipping charged</td><td>$8.00</td></tr>
+    <tr><td>Sales tax (6% of $58.00)</td><td>$3.48</td></tr>
+    <tr><td><strong>Fee base — what eBay charges its fee on</strong></td><td><strong>$61.48</strong></td></tr>
+    <tr><td>Final value fee (13.6% of $61.48)</td><td>$8.36</td></tr>
+    <tr><td>Per-order fee</td><td>$0.40</td></tr>
+    <tr><td><strong>Total eBay fees</strong></td><td><strong>$8.76</strong></td></tr>
+    <tr><td><strong>You receive</strong> ($58.00 − $8.76)</td><td><strong>$49.24</strong></td></tr>
+    <tr><td>Item cost</td><td>−$20.00</td></tr>
+    <tr><td>Actual shipping cost</td><td>−$6.00</td></tr>
+    <tr><td><strong>Net profit</strong></td><td><strong>$23.24</strong></td></tr>
+    <tr><td>Profit margin ($23.24 ÷ $58.00)</td><td><strong>40.1%</strong></td></tr>
+  </table></div>
+  <p class="formula">Notice the fee base is $61.48, not $58.00: eBay charges its fee on the item price plus shipping plus the sales tax it collects. Estimating from the item price alone understates the fee. Try these exact numbers in the calculator above — you should get the same $8.76.</p>
+  <h3>What eBay takes at different prices</h3>
+  <p>Item only, no shipping or tax, No Store, most categories. The effective rate falls as the price rises, because the per-order fee stays flat.</p>
+  <div class="table-wrap"><table class="rates">
+    <tr><th>Sale</th><th>Final value fee</th><th>Per-order fee</th><th>Total fees</th><th>You keep</th><th>Effective rate</th></tr>
+    <tr><td>$10</td><td>$1.36</td><td>$0.30</td><td>$1.66</td><td>$8.34</td><td>16.60%</td></tr>
+    <tr><td>$25</td><td>$3.40</td><td>$0.40</td><td>$3.80</td><td>$21.20</td><td>15.20%</td></tr>
+    <tr><td>$50</td><td>$6.80</td><td>$0.40</td><td>$7.20</td><td>$42.80</td><td>14.40%</td></tr>
+    <tr><td>$100</td><td>$13.60</td><td>$0.40</td><td>$14.00</td><td>$86.00</td><td>14.00%</td></tr>
+    <tr><td>$500</td><td>$68.00</td><td>$0.40</td><td>$68.40</td><td>$431.60</td><td>13.68%</td></tr>
+  </table></div>
+  <p class="formula">Selling the same item on Etsy too? Run the numbers in our <a href="https://thecalcfolio.com/etsy-fee-calculator.html">Etsy fee calculator</a> and compare.</p>
+</div>
+
+<div class="card">
   <h2>Reverse: I want to receive…</h2>
   <p>Enter the net amount you want in your pocket. We'll tell you what to list it for.</p>
   <label for="want">I want to receive (USD)</label>
