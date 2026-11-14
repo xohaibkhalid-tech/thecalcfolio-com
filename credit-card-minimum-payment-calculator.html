@@ -51,7 +51,7 @@ document.addEventListener('click', function(e){
 <section class="hero">
 <div class="container">
 <ol class="crumbs"><li><a href="https://thecalcfolio.com/">Home</a></li><li><a href="https://thecalcfolio.com/calculators.html">Calculators</a></li><li aria-current="page">Credit Card Minimum Payment Calculator</li></ol>
-<span class="tag">Updated October 2026</span>
+<span class="tag">Updated 4 November 2026 · Last verified: 4 November 2026</span>
 <h1>Credit Card Minimum Payment Calculator</h1>
 <p class="lede">See what your minimum payment is, how many years it takes to clear the card if that's all you pay, and how much interest it costs you. Then compare it with a fixed payment you choose — the difference is usually shocking.</p>
 </div>
@@ -162,6 +162,32 @@ document.addEventListener('click', function(e){
   </div>
 
   <div class="card">
+    <h2>Why two different answers for the same $5,000?</h2>
+    <p>Our <a href="https://thecalcfolio.com/how-to-calculate-credit-card-interest.html">guide to calculating credit card interest</a> says a $5,000 balance at 24% APR takes about 7 years and costs about $4,960 in interest. That looks like a clash with the 19 years and $8,900 above. It isn't — the two pages assume a different payment.</p>
+    <ul>
+    <li><strong>The guide — a fixed $125 every month:</strong> you pay $125 each month until the card is clear. The chart on the guide puts that at 80 months (6 years 8 months) and about $4,960 in interest.</li>
+    <li><strong>This page — a shrinking minimum:</strong> you pay 1% of the balance plus that month's interest each month, with a $25 floor. The payment falls as the balance falls, so it drags on: 234 months (19 years 6 months) and $8,887 in interest. That matches the "about 19 years, roughly $8,900" above.</li>
+    </ul>
+    <p>Same card, same rate. A fixed payment clears it in under 7 years; a shrinking minimum takes nearly 20. That's the whole trap in one comparison.</p>
+    <p>One small print: the guide works interest out by the daily method; this page's simulation uses monthly compounding &mdash; the same fixed $125 comes out at $5,159 here, a few dollars from the guide's $4,960. That shifts the fixed-payment figure by a few dollars, not the story.</p>
+  </div>
+
+  <div class="card">
+    <h2>What minimum-only payoff looks like at different balances</h2>
+    <p>All at 24% APR, minimum = 1% of the balance + that month's interest, $25 floor. No new purchases, no fees.</p>
+    <table class="fees">
+      <thead><tr><th>Balance</th><th>First minimum</th><th>Payoff time</th><th>Total interest</th></tr></thead>
+      <tbody>
+      <tr><td>$1,000</td><td>$30</td><td>6 years 2 months</td><td>$887</td></tr>
+      <tr><td>$3,000</td><td>$90</td><td>15 years 3 months</td><td>$4,887</td></tr>
+      <tr><td>$5,000</td><td>$150</td><td>19 years 6 months</td><td>$8,887</td></tr>
+      <tr><td>$10,000</td><td>$300</td><td>25 years 3 months</td><td>$18,887</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Figures from our own simulation (monthly compounding, APR ÷ 12). A $10,000 balance costs nearly twice the amount borrowed in interest alone — and the first minimum payment is only $300. Your issuer's exact formula and daily interest method may shift these numbers slightly.</p>
+  </div>
+
+  <div class="card">
     <h2>How card issuers set your minimum payment</h2>
     <p>Your cardholder agreement spells out the exact formula. Most US cards use one of three patterns:</p>
     <ul>
@@ -190,7 +216,7 @@ document.addEventListener('click', function(e){
     <h3>What happens if I only pay the minimum?</h3>
     <p>You avoid late fees, but most of each payment goes to interest. The minimum shrinks as your balance shrinks, so payoff can take many years and cost thousands in interest on a mid-size balance.</p>
     <h3>Why does my statement show a 3-year payment?</h3>
-    <p>US card statements must include a minimum payment warning: how long payoff takes at the minimum, and the monthly payment that would clear the balance in about 3 years. The calculator above shows both numbers for your own balance.</p>
+    <p>US card statements must include a minimum payment warning: how long payoff takes at the minimum, and the monthly payment that would clear the balance in about 3 years. The calculator above shows both numbers for your own balance. The <a href="https://www.consumerfinance.gov/ask-cfpb/a-box-on-my-credit-card-bill-says-that-i-will-pay-off-the-balance-in-three-years-if-i-pay-a-certain-amount-what-does-that-mean-do-i-have-to-pay-that-much-if-i-pay-that-much-and-make-new-purchases-will-i-still-owe-nothing-after-three-years-en-36/">Consumer Financial Protection Bureau explains what that 3-year box on your statement means</a> — and that you don't have to pay that amount, though paying more cuts the interest.</p>
     <h3>Does paying more than the minimum help my credit score?</h3>
     <p>Paying more lowers your balance faster, which lowers your credit utilization — one of the biggest factors in your score. Paying on time, even just the minimum, protects your payment history.</p>
     <h3>How do I calculate my minimum payment by hand?</h3>
@@ -205,6 +231,17 @@ document.addEventListener('click', function(e){
     <p>Then you pay the balance in full, not the fixed amount — you never pay more than you owe. That’s also how the calculator treats it: once the remaining balance plus that month’s interest drops below the minimum, the final payment is just what’s left, and the card is cleared.</p>
     <h3>Is this financial advice?</h3>
     <p>No. This page does the math only. Your issuer's formula, fees and interest method may differ — check your statement and cardholder agreement.</p>
+  </div>
+
+  <div class="card">
+    <h2>Sources &amp; how we checked this</h2>
+    <p>Built by The Calcfolio — rates checked at the source, last verified 4 November 2026.</p>
+    <ul>
+    <li><a href="https://www.consumerfinance.gov/ask-cfpb/a-box-on-my-credit-card-bill-says-that-i-will-pay-off-the-balance-in-three-years-if-i-pay-a-certain-amount-what-does-that-mean-do-i-have-to-pay-that-much-if-i-pay-that-much-and-make-new-purchases-will-i-still-owe-nothing-after-three-years-en-36/">Consumer Financial Protection Bureau: What the 3-year payoff box on your statement means</a></li>
+    <li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-grace-period-for-a-credit-card-en-47/">Consumer Financial Protection Bureau: What is a grace period for a credit card?</a></li>
+    </ul>
+    <p>Payoff figures on this page come from our own simulation (monthly compounding, APR ÷ 12, no new purchases, no fees). Your issuer's exact minimum formula and daily interest method may give slightly different figures — check your statement and cardholder agreement.</p>
+    <p>Last verified: 4 November 2026.</p>
   </div>
 
   <div class="card">

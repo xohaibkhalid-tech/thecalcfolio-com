@@ -102,6 +102,85 @@ document.addEventListener('click', function(e){
 <tr><td>$5,000</td><td>$82.15</td><td>$102.70</td><td>$110.92</td><td>$123.25</td></tr>
 </table>
 <p>Moving a $5,000 balance from 29.99% to 19.99% saves about $41 a month before you pay down a single dollar of principal. That's why a <a href="balance-transfer-calculator.html">balance transfer</a> or a lower-rate <a href="personal-loan-vs-credit-card.html">personal loan</a> can be worth a look.</p>
+<div class="card" id="cc-calc">
+<h2>Try it with your own numbers</h2>
+<p>Same maths as above, run on your balance. This calculator uses the daily method (APR &divide; 365 &times; 30 days) &mdash; the same maths as the chart above and our <a href="credit-card-interest-calculator.html">credit card interest calculator</a> &mdash; and assumes no new purchases and no fees. On a $3,000 balance at 24% APR, month-1 interest comes out at $59.18, matching the figure at the top of this guide.</p>
+<label for="cc-bal">Card balance ($)</label>
+<input type="number" id="cc-bal" value="3000" min="1" step="any" inputmode="decimal">
+<label for="cc-apr">APR (%)</label>
+<input type="number" id="cc-apr" value="24" min="0" step="any" inputmode="decimal">
+<label for="cc-pay">Monthly payment ($)</label>
+<input type="number" id="cc-pay" value="200" min="1" step="any" inputmode="decimal">
+<button class="go" id="cc-btn" type="button">Calculate &rarr;</button>
+<p id="cc-err" role="alert" style="color:#f87171;margin:.6rem 0 0;"></p>
+<div class="result" id="cc-result" aria-live="polite" style="margin-top:1rem;">
+<div style="font-size:.85rem;">Interest in month 1</div>
+<div class="big" id="cc-int1">&ndash;</div>
+<p>Debt-free in: <span class="keep" id="cc-time">&ndash;</span></p>
+<p>Payoff date: <span class="keep" id="cc-date">&ndash;</span></p>
+<p>Total interest: <span class="keep" id="cc-int">&ndash;</span></p>
+<p>Total paid: <span class="keep" id="cc-total">&ndash;</span></p>
+</div>
+<table class="cmp" id="cc-sched-wrap" style="display:none;margin-top:1rem;">
+<thead><tr><th>Month</th><th>Interest</th><th>Principal</th><th>Balance left</th></tr></thead>
+<tbody id="cc-sched"></tbody>
+</table>
+<p class="disc" style="margin-top:.6rem;">First 12 months shown, plus the final month if payoff takes longer than a year.</p>
+</div>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function money(x){return '$'+x.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function whole(x){return '$'+Math.round(x).toLocaleString('en-US');}
+function monthsLabel(n){if(n<12)return n+' month'+(n===1?'':'s');var y=Math.floor(n/12),r=n%12;return y+' year'+(y>1?'s':'')+(r?' '+r+' month'+(r===1?'':'s'):'');}
+function payoffDate(n){var d=new Date();d.setMonth(d.getMonth()+n);return d.toLocaleString('en-US',{month:'long',year:'numeric'});}
+function calc(){
+  var B=parseFloat($('cc-bal').value),A=parseFloat($('cc-apr').value),P=parseFloat($('cc-pay').value),err=$('cc-err');
+  err.textContent='';$('cc-sched-wrap').style.display='none';
+  if(!(B>0)){err.textContent='Enter a balance greater than 0.';return;}
+  if(!(A>=0)){err.textContent='APR cannot be negative.';return;}
+  if(!(P>0)){err.textContent='Enter a monthly payment greater than 0.';return;}
+  var r=A/100/365*30,firstInt=B*r; /* daily method: APR / 365 x 30 days, matching the chart above */
+  $('cc-int1').textContent=money(firstInt);
+  if(P<=firstInt&&A>0){
+    $('cc-time').textContent='Never — raise your payment';
+    $('cc-date').textContent='—';
+    $('cc-int').textContent='Keeps growing';
+    $('cc-total').textContent='Keeps growing';
+    err.textContent='Your payment of '+whole(P)+' does not even cover the '+money(firstInt)+' interest charged in month 1, so the balance never shrinks. Raise your payment above '+money(firstInt)+' a month.';
+    return;
+  }
+  var bal=B,tot=0,n=0,rows=[],last=null;
+  while(bal>0.005&&n<1200){
+    n++;
+    var i=bal*r, pay=Math.min(P,bal+i), princ=pay-i;
+    bal=bal+i-pay; tot+=i;
+    var row={m:n,interest:i,principal:princ,bal:Math.max(bal,0)};
+    if(n<=12)rows.push(row);
+    last=row;
+  }
+  if(bal>0.005){
+    $('cc-time').textContent='More than 100 years';
+    $('cc-date').textContent='—';
+  } else {
+    $('cc-time').textContent=monthsLabel(n)+' ('+n+' months)';
+    $('cc-date').textContent=payoffDate(n);
+  }
+  $('cc-int').textContent=whole(tot);
+  $('cc-total').textContent=whole(B+tot);
+  if(n>12&&last&&last.m>12)rows.push(last);
+  var html='';
+  rows.forEach(function(row){
+    html+='<tr><td>'+(row.m===n&&n>12?'Month '+row.m+' (final)':'Month '+row.m)+'</td><td>'+money(row.interest)+'</td><td>'+money(row.principal)+'</td><td>'+money(row.bal)+'</td></tr>';
+  });
+  $('cc-sched').innerHTML=html;
+  $('cc-sched-wrap').style.display='';
+}
+$('cc-btn').addEventListener('click',calc);
+['cc-bal','cc-apr','cc-pay'].forEach(function(id){$(id).addEventListener('input',calc);});
+calc();
+})();
+</script>
 </div><div class="card">
 <h2>The monthly shortcut (and why it's slightly off)</h2>
 <p>Want a quick monthly number without counting days? Divide your APR by 12 and multiply by the balance:</p>
@@ -175,6 +254,16 @@ document.addEventListener('click', function(e){
 </svg>
 <p><strong>$125 a month:</strong> roughly 7 years to clear, about $4,960 in interest. <strong>$200 a month:</strong> about 3 years, roughly $1,960 in interest. An extra $75 a month saves around $3,000 in interest and almost four years of payments.</p>
 </div>
+<div class="card">
+<h2>Why two different answers for the same $5,000?</h2>
+<p>You may have seen a different number on our <a href="credit-card-minimum-payment-calculator.html">minimum payment calculator</a> &mdash; about 19 years and roughly $8,900 in interest for the same $5,000 at 24% APR. Both numbers are honest. They just assume a different payment.</p>
+<ul>
+<li><strong>This page &mdash; a fixed $125 every month:</strong> you pay $125 each month until the card is clear. The chart above puts that at 80 months (6 years 8 months) and about $4,960 in interest. That matches the figure above.</li>
+<li><strong>The minimum payment calculator &mdash; a shrinking minimum:</strong> you pay 1% of the balance plus that month's interest each month, with a $25 floor. The payment falls as the balance falls, so it drags on: 234 months (19 years 6 months) and $8,887 in interest. That matches the "about 19 years, roughly $8,900" on that page.</li>
+</ul>
+<p>Same card, same rate. A fixed payment clears it in under 7 years; a shrinking minimum takes nearly 20. That's the whole trap in one comparison.</p>
+<p>One small print: the guide works interest out by the daily method and the minimum payment calculator by monthly compounding, so the two pages can differ by a few dollars on the same payment &mdash; the same fixed $125 comes out at $5,159 by monthly compounding, a few dollars from the $4,960 above. The gap above is the payment rule, not the maths.</p>
+</div>
 <div class="cta">
 <h2>See your real payoff date</h2>
 <p>Plug in your balance, APR, and monthly payment to see the true cost.</p>
@@ -193,6 +282,16 @@ document.addEventListener('click', function(e){
 <p>Interest = average daily balance &times; (APR &divide; 365) &times; days in the billing cycle. For a quick estimate, balance &times; APR &divide; 12 gets you within a dollar or two for most balances.</p>
 <h3>Do I pay interest on purchases if I pay my bill in full?</h3>
 <p>No. If you pay the full statement balance by the due date every month, the grace period means purchases cost you nothing in interest. Interest only applies to the part you carry over, plus any cash advances.</p>
+</div>
+<div class="card">
+<h2>Sources &amp; how we checked this</h2>
+<p>Built by The Calcfolio &mdash; rates checked at the source, last verified 14 November 2026.</p>
+<ul>
+<li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-grace-period-for-a-credit-card-en-47/">Consumer Financial Protection Bureau: What is a grace period for a credit card?</a></li>
+<li><a href="https://www.consumerfinance.gov/ask-cfpb/a-box-on-my-credit-card-bill-says-that-i-will-pay-off-the-balance-in-three-years-if-i-pay-a-certain-amount-what-does-that-mean-do-i-have-to-pay-that-much-if-i-pay-that-much-and-make-new-purchases-will-i-still-owe-nothing-after-three-years-en-36/">Consumer Financial Protection Bureau: What the 3-year payoff box on your statement means</a></li>
+</ul>
+<p>Payoff figures on this page come from our own simulation (daily method &mdash; APR &divide; 365 &times; 30 days, no new purchases, no fees). Your issuer's exact daily-balance method and minimum formula can shift the numbers slightly &mdash; check your statement and cardholder agreement for the exact terms.</p>
+<p>Last verified: 14 November 2026.</p>
 </div>
 <div class="card">
 <p class="disc">General information only, not financial advice.</p>

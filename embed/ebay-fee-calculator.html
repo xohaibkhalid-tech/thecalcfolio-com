@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eBay Fee Calculator</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0b1a29;color:#e8eef4;line-height:1.5;padding:16px}
+  .wrap{max-width:640px;margin:0 auto}
+  h1{font-size:1.15rem;color:#fff;margin-bottom:2px}
+  .sub{font-size:.82rem;color:#8fa1b3;margin-bottom:14px}
+  label{display:block;font-size:.85rem;color:#c6d2de;margin:12px 0 5px}
+  .amount-wrap{display:flex;align-items:center;background:#0b1a29;border:1px solid #2a4258;border-radius:10px;overflow:hidden}
+  .amount-wrap span{padding:0 4px 0 12px;color:#8fa1b3;font-size:1.05rem}
+  .amount-wrap input{flex:1;min-width:0;background:transparent;border:0;color:#e8eef4;font-size:1.05rem;padding:10px 12px 10px 4px;outline:none}
+  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+  select{width:100%;background:#0b1a29;border:1px solid #2a4258;color:#e8eef4;font-size:.95rem;padding:10px 12px;border-radius:10px;outline:none}
+  #customRateWrap{display:none}
+  .results{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+  .stat{background:#12293f;border:1px solid #2a4258;border-radius:10px;padding:12px}
+  .stat .k{font-size:.78rem;color:#8fa1b3;margin-bottom:3px}
+  .stat .v{font-size:1.25rem;font-weight:700;color:#fff}
+  .stat.good .v{color:#4ade80}
+  .formula{font-size:.82rem;color:#8fa1b3;margin-top:12px}
+  .note{font-size:.82rem;color:#e8c95a;margin-top:6px}
+  .credit{margin-top:16px;padding-top:12px;border-top:1px solid #2a4258;font-size:.78rem;color:#8fa1b3;text-align:center}
+  .credit a{color:#e8c95a;text-decoration:none}
+  .credit a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>eBay Fee Calculator</h1>
+  <p class="sub">US rates, 2026, no Store subscription — runs entirely in your browser.</p>
+
+  <label for="amount">Sale amount (USD)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="amount" min="0" step="0.01" value="100" inputmode="decimal"></div>
+
+  <label for="cat">Category</label>
+  <select id="cat">
+    <option value="most" selected>Most categories — 13.6%</option>
+    <option value="books">Books, movies &amp; music — 15.3%</option>
+    <option value="cards">Trading cards &amp; collectibles — 13.25%</option>
+    <option value="guitars">Guitars &amp; basses — 6.7%</option>
+    <option value="sneakers">Athletic shoes ($150+) — 8%, no per-order fee</option>
+    <option value="custom">Custom rate</option>
+  </select>
+
+  <div id="customRateWrap">
+    <label for="crate">Your final value fee rate (%)</label>
+    <div class="amount-wrap"><input type="number" id="crate" min="0" max="100" step="0.01" value="13.6" inputmode="decimal" style="padding-left:12px"><span style="padding:0 12px 0 0">%</span></div>
+  </div>
+
+  <div class="results">
+    <div class="stat"><div class="k">Final value fee</div><div class="v" id="r-fvf">$0.00</div></div>
+    <div class="stat"><div class="k">Per-order fee</div><div class="v" id="r-po">$0.00</div></div>
+    <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
+    <div class="stat"><div class="k">Effective rate</div><div class="v" id="r-rate">0%</div></div>
+  </div>
+  <p class="formula" id="r-formula"></p>
+  <p class="note" id="r-note"></p>
+
+  <p class="credit">Powered by The Calcfolio — <a href="https://thecalcfolio.com/ebay-fee-calculator.html" target="_blank" rel="noopener">thecalcfolio.com/ebay-fee-calculator.html</a></p>
+</div>
+
+<script>
+var fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+var PRESET = {most:0.136, books:0.153, cards:0.1325, guitars:0.067, sneakers:0.08};
+function getRate(){
+  var v = document.getElementById('cat').value;
+  if(v==='custom') return (parseFloat(document.getElementById('crate').value)||0)/100;
+  return PRESET[v];
+}
+function perOrder(amt, cat){
+  if(cat==='sneakers' && amt>=150) return 0;
+  return amt>10 ? 0.40 : 0.30;
+}
+function fvf(amt, rate){
+  return Math.min(amt,7500)*rate + Math.max(0, amt-7500)*0.0235;
+}
+function calc(){
+  var wrap = document.getElementById('customRateWrap');
+  wrap.style.display = document.getElementById('cat').value==='custom' ? 'block' : 'none';
+  var amt = parseFloat(document.getElementById('amount').value)||0;
+  var cat = document.getElementById('cat').value;
+  var rate = getRate(), note = '';
+  if(cat==='sneakers' && amt<150 && amt>0){ cat='most'; rate=0.136; note='Note: the 8% sneakers rate needs a $150+ sale \u2014 standard 13.6% applied.'; }
+  var f = fvf(amt, rate), po = perOrder(amt, cat), total = f+po, net = Math.max(0, amt-total);
+  document.getElementById('r-fvf').textContent = fmt.format(f);
+  document.getElementById('r-po').textContent = fmt.format(po);
+  document.getElementById('r-net').textContent = fmt.format(net);
+  document.getElementById('r-rate').textContent = amt>0 ? ((total/amt*100).toFixed(2)+'%') : '0%';
+  var fl = 'Fee = ' + fmt.format(Math.min(amt,7500)) + ' \u00d7 ' + (rate*100).toFixed(2) + '%';
+  if(amt>7500) fl += ' + ' + fmt.format(amt-7500) + ' \u00d7 2.35% (over-$7,500 tier)';
+  fl += ' + ' + fmt.format(po) + ' per-order fee.';
+  document.getElementById('r-formula').textContent = fl;
+  document.getElementById('r-note').textContent = note;
+}
+['amount','crate'].forEach(function(id){ document.getElementById(id).addEventListener('input', calc); });
+document.getElementById('cat').addEventListener('change', calc);
+calc();
+</script>
+</body>
+</html>

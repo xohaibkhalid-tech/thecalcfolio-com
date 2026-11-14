@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PayPal Fee Calculator</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0b1a29;color:#e8eef4;line-height:1.5;padding:16px}
+  .wrap{max-width:640px;margin:0 auto}
+  h1{font-size:1.15rem;color:#fff;margin-bottom:2px}
+  .sub{font-size:.82rem;color:#8fa1b3;margin-bottom:14px}
+  label{display:block;font-size:.85rem;color:#c6d2de;margin:12px 0 5px}
+  .amount-wrap{display:flex;align-items:center;background:#0b1a29;border:1px solid #2a4258;border-radius:10px;overflow:hidden}
+  .amount-wrap span{padding:0 4px 0 12px;color:#8fa1b3;font-size:1.05rem}
+  .amount-wrap input{flex:1;min-width:0;background:transparent;border:0;color:#e8eef4;font-size:1.05rem;padding:10px 12px 10px 4px;outline:none}
+  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+  .radios label{display:flex;align-items:center;gap:8px;background:#12293f;border:1px solid #2a4258;border-radius:10px;padding:9px 12px;margin:0 0 8px;cursor:pointer;font-size:.9rem;color:#e8eef4}
+  .radios input{accent-color:#c9a227}
+  .radios label:has(input:checked){border-color:#c9a227;background:#16293f}
+  .check{display:flex;align-items:center;gap:8px;font-size:.9rem;color:#c6d2de;cursor:pointer;margin:4px 0 0}
+  .check input{accent-color:#c9a227;width:16px;height:16px}
+  .results{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+  .stat{background:#12293f;border:1px solid #2a4258;border-radius:10px;padding:12px}
+  .stat .k{font-size:.78rem;color:#8fa1b3;margin-bottom:3px}
+  .stat .v{font-size:1.25rem;font-weight:700;color:#fff}
+  .stat.good .v{color:#4ade80}
+  .formula{font-size:.82rem;color:#8fa1b3;margin-top:12px}
+  .credit{margin-top:16px;padding-top:12px;border-top:1px solid #2a4258;font-size:.78rem;color:#8fa1b3;text-align:center}
+  .credit a{color:#e8c95a;text-decoration:none}
+  .credit a:hover{text-decoration:underline}
+  @media(max-width:420px){.results{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PayPal Fee Calculator</h1>
+  <p class="sub">US rates, 2026 — runs entirely in your browser.</p>
+
+  <label for="amount">Sale amount (USD)</label>
+  <div class="amount-wrap"><span>$</span><input type="number" id="amount" min="0" step="0.01" value="100" inputmode="decimal"></div>
+
+  <label>Transaction type</label>
+  <div class="radios">
+    <label><input type="radio" name="ttype" value="standard" checked> Standard — 3.49% + $0.49</label>
+    <label><input type="radio" name="ttype" value="card"> Card payments — 2.99% + $0.49</label>
+    <label><input type="radio" name="ttype" value="micro"> Micropayments — 4.99% + $0.09</label>
+  </div>
+
+  <label class="check"><input type="checkbox" id="intl"> International transaction (+1.50%)</label>
+
+  <div class="results">
+    <div class="stat"><div class="k">PayPal fee</div><div class="v" id="r-fee">$0.00</div></div>
+    <div class="stat good"><div class="k">You receive</div><div class="v" id="r-net">$0.00</div></div>
+    <div class="stat"><div class="k">Effective rate</div><div class="v" id="r-rate">0%</div></div>
+  </div>
+  <p class="formula" id="r-formula"></p>
+
+  <p class="credit">Powered by The Calcfolio — <a href="https://thecalcfolio.com/paypal-fee-calculator.html" target="_blank" rel="noopener">thecalcfolio.com/paypal-fee-calculator.html</a></p>
+</div>
+
+<script>
+var fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+var RATES = {
+  standard:{pct:0.0349, fixed:0.49, label:'3.49% + $0.49'},
+  card:{pct:0.0299, fixed:0.49, label:'2.99% + $0.49'},
+  micro:{pct:0.0499, fixed:0.09, label:'4.99% + $0.09'}
+};
+function calc(){
+  var amt = parseFloat(document.getElementById('amount').value)||0;
+  var t = document.querySelector('input[name=ttype]:checked').value;
+  var intl = document.getElementById('intl').checked;
+  var r = RATES[t];
+  var pct = r.pct + (intl?0.015:0);
+  var fee = amt*pct + r.fixed;
+  var net = Math.max(0, amt-fee);
+  document.getElementById('r-fee').textContent = fmt.format(fee);
+  document.getElementById('r-net').textContent = fmt.format(net);
+  document.getElementById('r-rate').textContent = amt>0 ? ((fee/amt*100).toFixed(2)+'%') : '0%';
+  document.getElementById('r-formula').textContent =
+    'Fee = ' + fmt.format(amt) + ' \u00d7 ' + (pct*100).toFixed(2) + '% + ' + fmt.format(r.fixed) +
+    ' (' + r.label + (intl?' + 1.50% intl':'') + ')';
+}
+document.getElementById('amount').addEventListener('input', calc);
+document.getElementById('intl').addEventListener('change', calc);
+document.querySelectorAll('input[name=ttype]').forEach(function(r){ r.addEventListener('change', calc); });
+calc();
+</script>
+</body>
+</html>
